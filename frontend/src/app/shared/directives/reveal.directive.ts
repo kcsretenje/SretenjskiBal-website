@@ -46,7 +46,8 @@ export class RevealDirective {
         return;
       }
       doc.documentElement.classList.add('js-reveal');
-      if (this.delay()) node.style.transitionDelay = `${this.delay()}ms`;
+      // Kašnjenje za niz elemenata, ali najviše 200 ms — da ništa ne čeka predugo.
+      if (this.delay()) node.style.transitionDelay = `${Math.min(this.delay(), 200)}ms`;
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -57,7 +58,7 @@ export class RevealDirective {
             }
           }
         },
-        { rootMargin: '0px 0px -10% 0px', threshold: 0.12 },
+        { rootMargin: '0px 0px -4% 0px', threshold: 0.04 },
       );
       observer.observe(node);
       destroyRef.onDestroy(() => observer.disconnect());

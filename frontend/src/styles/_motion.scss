@@ -3,24 +3,22 @@
 // Otkrivanje pri skrolu — RevealDirective dodaje .is-visible.
 // Bez JS-a (SSR, pre hidratacije) sadržaj je vidljiv.
 .js-reveal .reveal {
+  // Brz i diskretan ulazak: bez zamućenja, da je tekst odmah oštar i čitljiv.
   opacity: 0;
-  transform: translateY(26px);
-  filter: blur(3px);
+  transform: translateY(14px);
   transition:
-    opacity 900ms var(--ease),
-    transform 900ms var(--ease),
-    filter 900ms var(--ease);
+    opacity 500ms var(--ease),
+    transform 500ms var(--ease);
 
   &.is-visible {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
 .js-reveal .reveal-image {
   clip-path: inset(8% 0 0 0);
-  transition: clip-path 900ms var(--ease);
+  transition: clip-path 600ms var(--ease);
 
   &.is-visible {
     clip-path: inset(0 0 0 0);
