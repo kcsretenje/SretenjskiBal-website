@@ -222,9 +222,10 @@
     font-size: min(15vw, 6rem);
   }
 
+  // Par počinje ispod naslova (glave ne prelaze preko „SRETENJSKI BAL"), uz donju ivicu ekrana.
   .couple {
-    right: -12%;
-    height: 62%;
+    right: -4%;
+    height: 38%;
     opacity: 0.4;
   }
 
