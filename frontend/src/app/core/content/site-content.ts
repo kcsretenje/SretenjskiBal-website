@@ -89,7 +89,7 @@ export const PERFORMERS: Performer[] = [
   { role: $localize`Glavni muzički gost`, name: 'Galija', featured: true, wide: true, photo: '/images/izvodjaci/galija.jpg' },
   { role: $localize`Voditeljka programa`, name: 'Aleksandra Balmazović', photo: '/images/izvodjaci/aleksandra-balmazovic.jpg' },
   { role: $localize`Profesor književnosti i pisac`, name: 'Nenad Gugl', photo: '/images/izvodjaci/nenad-gugl.jpg' },
-  { role: $localize`Glumac`, name: null },
+  { role: $localize`Glumac`, name: 'Nebojša Milovanović', photo: '/images/izvodjaci/nebojsa-milovanovic.jpg' },
   { role: $localize`Operska pevačica`, name: 'Anđela Nedeljković' },
   { role: $localize`Kamerna muzika`, name: 'Gudački kvartet Sare Mitić' },
   { role: $localize`Harmonikaš`, name: 'Mile Viero' },
