@@ -91,10 +91,10 @@ export const PERFORMERS: Performer[] = [
   { role: $localize`Profesor književnosti i pisac`, name: 'Nenad Gugl' },
   { role: $localize`Glumac`, name: null },
   { role: $localize`Operska pevačica`, name: 'Anđela Nedeljković' },
-  { role: $localize`Violinistkinja`, name: 'Sara Mitić i kvartet' },
-  { role: $localize`Harmonikaš`, name: 'Mile' },
+  { role: $localize`Kamerna muzika`, name: 'Gudački kvartet Sare Mitić' },
+  { role: $localize`Harmonikaš`, name: 'Mile Viero' },
   { role: $localize`Folklor`, name: 'SKD Maribor' },
-  { role: $localize`Hor`, name: null },
+  { role: $localize`Hor`, name: 'Ženski hor Sretenje' },
 ];
 
 /**

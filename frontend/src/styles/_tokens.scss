@@ -38,7 +38,8 @@ $breakpoints: (
   --c-placeholder-dark: #3a2620;
 
   // Tipografija
-  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  // EB Garamond: klasičan Garamond kao ranije, ali sa prirodnim kvačicama na Č, Ć, Š, Ž, Đ.
+  --font-display: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif;
 
   --fs-hero: clamp(4.25rem, 11.5vw, 11rem);

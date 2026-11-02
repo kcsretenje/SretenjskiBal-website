@@ -28,6 +28,8 @@ import { RevealDirective } from '../../directives/reveal.directive';
       --tl-title: var(--c-ink);
       --tl-desc: var(--c-ink-soft);
       --tl-dot: var(--c-burgundy);
+      /* Boja pozadine sekcije: tačka je popunjena njom, pa linija ide iza tačke, a ne kroz nju. */
+      --tl-bg: var(--c-ivory);
       display: block;
     }
     :host(.dark) {
@@ -36,6 +38,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
       --tl-title: var(--c-ivory);
       --tl-desc: var(--c-on-dark-soft);
       --tl-dot: var(--c-brass);
+      --tl-bg: var(--c-burgundy);
     }
     .timeline { position: relative; }
     .row {
@@ -66,7 +69,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
       height: 11px;
       border: 1px solid var(--tl-dot);
       border-radius: 50%;
-      background: transparent;
+      background: var(--tl-bg);
       transform: translateY(0.1rem) rotate(45deg);
       border-radius: 1px; /* mali romb umesto kruga */
       transition: background-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
