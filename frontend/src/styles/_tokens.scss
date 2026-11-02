@@ -40,7 +40,8 @@ $breakpoints: (
   // Tipografija
   // Playfair Display — isti font kao na Instagramu i štampanoj karti; prirodne kvačice na Č, Ć, Š, Ž, Đ.
   // Učitane debljine: Regular (400) za velike naslove (i gde piše 300) i Medium (500) za manje naslove, uz kurziv.
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  // „SB Cifre" = samo cifre iz starog fonta (styles/_digits.scss); sva slova su Playfair Display.
+  --font-display: 'SB Cifre', 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif;
 
   --fs-hero: clamp(4.25rem, 11.5vw, 11rem);

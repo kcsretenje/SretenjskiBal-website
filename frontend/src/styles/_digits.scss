@@ -1,0 +1,12 @@
+// Cifre (0–9) u naslovima, satnici, cenama i odbrojavanju ostaju u starom fontu (Cormorant Garamond),
+// a slova su Playfair Display. Ovaj font sadrži samo cifre (unicode-range), pa ga browser koristi samo za njih.
+@each $weight in 300, 400, 500 {
+  @font-face {
+    font-family: 'SB Cifre';
+    font-style: normal;
+    font-display: swap;
+    font-weight: $weight;
+    src: url('@fontsource/cormorant-garamond/files/cormorant-garamond-latin-#{$weight}-normal.woff2') format('woff2');
+    unicode-range: U+0030-0039;
+  }
+}
