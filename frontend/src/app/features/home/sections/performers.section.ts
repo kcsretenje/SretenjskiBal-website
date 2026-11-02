@@ -97,10 +97,9 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
 
     .track {
       --card-w: clamp(240px, 24vw, 300px);
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: var(--card-w);
-      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+      --card-gap: clamp(1.25rem, 2.5vw, 2.5rem);
+      display: flex;
+      gap: var(--card-gap);
       margin: 0;
       padding: 0 0 0.5rem;
       list-style: none;
@@ -114,11 +113,15 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
       padding-right: var(--gutter);
     }
     .track::-webkit-scrollbar { display: none; }
-    .card { scroll-snap-align: start; }
+    .card { flex: 0 0 var(--card-w); scroll-snap-align: start; }
+    /* Glavni gost (Galija): šira kartica, kao dve obične, za grupnu fotografiju. */
+    .card--featured { flex-basis: calc(var(--card-w) * 2 + var(--card-gap)); }
+    /* Uglovi istog poluprečnika kao kod običnih kartica (ravan vrh u sredini), da luk ne seče glave sa strane. */
+    .card--featured .portrait { border-radius: calc(var(--card-w) / 2) calc(var(--card-w) / 2) 0 0; }
 
     .portrait {
       position: relative;
-      aspect-ratio: 3 / 4;
+      height: calc(var(--card-w) * 4 / 3);
       overflow: hidden;
       border-radius: 999px 999px 0 0;
       background: var(--c-placeholder-warm);
@@ -134,10 +137,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     }
     .card--featured .name { color: var(--c-burgundy); }
     .name--soon { font-style: italic; color: var(--c-ink-soft); }
-    /* Sve fotografije u istom tonu: crno-bele sa toplom, sepija nijansom i blagim bordo slojem — da se slažu sa sajtom
-       i međusobno, iako su snimane u različitim uslovima. */
-    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) sepia(0.28) contrast(1.06) brightness(0.96); }
-    .portrait:has(img)::after { content: ''; position: absolute; inset: 0; background: var(--c-burgundy); mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none; }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .name {
       margin: 1.5rem 0 0.5rem;
       font-family: var(--font-display);
@@ -154,6 +154,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
     @media (max-width: 767.98px) {
       .track { --card-w: 72vw; }
+      .card--featured { flex-basis: 88vw; }
       .controls .arrow { display: none; }
     }
   `,
@@ -179,7 +180,7 @@ export class PerformersSectionComponent {
   /** Pomera karusel za jednu karticu levo (-1) ili desno (1). */
   protected step(dir: 1 | -1): void {
     const el = this.track()?.nativeElement;
-    const card = el?.querySelector<HTMLElement>('.card');
+    const card = el?.querySelector<HTMLElement>('.card:not(.card--featured)') ?? el?.querySelector<HTMLElement>('.card');
     if (!el || !card) return;
     const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
     el.scrollBy({ left: dir * (card.offsetWidth + gap) });
