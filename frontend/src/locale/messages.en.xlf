@@ -42,9 +42,9 @@
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6778340509589701260" datatype="html">
-        <source>Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice i muziku.</source>
-        <target>Guests are welcomed in the foyer of Narodni dom with a welcome drink and music.</target>
+      <trans-unit id="8492181089072333098" datatype="html">
+        <source>Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice, muziku i slikanje.</source>
+        <target>Guests are welcomed in the foyer of Narodni dom with a welcome drink, music and photographs.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">47</context>
@@ -78,9 +78,9 @@
           <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2528894863298204438" datatype="html">
-        <source>Večera u Dvorani generala Maistra, uz zvuke kamerne muzike.</source>
-        <target>Dinner in the General Maister Hall, accompanied by chamber music.</target>
+      <trans-unit id="8475210132826045831" datatype="html">
+        <source>Večera u Dvorani generala Maistra.</source>
+        <target>Dinner in the General Maister Hall.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">49</context>
