@@ -47,8 +47,8 @@ export const PROGRAM: ProgramItem[] = [
   { time: '18:00', title: $localize`Ulazak gostiju` },
   { time: '19:00', title: $localize`Himne i otvaranje`, description: $localize`Himne Srbije i Slovenije, a zatim izlazak voditelja i uvodna reč.` },
   { time: '19:30', title: $localize`Svečana večera` },
-  { time: '19:50', until: '21:00', title: $localize`Kulturno-umetnički program` },
-  { time: '21:20', until: '23:00', title: $localize`Koncert grupe Galija`, description: $localize`Glavni muzički program večeri i završetak bala.` },
+  { time: '20:00', title: $localize`Kulturno-umetnički program` },
+  { time: '21:20', title: $localize`Koncert grupe Galija`, description: $localize`Glavni muzički program večeri i završetak bala.` },
 ];
 
 /** priceCents: 0 znači da cena još nije određena (prikazuje se „Cena uskoro"). */
