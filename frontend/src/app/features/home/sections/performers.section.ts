@@ -135,9 +135,9 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
       border: 1px solid var(--c-brass);
       transform: translate(-50%, -50%) rotate(45deg);
     }
-    .card--featured .name { color: var(--c-burgundy); }
     .name--soon { font-style: italic; color: var(--c-ink-soft); }
-    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* Boje fotografija 10% prigušene (blago ka crno-belom), da se slažu međusobno i sa sajtom. */
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9); }
     .name {
       margin: 1.5rem 0 0.5rem;
       font-family: var(--font-display);
