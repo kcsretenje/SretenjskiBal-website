@@ -17,5 +17,5 @@ export class FooterComponent {
   protected readonly story = FOOTER_STORY;
   protected readonly legal = LEGAL_NAV;
   protected readonly org = ORGANIZER;
-  protected readonly year = 2027;
+  protected readonly year = 2026;
 }
