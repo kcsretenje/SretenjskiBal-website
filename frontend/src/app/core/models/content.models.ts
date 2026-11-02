@@ -51,6 +51,8 @@ export interface Performer {
   featured?: boolean;
   /** Portret, npr. '/images/izvodjaci/ime-prezime.jpg' (neobavezno). */
   photo?: string;
+  /** Šira kartica (kao dve obične) — za grupe: bend, hor, folklor. */
+  wide?: boolean;
 }
 
 export type ContactTopic = 'OPSTE' | 'PARTNERSTVO' | 'KARTE' | 'MEDIJI' | 'SARADNJA';

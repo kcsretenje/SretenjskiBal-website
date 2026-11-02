@@ -42,7 +42,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
         @if (performers.length) {
           <ul #track class="track" appReveal [appRevealDelay]="120" (scroll)="sync()">
             @for (p of performers; track p.role + p.name) {
-              <li class="card" [class.card--featured]="p.featured">
+              <li class="card" [class.card--featured]="p.featured" [class.card--wide]="p.wide">
                 <div class="portrait">
                   @if (p.photo) {
                     <img [src]="p.photo" [alt]="p.name ?? p.role" loading="lazy" decoding="async" />
@@ -114,16 +114,16 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     }
     .track::-webkit-scrollbar { display: none; }
     .card { flex: 0 0 var(--card-w); scroll-snap-align: start; }
-    /* Glavni gost (Galija): šira kartica, kao dve obične, za grupnu fotografiju. */
-    .card--featured { flex-basis: calc(var(--card-w) * 2 + var(--card-gap)); }
-    /* Uglovi istog poluprečnika kao kod običnih kartica (ravan vrh u sredini), da luk ne seče glave sa strane. */
-    .card--featured .portrait { border-radius: calc(var(--card-w) / 2) calc(var(--card-w) / 2) 0 0; }
+    /* Grupe (bend, hor, folklor): šira kartica, kao dve obične, za grupnu fotografiju. */
+    .card--wide { flex-basis: calc(var(--card-w) * 2 + var(--card-gap)); }
 
     .portrait {
       position: relative;
+      --cut: clamp(14px, 1.8vw, 22px);
       height: calc(var(--card-w) * 4 / 3);
       overflow: hidden;
-      border-radius: 999px 999px 0 0;
+      /* Pravougaonik sa zarubljenim uglovima, kao okvir štampane karte. */
+      clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
       background: var(--c-placeholder-warm);
     }
     .portrait__mark {
@@ -154,7 +154,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
     @media (max-width: 767.98px) {
       .track { --card-w: 72vw; }
-      .card--featured { flex-basis: 88vw; }
+      .card--wide { flex-basis: 88vw; }
       .controls .arrow { display: none; }
     }
   `,
