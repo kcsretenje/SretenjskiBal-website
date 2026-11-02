@@ -49,18 +49,22 @@ import { RevealDirective } from '../../directives/reveal.directive';
       --tl-mid: calc(var(--tl-pad) + var(--tl-fs) * 0.55);
       position: relative;
       display: grid;
-      grid-template-columns: minmax(70px, 120px) 28px minmax(0, 1fr);
+      --tl-col1: 120px;
+      --tl-col2: 28px;
+      --tl-gap: 1rem;
+      grid-template-columns: var(--tl-col1) var(--tl-col2) minmax(0, 1fr);
       align-items: start;
-      column-gap: 1rem;
+      column-gap: var(--tl-gap);
       padding: var(--tl-pad) 0.5rem var(--tl-pad) 0;
     }
     /* Vertikalna linija kroz sve redove: od sredine prve do sredine poslednje tačke, iza tačaka. */
     .row::before {
       content: '';
       position: absolute;
+      /* Tačno kroz sredinu romba: širina kolone vremena + razmak + pola kolone tačke − pola debljine linije. */
       top: 0;
       bottom: 0;
-      left: calc(min(120px, 100%) + 1rem + 14px);
+      left: calc(var(--tl-col1) + var(--tl-gap) + var(--tl-col2) / 2 - 0.5px);
       width: 1px;
       background: var(--tl-line);
     }
@@ -85,8 +89,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
     .title { padding-top: calc(var(--tl-fs) * 0.55 - 0.6 * clamp(1.375rem, 2vw, 1.625rem)); font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.625rem); color: var(--tl-title); line-height: 1.2; }
     .desc { font-size: 0.9375rem; font-weight: 300; color: var(--tl-desc); }
     @media (max-width: 599.98px) {
-      .row { --tl-fs: 1.375rem; grid-template-columns: 64px 20px minmax(0, 1fr); column-gap: 0.75rem; }
-      .row::before { left: calc(64px + 0.75rem + 10px); }
+      .row { --tl-fs: 1.375rem; --tl-col1: 64px; --tl-col2: 20px; --tl-gap: 0.75rem; }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
