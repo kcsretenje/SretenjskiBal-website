@@ -21,11 +21,11 @@ export class HeroSectionComponent {
   constructor() {
     const host = inject(ElementRef<HTMLElement>).nativeElement as HTMLElement;
     const destroyRef = inject(DestroyRef);
-    // Telefon: par počinje u visini linije ispod naslova. Položaj linije zavisi od visine ekrana i fonta,
+    // Telefon: glave para počinju u visini reda „BAL" (desno od njega), ispod reda „SRETENJSKI". Položaj linije zavisi od visine ekrana i fonta,
     // pa ga merimo i ponovo računamo kad se veličina promeni (okretanje telefona, učitan font).
     afterNextRender(() => {
       const hero = host.querySelector<HTMLElement>('.hero');
-      const line = host.querySelector<HTMLElement>('.line');
+      const line = host.querySelector<HTMLElement>('.title span:last-child');
       if (!hero || !line || typeof ResizeObserver === 'undefined') return;
       const place = () => {
         const top = line.getBoundingClientRect().top - hero.getBoundingClientRect().top;

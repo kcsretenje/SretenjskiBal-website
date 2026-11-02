@@ -222,7 +222,7 @@
     font-size: min(15vw, 6rem);
   }
 
-  // Glave para počinju u visini linije ispod naslova (--couple-top postavlja komponenta), a par ide do dna.
+  // Glave para počinju u visini reda „BAL", desno od njega (--couple-top postavlja komponenta), a par ide do dna.
   .couple {
     top: var(--couple-top, 58%);
     bottom: 0;
