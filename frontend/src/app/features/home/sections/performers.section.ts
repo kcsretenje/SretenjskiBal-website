@@ -97,7 +97,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .arrow:disabled { opacity: 0.3; cursor: default; }
 
     .track {
-      --card-w: clamp(240px, 24vw, 300px);
+      --card-w: clamp(260px, 26vw, 330px);
       --card-gap: clamp(1.25rem, 2.5vw, 2.5rem);
       display: flex;
       gap: var(--card-gap);
@@ -115,8 +115,8 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     }
     .track::-webkit-scrollbar { display: none; }
     .card { flex: 0 0 var(--card-w); scroll-snap-align: start; }
-    /* Grupe (bend, hor, folklor): šira kartica, kao dve obične, za grupnu fotografiju. */
-    .card--wide { flex-basis: calc(var(--card-w) * 2 + var(--card-gap)); }
+    /* Grupe (bend, hor, folklor): šira kartica za grupnu fotografiju (krajnjima se malo seku ramena). */
+    .card--wide { flex-basis: calc(var(--card-w) * 1.6); }
 
     .portrait {
       position: relative;
