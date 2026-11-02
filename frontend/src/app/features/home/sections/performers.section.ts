@@ -119,11 +119,10 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
 
     .portrait {
       position: relative;
-      --cut: clamp(14px, 1.8vw, 22px);
       height: calc(var(--card-w) * 4 / 3);
       overflow: hidden;
-      /* Pravougaonik sa zarubljenim uglovima, kao okvir štampane karte. */
-      clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+      /* Pravougaonik sa zaobljenim gornjim uglovima (blagi luk, bez sečenja glava). */
+      border-radius: calc(var(--card-w) * 0.23) calc(var(--card-w) * 0.23) 0 0;
       background: var(--c-placeholder-warm);
     }
     .portrait__mark {
