@@ -98,12 +98,10 @@ export interface ReservationPayload {
     needed: boolean;
     companyName?: string;
     companyAddress?: string;
-    /** SI = firma iz Slovenije, EU = druga država EU (faktura se izdaje samo firmama iz EU). Od ovoga zavisi obračun DDV-a. */
+    /** SI = firma iz Slovenije, EU = druga država EU (faktura se izdaje samo firmama iz EU). */
     companyCountry?: CompanyCountry;
-    /** Davčna številka (SI) odnosno ID za DDV (EU) / poreski broj (ostalo). */
+    /** Poreski broj firme: davčna številka (SI) ili broj sa oznakom države (EU). */
     taxId?: string;
-    /** Samo za slovenačke firme: da li je firma obveznik DDV-a (davčni zavezanec). */
-    vatPayer?: boolean;
   };
   /** Posebna ishrana i alergije — posebna kolona u tabeli, zbog kuhinje. */
   diet: string;

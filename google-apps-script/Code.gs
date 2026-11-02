@@ -366,7 +366,6 @@ function validateReservation_(r) {
     if (!str(inv.companyAddress, 2, 300)) bad.push('invoice.companyAddress');
     if (COMPANY_COUNTRIES_.indexOf(inv.companyCountry) < 0) bad.push('invoice.companyCountry');
     if (!isValidTaxId_(inv.companyCountry, inv.taxId)) bad.push('invoice.taxId');
-    if (inv.companyCountry === 'SI' && typeof inv.vatPayer !== 'boolean') bad.push('invoice.vatPayer');
   }
   if (!SOURCES[r.source]) bad.push('source');
   if (LOCALES.indexOf(r.locale) < 0) bad.push('locale');
@@ -468,18 +467,16 @@ function isValidTaxId_(country, taxId) {
   return false;
 }
 
-/** Podaci firme za fakturu, u jednoj ćeliji. Napomena o DDV-u pomaže knjigovođi da odmah vidi o kakvom je obračunu reč. */
+/** Podaci firme za fakturu, u jednoj ćeliji. */
 function companyDetails_(inv) {
   const country = inv.companyCountry;
-  const taxLabel = country === 'SI' ? 'Davčna številka / ID za DDV' : 'ID za DDV';
+  const taxLabel = country === 'SI' ? 'Davčna številka' : 'Poreski broj';
   const lines = [
     'Naziv: ' + clean_(inv.companyName),
     'Sedež: ' + clean_(inv.companyAddress),
     'Država: ' + (COMPANY_COUNTRY_LABELS_[country] || ''),
     taxLabel + ': ' + clean_(inv.taxId).toUpperCase(),
   ];
-  if (country === 'SI') lines.push('Obveznik DDV: ' + (inv.vatPayer === true ? 'DA' : 'NE'));
-  if (country === 'EU') lines.push('Obračun: reverse charge (0 % DDV) ako je ID za DDV važeći u VIES');
   return lines.join('\n');
 }
 

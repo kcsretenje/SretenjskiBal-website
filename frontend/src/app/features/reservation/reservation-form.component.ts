@@ -124,7 +124,6 @@ export class ReservationFormComponent {
       address: ['', [Validators.required, personName, Validators.maxLength(300)]],
       country: ['SI' as CompanyCountry, Validators.required],
       taxId: ['', [Validators.required, personName, Validators.maxLength(40)]],
-      vatPayer: [null as boolean | null, Validators.required],
     }, { validators: companyTaxId }),
     source: ['' as ReservationSource | '', Validators.required],
     sourceOther: ['', Validators.maxLength(200)],
@@ -177,17 +176,10 @@ export class ReservationFormComponent {
       if (text.trim()) c.dietConsent.enable({ emitEvent: false });
       else c.dietConsent.disable({ emitEvent: false });
     });
-    const syncVatPayer = () => {
-      const vat = c.company.controls.vatPayer;
-      if (c.company.controls.country.value === 'SI' && c.invoiceNeeded.value) vat.enable({ emitEvent: false });
-      else vat.disable({ emitEvent: false });
-    };
     c.invoiceNeeded.valueChanges.subscribe((needed) => {
       if (needed) c.company.enable();
       else c.company.disable();
-      syncVatPayer();
     });
-    c.company.controls.country.valueChanges.subscribe(syncVatPayer);
     // Status (otvoreno/zatvoreno) proveravamo u browseru, da ne bi ostao zapamćen u HTML-u sa servera.
     afterNextRender(() => this.loadStatus());
   }
@@ -295,7 +287,6 @@ export class ReservationFormComponent {
             companyAddress: v.company.address.trim(),
             companyCountry: v.company.country,
             taxId: v.company.taxId.trim().toUpperCase(),
-            ...(v.company.country === 'SI' ? { vatPayer: v.company.vatPayer === true } : {}),
           }
         : { needed: false },
       diet: v.diet.trim(),

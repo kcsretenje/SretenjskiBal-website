@@ -406,16 +406,11 @@ Ako gost traži fakturu na firmu, forma traži:
 |---|---|
 | Naziv firme | piše na fakturi |
 | Sedež (ulica, poštanski broj, mesto) | piše na fakturi |
-| Država sedišta: Slovenija / druga država EU (firme izvan EU ne mogu da traže fakturu) | od toga zavisi obračun DDV-a |
-| Davčna številka (SI) odnosno ID za PDV sa oznakom države (EU) / poreski broj (ostalo) | obavezan podatak na fakturi; format se proverava (SI: 8 cifara, uz opcioni prefiks SI; EU: npr. HR12345678901) |
-| Obveznik DDV-a da/ne (samo za firme iz Slovenije) | slovenačka firma koja nije obveznik DDV-a nema ID za DDV, samo davčnu številku |
+| Država sedišta: Slovenija / druga država EU (firme izvan EU ne mogu da traže fakturu) | firme plaćaju samo iz Slovenije ili EU |
+| Poreski broj firme: davčna številka (SI, 8 cifara, uz opcioni prefiks SI) ili broj sa oznakom države (EU, npr. HR12345678901) | obavezan podatak na fakturi; format se proverava |
 
-U koloni „Podaci firme“ u tabeli ova polja stoje u jednoj ćeliji, uz napomenu o obračunu
-(EU: obrnuta naplata/reverse charge ako je ID za PDV važeći u sistemu VIES).
-
-Uplata na slovenački račun (IBAN) ne zavisi od države firme: može je izvršiti firma iz bilo koje zemlje (SEPA ili međunarodni
-nalog; za uplatu van EU treba BIC/SWIFT i obično nastaju bankarske provizije). Država firme utiče samo na fakturu i DDV, zato
-konačan obračun uvek potvrditi sa računovođom organizatora.
+Forma ne pominje PDV/DDV: društvo je neprofitno i uplata se vodi kao donacija. U koloni „Podaci firme" u tabeli
+ova polja stoje u jednoj ćeliji.
 
 
 ## PDF ulaznice

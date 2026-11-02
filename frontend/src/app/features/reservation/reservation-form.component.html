@@ -204,30 +204,17 @@
                 </label>
                 <label class="field">
                   @if (companyCountry() === 'SI') { <span class="field__label" i18n>Poreski broj firme (davčna številka)</span> }
-                  @else { <span class="field__label" i18n>PDV broj firme (sa oznakom države, npr. HR12345678901)</span> }
+                  @else { <span class="field__label" i18n>Poreski broj firme (sa oznakom države, npr. HR12345678901)</span> }
                   <input class="field__control" formControlName="taxId" required autocapitalize="characters"
                     [attr.aria-invalid]="invalid(form.controls.company.controls.taxId) || taxIdInvalid()" aria-describedby="err-company-tax" />
                   @if (invalid(form.controls.company.controls.taxId)) { <span class="field__error" id="err-company-tax" i18n>Unesite poreski broj firme.</span> }
                   @else if (taxIdInvalid()) {
                     <span class="field__error" id="err-company-tax">
                       @if (companyCountry() === 'SI') { <ng-container i18n>Slovenački poreski broj ima 8 cifara (npr. 12345678 ili SI12345678).</ng-container> }
-                      @else { <ng-container i18n>PDV broj počinje oznakom države, npr. HR12345678901 ili ATU12345678.</ng-container> }
+                      @else { <ng-container i18n>Poreski broj počinje oznakom države, npr. HR12345678901 ili ATU12345678.</ng-container> }
                     </span>
                   }
                 </label>
-                @if (companyCountry() === 'SI') {
-                  <fieldset class="choice">
-                    <legend class="field__label" i18n>Da li je firma u sistemu PDV-a (davčni zavezanec)?</legend>
-                    <div class="options">
-                      <label class="checkbox"><input type="radio" formControlName="vatPayer" [value]="true" /><span i18n>Da</span></label>
-                      <label class="checkbox"><input type="radio" formControlName="vatPayer" [value]="false" /><span i18n>Ne</span></label>
-                    </div>
-                    @if (invalid(form.controls.company.controls.vatPayer)) { <span class="field__error" i18n>Izaberite jednu od ponuđenih mogućnosti.</span> }
-                  </fieldset>
-                }
-                @if (companyCountry() === 'EU') {
-                  <p class="field__hint" i18n>Firme iz drugih država EU koje su u sistemu PDV-a dobijaju fakturu bez slovenačkog PDV-a.</p>
-                }
               </div>
             }
 
