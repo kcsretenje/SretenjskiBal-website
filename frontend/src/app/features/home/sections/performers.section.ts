@@ -13,7 +13,7 @@ import { SectionHeadingComponent } from '../../../shared/components/section-head
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
 
 /**
- * Umetnički program kao karusel: portreti u luku (motiv iz znaka), prevlačenje prstom
+  * Izvođači kao karusel: portreti (motiv iz znaka), prevlačenje prstom
  * na telefonu, strelice na računaru. Dok nema imena, prikazuje prazne lukove i najavu.
  */
 @Component({
@@ -24,7 +24,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
       <div class="container">
         <div class="head" appReveal>
           <app-section-heading headingId="performers-title" i18n-eyebrow eyebrow="Nastupaju">
-            <ng-container i18n>Umetnički program</ng-container>
+            <ng-container i18n>Izvođači</ng-container>
           </app-section-heading>
 
           @if (performers.length > 1) {
@@ -97,7 +97,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .arrow:disabled { opacity: 0.3; cursor: default; }
 
     .track {
-      --card-w: clamp(260px, 26vw, 330px);
+      --card-w: clamp(280px, 28vw, 360px);
       --card-gap: clamp(1.25rem, 2.5vw, 2.5rem);
       display: flex;
       gap: var(--card-gap);

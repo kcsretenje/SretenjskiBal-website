@@ -42,6 +42,14 @@
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6778340509589701260" datatype="html">
+        <source>Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice i muziku.</source>
+        <target>Sprejem gostov v preddverju Narodnega doma ob pijači dobrodošlice in glasbi.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2282509009632853037" datatype="html">
         <source>Himne i otvaranje</source>
         <target>Himni in otvoritev</target>
@@ -68,6 +76,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2528894863298204438" datatype="html">
+        <source>Večera u Dvorani generala Maistra, uz zvuke kamerne muzike.</source>
+        <target>Večerja v Dvorani generala Maistra ob zvokih komorne glasbe.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4921732235370732360" datatype="html">
@@ -742,9 +758,9 @@
           <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8137316381509177148" datatype="html">
-        <source>Umetnički program</source>
-        <target>Umetniški program</target>
+      <trans-unit id="1485772001493371088" datatype="html">
+        <source>Izvođači</source>
+        <target>Nastopajoči</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
           <context context-type="linenumber">27</context>

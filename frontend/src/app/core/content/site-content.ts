@@ -44,9 +44,9 @@ export const HERO_IMAGE: { src: string | null; alt: string; credit: string | nul
 /** Okvirna satnica — biće potvrđena. */
 /** Predlog programa — satnica i sadržaj se potvrđuju sa organizatorom. */
 export const PROGRAM: ProgramItem[] = [
-  { time: '18:00', title: $localize`Ulazak gostiju` },
+  { time: '18:00', title: $localize`Ulazak gostiju`, description: $localize`Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice i muziku.` },
   { time: '19:00', title: $localize`Himne i otvaranje`, description: $localize`Himne Srbije i Slovenije, a zatim izlazak voditelja i uvodna reč.` },
-  { time: '19:30', title: $localize`Svečana večera` },
+  { time: '19:30', title: $localize`Svečana večera`, description: $localize`Večera u Dvorani generala Maistra, uz zvuke kamerne muzike.` },
   { time: '20:00', title: $localize`Kulturno-umetnički program` },
   { time: '22:00', until: '00:00', title: $localize`Koncert grupe Galija`, description: $localize`Glavni muzički program večeri i završetak bala.` },
 ];
