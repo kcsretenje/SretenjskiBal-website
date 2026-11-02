@@ -139,8 +139,7 @@ describe('ReservationFormComponent', () => {
 
   it('okvirni iznos prati tip i broj karata', async () => {
     await open();
-    expect($('.estimate')).toBeNull();
-    await click(ticketRadios()[0]);
+    expect((ticketRadios()[0] as HTMLInputElement).checked).toBe(true);
     expect($('.estimate__value').textContent).toContain('140');
     await type(count(), '3');
     expect($('.estimate__value').textContent).toContain('420');
@@ -158,7 +157,6 @@ describe('ReservationFormComponent', () => {
       'Unesite prezime.',
       'Unesite ispravnu email adresu.',
       'Unesite broj telefona, npr. +386 40 123 456.',
-      'Izaberite tip ulaznice.',
       'Unesite broj ulaznica (ceo broj, najmanje 1).',
       'Izaberite jednu od ponuđenih mogućnosti.',
     ]);

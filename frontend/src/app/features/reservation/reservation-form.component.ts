@@ -113,7 +113,7 @@ export class ReservationFormComponent {
     email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
     phone: ['', [Validators.required, Validators.pattern(PHONE)]],
     ticketCount: [1 as number | null, [Validators.required, wholeNumber, Validators.min(1), Validators.max(MAX_TICKETS)]],
-    ticketType: ['' as TicketTypeCode | '', Validators.required],
+    ticketType: ['SVECANA' as TicketTypeCode | '', Validators.required],
     guests: this.fb.array<ReturnType<ReservationFormComponent['newGuest']>>([]),
     diet: ['', Validators.maxLength(1000)],
     dietConsent: [false, Validators.requiredTrue],
@@ -149,7 +149,7 @@ export class ReservationFormComponent {
   }
   protected readonly invoiceNeeded = toSignal(this.form.controls.invoiceNeeded.valueChanges, { initialValue: false });
   protected readonly ticketCount = toSignal(this.form.controls.ticketCount.valueChanges, { initialValue: 1 as number | null });
-  protected readonly ticketType = toSignal(this.form.controls.ticketType.valueChanges, { initialValue: '' as TicketTypeCode | '' });
+  protected readonly ticketType = toSignal(this.form.controls.ticketType.valueChanges, { initialValue: 'SVECANA' as TicketTypeCode | '' });
   protected readonly source = toSignal(this.form.controls.source.valueChanges, { initialValue: '' as ReservationSource | '' });
 
   /** Okvirni iznos po cenama sa sajta; tačan iznos stiže u mejlu sa instrukcijama za uplatu. */
