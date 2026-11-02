@@ -222,10 +222,12 @@
     font-size: min(15vw, 6rem);
   }
 
-  // Par počinje ispod naslova (glave ne prelaze preko „SRETENJSKI BAL"), uz donju ivicu ekrana.
+  // Glave para počinju u visini linije ispod naslova (--couple-top postavlja komponenta), a par ide do dna.
   .couple {
-    right: -4%;
-    height: 38%;
+    top: var(--couple-top, 58%);
+    bottom: 0;
+    right: -6%;
+    height: auto;
     opacity: 0.4;
   }
 
