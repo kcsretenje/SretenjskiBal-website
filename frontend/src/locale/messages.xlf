@@ -158,8 +158,8 @@
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7789882067463560772" datatype="html">
-        <source>Voditeljka programa</source>
+      <trans-unit id="2544171791418953224" datatype="html">
+        <source>Voditeljka programa i glumica</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">90</context>
@@ -186,32 +186,11 @@
           <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1772958731389524287" datatype="html">
-        <source>Kamerna muzika</source>
+      <trans-unit id="6230209898895199736" datatype="html">
+        <source>Profesor harmonike</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">94</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5857212294291058112" datatype="html">
-        <source>Harmonikaš</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
-          <context context-type="linenumber">95</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2869215905616609740" datatype="html">
-        <source>Folklor</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6121306988137786378" datatype="html">
-        <source>Hor</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
-          <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="557727155035277857" datatype="html">
@@ -709,11 +688,18 @@
           <context context-type="linenumber">56,57</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2708469822527471934" datatype="html">
+        <source>Ostali izvođači biće uskoro objavljeni.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4396654337997554664" datatype="html">
         <source>Imena izvođača objavljujemo uskoro.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">68,69</context>
+          <context context-type="linenumber">69,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2852142514729307429" datatype="html">

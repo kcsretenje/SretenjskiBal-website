@@ -59,6 +59,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
               </li>
             }
           </ul>
+          <p class="more" appReveal i18n>Ostali izvođači biće uskoro objavljeni.</p>
         } @else {
           <ul class="track track--soon" appReveal [appRevealDelay]="120" aria-hidden="true">
             @for (i of soon; track i) {
@@ -149,6 +150,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .track--soon { overflow: hidden; scroll-snap-type: none; }
     .track--soon .portrait { background: transparent; border: 1px solid var(--c-rule-dark); }
     .soon-note { margin-top: 2.5rem; color: var(--c-ink-soft); }
+    .more { margin: 2.25rem 0 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 1.8vw, 1.5rem); color: var(--c-burgundy); }
 
     @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
     @media (max-width: 767.98px) {
