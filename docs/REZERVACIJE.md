@@ -87,8 +87,11 @@ Tabela → **Deli (Share)** → Opšti pristup → **Ograničeno (Restricted)** 
 2. U fajlu `Code.gs` obrišite sve i nalepite ceo sadržaj fajla `google-apps-script/Code.gs` iz ovog repozitorijuma.
    Zatim pored **Files** kliknite **+** → **Script**, nazovite fajl `QrCode` i u njega nalepite ceo sadržaj
    `google-apps-script/QrCode.gs` (biblioteka za QR kodove na ulaznicama; ovaj fajl se dodaje samo jednom).
+   Na isti način dodajte i fajl `Ulaznica` sa sadržajem `google-apps-script/Ulaznica.gs` (PDF ulaznice).
 3. ⚙️ **Podešavanja projekta** (Project Settings) → uključite **„Prikaži datoteku manifesta appsscript.json"**.
    Vratite se u Editor, otvorite `appsscript.json` i zamenite sadržaj fajlom `google-apps-script/appsscript.json`.
+   Manifest uključuje i **Google Slides API** (u levom meniju „Services" pojaviće se „Slides"), koji služi
+   za pravljenje PDF ulaznica.
 4. Sačuvajte (💾).
 
 ### 1.3 Podesite tabelu
@@ -413,3 +416,16 @@ U koloni „Podaci firme“ u tabeli ova polja stoje u jednoj ćeliji, uz napome
 Uplata na slovenački račun (IBAN) ne zavisi od države firme: može je izvršiti firma iz bilo koje zemlje (SEPA ili međunarodni
 nalog; za uplatu van EU treba BIC/SWIFT i obično nastaju bankarske provizije). Država firme utiče samo na fakturu i DDV, zato
 konačan obračun uvek potvrditi sa računovođom organizatora.
+
+
+## PDF ulaznice
+
+Uz potvrdu uplate gost dobija i PDF ulaznicu za svakog gosta (uspravna, 5,625 × 10 in), pored QR kodova u mejlu.
+Za svaku ulaznicu skripta napravi privremenu Google Slides prezentaciju, sačuva je kao PDF i pošalje je u Otpad
+na Drajvu naloga pod kojim skripta radi (Otpad se sam prazni posle 30 dana). Jezik ulaznice prati jezik forme.
+
+- Probni PDF: **Sretenjski bal → Pošalji probnu PDF ulaznicu organizatoru** (ime i kod su izmišljeni).
+- Ako pravljenje PDF-a ne uspe, potvrda uplate ipak odlazi sa QR kodovima, a poruka posle slanja to javi.
+- Posle dodavanja fajla `Ulaznica.gs` Google jednom ponovo traži dozvolu (Slides i Drive).
+- Izgled (tekst, boje, raspored) menja se u `Ulaznica.gs`; pozadina (bordo deo sa logom, papir, belo polje za QR)
+  je JPEG slika ugrađena na kraju tog fajla.

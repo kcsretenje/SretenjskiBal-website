@@ -897,16 +897,18 @@ function sendPaymentInstructionsFor_(number) {
 /** Šalje potvrdu uplate samo za PLAĆENO i samo jednom (datum slanja se upisuje). */
 function sendPaymentConfirmationFor_(number) {
   const settings = readSettings_();
+  let result = null;
   updateReservation_(number, function (r) {
     if (normStatus_(r.status) !== STATUS.PAID) throw new Error('Prvo promenite status u ' + STATUS.PAID + '.');
     if (parseDate_(r.paymentConfirmedAt)) throw new Error('Potvrda uplate je već poslata. Da biste je poslali ponovo, obrišite datum u koloni „' + COL.paymentConfirmedAt + '".');
     if (!String(r.email || '').trim()) throw new Error('Rezervacija nema e-mail adresu.');
     const tickets = issueTickets_(r);
-    sendGuestMail_('paid', r, settings, { tickets: tickets });
+    result = sendGuestMail_('paid', r, settings, { tickets: tickets });
     const fields = { paymentConfirmedAt: new Date() };
     if (!parseDate_(r.paidAt)) fields.paidAt = new Date();
     return fields;
   });
+  return result;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -917,7 +919,7 @@ const MAIL = {
   sr: {
     greeting: function (n) { return 'Poštovani/a ' + n + ','; },
     signoff: ['Srdačan pozdrav,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod' },
+    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod', pdf: 'Ulaznice su priložene i kao PDF, ako želite da ih sačuvate ili odštampate.' },
     upn: { title: 'Plaćanje QR kodom', text: 'Skenirajte kod u aplikaciji svoje banke (UPN QR, za račune u Sloveniji) — primalac, iznos, rok, referenca i svrha se popunjavaju sami.' },
     labels: { number: 'Broj rezervacije', ticketType: 'Tip ulaznice', ticketCount: 'Broj ulaznica', guests: 'Gosti', note: 'Napomena', diet: 'Alergije', amount: 'Iznos za uplatu', deadline: 'Rok za uplatu', payee: 'Primalac', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Svrha uplate', reference: 'Referenca primaoca' },
     received: {
@@ -964,7 +966,7 @@ const MAIL = {
   sl: {
     greeting: function (n) { return 'Spoštovani/-a ' + n + ','; },
     signoff: ['Lep pozdrav,', 'Kulturni center Sretenje'],
-    tickets: { label: 'Vstopnica', of: 'od', code: 'Koda' },
+    tickets: { label: 'Vstopnica', of: 'od', code: 'Koda', pdf: 'Vstopnice so priložene tudi kot PDF, če jih želite shraniti ali natisniti.' },
     upn: { title: 'Plačilo s kodo QR', text: 'Kodo skenirajte v mobilni banki (UPN QR) — prejemnik, znesek, rok, referenca in namen se izpolnijo sami.' },
     labels: { number: 'Številka rezervacije', ticketType: 'Vrsta vstopnice', ticketCount: 'Število vstopnic', guests: 'Gostje', note: 'Opomba', diet: 'Alergije', amount: 'Znesek za plačilo', deadline: 'Rok plačila', payee: 'Prejemnik', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Namen plačila', reference: 'Referenca prejemnika' },
     received: {
@@ -1011,7 +1013,7 @@ const MAIL = {
   en: {
     greeting: function (n) { return 'Dear ' + n + ','; },
     signoff: ['Kind regards,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ticket', of: 'of', code: 'Code' },
+    tickets: { label: 'Ticket', of: 'of', code: 'Code', pdf: 'Your tickets are also attached as PDF files, should you wish to save or print them.' },
     upn: { title: 'Pay by QR code', text: 'Scan the code in your banking app (UPN QR, for accounts at Slovenian banks) — payee, amount, due date, reference and purpose are filled in automatically.' },
     labels: { number: 'Reservation number', ticketType: 'Ticket type', ticketCount: 'Number of tickets', guests: 'Guests', note: 'Note', diet: 'Allergies', amount: 'Amount due', deadline: 'Payment deadline', payee: 'Payee', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Bank', purpose: 'Payment reference', reference: 'Creditor reference' },
     received: {
@@ -1111,11 +1113,24 @@ function sendGuestMail_(kind, r, settings, extra) {
     ? upnQrFor_(r, settings, kind === 'instructions' ? x.deadline : x.expiresOn)
     : null;
   const blocks = tickets ? ticketMailBlocks_(tickets, lang, m.tickets) : upn ? [upnMailBlock_(m.upn)] : null;
+  // PDF ulaznice u prilogu; ako ne uspeju, mejl ipak odlazi sa QR kodovima.
+  let pdfs = null;
+  let pdfError = '';
+  if (tickets) {
+    try {
+      pdfs = ticketPdfs_(tickets, lang);
+    } catch (err) {
+      pdfError = err.message;
+      console.error('PDF ulaznice za ' + n + ' nisu napravljene: ' + err.message);
+    }
+  }
+  let intro = kind === 'paid' && !tickets ? k.intro.slice(0, 1) : k.intro;
+  if (pdfs && pdfs.length) intro = intro.concat([m.tickets.pdf]);
   const images = tickets ? ticketQrImages_(tickets) : upn ? { upnqr: upn } : null;
   const mail = renderMail_({
     title: k.title,
     greeting: m.greeting(String(r.fullName).trim()),
-    intro: kind === 'paid' && !tickets ? k.intro.slice(0, 1) : k.intro,
+    intro: intro,
     highlight: [m.labels.number, n],
     details: details,
     tickets: blocks,
@@ -1129,7 +1144,9 @@ function sendGuestMail_(kind, r, settings, extra) {
     htmlBody: mail.html,
     replyTo: settings.replyTo,
     inlineImages: images,
+    attachments: pdfs,
   });
+  return { pdfCount: pdfs ? pdfs.length : 0, pdfError: pdfError };
 }
 
 function sendAdminNotification_(r, settings) {
@@ -1197,6 +1214,7 @@ function sendMail_(settings, m) {
   if (m.htmlBody) options.htmlBody = m.htmlBody;
   if (m.htmlBody && m.htmlBody.indexOf('cid:' + MAIL_LOGO_CID) >= 0) options.inlineImages = mailLogo_();
   if (m.inlineImages) options.inlineImages = Object.assign(options.inlineImages || {}, m.inlineImages);
+  if (m.attachments && m.attachments.length) options.attachments = m.attachments;
   let from;
   if (settings.senderEmail && senderAliases_().indexOf(settings.senderEmail) >= 0) {
     options.from = settings.senderEmail;
@@ -1797,6 +1815,7 @@ function onOpen() {
     .addItem('Podesi tabelu (prvo pokretanje)', 'setup')
     .addItem('Uključi dnevnu proveru rokova', 'installTriggers')
     .addItem('Pošalji probni mejl organizatoru', 'sendTestEmail')
+    .addItem('Pošalji probnu PDF ulaznicu organizatoru', 'menuTestTicketPdf')
     .addToUi();
 }
 
@@ -1857,8 +1876,12 @@ function menuSendPaymentConfirmation() {
   if (parseDate_(r.paymentConfirmedAt)) return ui.alert('Potvrda uplate za ' + n + ' je već poslata.');
   if (ui.alert('Potvrda uplate', 'Poslati gostu potvrdu da je uplata evidentirana?\n\nRezervacija: ' + n + '\nGost: ' + r.fullName + ' <' + r.email + '>', ui.ButtonSet.YES_NO) !== ui.Button.YES) return;
   try {
-    sendPaymentConfirmationFor_(n);
-    ui.alert('Potvrda uplate je poslata.');
+    const res = sendPaymentConfirmationFor_(n) || {};
+    ui.alert(
+      res.pdfError
+        ? 'Potvrda uplate je poslata sa QR kodovima, ali BEZ PDF ulaznica: ' + res.pdfError
+        : 'Potvrda uplate je poslata' + (res.pdfCount ? ' (PDF ulaznica u prilogu: ' + res.pdfCount + ').' : '.'),
+    );
   } catch (err) {
     ui.alert('Potvrda NIJE poslata: ' + err.message);
   }
