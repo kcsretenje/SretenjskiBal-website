@@ -47,6 +47,15 @@ import { RevealDirective } from '../../directives/reveal.directive';
     .price { font-family: var(--font-display); font-size: clamp(1.875rem, 2.8vw, 2.5rem); color: var(--c-brass); }
     .price--soon { font-size: 1.125rem; font-style: italic; }
     .muted { color: rgba(246, 241, 232, 0.6); }
+    /* Telefon: cena u istom redu sa nazivom ulaznice (gore), a ne na sredini spiska. */
+    /* Spisak stavki ispod ide celom širinom, ispod naziva i cene. */
+    @media (max-width: 767.98px) {
+      .ticket { align-items: baseline; gap: 0 1.25rem; }
+      .info { display: contents; }
+      .name { grid-column: 1; grid-row: 1; }
+      .price, .muted { grid-column: 2; grid-row: 1; line-height: 1.1; }
+      .desc, .includes { grid-column: 1 / -1; }
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
