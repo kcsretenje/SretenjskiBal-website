@@ -21,23 +21,33 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "allowedCommonJsDependencies": ["jsqr"],
+            "allowedCommonJsDependencies": [
+              "jsqr"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "playfair-display-latin*-{400,500}-{normal,italic}.woff2",
+                "input": "node_modules/@fontsource/playfair-display/files",
+                "output": "fonts"
+              },
+              {
+                "glob": "manrope-latin*-{300,400,500}-normal.woff2",
+                "input": "node_modules/@fontsource/manrope/files",
+                "output": "fonts"
+              },
+              {
+                "glob": "cormorant-garamond-latin-{300,400,500}-normal.woff2",
+                "input": "node_modules/@fontsource/cormorant-garamond/files",
+                "output": "fonts"
               }
             ],
             "styles": [
-              "node_modules/@fontsource/playfair-display/400.css",
-              "node_modules/@fontsource/playfair-display/500.css",
-              "node_modules/@fontsource/playfair-display/400-italic.css",
-              "node_modules/@fontsource/playfair-display/500-italic.css",
-              "node_modules/@fontsource/manrope/300.css",
-              "node_modules/@fontsource/manrope/400.css",
-              "node_modules/@fontsource/manrope/500.css",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
