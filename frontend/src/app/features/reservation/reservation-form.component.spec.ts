@@ -189,7 +189,7 @@ describe('ReservationFormComponent', () => {
     await fillValid();
     await click('button[type=submit]');
     noScript('create');
-    expect(errors()).toEqual(['Unesite naziv firme.', 'Unesite adresu firme.', 'Unesite poreski identifikacioni broj.', 'Izaberite jednu od ponuđenih mogućnosti.']);
+    expect(errors()).toEqual(['Unesite naziv firme.', 'Unesite adresu firme.', 'Unesite poreski broj firme.', 'Izaberite jednu od ponuđenih mogućnosti.']);
     await click($$('input[formcontrolname=invoiceNeeded]')[0]);
     expect($('[formcontrolname=name]')).toBeNull();
     await click('button[type=submit]');

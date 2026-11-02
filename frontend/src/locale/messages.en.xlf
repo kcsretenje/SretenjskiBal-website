@@ -1538,8 +1538,8 @@
           <context context-type="linenumber">189,190</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1225776581694443962" datatype="html">
-        <source>Država sedeža firme</source>
+      <trans-unit id="7768955928692072398" datatype="html">
+        <source>Država sedišta firme</source>
         <target>Country of the company's registered office</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
@@ -1570,8 +1570,8 @@
           <context context-type="linenumber">197,198</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6932383841571082997" datatype="html">
-        <source>Sedež firme (ulica, poštanski broj, mesto)</source>
+      <trans-unit id="7470764457069420851" datatype="html">
+        <source>Sedište firme (ulica, poštanski broj, mesto)</source>
         <target>Registered office (street, postcode, city)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
@@ -1586,48 +1586,48 @@
           <context context-type="linenumber">203,204</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8092422716460176156" datatype="html">
-        <source>Davčna številka (ID za DDV)</source>
+      <trans-unit id="8022188998745815115" datatype="html">
+        <source>Poreski broj firme (davčna številka)</source>
         <target>Tax number (VAT ID)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">206,207</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1047844748527411095" datatype="html">
-        <source>ID za PDV (sa oznakom države, npr. HR12345678901)</source>
+      <trans-unit id="6086162667893562742" datatype="html">
+        <source>PDV broj firme (sa oznakom države, npr. HR12345678901)</source>
         <target>VAT ID (with country prefix, e.g. HR12345678901)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">207,208</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3526983644619322633" datatype="html">
-        <source>Unesite poreski identifikacioni broj.</source>
-        <target>Please enter the tax identification number.</target>
+      <trans-unit id="3683254962885370853" datatype="html">
+        <source>Unesite poreski broj firme.</source>
+        <target>Please enter the company's tax number.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">210,211</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2966750337475200447" datatype="html">
-        <source>Slovenačka davčna številka ima 8 cifara (npr. 12345678 ili SI12345678).</source>
+      <trans-unit id="8971501769065979755" datatype="html">
+        <source>Slovenački poreski broj ima 8 cifara (npr. 12345678 ili SI12345678).</source>
         <target>A Slovenian tax number has 8 digits (e.g. 12345678 or SI12345678).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">213</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="118711035573546857" datatype="html">
-        <source>ID za PDV počinje oznakom države, npr. HR12345678901 ili ATU12345678.</source>
+      <trans-unit id="2712909336370305091" datatype="html">
+        <source>PDV broj počinje oznakom države, npr. HR12345678901 ili ATU12345678.</source>
         <target>A VAT ID starts with the country code, e.g. HR12345678901 or ATU12345678.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">214</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="897183097505672490" datatype="html">
-        <source>Da li je firma obveznik DDV-a (davčni zavezanec)?</source>
+      <trans-unit id="8888938913887575804" datatype="html">
+        <source>Da li je firma u sistemu PDV-a (davčni zavezanec)?</source>
         <target>Is the company a VAT payer (VAT-registered)?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
@@ -1646,9 +1646,9 @@
           <context context-type="linenumber">241,242</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8081542920600864331" datatype="html">
-        <source>Za firme iz EU sa važećim ID za PDV faktura se izdaje bez slovenačkog DDV-a (obrnuta naplata); ID proveravamo u sistemu VIES.</source>
-        <target>For EU companies with a valid VAT ID, the invoice is issued without Slovenian VAT (reverse charge); we check the ID in the VIES system.</target>
+      <trans-unit id="4164528044843522551" datatype="html">
+        <source>Firme iz drugih država EU koje su u sistemu PDV-a dobijaju fakturu bez slovenačkog PDV-a.</source>
+        <target>Companies from other EU countries that are registered for VAT receive an invoice without Slovenian VAT.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">229,230</context>
