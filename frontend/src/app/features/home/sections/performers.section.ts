@@ -134,7 +134,10 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     }
     .card--featured .name { color: var(--c-burgundy); }
     .name--soon { font-style: italic; color: var(--c-ink-soft); }
-    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* Sve fotografije u istom tonu: crno-bele sa toplom, sepija nijansom i blagim bordo slojem — da se slažu sa sajtom
+       i međusobno, iako su snimane u različitim uslovima. */
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) sepia(0.28) contrast(1.06) brightness(0.96); }
+    .portrait:has(img)::after { content: ''; position: absolute; inset: 0; background: var(--c-burgundy); mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none; }
     .name {
       margin: 1.5rem 0 0.5rem;
       font-family: var(--font-display);
