@@ -42,51 +42,51 @@ import { RevealDirective } from '../../directives/reveal.directive';
     }
     .timeline { position: relative; }
     .row {
+      /* Veličina vremena; od nje zavisi gde je tačka i gde linija počinje i završava. */
+      --tl-fs: clamp(1.625rem, 2.4vw, 2.125rem);
+      --tl-pad: 1.5rem;
+      /* Sredina prvog reda teksta vremena (od vrha reda). */
+      --tl-mid: calc(var(--tl-pad) + var(--tl-fs) * 0.55);
       position: relative;
       display: grid;
       grid-template-columns: minmax(70px, 120px) 28px minmax(0, 1fr);
-      align-items: baseline;
+      align-items: start;
       column-gap: 1rem;
-      padding: 1.5rem 0.5rem 1.5rem 0;
+      padding: var(--tl-pad) 0.5rem var(--tl-pad) 0;
     }
-    /* Vertikalna linija kroz sve redove. */
+    /* Vertikalna linija kroz sve redove: od sredine prve do sredine poslednje tačke, iza tačaka. */
     .row::before {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(min(120px, 100%) + 1rem + 13px);
+      left: calc(min(120px, 100%) + 1rem + 14px);
       width: 1px;
       background: var(--tl-line);
     }
-    .row:first-child::before { top: 2.2rem; }
-    .row:last-child::before { bottom: calc(100% - 2.2rem); }
+    .row:first-child::before { top: var(--tl-mid); }
+    .row:last-child::before { bottom: auto; height: var(--tl-mid); }
+    .row:only-child::before { display: none; }
     .dot {
       position: relative;
       z-index: 1;
       justify-self: center;
       width: 11px;
       height: 11px;
+      margin-top: calc(var(--tl-fs) * 0.55 - 5.5px);
       border: 1px solid var(--tl-dot);
-      border-radius: 50%;
+      border-radius: 1px; /* mali romb */
       background: var(--tl-bg);
-      transform: translateY(0.1rem) rotate(45deg);
-      border-radius: 1px; /* mali romb umesto kruga */
-      transition: background-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+      transform: rotate(45deg);
     }
-    @keyframes dot-glow { 0% { box-shadow: 0 0 0 0 var(--tl-dot); } 100% { box-shadow: 0 0 0 12px transparent; } }
-    .row.is-visible .dot { animation: dot-glow 1.4s var(--ease) 0.3s 1 both; }
-    @media (prefers-reduced-motion: reduce) { .row.is-visible .dot { animation: none; } }
-    .row:hover .dot { background: var(--tl-dot); transform: translateY(0.1rem) rotate(45deg) scale(1.25); }
-    .time { font-family: var(--font-display); font-size: clamp(1.625rem, 2.4vw, 2.125rem); color: var(--tl-time); line-height: 1.1; text-align: right; }
+    .time { font-family: var(--font-display); font-size: var(--tl-fs); color: var(--tl-time); line-height: 1.1; text-align: right; }
     .until { display: block; font-size: 0.55em; opacity: 0.75; margin-top: 0.15rem; }
     .text { display: flex; flex-direction: column; gap: 0.25rem; }
-    .title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.625rem); color: var(--tl-title); line-height: 1.2; }
+    .title { padding-top: calc(var(--tl-fs) * 0.55 - 0.6 * clamp(1.375rem, 2vw, 1.625rem)); font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.625rem); color: var(--tl-title); line-height: 1.2; }
     .desc { font-size: 0.9375rem; font-weight: 300; color: var(--tl-desc); }
     @media (max-width: 599.98px) {
-      .row { grid-template-columns: 64px 20px minmax(0, 1fr); column-gap: 0.75rem; }
-      .row::before { left: calc(64px + 0.75rem + 9px); }
-      .time { font-size: 1.375rem; }
+      .row { --tl-fs: 1.375rem; grid-template-columns: 64px 20px minmax(0, 1fr); column-gap: 0.75rem; }
+      .row::before { left: calc(64px + 0.75rem + 10px); }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

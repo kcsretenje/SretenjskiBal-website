@@ -32,7 +32,7 @@
                 "input": "public"
               },
               {
-                "glob": "playfair-display-latin*-{400,500}-{normal,italic}.woff2",
+                "glob": "playfair-display-latin*-{400,500}-normal.woff2",
                 "input": "node_modules/@fontsource/playfair-display/files",
                 "output": "fonts"
               },
@@ -42,7 +42,7 @@
                 "output": "fonts"
               },
               {
-                "glob": "cormorant-garamond-latin-{300,400,500}-normal.woff2",
+                "glob": "cormorant-garamond-latin*-{300,400,500}-{normal,italic}.woff2",
                 "input": "node_modules/@fontsource/cormorant-garamond/files",
                 "output": "fonts"
               }
