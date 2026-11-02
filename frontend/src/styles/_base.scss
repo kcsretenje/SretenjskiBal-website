@@ -20,6 +20,8 @@ body {
   font-family: var(--font-body);
   font-size: var(--fs-body);
   font-weight: 400;
+  // Ravni brojevi (Playfair inače ima „starinske" cifre koje silaze ispod linije, npr. u satnici).
+  font-variant-numeric: lining-nums;
   line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

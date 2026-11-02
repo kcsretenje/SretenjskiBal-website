@@ -31,9 +31,10 @@
               }
             ],
             "styles": [
-              "node_modules/@fontsource/eb-garamond/400.css",
-              "node_modules/@fontsource/eb-garamond/500.css",
-              "node_modules/@fontsource/eb-garamond/400-italic.css",
+              "node_modules/@fontsource/playfair-display/400.css",
+              "node_modules/@fontsource/playfair-display/500.css",
+              "node_modules/@fontsource/playfair-display/400-italic.css",
+              "node_modules/@fontsource/playfair-display/500-italic.css",
               "node_modules/@fontsource/manrope/300.css",
               "node_modules/@fontsource/manrope/400.css",
               "node_modules/@fontsource/manrope/500.css",

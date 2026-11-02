@@ -2,7 +2,7 @@
 
 .display {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400; // Playfair Regular za velike naslove
   line-height: var(--lh-heading);
   letter-spacing: 0.005em;
 }
@@ -10,18 +10,18 @@
 .h1 {
   @extend .display;
   font-size: var(--fs-h1);
-  line-height: 0.98;
+  line-height: 1.05; // mesto za kvačice (Š, Č) kad se naslov prelomi u dva reda
 }
 
 .h2 {
   @extend .display;
   font-size: var(--fs-h2);
-  line-height: 1;
+  line-height: 1.08;
 }
 
 .h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500; // Playfair Medium za manje naslove
   font-size: var(--fs-h3);
   line-height: 1.1;
 }
@@ -29,7 +29,7 @@
 .quote {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-quote);
   line-height: 1.3;
 }

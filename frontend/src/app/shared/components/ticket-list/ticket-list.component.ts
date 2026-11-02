@@ -39,7 +39,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
       padding: 2.25rem 0;
       border-bottom: 1px solid var(--c-rule-brass);
     }
-    .name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.875rem, 2.8vw, 2.5rem); line-height: 1.1; }
+    .name { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.875rem, 2.8vw, 2.5rem); line-height: 1.1; }
     .desc { margin-top: 0.4rem; font-size: 0.9375rem; font-weight: 300; color: var(--c-on-dark-soft); }
     .includes { margin-top: 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; max-width: 34em; }
     .includes li { position: relative; padding-left: 1.4rem; font-size: 1.125rem; font-weight: 300; line-height: 1.5; color: var(--c-on-dark-soft); }

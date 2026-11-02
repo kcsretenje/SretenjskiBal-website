@@ -138,7 +138,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .name {
       margin: 1.5rem 0 0.5rem;
       font-family: var(--font-display);
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1.75rem;
       line-height: 1.15;
     }

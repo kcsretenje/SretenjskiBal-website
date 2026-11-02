@@ -53,7 +53,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .grid { align-items: center; }
     .text { grid-column: 1 / span 6; display: flex; flex-direction: column; gap: clamp(2rem, 4vw, 3.5rem); }
     .details { display: flex; flex-direction: column; gap: 0.75rem; font-style: normal; font-weight: 300; font-size: 1.0625rem; }
-    .name { font-family: var(--font-display); font-weight: 400; font-size: 1.875rem; line-height: 1.2; }
+    .name { font-family: var(--font-display); font-weight: 500; font-size: 1.875rem; line-height: 1.2; }
     .facts { border-left: 1px solid var(--c-brass); display: flex; flex-direction: column; gap: 1.25rem; padding-left: 1.5rem; }
     .facts li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; align-items: baseline; }
     .year { font-family: var(--font-display); font-size: 1.6rem; color: var(--c-burgundy); }

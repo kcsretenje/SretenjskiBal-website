@@ -81,7 +81,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
     .time { font-family: var(--font-display); font-size: clamp(1.625rem, 2.4vw, 2.125rem); color: var(--tl-time); line-height: 1.1; text-align: right; }
     .until { display: block; font-size: 0.55em; opacity: 0.75; margin-top: 0.15rem; }
     .text { display: flex; flex-direction: column; gap: 0.25rem; }
-    .title { font-family: var(--font-display); font-size: clamp(1.375rem, 2vw, 1.625rem); color: var(--tl-title); line-height: 1.2; }
+    .title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.625rem); color: var(--tl-title); line-height: 1.2; }
     .desc { font-size: 0.9375rem; font-weight: 300; color: var(--tl-desc); }
     @media (max-width: 599.98px) {
       .row { grid-template-columns: 64px 20px minmax(0, 1fr); column-gap: 0.75rem; }
