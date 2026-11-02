@@ -151,8 +151,8 @@
           <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5047928571088548330" datatype="html">
-        <source>Glavni muzički gost</source>
+      <trans-unit id="8042503710980639676" datatype="html">
+        <source>Muzički izvođač</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">89</context>

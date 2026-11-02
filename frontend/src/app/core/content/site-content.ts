@@ -86,7 +86,7 @@ export const SPONSORS: Sponsor[] = [];
  * name: null znači da ime još nije objavljeno (prikazuje se „Uskoro"); kad ime bude poznato, upisati ga ovde.
  */
 export const PERFORMERS: Performer[] = [
-  { role: $localize`Glavni muzički gost`, name: 'Galija', featured: true, wide: true, photo: '/images/izvodjaci/galija.jpg' },
+  { role: $localize`Muzički izvođač`, name: 'Galija', featured: true, wide: true, photo: '/images/izvodjaci/galija.jpg' },
   { role: $localize`Voditeljka programa i glumica`, name: 'Aleksandra Balmazović', photo: '/images/izvodjaci/aleksandra-balmazovic.jpg' },
   { role: $localize`Profesor književnosti i pisac`, name: 'Nenad Gugl', photo: '/images/izvodjaci/nenad-gugl.jpg' },
   { role: $localize`Glumac`, name: 'Nebojša Milovanović', photo: '/images/izvodjaci/nebojsa-milovanovic.jpg' },
