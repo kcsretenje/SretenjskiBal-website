@@ -172,11 +172,13 @@ describe('Apps Script (Code.gs)', () => {
       expect(create(reservation({ tickets: [{ ticketType: 'GALERIJA', count: 1.5 }] })).fields).toEqual(['tickets.0.count']);
       expect(create(reservation({ tickets: [{ ticketType: 'VIP', count: 1 }] })).fields).toEqual(['tickets.0.ticketType']);
       expect(create(reservation({ tickets: [{ ticketType: 'GALERIJA', count: 1 }, { ticketType: 'GALERIJA', count: 1 }] })).fields).toEqual(['tickets.1.ticketType']);
-      expect(create(reservation({ tickets: [{ ticketType: 'GALERIJA', count: 101 }] })).fields).toEqual(['tickets']);
+      expect(create(reservation({ tickets: [{ ticketType: 'GALERIJA', count: 9 }] })).fields).toEqual(['tickets']);
+      expect(create(reservation({ tickets: [{ ticketType: 'SVECANA', count: 5 }, { ticketType: 'GALERIJA', count: 4 }] })).fields).toEqual(['tickets']);
       expect(create(reservation({ invoice: { needed: true, companyName: 'Firma' } })).fields).toEqual(['invoice.companyAddress', 'invoice.companyCountry', 'invoice.taxId']);
       expect(create(reservation({ email: 'nije-mejl' })).fields).toContain('email');
       expect(create(reservation({ source: 'NESTO' })).fields).toContain('source');
       expect(res.data).toHaveLength(1);
+      expect(create(reservation({ tickets: [{ ticketType: 'GALERIJA', count: 8 }] })).ok).toBe(true); // 8 je dozvoljeno
     });
 
     it('ostali gosti se upisuju na početak napomene, a nepotpun gost se odbija', () => {

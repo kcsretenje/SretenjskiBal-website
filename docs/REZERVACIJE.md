@@ -185,8 +185,8 @@ Posle izmene `Code.gs` ponovo pokrenite „Podesi tabelu", da tab Statistika dob
 Jedan red je jedna rezervacija. Karte glase na **osobu koja rezerviše**; ako kupuje za nekog drugog,
 to piše u koloni **Napomena**. Posebna ishrana i alergije su u zasebnoj koloni **Ishrana i alergije**:
 filterom na toj koloni dobijate spisak za kuhinju, a mejl o novoj rezervaciji u naslovu ima
-„· posebna ishrana". Broj karata po rezervaciji nije ograničen (postoji samo tehnička granica od 100,
-kao zaštita forme od zloupotrebe).
+„· posebna ishrana". Jedna rezervacija može imati **najviše 8 ulaznica**, jer jedna rezervacija dobija jedan sto (u formi na sajtu i u skripti:
+`MAX_TICKETS` u `reservation-form.component.ts` i `MAX_TICKETS_PER_RESERVATION` u `Code.gs`).
 
 ### Raspored taba „Rezervacije"
 

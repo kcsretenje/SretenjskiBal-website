@@ -33,8 +33,8 @@ export const SOURCE_OPTIONS: { value: ReservationSource; label: string }[] = [
   { value: 'DRUGO', label: $localize`Drugo` },
 ];
 
-/** Tehnička zaštita od zloupotrebe forme (nije prodajno ograničenje); ista vrednost je u backendu i Apps Scriptu. */
-const MAX_TICKETS = 100;
+/** Najviše ulaznica u jednoj rezervaciji — jedna rezervacija je jedan sto; ista vrednost je u Apps Scriptu (MAX_TICKETS_PER_RESERVATION). */
+export const MAX_TICKETS = 8;
 /** Isti uslov kao na backendu: cifre, razmaci, + ( ) / . - i najmanje 6 cifara. */
 const PHONE = /^(?=(?:\D*\d){6})[+0-9 ()/.-]{6,30}$/;
 const UTM_KEYS = ['source', 'medium', 'campaign', 'term', 'content'] as const;

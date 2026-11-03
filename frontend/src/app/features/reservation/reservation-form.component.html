@@ -92,9 +92,10 @@
                   <button type="button" class="stepper__btn" (click)="step(-1)" [disabled]="(ticketCount() ?? 1) <= 1" i18n-aria-label aria-label="Jedna ulaznica manje">−</button>
                   <input id="ticketCount" class="field__control stepper__input" type="number" inputmode="numeric" min="1" [max]="maxTickets" step="1"
                     formControlName="ticketCount" required [attr.aria-invalid]="invalid(form.controls.ticketCount)" aria-describedby="err-ticketCount" />
-                  <button type="button" class="stepper__btn" (click)="step(1)" i18n-aria-label aria-label="Jedna ulaznica više">+</button>
+                  <button type="button" class="stepper__btn" (click)="step(1)" [disabled]="(ticketCount() ?? 1) >= maxTickets" i18n-aria-label aria-label="Jedna ulaznica više">+</button>
                 </div>
-                @if (invalid(form.controls.ticketCount)) { <span class="field__error" id="err-ticketCount" i18n>Unesite broj ulaznica (ceo broj, najmanje 1).</span> }
+                @if (invalid(form.controls.ticketCount)) { <span class="field__error" id="err-ticketCount" i18n>Unesite broj ulaznica (ceo broj, od 1 do {{ maxTickets }}).</span> }
+                @else { <span class="field__hint" i18n>Najviše {{ maxTickets }} ulaznica po rezervaciji, jer jedna rezervacija dobija jedan sto.</span> }
               </div>
 
               @if (estimate(); as e) {
