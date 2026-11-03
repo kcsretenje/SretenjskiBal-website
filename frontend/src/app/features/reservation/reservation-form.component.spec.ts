@@ -114,7 +114,7 @@ describe('ReservationFormComponent', () => {
     expect($('form')).toBeTruthy();
   });
 
-  it('broj ulaznica: dugmad − / +, najviše 8 po rezervaciji', async () => {
+  it('broj ulaznica: dugmad − / +, bez gornjeg ograničenja u prodaji', async () => {
     await open();
     expect(count().value).toBe('1');
     const [minus, plus] = $$<HTMLButtonElement>('.stepper__btn');
@@ -126,14 +126,6 @@ describe('ReservationFormComponent', () => {
     expect(count().value).toBe('2');
     await type(count(), '8');
     expect(errors()).toEqual([]);
-    expect(plus.disabled).toBe(true);
-    expect(el.textContent).toContain('jedna rezervacija dobija jedan sto');
-    await click(plus);
-    expect(count().value).toBe('8');
-    await type(count(), '9');
-    $<HTMLButtonElement>('button[type=submit]').click();
-    await render();
-    expect($('#err-ticketCount').textContent).toContain('od 1 do 8');
   });
 
   it('dva tipa ulaznica kao kartice sa cenom', async () => {
@@ -165,7 +157,7 @@ describe('ReservationFormComponent', () => {
       'Unesite prezime.',
       'Unesite ispravnu email adresu.',
       'Unesite broj telefona, npr. +386 40 123 456.',
-      'Unesite broj ulaznica (ceo broj, od 1 do 8).',
+      'Unesite broj ulaznica (ceo broj, najmanje 1).',
       'Izaberite jednu od ponuđenih mogućnosti.',
     ]);
     expect($('[formcontrolname=firstName]').getAttribute('aria-invalid')).toBe('true');

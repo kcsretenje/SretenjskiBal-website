@@ -114,8 +114,8 @@ const SOURCES = {
   DRUGO: 'Drugo',
 };
 const LOCALES = ['sr', 'sl', 'en'];
-/** Najviše ulaznica u jednoj rezervaciji — jedna rezervacija je jedan sto (ista vrednost je u formi na sajtu, MAX_TICKETS). */
-const MAX_TICKETS_PER_RESERVATION = 8;
+/** Tehnička zaštita od zloupotrebe forme (nije prodajno ograničenje). */
+const MAX_TICKETS_PER_RESERVATION = 100;
 /** Isti uslov kao na sajtu: cifre, razmaci, + ( ) / . - i najmanje 6 cifara. */
 const PHONE_RE = /^(?=(?:\D*\d){6})[+0-9 ()\/.-]{6,30}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
