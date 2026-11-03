@@ -95,6 +95,7 @@
                   <button type="button" class="stepper__btn" (click)="step(1)" i18n-aria-label aria-label="Jedna ulaznica više">+</button>
                 </div>
                 @if (invalid(form.controls.ticketCount)) { <span class="field__error" id="err-ticketCount" i18n>Unesite broj ulaznica (ceo broj, najmanje 1).</span> }
+                <span class="field__hint" i18n>Moguće je rezervisati najviše 1 sto.</span>
               </div>
 
               @if (estimate(); as e) {
