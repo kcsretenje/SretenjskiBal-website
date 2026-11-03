@@ -34,7 +34,7 @@ export const SOURCE_OPTIONS: { value: ReservationSource; label: string }[] = [
 ];
 
 /** Tehnička zaštita od zloupotrebe forme (nije prodajno ograničenje); ista vrednost je u backendu i Apps Scriptu. */
-const MAX_TICKETS = 100;
+const MAX_TICKETS = 8;
 /** Isti uslov kao na backendu: cifre, razmaci, + ( ) / . - i najmanje 6 cifara. */
 const PHONE = /^(?=(?:\D*\d){6})[+0-9 ()/.-]{6,30}$/;
 const UTM_KEYS = ['source', 'medium', 'campaign', 'term', 'content'] as const;
