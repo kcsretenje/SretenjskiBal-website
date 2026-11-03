@@ -29,7 +29,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
   `,
   styles: `
     .intro { grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 1.75rem; }
-    .title { font-size: clamp(5rem, 9vw, 8rem); line-height: 0.9; }
+    .title { font-size: clamp(3.75rem, 6.5vw, 6rem); line-height: 0.9; }
     .tag { max-width: 14em; color: var(--c-on-dark-soft); }
     .status { color: var(--c-brass); }
     .list { grid-column: 6 / span 7; }
