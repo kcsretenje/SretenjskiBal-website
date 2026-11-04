@@ -5,6 +5,13 @@ import { HERO_IMAGE } from '../../../core/content/site-content';
 import { EmblemComponent } from '../../../shared/components/emblem/emblem.component';
 
 /**
+ * Leva ivica crteža para (plesni-par-linije.svg) u 20 vodoravnih pojaseva od vrha do dna, kao deo širine slike.
+ * Gore su glave (crtež počinje tek oko sredine širine), dole suknja (skoro do leve ivice).
+ */
+const COUPLE_LEFT_EDGE = [0.585, 0.437, 0.391, 0.369, 0.37, 0.406, 0.407, 0.45, 0.452, 0.414, 0.342, 0.278, 0.229, 0.051, 0.032, 0.033, 0.172, 0.171, 0.282, 0.337];
+
+
+/**
  * Hero „Bordo noć": tamni bordo, fotografija Narodnog doma tonirana u bordo
  * (kad postoji) i plesni par (linijski crtež) koji se polako ukazuje.
  */
@@ -27,8 +34,13 @@ export class HeroSectionComponent {
       const hero = host.querySelector<HTMLElement>('.hero');
       const line = host.querySelector<HTMLElement>('.title span:last-child');
       if (!hero || !line || typeof ResizeObserver === 'undefined') return;
-      const first = host.querySelector<HTMLElement>('.title span:first-child');
+      const texts = () => [
+        ...host.querySelectorAll<HTMLElement>('.title span'),
+        ...[...(host.querySelector('.content')?.children ?? [])].filter((el) => !el.classList.contains('title')),
+      ] as HTMLElement[];
       const textBox = (el: HTMLElement) => {
+        // Za tekst merimo sam tekst (ne celu širinu bloka); za dugme i sliku ceo element.
+        if (el.matches('a, button, img, svg') || !el.textContent?.trim()) return el.getBoundingClientRect();
         const r = document.createRange();
         r.selectNodeContents(el);
         return r.getBoundingClientRect();
@@ -37,22 +49,36 @@ export class HeroSectionComponent {
         const h = hero.getBoundingClientRect();
         const top = line.getBoundingClientRect().top - h.top;
         hero.style.setProperty('--couple-top', `${Math.round(top)}px`);
-        // Računar/tablet: par ne sme da preklopi „SRETENJSKI". Ako bi se preklopio, smanjujemo ga tako da glave
-        // počnu u visini reda „BAL" i da ostane razmak desno od teksta.
+        // Računar/tablet: par je što veći, ali crtež ne sme da dodirne tekst. Za svaku visinu para proveravamo
+        // levu ivicu crteža (COUPLE_LEFT_EDGE) u visini svakog reda teksta i biramo najveću visinu bez preklapanja.
         hero.style.removeProperty('--couple-hmax');
-        if (!first || window.matchMedia('(max-width: 767.98px)').matches) return;
+        if (window.matchMedia('(max-width: 767.98px)').matches) return;
         const ratio = 783 / 846;
-        const gap = 32;
+        const gap = 28;
         const right = 24;
+        const boxes = texts()
+          .map(textBox)
+          .filter((r) => r.width > 0)
+          .map((r) => ({ top: r.top - h.top, bottom: r.bottom - h.top, right: r.right - h.left }));
+        const fits = (H: number) => {
+          const W = H * ratio;
+          const left = h.width - right - W;
+          const y0 = h.height - H;
+          const n = COUPLE_LEFT_EDGE.length;
+          return boxes.every((r) =>
+            COUPLE_LEFT_EDGE.every((edge, i) => {
+              const a = y0 + (i * H) / n;
+              const b = y0 + ((i + 1) * H) / n;
+              const touches = b > r.top - gap / 2 && a < r.bottom + gap / 2;
+              return !touches || left + edge * W >= r.right + gap;
+            }),
+          );
+        };
         const fullH = Math.min(h.height * 0.78, 650);
-        const fullLeft = h.width - right - fullH * ratio;
-        const row1 = textBox(first);
-        const row2 = textBox(line);
-        const overlaps = h.height - fullH < row1.bottom - h.top && fullLeft < row1.right - h.left + gap;
-        if (!overlaps) return;
-        const byHeight = h.height - top;
-        const byWidth = (h.width - right - (row2.right - h.left) - gap) / ratio;
-        hero.style.setProperty('--couple-hmax', `${Math.max(0, Math.round(Math.min(byHeight, byWidth)))}px`);
+        if (fits(fullH)) return;
+        let H = fullH;
+        while (H > 120 && !fits(H)) H -= 8;
+        hero.style.setProperty('--couple-hmax', `${Math.round(H)}px`);
       };
       place();
       const ro = new ResizeObserver(place);
