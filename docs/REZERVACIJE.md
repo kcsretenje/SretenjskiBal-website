@@ -239,7 +239,7 @@ PLAĆENO, sivo ISTEKLO/OTKAZANO. Filtrom u zaglavlju lako izdvojite npr. sve koj
    ako treba (popust, dogovor), upišite drugi iznos.
 3. Kliknite bilo gde u redu → **Sretenjski bal → Pošalji instrukcije za uplatu (izabrani red)**.
    Prikazaće se kome se šalje, koji je iznos i koji je rok. Potvrdite sa **Da**.
-4. Skripta šalje mejl na jeziku gosta i sama upisuje datum slanja, rok (danas + 7 dana) i status
+4. Skripta šalje mejl na jeziku gosta i sama upisuje datum slanja, rok (danas + 3 dana) i status
    ČEKA NA UPLATU. Ako u kolonu „Rok za uplatu" ranije upišete datum, koristi se taj datum.
 
 Ako instrukcije šaljete sami iz Gmaila (šablon je u odeljku 4), u red ručno upišite **Datum slanja
@@ -361,7 +361,7 @@ i UTM parametre kampanje (ako ih je link imao).
 > pregledali smo vašu rezervaciju broj **27001** ([broj] × [tip karte]).
 >
 > Iznos za uplatu: **[iznos] EUR**
-> Rok za uplatu: **[datum, 7 dana od danas]**
+> Rok za uplatu: **[datum, 3 dana od danas]**
 > Primalac: [naziv i adresa]
 > IBAN: [broj računa]
 > Svrha uplate: **Sretenjski bal 27001**

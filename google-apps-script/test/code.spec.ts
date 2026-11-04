@@ -82,8 +82,17 @@ describe('Apps Script (Code.gs)', () => {
     setSetting('IBAN', 'SI56 0000 0000 0000 000');
     setSetting('BIC', '');
     setSetting('BANK', '');
+    // Testovi rokova su pisani za 7 + 2 dana; podrazumevano je 3 + 1 (proverava poseban test).
+    setSetting('PAYMENT_DAYS', 7);
+    setSetting('GRACE_DAYS', 2);
     gas.sheets.set('Rezervacije', res);
     gas.sheets.set('Podešavanja', settings);
+  });
+
+  it('podrazumevani rokovi: 3 dana za uplatu, 1 dan posle podsetnika', () => {
+    const def = Object.fromEntries(gas.get<[string, unknown][]>('SETTINGS').map(([k, v]) => [k, v]));
+    expect(def.PAYMENT_DAYS).toBe(3);
+    expect(def.GRACE_DAYS).toBe(1);
   });
 
   describe('kolone za ekipu', () => {
