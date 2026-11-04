@@ -30,7 +30,7 @@ interface Moment {
         <ol class="timeline">
           @for (m of moments; track m.mark; let i = $index) {
             <li appReveal [appRevealDelay]="i * 80">
-              <span class="mark">{{ m.mark }}</span>
+              <span class="mark" [class.mark--year]="hasDigit(m.mark)">{{ m.mark }}</span>
               <p>{{ m.text }}</p>
             </li>
           }
@@ -47,6 +47,7 @@ interface Moment {
     .timeline li:last-child { padding-bottom: 0; }
     .timeline li::before { content: ''; position: absolute; left: -4px; top: 1.1rem; width: 7px; height: 7px; background: var(--c-parchment); border: 1px solid var(--c-brass); transform: rotate(45deg); }
     .mark { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.1; color: var(--c-burgundy); }
+    .mark--year { font-family: 'SB Godina', var(--font-display); font-variant-numeric: lining-nums; }
     .timeline p { font-weight: 300; max-width: 34em; }
     .pairs { display: flex; flex-direction: column; gap: 0.1em; margin-top: 0.5rem; }
     .pairs span { display: block; }
@@ -60,6 +61,9 @@ interface Moment {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WhySretenjeSectionComponent {
+  protected hasDigit(s: string): boolean {
+    return /\d/.test(s);
+  }
   protected readonly moments: Moment[] = [
     {
       mark: $localize`Sretenje Gospodnje`,
