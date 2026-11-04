@@ -86,6 +86,21 @@ describe('Apps Script (Code.gs)', () => {
     gas.sheets.set('Podešavanja', settings);
   });
 
+  describe('kolone za ekipu', () => {
+    it('stara „Administrativna napomena" postaje „Komentar" (podaci ostaju), a dodaje se „Način plaćanja"', () => {
+      const i = H.indexOf(COL.adminNote);
+      res.data[0][i] = 'Administrativna napomena';
+      res.data[0] = res.data[0].filter((h) => h !== COL.paymentMethod);
+      res.data.push(res.data[0].map((h) => (h === 'Administrativna napomena' ? 'zvati pre bala' : h === COL.number ? '27009' : '')));
+      gas.ctx.openTable_();
+      expect(res.data[0]).toContain('Komentar');
+      expect(res.data[0]).not.toContain('Administrativna napomena');
+      expect(res.data[0]).toContain('Način plaćanja');
+      expect(res.data[1][res.data[0].indexOf('Komentar')]).toBe('zvati pre bala');
+      expect(gas.get<string[]>('PAYMENT_METHODS')).toEqual(['Na račun', 'Gotovina']);
+    });
+  });
+
   describe('web app', () => {
     it('nepoznata akcija ili neispravan zahtev', () => {
       expect(post({ action: 'brisanje' })).toEqual({ ok: false, code: 'BAD_REQUEST' });
@@ -117,7 +132,7 @@ describe('Apps Script (Code.gs)', () => {
       expect(cell(2, 'ticketCount')).toBe(2);
       expect(H).not.toContain('Imena gostiju');
       expect(cell(2, 'invoice')).toBe('DA');
-      expect(cell(2, 'company')).toBe('Naziv: Firma d.o.o.\nSedež: Glavni trg 1, Maribor\nDržava: Slovenija\nDavčna številka / ID za DDV: SI12345678\nObveznik DDV: DA');
+      expect(cell(2, 'company')).toBe('Naziv: Firma d.o.o.\nSedež: Glavni trg 1, Maribor\nDržava: Slovenija\nDavčna številka: SI12345678');
       expect(cell(2, 'source')).toBe('Preporuka prijatelja');
       expect(cell(2, 'locale')).toBe('sr');
       expect(cell(2, 'utm')).toBe('utm_source=facebook; utm_campaign=bal2027');
@@ -373,10 +388,10 @@ describe('Apps Script (Code.gs)', () => {
     it('faktura: samo firme iz Slovenije i EU, poreski broj po državi', () => {
       const firm = (inv: object) => reservation({ invoice: { needed: true, companyName: 'Firma d.o.o.', companyAddress: 'Glavni trg 1, Maribor', ...inv } });
       expect(create(firm({ companyCountry: 'SI', taxId: 'SI12345678', vatPayer: true }))).toMatchObject({ ok: true });
-      expect(cell(2, 'company')).toContain('Davčna številka / ID za DDV: SI12345678');
-      expect(cell(2, 'company')).toContain('Obveznik DDV: DA');
+      expect(cell(2, 'company')).toContain('Davčna številka: SI12345678');
+      expect(cell(2, 'company')).not.toContain('DDV');
       expect(create(firm({ companyCountry: 'SI', taxId: '1234', vatPayer: false })).fields).toEqual(['invoice.taxId']);
-      expect(create(firm({ companyCountry: 'SI', taxId: '12345678' })).fields).toEqual(['invoice.vatPayer']);
+      expect(create(firm({ companyCountry: 'SI', taxId: '12345678' }))).toMatchObject({ ok: true });
       expect(create(firm({ companyCountry: 'EU', taxId: 'HR12345678901' }))).toMatchObject({ ok: true });
       expect(create(firm({ companyCountry: 'EU', taxId: 'SI12345678' })).fields).toEqual(['invoice.taxId']);
       expect(create(firm({ companyCountry: 'OTHER', taxId: 'EIN 12-3456789' })).fields).toContain('invoice.companyCountry');
@@ -625,6 +640,18 @@ describe('Apps Script (Code.gs)', () => {
           expect((row[G().status] as Formula).text).toContain('MATCH("Status rezervacije"');
         }
         expect((g[2][G().status] as Formula).text).toContain('$A3');
+      });
+
+      it('stari tab Gosti dobija kolone „Funkcija / firma" i „Komentar" na kraju, bez diranja postojećih', () => {
+        const old = new FakeSheet('Gosti');
+        const headers = gas.get<string[]>('GUEST_HEADERS');
+        old.data.push(headers.slice(0, 14));
+        old.data.push(['27005', 'Nosilac', 'Ana', 'Anić', 'ana@primer.si', '', '', 'Svečana', '', '', '', '', '', '']);
+        gas.sheets.set('Gosti', old);
+        gas.ctx.guestsSheet_();
+        expect(guests()[0]).toEqual(headers);
+        expect(headers.slice(-2)).toEqual(['Funkcija / firma', 'Komentar']);
+        expect(guests()[1].slice(0, 4)).toEqual(['27005', 'Nosilac', 'Ana', 'Anić']);
       });
 
       it('uz potvrdu uplate šalje po jedan QR kod za svakog gosta i upisuje kod u red gosta', () => {
