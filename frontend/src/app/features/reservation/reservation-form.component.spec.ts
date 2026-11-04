@@ -93,10 +93,10 @@ describe('ReservationFormComponent', () => {
   it('prikazuje formu kad su rezervacije otvorene: celine, bez polja za imena gostiju', async () => {
     await open();
     expect($('form')).toBeTruthy();
-    expect($$('h2.legend').map((h) => h.textContent!.trim())).toEqual(['Vaši podaci', 'Ulaznice', 'Ishrana i napomene']);
+    expect($$('h2.legend').map((h) => h.textContent!.trim())).toEqual(['Vaši podaci', 'Ulaznice', 'Ishrana i dodatne napomene']);
     expect($('.guests')).toBeNull();
-    expect(el.textContent).toContain('Ulaznice će glasiti na Vaše ime');
-    expect(el.textContent).toContain('Sva polja su obavezna, osim označenih kao opciona.');
+    expect(el.textContent).toContain('Ulaznice će glasiti na vaše ime');
+    expect(el.textContent).toContain('Sva polja su obavezna, osim onih označenih kao neobavezna.');
     expect($('a[href="/privacy"]')).toBeTruthy();
   });
 

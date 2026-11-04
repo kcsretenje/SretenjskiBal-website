@@ -44,11 +44,11 @@ export const HERO_IMAGE: { src: string | null; alt: string; credit: string | nul
 /** Okvirna satnica — biće potvrđena. */
 /** Predlog programa — satnica i sadržaj se potvrđuju sa organizatorom. */
 export const PROGRAM: ProgramItem[] = [
-  { time: '18:00', title: $localize`Ulazak gostiju`, description: $localize`Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice, muziku i slikanje.` },
-  { time: '19:00', title: $localize`Himne i otvaranje`, description: $localize`Himne Srbije i Slovenije, a zatim izlazak voditelja i uvodna reč.` },
-  { time: '19:30', title: $localize`Svečana večera`, description: $localize`Večera u Dvorani generala Maistra.` },
+  { time: '18:00', title: $localize`Prijem gostiju`, description: $localize`Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice, muziku i fotografisanje.` },
+  { time: '19:00', title: $localize`Svečano otvaranje`, description: $localize`Intoniranje himni Srbije i Slovenije, nakon čega slede izlazak voditeljke programa i uvodna reč.` },
+  { time: '19:30', title: $localize`Svečana večera`, description: $localize`Svečana večera u Dvorani generala Maistra.` },
   { time: '20:00', title: $localize`Kulturno-umetnički program` },
-  { time: '22:00', until: '00:00', title: $localize`Koncert grupe Galija`, description: $localize`Glavni muzički program večeri i završetak bala.` },
+  { time: '22:00', until: '00:00', title: $localize`Koncert grupe Galija`, description: $localize`Glavni muzički deo večeri, kojim se bal završava.` },
 ];
 
 /** priceCents: 0 znači da cena još nije određena (prikazuje se „Cena uskoro"). */
@@ -61,16 +61,16 @@ export const TICKETS: TicketType[] = [
     includes: [
       $localize`Kulturno-umetnički program i koncert grupe Galija`,
       $localize`Svečana večera`,
-      $localize`Neograničena konzumacija pića`,
-      $localize`Sedeće mesto za stolom u Dvorani generala Maistra`,
+      $localize`Neograničeno posluženje pića tokom večeri`,
+      $localize`Rezervisano mesto za stolom u Dvorani generala Maistra`,
     ],
     priceCents: 14000, ctaUrl: '/rezervacija', soldOut: false },
   { code: 'GALERIJA', name: $localize`Galerija`,
     includes: [
       $localize`Kulturno-umetnički program i koncert grupe Galija`,
       $localize`Koktel posluženje i piće dobrodošlice`,
-      $localize`Stajaće mesto na galeriji, sa pogledom na celokupan program`,
-      $localize`Pristup Dvorani generala Maistra nakon završetka zvaničnog dela programa, od početka nastupa grupe Galija`,
+      $localize`Mesto za stajanje na galeriji, sa pogledom na celokupan program`,
+      $localize`Ulazak u Dvoranu generala Maistra po završetku zvaničnog dela programa, od početka nastupa grupe Galija`,
     ],
     priceCents: 7000, ctaUrl: '/rezervacija', soldOut: false },
 ];
@@ -86,7 +86,7 @@ export const SPONSORS: Sponsor[] = [];
  * name: null znači da ime još nije objavljeno (prikazuje se „Uskoro"); kad ime bude poznato, upisati ga ovde.
  */
 export const PERFORMERS: Performer[] = [
-  { role: $localize`Muzički izvođač`, name: 'Galija', featured: true, wide: true, photo: '/images/izvodjaci/galija.jpg' },
+  { role: $localize`Muzička grupa`, name: 'Galija', featured: true, wide: true, photo: '/images/izvodjaci/galija.jpg' },
   { role: $localize`Voditeljka programa`, name: 'Aleksandra Balmazović', photo: '/images/izvodjaci/aleksandra-balmazovic.jpg' },
   { role: $localize`Profesor književnosti i pisac`, name: 'Nenad Gugl', photo: '/images/izvodjaci/nenad-gugl.jpg' },
   { role: $localize`Glumac`, name: 'Nebojša Milovanović', photo: '/images/izvodjaci/nebojsa-milovanovic.jpg' },

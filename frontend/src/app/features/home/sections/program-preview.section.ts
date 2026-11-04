@@ -18,7 +18,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
         </div>
         <div class="list">
           <app-program-timeline [items]="program" variant="dark" />
-          <p class="note hint" i18n>Satnica je okvirna i biće potvrđena.</p>
+          <p class="note hint" i18n>Satnica je okvirna. Konačna vremena biće naknadno potvrđena.</p>
         </div>
       </div>
     </section>

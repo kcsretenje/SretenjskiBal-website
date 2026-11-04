@@ -20,7 +20,7 @@
     </div>
 
     <label class="field">
-      <span class="field__label" i18n>Email</span>
+      <span class="field__label" i18n>E-adresa</span>
       <input class="field__control" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="invalid('email')" />
       @if (invalid('email')) { <span class="field__error" i18n>Unesite ispravnu email adresu.</span> }
     </label>
@@ -42,7 +42,7 @@
 
     <label class="checkbox">
       <input type="checkbox" formControlName="consent" [attr.aria-invalid]="invalid('consent')" />
-      <span i18n>Pristajem da organizator obradi moje ime, e-adresu i poruku radi odgovora na upit, i da ih čuva do 12 meseci. Saglasnost mogu opozvati u svakom trenutku. Više u <a href="/privacy" target="_blank" rel="noopener" class="inline-link">politici privatnosti</a>.</span>
+      <span i18n>Dajem saglasnost da organizator obradi moje ime, e-adresu i poruku radi odgovora na upit i da te podatke čuva do 12 meseci. Saglasnost mogu opozvati u svakom trenutku. Više informacija nalazi se u <a href="/privacy" target="_blank" rel="noopener" class="inline-link">politici privatnosti</a>.</span>
     </label>
     @if (invalid('consent')) { <span class="field__error" i18n>Potrebna je Vaša saglasnost.</span> }
 
@@ -50,7 +50,7 @@
     @if (serverError()) { <p class="server-error" role="alert">{{ serverError() }}</p> }
 
     <button class="btn btn--primary submit" type="submit" [disabled]="status() === 'sending'" [attr.aria-busy]="status() === 'sending'">
-      @if (status() === 'sending') { <ng-container i18n>Slanje…</ng-container> } @else { <ng-container i18n>Pošalji poruku</ng-container> }
+      @if (status() === 'sending') { <ng-container i18n>Slanje…</ng-container> } @else { <ng-container i18n>Pošaljite poruku</ng-container> }
     </button>
   </form>
 }

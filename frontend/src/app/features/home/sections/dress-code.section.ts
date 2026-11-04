@@ -16,7 +16,7 @@ interface Guide {
       <div class="container">
         <div class="head" appReveal>
           <div class="head__title">
-            <p class="label eyebrow" i18n>Kodeks oblačenja · Dress code</p>
+            <p class="label eyebrow" i18n>Svečani kodeks</p>
             <h2 id="dress-title" class="display title" i18n>Kodeks oblačenja</h2>
           </div>
         </div>
@@ -30,7 +30,7 @@ interface Guide {
 
               <div class="col__body">
               <div class="col__lists">
-              <p class="label sub" i18n>Predviđeno</p>
+              <p class="label sub" i18n>Predviđena svečana odeća</p>
               <ul class="list yes">
                 @for (t of g.allowed; track t) {
                   <li>
@@ -90,9 +90,9 @@ export class DressCodeSectionComponent {
       image: '/images/silueta-dama.png',
       allowed: [$localize`Duga večernja ili balska haljina do poda`, $localize`Elegantna svečana obuća`],
       forbidden: [
-        $localize`Kratke i koktel haljine`,
-        $localize`Kratke suknje i dnevna odeća`,
-        $localize`Patike i neformalna obuća`,
+        $localize`Kratke haljine i koktel-haljine`,
+        $localize`Kratke suknje i svakodnevna odeća`,
+        $localize`Patike i druga neformalna obuća`,
         $localize`Narodne nošnje`,
       ],
     },
@@ -102,13 +102,13 @@ export class DressCodeSectionComponent {
       allowed: [
         $localize`Crni frak ili smoking`,
         $localize`Elegantno crno ili tamno odelo`,
-        $localize`Bela košulja i leptir mašna`,
+        $localize`Bela košulja i leptir-mašna`,
         $localize`Elegantna svečana obuća`,
       ],
       forbidden: [
-        $localize`Kravate umesto leptir mašne`,
+        $localize`Kravate umesto leptir-mašne`,
         $localize`Sportska i neformalna odeća`,
-        $localize`Patike i neformalna obuća`,
+        $localize`Patike i druga neformalna obuća`,
         $localize`Narodne nošnje`,
       ],
     },

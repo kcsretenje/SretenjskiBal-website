@@ -27,12 +27,12 @@ const IP = {
 
 const privacySr: LegalDoc = {
   title: 'Politika privatnosti',
-  updated: `Verzija ${PRIVACY_POLICY_VERSION}`,
+  updated: 'Verzija od 28. oktobra 2026.',
   sections: [
     {
       h: '1. Ko je upravljač podataka',
       p: [
-        `Upravljač Vaših ličnih podataka je ${O.legalName}, ${O.address}, ${O.registration} (u daljem tekstu: organizator). Pitanja o privatnosti: ${O.privacyEmail}.`,
+        `Upravljač vaših ličnih podataka je ${O.legalName}, ${O.address}, ${O.registration} (u daljem tekstu: organizator). Pitanja o privatnosti: ${O.privacyEmail}.`,
         'Ova politika važi za sajt Sretenjskog bala i obrađuje podatke u skladu sa Uredbom (EU) 2016/679 (GDPR) i slovenačkim Zakonom o zaštiti ličnih podataka (ZVOP-2).',
       ],
     },
@@ -41,11 +41,11 @@ const privacySr: LegalDoc = {
       table: {
         head: ['Svrha', 'Podaci', 'Pravni osnov'],
         rows: [
-          ['Rezervacija ulaznica', 'Ime i prezime, e-adresa, telefon, vrsta i broj ulaznica, napomena, izvor informacije o balu, podaci za račun (ako ih tražite)', 'Izvršenje ugovora / radnje na Vaš zahtev pre ugovora (čl. 6(1)(b) GDPR)'],
+          ['Rezervacija ulaznica', 'Ime i prezime, e-adresa, telefon, vrsta i broj ulaznica, napomena, izvor informacije o balu, podaci za račun (ako ih tražite)', 'Izvršenje ugovora / radnje na vaš zahtev pre ugovora (čl. 6(1)(b) GDPR)'],
           ['Ishrana i alergije (nije obavezno)', 'Slobodan tekst koji sami upišete; može otkriti zdravstveno stanje', 'Vaša izričita saglasnost (čl. 9(2)(a) GDPR); možete je opozvati u svakom trenutku'],
-          ['Poruke preko kontakt forme', 'Ime, e-adresa, tekst poruke', 'Saglasnost (čl. 6(1)(a)); odgovor na Vaš upit (čl. 6(1)(b))'],
+          ['Poruke putem kontakt-obrasca', 'Ime, e-adresa, tekst poruke', 'Saglasnost (čl. 6(1)(a)); odgovor na vaš upit (čl. 6(1)(b))'],
           ['Račun i knjigovodstvo', 'Podaci na računu', 'Zakonska obaveza (čl. 6(1)(c))'],
-          ['Zaštita od zloupotrebe (neželjene poruke)', 'Tehnički podaci o slanju forme, bez kolačića', 'Legitimni interes (čl. 6(1)(f)) — bezbednost sajta'],
+          ['Zaštita od zloupotrebe (neželjene poruke)', 'Tehnički podaci o slanju obrasca, bez kolačića', 'Legitimni interes (čl. 6(1)(f)) — bezbednost sajta'],
         ],
       },
     },
@@ -54,7 +54,7 @@ const privacySr: LegalDoc = {
       list: [
         'Podaci o rezervaciji: do 6 meseci nakon održavanja bala, osim podataka koje zakon traži da čuvamo (računi).',
         'Podaci o ishrani i alergijama: do 30 dana nakon bala, a ranije ako opozovete saglasnost.',
-        'Poruke iz kontakt forme: do 12 meseci.',
+        'Poruke primljene putem kontakt-obrasca: do 12 meseci.',
         'Računi i knjigovodstvena dokumentacija: koliko propisuje zakon.',
       ],
     },
@@ -88,11 +88,11 @@ const privacySr: LegalDoc = {
     },
     {
       h: '7. Kolačići i praćenje',
-      p: ['Sajt ne postavlja kolačiće niti upisuje podatke u lokalnu memoriju pregledača (localStorage), a ne koristimo ni analitiku, oglase, društvene dodatke ili spoljne servise koji prate posetioce. Fontovi se učitavaju sa našeg servera. Zato nema banera za saglasnost; ako u budućnosti uvedemo analitiku, tražićemo Vašu saglasnost pre toga.'],
+      p: ['Sajt ne postavlja kolačiće niti upisuje podatke u lokalnu memoriju pregledača (localStorage), a ne koristimo ni analitiku, oglase, društvene dodatke ili spoljne servise koji prate posetioce. Fontovi se učitavaju sa našeg servera. Zato nema banera za saglasnost; ako u budućnosti uvedemo analitiku, tražićemo vašu saglasnost pre toga.'],
     },
     {
       h: '8. Fotografisanje na balu',
-      p: ['Na balu se mogu snimati fotografije i video. Obaveštenje o tome biće istaknuto na ulazu; ako ne želite da budete snimljeni, recite to osoblju.'],
+      p: ['Na balu se mogu snimati fotografije i video. Obaveštenje o tome biće istaknuto na ulazu; ukoliko ne želite da budete snimljeni, obavestite osoblje.'],
     },
     {
       h: '9. Izmene politike',

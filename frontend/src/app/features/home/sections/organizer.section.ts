@@ -13,27 +13,21 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
         </div>
         <div class="body" appReveal [appRevealDelay]="120">
           <p class="lead" i18n>
-            Iza prvog Sretenjskog bala stoji Kulturni centar Sretenje — organizator bala i inicijativa nastala sa željom
-            da se ponovo otvori prostor za pomalo zaboravljenu građansku kulturu i vrednosti koje je ona nosila.
+            Prvi Sretenjski bal organizuje Kulturni centar Sretenje, inicijativa nastala iz želje da građanska kultura i njene pomalo zaboravljene vrednosti ponovo dobiju svoje mesto u savremenom društvu.
           </p>
           <p i18n>
-            Kroz istoriju, srpska zajednica na ovim prostorima ostavljala je trag kroz kulturu, obrazovanje, privredu i
-            duhovni život. To nasleđe želimo da približimo savremenom trenutku — ne kao povratak u prošlost, već kao
-            temelj za ono što tek možemo da gradimo.
+            Tokom istorije, srpska zajednica na ovim prostorima ostavljala je trag u kulturi, obrazovanju, privredi i duhovnom životu. Naša je namera da to nasleđe približimo savremenom trenutku — ne kao povratak u prošlost, već kao temelj za ono što ćemo tek stvarati.
           </p>
           <p i18n>
-            Kulturni centar Sretenje zamišljen je kao trajno mesto susreta ljudi iz sveta kulture, nauke, privrede i
-            duhovnog života. Mesto razgovora, povezivanja i novih ideja. Prostor u kom se neguje sopstveno nasleđe, ali
-            i gradi odnos sa kulturnom sredinom u kojoj živimo.
+            Kulturni centar Sretenje zamišljen je kao trajno mesto okupljanja ljudi iz sveta kulture, nauke, privrede i duhovnog života — mesto razgovora, povezivanja i novih ideja. Njegova je namera da neguje sopstveno nasleđe i istovremeno gradi odnose sa kulturnom sredinom u kojoj deluje.
           </p>
           <div class="why">
-            <h3 class="label" i18n>Zašto baš Sretenje?</h3>
+            <h3 class="label" i18n>Ideja Sretenja</h3>
             <p i18n>
-              Zato što je u njegovoj osnovi — susret. Susret duhovnog i građanskog. Tradicije i savremenosti. Našeg
-              nasleđa i kulture u kojoj živimo. Verujemo da upravo iz takvih susreta nastaju novi mostovi.
+              U imenu Sretenje sadržana je suština ove zamisli: susret duhovnog i građanskog, tradicije i savremenosti, našeg nasleđa i kulture sredine u kojoj živimo. Verujemo da upravo iz takvih susreta nastaju nove veze i trajna prijateljstva.
             </p>
           </div>
-          <p class="closing" i18n>Sretenjski bal je naš prvi korak.</p>
+          <p class="closing" i18n>Sretenjski bal prvi je korak ka ostvarenju te zamisli.</p>
         </div>
       </div>
     </section>

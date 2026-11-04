@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, LOCALE_ID, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
@@ -19,7 +19,7 @@ interface Chapter {
       <div class="container hero__in">
         <p class="label brass rise" style="--d: 0ms" i18n>Balska tradicija</p>
         <h1 id="bt-title" class="display rise" style="--d: 120ms" i18n>Bal nikada nije bio samo ples.</h1>
-        <p class="lead rise" style="--d: 260ms" i18n>Reč postoji od 12. veka, od latinskog <em>ballare</em> — igrati.</p>
+        <p class="lead rise" style="--d: 260ms" i18n>Reč „bal“ javlja se još u XII veku, a poreklo vodi od latinskog <em>ballare</em> — igrati.</p>
         <span class="scroll rise" style="--d: 500ms" aria-hidden="true"></span>
       </div>
     </section>
@@ -46,13 +46,21 @@ interface Chapter {
 
     <section class="section bg-burgundy closing" aria-labelledby="bt-closing">
       <div class="container narrow">
-        <div class="lines" appReveal>
-          <p class="quote" i18n>Tako su prostori za susret postajali više od prostora.</p>
-          <p class="quote soft" i18n>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</p>
-        </div>
-        <p class="lead" appReveal [appRevealDelay]="100" i18n>Bio je to način da se ljudi sretnu, različite kulture približe i da iz jednog susreta nastane nešto što će trajati.</p>
-        <h2 id="bt-closing" class="final" appReveal [appRevealDelay]="150" i18n>Sretenjski bal u Mariboru nastaje sa istom idejom — kao susret srpske i slovenačke kulture i kao početak jedne nove tradicije.</h2>
-        <a class="btn cta" routerLink="/rezervacija" appReveal [appRevealDelay]="200" i18n>Rezerviši ulaznice</a>
+        @if (sr) {
+          <div class="lines" appReveal>
+            <p class="quote soft" i18n>Takva mesta vremenom su dobijala značaj daleko veći od svoje prvobitne namene. U njima se razvijao kulturni život, povezivali ljudi i rađale ideje čiji je značaj trajao mnogo duže od jedne večeri.</p>
+          </div>
+          <p class="lead" appReveal [appRevealDelay]="100" i18n>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</p>
+        } @else {
+          <!-- Slovenačka i engleska verzija zadržavaju raniji raspored (tri pasusa). -->
+          <div class="lines" appReveal>
+            <p class="quote" i18n>Tako su prostori za susret postajali više od prostora.</p>
+            <p class="quote soft" i18n>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</p>
+          </div>
+          <p class="lead" appReveal [appRevealDelay]="100" i18n>Bio je to način da se ljudi sretnu, različite kulture približe i da iz jednog susreta nastane nešto što će trajati.</p>
+        }
+        <h2 id="bt-closing" class="final" appReveal [appRevealDelay]="150" i18n>U tom duhu nastaje i Sretenjski bal u Mariboru — kao susret srpske i slovenačke kulture i početak jedne nove tradicije.</h2>
+        <a class="btn cta" routerLink="/rezervacija" appReveal [appRevealDelay]="200" i18n>Rezervišite ulaznice</a>
       </div>
     </section>
   `,
@@ -104,36 +112,38 @@ interface Chapter {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BallTraditionPage {
+  /** Srpski tekst završnog dela ima dva pasusa; SL/EN zadržavaju raniji raspored. */
+  protected readonly sr = inject(LOCALE_ID).startsWith('sr');
   protected readonly chapters: Chapter[] = [
     {
       mark: '1834.',
       title: $localize`Kragujevac, dvor kneza Miloša`,
       text: [
-        $localize`Prvi bal u Kneževini Srbiji održan je 1834. u Kragujevcu, na dvoru kneza Miloša.`,
-        $localize`Kroz decenije koje su usledile, balovi su bili mesta susreta, razgovora, povezivanja i dogovora. Na njima su se susretali ljudi iz sveta politike, kulture, privrede i umetnosti, a dobrotvorni balovi prikupljali su sredstva za škole, društva i druge javne potrebe.`,
+        $localize`Prvi bal u Kneževini Srbiji održan je 1834. godine u Kragujevcu, na dvoru kneza Miloša.`,
+        $localize`U decenijama koje su usledile, balovi su postali važna mesta susreta, razgovora, povezivanja i dogovora. Okupljali su ljude iz sveta politike, kulture, privrede i umetnosti, dok su se na dobrotvornim balovima prikupljala sredstva za škole, društva i druge javne potrebe.`,
       ],
     },
     {
       mark: $localize`1860-ih`,
       title: $localize`Slovenačke zemlje i čitalnice`,
       text: [
-        $localize`I u slovenačkim zemljama ples je odavno bio deo građanskog i društvenog života, ali se do tada balska kultura razvijala u okviru tadašnjih građanskih krugova, često pod snažnim nemačkim i austrijskim kulturnim uticajem.`,
-        $localize`Od šezdesetih godina 19. veka počinje da se razvija mreža slovenskih čitalnica.`,
+        $localize`I u slovenačkim zemljama ples je odavno bio sastavni deo građanskog i društvenog života. Do tada se balska kultura razvijala u građanskim krugovima, često pod snažnim nemačkim i austrijskim kulturnim uticajem.`,
+        $localize`Od šezdesetih godina XIX veka počinje da se razvija mreža slovenskih čitalnica.`,
       ],
     },
     {
       mark: '1863.',
       title: $localize`Čitalnica u Kranju`,
       text: [
-        $localize`Kada je 1863. otvorena čitalnica u Kranju, nakon izvođenja pesme „Hej Slovani“ otpočeo je ples kojim je svečanost i završena.`,
-        $localize`Čitalnice su predstavljale prostore u kojima se nisu samo čitale knjige, već se okupljalo, slušala muzika, održavale predstave, predavanja i, naravno, plesalo.`,
+        $localize`Na svečanom otvaranju čitalnice u Kranju 1863. godine, nakon izvođenja pesme „Hej Slovani“, usledio je ples kojim je svečanost završena.`,
+        $localize`Čitalnice nisu bile samo mesta za čitanje knjiga. U njima su se ljudi okupljali, slušali muziku, prisustvovali predstavama i predavanjima, ali i učestvovali u plesnim svečanostima.`,
       ],
     },
     {
       mark: '1898.',
       title: $localize`U Mariboru je ta ideja dobila svoj dom`,
       text: [
-        $localize`Godine 1898. podignut je Narodni dom, središte kulturnog i društvenog života mariborskih Slovenaca. Pod njegovim krovom našli su se čitaonica, biblioteka, muzička i dramska društva, dok su se u svečanoj dvorani održavali koncerti, predstave, skupovi — i plesovi.`,
+        $localize`Godine 1898. podignut je Narodni dom, središte kulturnog i društvenog života mariborskih Slovenaca. Pod njegovim krovom svoje mesto pronašli su čitaonica, biblioteka, muzička i dramska društva, dok su se u svečanoj dvorani održavali koncerti, predstave, skupovi i plesovi.`,
       ],
     },
   ];

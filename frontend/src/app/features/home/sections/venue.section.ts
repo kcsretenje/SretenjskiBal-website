@@ -17,8 +17,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
             </app-section-heading>
           </div>
           <p class="lead" appReveal [appRevealDelay]="80" i18n>
-            Krajem 19. veka, u Mariboru u kojem su Slovenci bili manjina, nastala je ideja o prostoru koji će čuvati
-            slovenački jezik, kulturu i zajedništvo. Iz te ideje rođen je Narodni dom.
+            Krajem XIX veka, u Mariboru, gde su Slovenci bili manjina, nastala je zamisao o domu koji će čuvati slovenački jezik, kulturu i zajedništvo. Iz te zamisli nastao je Narodni dom.
           </p>
           <ol class="facts">
             @for (f of facts; track f.year; let i = $index) {
@@ -28,7 +27,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
               </li>
             }
           </ol>
-          <p class="quote closing" appReveal i18n>Mesto sa istorijom susreta, za početak jednog novog.</p>
+          <p class="quote closing" appReveal i18n>U zdanju koje pamti brojne susrete započinje jedan novi.</p>
           <address class="details" appReveal>
             @if (event().venueName; as name) {
               <span class="name">{{ name }}</span>
@@ -77,7 +76,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
 export class VenueSectionComponent {
   protected readonly eyebrow = $localize`Mesto održavanja`;
   protected readonly facts = [
-    { year: '1898.', text: $localize`Dom počinje sa radom 1. oktobra, po projektu češkog arhitekte Jana Vejrycha, u stilu češke neorenesanse.` },
+    { year: '1898.', text: $localize`Narodni dom, podignut prema projektu češkog arhitekte Jana Vejrycha u stilu češke neorenesanse, počinje da radi 1. oktobra.` },
     { year: '1911.', text: $localize`U velikoj dvorani osnovano je Slovenačko pozorište u Mariboru.` },
     { year: '1918.', text: $localize`U Domu je osnovan Narodni savet za Štajersku.` },
     { year: '1993.', text: $localize`Narodni dom ponovo postaje kulturni centar grada.` },

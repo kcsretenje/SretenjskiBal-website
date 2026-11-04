@@ -22,7 +22,7 @@ export interface SectionNavItem {
 
 /** Nazivi su isti kao naslovi sekcija na početnoj. */
 export const SECTION_NAV: SectionNavItem[] = [
-  { label: $localize`Izvođači`, id: 'izvodjaci' },
+  { label: $localize`Učesnici programa`, id: 'izvodjaci' },
   { label: $localize`Narodni dom, Maribor`, id: 'prostor' },
   { label: $localize`Program večeri`, id: 'program' },
   { label: $localize`Kodeks oblačenja`, id: 'pravila-oblacenja' },

@@ -23,8 +23,8 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     <section id="izvodjaci" class="section bg-ivory performers" aria-labelledby="performers-title">
       <div class="container">
         <div class="head" appReveal>
-          <app-section-heading headingId="performers-title" i18n-eyebrow eyebrow="Nastupaju">
-            <ng-container i18n>Izvođači</ng-container>
+          <app-section-heading headingId="performers-title" i18n-eyebrow eyebrow="U programu učestvuju">
+            <ng-container i18n>Učesnici programa</ng-container>
           </app-section-heading>
 
           @if (performers.length > 1) {
@@ -59,7 +59,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
               </li>
             }
           </ul>
-          <p class="more" appReveal i18n>Ostali izvođači biće uskoro objavljeni.</p>
+          <p class="more" appReveal i18n>Imena ostalih učesnika programa biće uskoro objavljena.</p>
         } @else {
           <ul class="track track--soon" appReveal [appRevealDelay]="120" aria-hidden="true">
             @for (i of soon; track i) {

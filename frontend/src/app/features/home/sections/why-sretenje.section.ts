@@ -18,7 +18,7 @@ interface Moment {
             <ng-container i18n>Zašto Sretenje?</ng-container>
           </app-section-heading>
           <p class="lead" i18n>
-            Reč sretenje u srpskom i slovenačkom jeziku znači susret, a jedan praznik simboliše toliko susreta.
+            Reč „sretenje“ u srpskom i slovenačkom jeziku znači susret. U simbolici ovog praznika prepliću se duhovno predanje, narodna verovanja i istorijsko nasleđe.
           </p>
           <p class="quote pairs accent" i18n>
             <span>Vere i istorije.</span>
@@ -36,7 +36,7 @@ interface Moment {
           }
         </ol>
 
-        <p class="closing quote" appReveal i18n>Sretenjski bal nastaje sa idejom susreta srpske i slovenačke kulture.</p>
+        <p class="closing quote" appReveal i18n>Na toj ideji počiva i Sretenjski bal, zamišljen kao susret srpske i slovenačke kulture.</p>
       </div>
     </section>
   `,
@@ -63,19 +63,19 @@ export class WhySretenjeSectionComponent {
   protected readonly moments: Moment[] = [
     {
       mark: $localize`Sretenje Gospodnje`,
-      text: $localize`Prema Jevanđelju po Luki, četrdesetog dana po rođenju, Marija i Josif donose Isusa u jerusalimski hram, gde ga starac Simeon uzima u naručje i prepoznaje kao svetlost.`,
+      text: $localize`Prema Jevanđelju po Luki, četrdesetog dana po Isusovom rođenju, Marija i Josif doneli su ga u jerusalimski hram. Tamo ga je starac Simeon uzeo u naručje i prepoznao kao svetlost.`,
     },
     {
       mark: $localize`Narodna tradicija`,
-      text: $localize`U narodu se Sretenje vezuje za simbolični susret zime i proleća.`,
+      text: $localize`U narodnom predanju Sretenje se vezuje za simbolični susret zime i proleća.`,
     },
     {
       mark: '1804.',
-      text: $localize`Na Sretenje u Orašcu je podignut Prvi srpski ustanak, kojim je započeta borba za oslobođenje Srbije od osmanske vlasti.`,
+      text: $localize`Na Sretenje je u Orašcu podignut Prvi srpski ustanak, čime je započeta borba za oslobođenje Srbije od osmanske vlasti.`,
     },
     {
       mark: '1835.',
-      text: $localize`U Kragujevcu je proglašen Sretenjski ustav. Njime su prvi put jasno postavljeni temelji moderne srpske države.`,
+      text: $localize`U Kragujevcu je proglašen Sretenjski ustav, kojim su prvi put jasno postavljeni temelji moderne srpske države.`,
     },
     {
       mark: $localize`Od 2002.`,
