@@ -155,6 +155,9 @@ const SETTINGS = [
   ['BALL_YEAR', '27', 'Dve cifre godine bala, početak broja rezervacije (27 → 27001, 27002…). Promenite pred sledeći bal.'],
   ['PRICE_SVECANA', 140, 'Cena karte Svečana (EUR). Iznos za uplatu se upisuje automatski kao predlog — pre slanja instrukcija možete ga promeniti.'],
   ['PRICE_GALERIJA', 70, 'Cena karte Galerija (EUR).'],
+  ['CAPACITY_SVECANA', 144, 'Broj mesta za Svečane karte (stolovi po 8). Koristi se samo za popunjenost u tabu Statistika.'],
+  ['CAPACITY_GALERIJA', 70, 'Osnovni broj mesta na galeriji. Koristi se samo za popunjenost u tabu Statistika.'],
+  ['CAPACITY_GALERIJA_EXTRA', 30, 'Dodatna mesta na galeriji (otvaraju se po potrebi). Koristi se samo za popunjenost u tabu Statistika.'],
   ['PAYMENT_DAYS', 3, 'Rok za uplatu u danima, računa se od dana slanja instrukcija za uplatu.'],
   ['GRACE_DAYS', 1, 'Koliko dana posle podsetnika gost još može da plati. Sledećeg dana neplaćena rezervacija prelazi u ISTEKLO.'],
   ['ADMIN_EMAIL', 'info@kcsretenje.si', 'Adresa na koju stižu obaveštenja o novim rezervacijama i dnevni izveštaj o rokovima.'],
@@ -2137,8 +2140,41 @@ function setupStatsSheet_(ss) {
   const letter = function (key) { return columnLetter_(t.idx[COL[key]] + 1); };
   const R = function (key) { return "'" + SHEET_RESERVATIONS + "'!" + letter(key) + '2:' + letter(key); };
   const active = ', ' + R('status') + ', "<>' + STATUS.EXPIRED + '", ' + R('status') + ', "<>' + STATUS.CANCELLED + '"';
+  const GC = function (col) { return "'" + SHEET_GUESTS + "'!" + columnLetter_(col + 1) + '2:' + columnLetter_(col + 1); };
+  const cap = function (key) { return 'IFERROR(VLOOKUP("' + key + '", \'' + SHEET_SETTINGS + '\'!A:B, 2, FALSE), 0)'; };
+  const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
+  const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '", ' + R('status') + ', "' + STATUS.PAID + '")'; };
+  const S = TICKET_TYPES.SVECANA, GA = TICKET_TYPES.GALERIJA;
+  const pct = '0%', money = '#,##0.00';
+  // [naziv, formula, format?] — rezervisano = aktivne karte (bez isteklih i otkazanih)
   const rows = [
     ['Pokazatelj', 'Vrednost'],
+    ['POPUNJENOST', ''],
+    ['Svečane — kapacitet', '=' + cap('CAPACITY_SVECANA')],
+    ['Svečane — rezervisano', '=' + typeActive(S)],
+    ['Svečane — plaćeno', '=' + typePaid(S)],
+    ['Svečane — slobodno', '=' + cap('CAPACITY_SVECANA') + ' - ' + typeActive(S)],
+    ['Svečane — popunjenost', '=IFERROR(' + typeActive(S) + ' / ' + cap('CAPACITY_SVECANA') + ', 0)', pct],
+    ['Stolovi — zauzeto (jedna svečana rezervacija = jedan sto)', '=COUNTIFS(' + R('ticketType') + ', "' + S + '"' + active + ')'],
+    ['Stolovi — ukupno (po 8 mesta)', '=ROUNDUP(' + cap('CAPACITY_SVECANA') + ' / 8)'],
+    ['Galerija — kapacitet (osnovni)', '=' + cap('CAPACITY_GALERIJA')],
+    ['Galerija — dodatna mesta', '=' + cap('CAPACITY_GALERIJA_EXTRA')],
+    ['Galerija — rezervisano', '=' + typeActive(GA)],
+    ['Galerija — plaćeno', '=' + typePaid(GA)],
+    ['Galerija — slobodno od osnovnih', '=' + cap('CAPACITY_GALERIJA') + ' - ' + typeActive(GA)],
+    ['Galerija — slobodno sa dodatnim', '=' + cap('CAPACITY_GALERIJA') + ' + ' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + typeActive(GA)],
+    ['Galerija — popunjenost osnovnih', '=IFERROR(' + typeActive(GA) + ' / ' + cap('CAPACITY_GALERIJA') + ', 0)', pct],
+    ['', ''],
+    ['UPLATE', ''],
+    ['Uplate na račun (iznos)', '=SUMIFS(' + R('amount') + ', ' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "Na račun")', money],
+    ['Uplate u gotovini (iznos)', '=SUMIFS(' + R('amount') + ', ' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "Gotovina")', money],
+    ['Plaćene rezervacije bez upisanog načina plaćanja', '=COUNTIFS(' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "")'],
+    ['', ''],
+    ['NA ULAZU', ''],
+    ['Ušlo gostiju (skenirane ulaznice)', '=COUNTA(' + GC(G.enteredAt) + ')'],
+    ['Ušlo od plaćenih karata', '=IFERROR(COUNTA(' + GC(G.enteredAt) + ') / SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('ticketCount') + '), 0)', pct],
+    ['', ''],
+    ['REZERVACIJE', ''],
     ['Broj prijava (sve rezervacije)', '=COUNTA(' + R('number') + ')'],
     ['Ukupno rezervisanih karata (sve prijave)', '=SUM(' + R('ticketCount') + ')'],
     ['Aktivne karte (bez isteklih i otkazanih)', '=SUMIFS(' + R('ticketCount') + active + ')'],
@@ -2149,10 +2185,10 @@ function setupStatsSheet_(ss) {
     ['Status: ' + STATUS.PAID, '=COUNTIF(' + R('status') + ', "' + STATUS.PAID + '")'],
     ['Status: ' + STATUS.EXPIRED, '=COUNTIF(' + R('status') + ', "' + STATUS.EXPIRED + '")'],
     ['Status: ' + STATUS.CANCELLED, '=COUNTIF(' + R('status') + ', "' + STATUS.CANCELLED + '")'],
-    ['Procenat plaćenih rezervacija', '=IFERROR(COUNTIF(' + R('status') + ', "' + STATUS.PAID + '") / COUNTA(' + R('number') + '), 0)'],
+    ['Procenat plaćenih rezervacija', '=IFERROR(COUNTIF(' + R('status') + ', "' + STATUS.PAID + '") / COUNTA(' + R('number') + '), 0)', pct],
     ['Plaćene karte', '=SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('ticketCount') + ')'],
-    ['Evidentirane uplate (iznos)', '=SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('amount') + ')'],
-    ['Prosečan broj dana od prijave do uplate', '=IFERROR(AVERAGE(FILTER(INT(' + R('paidAt') + ') - INT(' + R('createdAt') + '), ' + R('paidAt') + ' <> "")), "—")'],
+    ['Evidentirane uplate (iznos)', '=SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('amount') + ')', money],
+    ['Prosečan broj dana od prijave do uplate', '=IFERROR(AVERAGE(FILTER(INT(' + R('paidAt') + ') - INT(' + R('createdAt') + '), ' + R('paidAt') + ' <> "")), "—")', '0.0'],
     ['', ''],
   ];
   Object.keys(TICKET_TYPES).forEach(function (k) {
@@ -2167,11 +2203,12 @@ function setupStatsSheet_(ss) {
   rows.push(['', ''], ['Zahtevi za fakturu na firmu', '=COUNTIF(' + R('invoice') + ', "DA")']);
   rows.push(['Rezervacije sa posebnom ishranom', '=COUNTIF(' + R('diet') + ', "?*")']);
 
-  sheet.getRange(1, 1, rows.length, 2).setValues(rows);
+  sheet.getRange(1, 1, rows.length, 2).setValues(rows.map(function (r) { return [r[0], r[1]]; }));
   sheet.getRange(1, 1, 1, 2).setFontWeight('bold').setBackground('#5a1723').setFontColor('#f6f1e8');
-  sheet.getRange(12, 2).setNumberFormat('0%');
-  sheet.getRange(14, 2).setNumberFormat('#,##0.00');
-  sheet.getRange(15, 2).setNumberFormat('0.0');
+  rows.forEach(function (r, i) {
+    if (r[2]) sheet.getRange(i + 1, 2).setNumberFormat(r[2]);
+    if (r[0] && r[0] === r[0].toUpperCase() && !r[1]) sheet.getRange(i + 1, 1, 1, 2).setFontWeight('bold').setBackground('#f3e9d8');
+  });
   sheet.setColumnWidth(1, 340);
   sheet.setColumnWidth(2, 140);
   sheet.setFrozenRows(1);

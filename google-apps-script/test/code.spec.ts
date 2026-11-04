@@ -472,6 +472,13 @@ describe('Apps Script (Code.gs)', () => {
       expect(keys).toEqual(expect.arrayContaining(['BOOKING_OPEN', 'PRICE_GALERIJA', 'IBAN']));
       expect(keys).not.toContain('MAX_TICKETS');
       expect(gas.sheets.get('Statistika')!.data.length).toBeGreaterThan(10);
+      const stats = gas.sheets.get('Statistika')!.data;
+      const f = (label: string) => { const v = stats.find((r) => r[0] === label)?.[1]; return v instanceof Formula ? v.text : String(v ?? ''); };
+      expect(f('Svečane — kapacitet')).toContain('VLOOKUP("CAPACITY_SVECANA"');
+      expect(f('Galerija — slobodno sa dodatnim')).toContain('CAPACITY_GALERIJA_EXTRA');
+      expect(f('Uplate u gotovini (iznos)')).toContain('"Gotovina"');
+      expect(f('Ušlo gostiju (skenirane ulaznice)')).toContain("'Gosti'!M2:M");
+      expect(keys).toContain('CAPACITY_SVECANA');
       expect(gas.props.has('API_SECRET')).toBe(false);
       expect(gas.sheets.get('Poruke')!.data[0]).toEqual(gas.get('MESSAGE_HEADERS'));
       expect(gas.props.get('SPREADSHEET_ID')).toBe('test-spreadsheet-id');
