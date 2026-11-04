@@ -27,6 +27,7 @@ export const SECTION_NAV: SectionNavItem[] = [
   { label: $localize`Program večeri`, id: 'program' },
   { label: $localize`Kodeks oblačenja`, id: 'pravila-oblacenja' },
   { label: $localize`Kulturni centar Sretenje`, id: 'organizator' },
+  { label: $localize`Kontakt i pitanja`, path: '/kontakt' },
 ];
 
 /** Sekcije koje se ponavljaju u podnožju (bez ulaznica). */

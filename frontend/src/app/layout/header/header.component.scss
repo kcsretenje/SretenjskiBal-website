@@ -217,21 +217,6 @@
     border-top: 1px solid var(--c-rule-brass);
     color: var(--c-brass);
   }
-
-  // Link „Kontakt i pitanja" na dnu panela (vidi se na svim ekranima).
-  &__contact {
-    font-size: var(--fs-label);
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--c-ivory);
-    transition: color var(--dur-base) var(--ease);
-
-    &:hover,
-    &.is-active {
-      color: var(--c-brass);
-    }
-  }
 }
 
 @media (max-width: 1239.98px) {
@@ -252,7 +237,7 @@
 // Na širokom ekranu jezik i dugme „Ulaznice" već stoje u zaglavlju — u otvorenom meniju se ne ponavljaju.
 @media (min-width: 1240px) {
   .overlay__cta,
-  .overlay__foot app-language-switcher {
+  .overlay__foot {
     display: none;
   }
 }
