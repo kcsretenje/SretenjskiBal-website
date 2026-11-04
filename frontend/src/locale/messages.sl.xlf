@@ -243,7 +243,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">153</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3564348663653334690" datatype="html">
@@ -271,7 +271,7 @@
         <target>Prostori, namenjeni srečevanju, so sčasoma pridobili pomen, ki je presegal njihovo prvotno vlogo. V njih se je oblikovalo kulturno življenje, ljudje so se povezovali in nastajale so zamisli, katerih vpliv je segal daleč onkraj posameznega večera.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">51,52</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7898776298845415227" datatype="html">
@@ -279,31 +279,7 @@
         <target>Bili so kraji, kjer so se različne kulture zbliževale in kjer so iz srečanj nastajale vezi, ki niso ostajale omejene na eno samo slovesnost.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">53,54</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3859338711410292469" datatype="html">
-        <source>Tako su prostori za susret postajali više od prostora.</source>
-        <target>Tako so prostori srečanj postajali več kot prostori.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">57,58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3333469744472339837" datatype="html">
-        <source>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</source>
-        <target>Postajali so kraji, kjer se je gradila kultura, povezovali ljudje in rojevale ideje, ki so trajale precej dlje kot en večer.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">58,59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5910431724992160642" datatype="html">
-        <source>Bio je to način da se ljudi sretnu, različite kulture približe i da iz jednog susreta nastane nešto što će trajati.</source>
-        <target>Bil je način, da se ljudje srečajo, da se različne kulture zbližajo in da iz enega srečanja nastane nekaj, kar bo trajalo.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8262890307708113078" datatype="html">
@@ -311,7 +287,7 @@
         <target>V tem duhu nastaja tudi Sretenjski bal v Mariboru — kot srečanje srbske in slovenske kulture ter začetek nove tradicije.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">62,63</context>
+          <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="728129263221192298" datatype="html">
@@ -319,7 +295,7 @@
         <target>Rezervirajte vstopnice</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">63,64</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
@@ -331,7 +307,7 @@
         <target>Kragujevac, dvor kneza Miloša</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4219978041275170844" datatype="html">
@@ -339,7 +315,7 @@
         <target>Prvi bal v Kneževini Srbiji je potekal leta 1834 v Kragujevcu, na dvoru kneza Miloša.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6184014637241779905" datatype="html">
@@ -347,7 +323,7 @@
         <target>V desetletjih, ki so sledila, so bali postali pomembna prizorišča srečanj, pogovorov, povezovanja in dogovorov. Na njih so se zbirali predstavniki politike, kulture, gospodarstva in umetnosti, dobrodelni bali pa so namenjali zbrana sredstva šolam, društvom in drugim javnim potrebam.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8200896258804099939" datatype="html">
@@ -355,7 +331,7 @@
         <target>Šestdeseta leta 19. stoletja</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">127</context>
+          <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3866581712148650181" datatype="html">
@@ -363,7 +339,7 @@
         <target>Slovenske dežele in čitalnice</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5812441544755261721" datatype="html">
@@ -371,7 +347,7 @@
         <target>Tudi v slovenskih deželah je bil ples že dolgo sestavni del meščanskega in družabnega življenja. Do tedaj se je plesna kultura razvijala predvsem v meščanskih krogih, pogosto pod močnim nemškim in avstrijskim kulturnim vplivom.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8757037308736691860" datatype="html">
@@ -379,7 +355,7 @@
         <target>V šestdesetih letih 19. stoletja se je začela razvijati mreža slovenskih čitalnic.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2054922500324554374" datatype="html">
@@ -387,7 +363,7 @@
         <target>Čitalnica v Kranju</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">136</context>
+          <context context-type="linenumber">125</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8639100598853566161" datatype="html">
@@ -395,7 +371,7 @@
         <target>Ob odprtju čitalnice v Kranju leta 1863 je po izvedbi pesmi »Hej, Slovani« sledil ples, s katerim se je slovesnost tudi zaključila.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">138</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2336071244271270039" datatype="html">
@@ -403,7 +379,7 @@
         <target>Čitalnice niso bile zgolj prostori, namenjeni branju knjig. V njih so se ljudje zbirali, poslušali glasbo, obiskovali predstave in predavanja ter se udeleževali plesnih prireditev.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="516219425988729566" datatype="html">
@@ -411,7 +387,7 @@
         <target>V Mariboru je ta ideja dobila svoj dom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">133</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1711795589952634505" datatype="html">
@@ -419,7 +395,7 @@
         <target>Leta 1898 je bil zgrajen Narodni dom, ki je postal središče kulturnega in družbenega življenja mariborskih Slovencev. Pod njegovo streho so delovali čitalnica, knjižnica ter glasbena in dramska društva, slavnostna dvorana pa je gostila koncerte, gledališke predstave, shode in plese.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">135</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7800743159455711142" datatype="html">
@@ -427,7 +403,7 @@
         <target>Bal ni bil nikoli le ples: od latinskega ballare prek prvega bala v Kragujevcu in slovenskih čitalnic do Narodnega doma v Mariboru.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">154</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="397497450705980813" datatype="html">

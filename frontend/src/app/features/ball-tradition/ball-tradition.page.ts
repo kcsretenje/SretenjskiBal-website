@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, LOCALE_ID, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
@@ -46,19 +46,10 @@ interface Chapter {
 
     <section class="section bg-burgundy closing" aria-labelledby="bt-closing">
       <div class="container narrow">
-        @if (sr) {
-          <div class="lines" appReveal>
-            <p class="quote soft" i18n>Takva mesta vremenom su dobijala značaj daleko veći od svoje prvobitne namene. U njima se razvijao kulturni život, povezivali ljudi i rađale ideje čiji je značaj trajao mnogo duže od jedne večeri.</p>
-          </div>
-          <p class="lead" appReveal [appRevealDelay]="100" i18n>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</p>
-        } @else {
-          <!-- Engleska verzija zadržava raniji raspored (tri pasusa). -->
-          <div class="lines" appReveal>
-            <p class="quote" i18n>Tako su prostori za susret postajali više od prostora.</p>
-            <p class="quote soft" i18n>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</p>
-          </div>
-          <p class="lead" appReveal [appRevealDelay]="100" i18n>Bio je to način da se ljudi sretnu, različite kulture približe i da iz jednog susreta nastane nešto što će trajati.</p>
-        }
+        <div class="lines" appReveal>
+          <p class="quote soft" i18n>Takva mesta vremenom su dobijala značaj daleko veći od svoje prvobitne namene. U njima se razvijao kulturni život, povezivali ljudi i rađale ideje čiji je značaj trajao mnogo duže od jedne večeri.</p>
+        </div>
+        <p class="lead" appReveal [appRevealDelay]="100" i18n>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</p>
         <h2 id="bt-closing" class="final" appReveal [appRevealDelay]="150" i18n>U tom duhu nastaje i Sretenjski bal u Mariboru — kao susret srpske i slovenačke kulture i početak jedne nove tradicije.</h2>
         <a class="btn cta" routerLink="/rezervacija" appReveal [appRevealDelay]="200" i18n>Rezervišite ulaznice</a>
       </div>
@@ -112,8 +103,6 @@ interface Chapter {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BallTraditionPage {
-  /** Srpski i slovenački tekst završnog dela imaju dva pasusa; engleski zadržava raniji raspored. */
-  protected readonly sr = !inject(LOCALE_ID).startsWith('en');
   protected readonly chapters: Chapter[] = [
     {
       mark: '1834.',

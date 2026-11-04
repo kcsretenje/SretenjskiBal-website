@@ -1,10 +1,10 @@
 /**
  * Pravni tekstovi (politika privatnosti, kolačići) na srpskom, slovenačkom i engleskom.
  * Vrednosti iz ORGANIZER ubacuju se u tekst. Slovenački i engleski tekst treba da pregleda izvorni govornik / pravnik.
- * Pri svakoj izmeni teksta promeniti PRIVACY_POLICY_VERSION u site-content.ts.
+ * Pri svakoj izmeni teksta promeniti PRIVACY_POLICY_VERSION u site-content.ts i oznaku verzije (updated) u sva tri jezika.
  */
 import { Locale } from '../i18n/locale';
-import { ORGANIZER as O, PRIVACY_POLICY_VERSION } from './site-content';
+import { ORGANIZER as O } from './site-content';
 
 export interface LegalSection {
   h: string;
@@ -175,17 +175,17 @@ const privacySl: LegalDoc = {
 
 const privacyEn: LegalDoc = {
   title: 'Privacy Policy',
-  updated: `Version ${PRIVACY_POLICY_VERSION}`,
+  updated: 'Version dated 28 October 2026',
   sections: [
     {
-      h: '1. Who is the controller',
+      h: '1. Data controller',
       p: [
         `The controller of your personal data is ${O.legalName}, ${O.address}, ${O.registration} (the organiser). Privacy enquiries: ${O.privacyEmail}.`,
         'This policy applies to the Sretenjski bal website and complies with Regulation (EU) 2016/679 (GDPR) and the Slovenian Personal Data Protection Act (ZVOP-2).',
       ],
     },
     {
-      h: '2. What data we process and why',
+      h: '2. Personal data we process and why',
       table: {
         head: ['Purpose', 'Data', 'Legal basis'],
         rows: [
@@ -198,7 +198,7 @@ const privacyEn: LegalDoc = {
       },
     },
     {
-      h: '3. How long we keep data',
+      h: '3. Data retention',
       list: [
         'Reservation data: up to 6 months after the ball, except data we are legally required to keep (invoices).',
         'Diet and allergy information: up to 30 days after the ball, or sooner if you withdraw consent.',
@@ -207,7 +207,7 @@ const privacyEn: LegalDoc = {
       ],
     },
     {
-      h: '4. Who has access',
+      h: '4. Access to personal data',
       p: ['Only members of the organising team can access the data. We use the following processors, which act only on our instructions:'],
       list: [
         `Website hosting: ${O.hosting}`,
@@ -224,7 +224,7 @@ const privacyEn: LegalDoc = {
       ],
     },
     {
-      h: '6. Mandatory data and automated decisions',
+      h: '6. Required information and automated decision-making',
       p: [
         'Name, email, phone and number of tickets are needed to process a reservation; without them we cannot accept it. Diet information is voluntary. We do not use automated decision-making or profiling.',
         'The site is intended for people aged 15 and over; younger visitors cannot give consent on their own.',
@@ -236,10 +236,10 @@ const privacyEn: LegalDoc = {
     },
     {
       h: '8. Photography at the ball',
-      p: ['Photos and video may be taken at the ball. A notice will be displayed at the entrance; if you do not wish to be photographed, tell our staff.'],
+      p: ['Photographs and video recordings may be taken during the ball. A notice will be displayed at the entrance. If you do not wish to be photographed, please inform a member of staff.'],
     },
     {
-      h: '9. Changes',
+      h: '9. Changes to this policy',
       p: ['We may update this policy; the current version is always on this page, with the version label at the top.'],
     },
   ],

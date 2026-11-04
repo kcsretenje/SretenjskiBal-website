@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="5491334149578453705" datatype="html">
         <source>Prijem gostiju</source>
-        <target>Arrival of guests</target>
+        <target>Reception of guests</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">47</context>
@@ -44,7 +44,7 @@
       </trans-unit>
       <trans-unit id="452588451974005074" datatype="html">
         <source>Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice, muziku i fotografisanje.</source>
-        <target>Guests are welcomed in the foyer of Narodni dom with a welcome drink, music and photographs.</target>
+        <target>Guests are welcomed in the foyer of Narodni dom with a welcome drink, music and an opportunity for photographs.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">47</context>
@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit id="8639838644508598336" datatype="html">
         <source>Svečano otvaranje</source>
-        <target>Anthems and opening</target>
+        <target>Official opening ceremony</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">48</context>
@@ -60,7 +60,7 @@
       </trans-unit>
       <trans-unit id="5100464966709925683" datatype="html">
         <source>Intoniranje himni Srbije i Slovenije, nakon čega slede izlazak voditeljke programa i uvodna reč.</source>
-        <target>The anthems of Serbia and Slovenia, followed by the host's entrance and opening words.</target>
+        <target>The national anthems of Serbia and Slovenia, followed by the introduction of the evening's host and an opening address.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">48</context>
@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="5039980571356143066" datatype="html">
         <source>Svečana večera u Dvorani generala Maistra.</source>
-        <target>Dinner in the General Maister Hall.</target>
+        <target>A formal dinner in the General Maister Hall.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">49</context>
@@ -96,7 +96,7 @@
       </trans-unit>
       <trans-unit id="5468966185035914804" datatype="html">
         <source>Koncert grupe Galija</source>
-        <target>Concert by Galija</target>
+        <target>Galija — live in concert</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">51</context>
@@ -104,7 +104,7 @@
       </trans-unit>
       <trans-unit id="598681352794067076" datatype="html">
         <source>Glavni muzički deo večeri, kojim se bal završava.</source>
-        <target>The main musical programme of the evening and the close of the ball.</target>
+        <target>The evening's principal musical performance, bringing the ball to a close.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">51</context>
@@ -124,7 +124,7 @@
       </trans-unit>
       <trans-unit id="1426827570925947520" datatype="html">
         <source>Kulturno-umetnički program i koncert grupe Galija</source>
-        <target>Cultural and artistic programme and a concert by Galija</target>
+        <target>Full cultural and artistic programme, including a concert by Galija</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">62</context>
@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="8096000637451825549" datatype="html">
         <source>Neograničeno posluženje pića tokom večeri</source>
-        <target>Unlimited drinks</target>
+        <target>Unlimited drinks throughout the evening</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">64</context>
@@ -144,7 +144,7 @@
       </trans-unit>
       <trans-unit id="5563874495808506497" datatype="html">
         <source>Rezervisano mesto za stolom u Dvorani generala Maistra</source>
-        <target>A seat at a table in the General Maister Hall</target>
+        <target>Reserved seat at a table in the General Maister Hall</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">65</context>
@@ -164,7 +164,7 @@
       </trans-unit>
       <trans-unit id="5684904892723536855" datatype="html">
         <source>Koktel posluženje i piće dobrodošlice</source>
-        <target>Cocktail reception and welcome drink</target>
+        <target>Cocktail-style refreshments and a welcome drink</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">71</context>
@@ -172,7 +172,7 @@
       </trans-unit>
       <trans-unit id="255126846467855915" datatype="html">
         <source>Mesto za stajanje na galeriji, sa pogledom na celokupan program</source>
-        <target>Standing place on the gallery with a view of the entire programme</target>
+        <target>Standing place in the gallery, overlooking the entire programme, with no seating provided</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">72</context>
@@ -180,7 +180,7 @@
       </trans-unit>
       <trans-unit id="1765158419371170444" datatype="html">
         <source>Ulazak u Dvoranu generala Maistra po završetku zvaničnog dela programa, od početka nastupa grupe Galija</source>
-        <target>Access to the General Maister Hall after the official part of the programme, from the start of Galija's performance</target>
+        <target>Access to the General Maister Hall after the official programme, from the beginning of Galija's performance</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">73</context>
@@ -188,7 +188,7 @@
       </trans-unit>
       <trans-unit id="8111139356444734112" datatype="html">
         <source>Muzička grupa</source>
-        <target>Musical performer</target>
+        <target>Band</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">89</context>
@@ -196,7 +196,7 @@
       </trans-unit>
       <trans-unit id="7789882067463560772" datatype="html">
         <source>Voditeljka programa</source>
-        <target>Host of the programme</target>
+        <target>Host of the evening</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">90</context>
@@ -204,7 +204,7 @@
       </trans-unit>
       <trans-unit id="5615598052097456609" datatype="html">
         <source>Profesor književnosti i pisac</source>
-        <target>Professor of literature and writer</target>
+        <target>Writer and professor of literature</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">91</context>
@@ -228,7 +228,7 @@
       </trans-unit>
       <trans-unit id="6230209898895199736" datatype="html">
         <source>Profesor harmonike</source>
-        <target>Accordion professor</target>
+        <target>Professor of accordion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">94</context>
@@ -236,19 +236,19 @@
       </trans-unit>
       <trans-unit id="557727155035277857" datatype="html">
         <source>Balska tradicija</source>
-        <target>Ball tradition</target>
+        <target>The tradition of the ball</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
           <context context-type="linenumber">20,21</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">153</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3564348663653334690" datatype="html">
         <source>Bal nikada nije bio samo ples.</source>
-        <target>A ball was never just a dance.</target>
+        <target>A ball has always been more than a dance.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
           <context context-type="linenumber">21,22</context>
@@ -260,7 +260,7 @@
       </trans-unit>
       <trans-unit id="4784496102726120088" datatype="html">
         <source>Reč „bal“ javlja se još u XII veku, a poreklo vodi od latinskog <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>ballare<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> — igrati.</source>
-        <target>The word dates back to the 12th century, from the Latin <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>ballare<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> — to dance.</target>
+        <target>The word ball can be traced back to the twelfth century and derives from the Latin <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>ballare<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> — to dance.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
           <context context-type="linenumber">22,23</context>
@@ -268,58 +268,34 @@
       </trans-unit>
       <trans-unit id="8788663664325974057" datatype="html">
         <source>Takva mesta vremenom su dobijala značaj daleko veći od svoje prvobitne namene. U njima se razvijao kulturni život, povezivali ljudi i rađale ideje čiji je značaj trajao mnogo duže od jedne večeri.</source>
-        <target>That is how places of encounter became more than places. They became places where culture was built, people were brought together and ideas were born that lasted far longer than a single evening.</target>
+        <target>Over time, such places came to hold a significance far beyond their original purpose. Within their walls, cultural life flourished, relationships were formed and ideas took shape whose influence extended well beyond a single evening.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">51,52</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7898776298845415227" datatype="html">
         <source>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</source>
-        <target>It was a way for people to meet, for different cultures to draw closer, and for something lasting to grow out of a single encounter.</target>
+        <target>They became places where different cultures drew closer and where encounters gave rise to connections that endured long after the celebrations had ended.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8262890307708113078" datatype="html">
+        <source>U tom duhu nastaje i Sretenjski bal u Mariboru — kao susret srpske i slovenačke kulture i početak jedne nove tradicije.</source>
+        <target>In this same spirit, Sretenjski bal takes shape in Maribor — as an encounter between Serbian and Slovenian culture and the beginning of a new tradition.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
           <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3859338711410292469" datatype="html">
-        <source>Tako su prostori za susret postajali više od prostora.</source>
-        <target>That is how places of encounter became more than places.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">57,58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3333469744472339837" datatype="html">
-        <source>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</source>
-        <target>They became places where culture was built, people were brought together and ideas were born that lasted far longer than a single evening.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">58,59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5910431724992160642" datatype="html">
-        <source>Bio je to način da se ljudi sretnu, različite kulture približe i da iz jednog susreta nastane nešto što će trajati.</source>
-        <target>It was a way for people to meet, for different cultures to draw closer, and for something lasting to grow out of a single encounter.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">60,61</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8262890307708113078" datatype="html">
-        <source>U tom duhu nastaje i Sretenjski bal u Mariboru — kao susret srpske i slovenačke kulture i početak jedne nove tradicije.</source>
-        <target>Sretenjski bal in Maribor is born of the same idea — as an encounter of Serbian and Slovenian culture and the beginning of a new tradition.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">62,63</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="728129263221192298" datatype="html">
         <source>Rezervišite ulaznice</source>
-        <target>Reserve tickets</target>
+        <target>Reserve your tickets</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">63,64</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
@@ -331,7 +307,7 @@
         <target>Kragujevac, the court of Prince Miloš</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4219978041275170844" datatype="html">
@@ -339,15 +315,15 @@
         <target>The first ball in the Principality of Serbia was held in 1834 in Kragujevac, at the court of Prince Miloš.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6184014637241779905" datatype="html">
         <source>U decenijama koje su usledile, balovi su postali važna mesta susreta, razgovora, povezivanja i dogovora. Okupljali su ljude iz sveta politike, kulture, privrede i umetnosti, dok su se na dobrotvornim balovima prikupljala sredstva za škole, društva i druge javne potrebe.</source>
-        <target>Over the decades that followed, balls were places of meeting, conversation, connection and agreement. People from politics, culture, business and the arts met at them, while charity balls raised funds for schools, societies and other public needs.</target>
+        <target>In the decades that followed, balls became important occasions for social gatherings, conversation, connection and the exchange of ideas. They brought together figures from politics, culture, business and the arts, while charity balls raised funds for schools, societies and other public causes.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8200896258804099939" datatype="html">
@@ -355,7 +331,7 @@
         <target>The 1860s</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">127</context>
+          <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3866581712148650181" datatype="html">
@@ -363,23 +339,23 @@
         <target>Slovenian lands and reading rooms</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5812441544755261721" datatype="html">
         <source>I u slovenačkim zemljama ples je odavno bio sastavni deo građanskog i društvenog života. Do tada se balska kultura razvijala u građanskim krugovima, često pod snažnim nemačkim i austrijskim kulturnim uticajem.</source>
-        <target>In the Slovenian lands too, dance had long been part of civic and social life, but until then ball culture had developed within the civic circles of the time, often under strong German and Austrian cultural influence.</target>
+        <target>In the Slovenian lands, dancing had long been an established part of civic and social life. Until then, the culture of balls had developed largely within the bourgeois circles of the period, often under strong German and Austrian cultural influence.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8757037308736691860" datatype="html">
         <source>Od šezdesetih godina XIX veka počinje da se razvija mreža slovenskih čitalnica.</source>
-        <target>From the 1860s a network of Slovenian reading rooms (čitalnice) began to develop.</target>
+        <target>From the 1860s onwards, a network of Slovenian reading rooms, known as čitalnice, began to emerge.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2054922500324554374" datatype="html">
@@ -387,23 +363,23 @@
         <target>The reading room in Kranj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">136</context>
+          <context context-type="linenumber">125</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8639100598853566161" datatype="html">
         <source>Na svečanom otvaranju čitalnice u Kranju 1863. godine, nakon izvođenja pesme „Hej Slovani“, usledio je ples kojim je svečanost završena.</source>
-        <target>When the reading room in Kranj opened in 1863, the performance of the song “Hej, Slovani” was followed by a dance that closed the celebration.</target>
+        <target>At the opening of the reading room in Kranj in 1863, a performance of the song “Hej, Slovani” was followed by dancing, which brought the celebration to a close.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">138</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2336071244271270039" datatype="html">
         <source>Čitalnice nisu bile samo mesta za čitanje knjiga. U njima su se ljudi okupljali, slušali muziku, prisustvovali predstavama i predavanjima, ali i učestvovali u plesnim svečanostima.</source>
-        <target>Reading rooms were spaces where people did not only read books but gathered, listened to music, staged plays and lectures and, of course, danced.</target>
+        <target>Reading rooms were far more than places devoted to books. They offered opportunities for gathering, listening to music, attending theatrical performances and lectures, and taking part in dances and other social occasions.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="516219425988729566" datatype="html">
@@ -411,15 +387,15 @@
         <target>In Maribor, this idea found its home</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">133</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1711795589952634505" datatype="html">
         <source>Godine 1898. podignut je Narodni dom, središte kulturnog i društvenog života mariborskih Slovenaca. Pod njegovim krovom svoje mesto pronašli su čitaonica, biblioteka, muzička i dramska društva, dok su se u svečanoj dvorani održavali koncerti, predstave, skupovi i plesovi.</source>
-        <target>In 1898 the Narodni dom was built, the centre of cultural and social life of Maribor's Slovenes. Under its roof were a reading room, a library, and music and drama societies, while the ceremonial hall hosted concerts, plays, gatherings — and dances.</target>
+        <target>Built in 1898, Narodni dom became a centre of cultural and social life for the Slovenian community of Maribor. It housed a reading room, a library, and musical and dramatic societies, while its ceremonial hall welcomed concerts, theatrical performances, public gatherings and dances.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">135</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7800743159455711142" datatype="html">
@@ -427,7 +403,7 @@
         <target>A ball was never just a dance: from the Latin ballare, through the first ball in Kragujevac and the Slovenian reading rooms, to the Narodni dom in Maribor.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
-          <context context-type="linenumber">154</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="397497450705980813" datatype="html">
@@ -440,7 +416,7 @@
       </trans-unit>
       <trans-unit id="132909247146762410" datatype="html">
         <source>Pišite nam</source>
-        <target>Write to us.</target>
+        <target>Get in touch</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
           <context context-type="linenumber">15</context>
@@ -448,7 +424,7 @@
       </trans-unit>
       <trans-unit id="1492869460522100484" datatype="html">
         <source>Za sva pitanja o Sretenjskom balu, mogućnostima partnerstva, medijskom izveštavanju ili učešću u programu, možete nam se obratiti putem kontakt-obrasca. Rado ćemo vam odgovoriti u najkraćem mogućem roku.</source>
-        <target>Interested in a partnership, media coverage or performing at the ball, or simply have a question about the evening? Write to us and we will gladly reply as soon as we can.</target>
+        <target>For enquiries concerning Sretenjski bal, opportunities for partnership, media coverage or participation in the programme, please contact us using the form below. We will be pleased to respond as soon as possible.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
           <context context-type="linenumber">17,18</context>
@@ -504,7 +480,7 @@
       </trans-unit>
       <trans-unit id="2033857930461142962" datatype="html">
         <source>Svečani kodeks</source>
-        <target>Dress code</target>
+        <target>Formal attire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">19,20</context>
@@ -524,7 +500,7 @@
       </trans-unit>
       <trans-unit id="1409969045617588604" datatype="html">
         <source>Predviđena svečana odeća</source>
-        <target>Expected</target>
+        <target>Required attire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">33,34</context>
@@ -548,7 +524,7 @@
       </trans-unit>
       <trans-unit id="7069415753275284497" datatype="html">
         <source>Duga večernja ili balska haljina do poda</source>
-        <target>Floor-length evening or ball gown</target>
+        <target>Floor-length evening gown or ball gown</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">91</context>
@@ -568,7 +544,7 @@
       </trans-unit>
       <trans-unit id="2357352560447145448" datatype="html">
         <source>Kratke haljine i koktel-haljine</source>
-        <target>Short and cocktail dresses</target>
+        <target>Short dresses and cocktail dresses</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">93</context>
@@ -576,7 +552,7 @@
       </trans-unit>
       <trans-unit id="2726314489723701412" datatype="html">
         <source>Kratke suknje i svakodnevna odeća</source>
-        <target>Short skirts and daywear</target>
+        <target>Short skirts and everyday attire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">94</context>
@@ -584,7 +560,7 @@
       </trans-unit>
       <trans-unit id="1786629259098289702" datatype="html">
         <source>Patike i druga neformalna obuća</source>
-        <target>Sneakers and casual footwear</target>
+        <target>Trainers and other informal footwear</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">95</context>
@@ -596,7 +572,7 @@
       </trans-unit>
       <trans-unit id="702065592462377042" datatype="html">
         <source>Narodne nošnje</source>
-        <target>Folk costumes</target>
+        <target>Traditional folk costumes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">96</context>
@@ -616,7 +592,7 @@
       </trans-unit>
       <trans-unit id="4677238505483944009" datatype="html">
         <source>Crni frak ili smoking</source>
-        <target>Black tailcoat or tuxedo</target>
+        <target>Black tailcoat or dinner jacket (tuxedo)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">103</context>
@@ -624,7 +600,7 @@
       </trans-unit>
       <trans-unit id="839543756183919459" datatype="html">
         <source>Elegantno crno ili tamno odelo</source>
-        <target>Elegant black or dark suit</target>
+        <target>Elegant black or dark formal suit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">104</context>
@@ -640,7 +616,7 @@
       </trans-unit>
       <trans-unit id="202273428748344888" datatype="html">
         <source>Kravate umesto leptir-mašne</source>
-        <target>Ties instead of a bow tie</target>
+        <target>Neckties in place of a bow tie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
           <context context-type="linenumber">109</context>
@@ -684,7 +660,7 @@
       </trans-unit>
       <trans-unit id="829274021589845479" datatype="html">
         <source>Rezervišite ulaznice</source>
-        <target>Reserve a ticket</target>
+        <target>Reserve your tickets</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/hero.section.html</context>
           <context context-type="linenumber">30,31</context>
@@ -701,7 +677,7 @@
       </trans-unit>
       <trans-unit id="2036559287774115040" datatype="html">
         <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednim susretom.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednom večeri.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednom idejom.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
-        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>With one encounter.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>With one evening.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>With one idea.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>One encounter.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>One evening.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>One idea.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/intro.section.ts</context>
           <context context-type="linenumber">17,21</context>
@@ -721,7 +697,7 @@
       </trans-unit>
       <trans-unit id="2683088177218803675" datatype="html">
         <source> Prvi Sretenjski bal organizuje Kulturni centar Sretenje, inicijativa nastala iz želje da građanska kultura i njene pomalo zaboravljene vrednosti ponovo dobiju svoje mesto u savremenom društvu. </source>
-        <target> Behind the first Sretenjski bal stands the Sretenje Cultural Centre — the organiser of the ball and an initiative born from the wish to reopen a space for a somewhat forgotten civic culture and the values it carried. </target>
+        <target>The inaugural Sretenjski bal is organised by Kulturni centar Sretenje, an initiative born of a desire to restore the place of a somewhat forgotten civic culture and its values in contemporary society.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">16</context>
@@ -729,7 +705,7 @@
       </trans-unit>
       <trans-unit id="3023711163420885821" datatype="html">
         <source> Tokom istorije, srpska zajednica na ovim prostorima ostavljala je trag u kulturi, obrazovanju, privredi i duhovnom životu. Naša je namera da to nasleđe približimo savremenom trenutku — ne kao povratak u prošlost, već kao temelj za ono što ćemo tek stvarati. </source>
-        <target> Throughout history, the Serbian community in these lands left its mark through culture, education, the economy and spiritual life. We want to bring that heritage closer to the present — not as a return to the past, but as a foundation for what we can still build. </target>
+        <target>Throughout history, the Serbian community in this region has left its mark on culture, education, commerce and spiritual life. Our intention is to bring this heritage into the present — not as a return to the past, but as a foundation for what is yet to be created.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">19</context>
@@ -737,7 +713,7 @@
       </trans-unit>
       <trans-unit id="3991160227285274558" datatype="html">
         <source> Kulturni centar Sretenje zamišljen je kao trajno mesto okupljanja ljudi iz sveta kulture, nauke, privrede i duhovnog života — mesto razgovora, povezivanja i novih ideja. Njegova je namera da neguje sopstveno nasleđe i istovremeno gradi odnose sa kulturnom sredinom u kojoj deluje. </source>
-        <target> The Sretenje Cultural Centre is conceived as a lasting meeting place for people from culture, science, business and spiritual life. A place of conversation, connection and new ideas. A space where we nurture our own heritage while building a relationship with the cultural environment in which we live. </target>
+        <target>Kulturni centar Sretenje is envisioned as an enduring place of gathering for people from the worlds of culture, science, business and spiritual life. It seeks to encourage conversation, foster meaningful connections and give rise to new ideas, while preserving its own heritage and cultivating lasting relationships with the cultural community in which it operates.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">22</context>
@@ -745,7 +721,7 @@
       </trans-unit>
       <trans-unit id="4476387950020781460" datatype="html">
         <source>Ideja Sretenja</source>
-        <target>Why Sretenje?</target>
+        <target>The meaning behind Sretenje</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">25,26</context>
@@ -753,7 +729,7 @@
       </trans-unit>
       <trans-unit id="7803798498131775638" datatype="html">
         <source> U imenu Sretenje sadržana je suština ove zamisli: susret duhovnog i građanskog, tradicije i savremenosti, našeg nasleđa i kulture sredine u kojoj živimo. Verujemo da upravo iz takvih susreta nastaju nove veze i trajna prijateljstva. </source>
-        <target> Because at its heart lies an encounter. An encounter of the spiritual and the civic. Of tradition and modernity. Of our heritage and the culture in which we live. We believe that new bridges are born precisely from such encounters. </target>
+        <target>The name Sretenje embodies the very idea upon which the Centre was founded: a meeting of the spiritual and the civic, of tradition and modernity, of our own heritage and the culture of the place we call home. We believe that such encounters give rise to new connections and enduring friendships.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">27</context>
@@ -761,7 +737,7 @@
       </trans-unit>
       <trans-unit id="4553042627119248219" datatype="html">
         <source>Sretenjski bal prvi je korak ka ostvarenju te zamisli.</source>
-        <target>Sretenjski bal is our first step.</target>
+        <target>Sretenjski bal marks the first step towards realising this vision.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
           <context context-type="linenumber">30,31</context>
@@ -769,7 +745,7 @@
       </trans-unit>
       <trans-unit id="1949152281960022105" datatype="html">
         <source>U programu učestvuju</source>
-        <target>On stage</target>
+        <target>Taking part in the programme</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
           <context context-type="linenumber">26,27</context>
@@ -777,7 +753,7 @@
       </trans-unit>
       <trans-unit id="6214294666526846202" datatype="html">
         <source>Učesnici programa</source>
-        <target>Performers</target>
+        <target>Programme participants</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
           <context context-type="linenumber">27</context>
@@ -813,7 +789,7 @@
       </trans-unit>
       <trans-unit id="5105166380717323557" datatype="html">
         <source>Imena ostalih učesnika programa biće uskoro objavljena.</source>
-        <target>More performers will be announced soon.</target>
+        <target>Further programme participants will be announced in due course.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
           <context context-type="linenumber">62,63</context>
@@ -849,7 +825,7 @@
       </trans-unit>
       <trans-unit id="6640999522588551317" datatype="html">
         <source>Satnica je okvirna. Konačna vremena biće naknadno potvrđena.</source>
-        <target>The schedule is provisional and will be confirmed.</target>
+        <target>The programme schedule is provisional. Final timings will be confirmed in due course.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/program-preview.section.ts</context>
           <context context-type="linenumber">21,22</context>
@@ -877,7 +853,7 @@
       </trans-unit>
       <trans-unit id="1390357696379276566" datatype="html">
         <source>Neke večeri ostaju u sećanju. Neke označe početak nove tradicije.</source>
-        <target>Some evenings stay in memory forever. Some become a tradition.</target>
+        <target>Some evenings live on in memory. Others mark the beginning of a tradition.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
           <context context-type="linenumber">15,16</context>
@@ -913,7 +889,7 @@
       </trans-unit>
       <trans-unit id="131999230330522389" datatype="html">
         <source> Krajem XIX veka, u Mariboru, gde su Slovenci bili manjina, nastala je zamisao o domu koji će čuvati slovenački jezik, kulturu i zajedništvo. Iz te zamisli nastao je Narodni dom. </source>
-        <target> At the end of the 19th century, in a Maribor where Slovenes were a minority, the idea arose of a space that would safeguard the Slovenian language, culture and community. From that idea the Narodni dom was born. </target>
+        <target>In the late nineteenth century, when Slovenes formed a minority in Maribor, the idea emerged of establishing a home dedicated to preserving the Slovenian language, culture and sense of community. From this vision, Narodni dom was born.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
           <context context-type="linenumber">20</context>
@@ -921,7 +897,7 @@
       </trans-unit>
       <trans-unit id="5547515422601856200" datatype="html">
         <source>U zdanju koje pamti brojne susrete započinje jedan novi.</source>
-        <target>A place with a history of encounters, for the beginning of a new one.</target>
+        <target>In a building that has witnessed generations of encounters, another is about to begin.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
           <context context-type="linenumber">30,31</context>
@@ -945,7 +921,7 @@
       </trans-unit>
       <trans-unit id="1833727098177153505" datatype="html">
         <source>Narodni dom, podignut prema projektu češkog arhitekte Jana Vejrycha u stilu češke neorenesanse, počinje da radi 1. oktobra.</source>
-        <target>The Dom opens on 1 October, designed by the Czech architect Jan Vejrych in the Czech neo-Renaissance style.</target>
+        <target>Designed by the Czech architect Jan Vejrych in the Czech Neo-Renaissance style, Narodni dom opened its doors on 1 October.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
           <context context-type="linenumber">79</context>
@@ -961,7 +937,7 @@
       </trans-unit>
       <trans-unit id="1072859683978452717" datatype="html">
         <source>U Domu je osnovan Narodni savet za Štajersku.</source>
-        <target>The National Council for Styria was founded in the Dom.</target>
+        <target>The National Council for Styria was established in Narodni dom.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
           <context context-type="linenumber">81</context>
@@ -969,7 +945,7 @@
       </trans-unit>
       <trans-unit id="374762625738075506" datatype="html">
         <source>Narodni dom ponovo postaje kulturni centar grada.</source>
-        <target>The Narodni dom once again becomes the cultural centre of the city.</target>
+        <target>Narodni dom once again became a cultural centre of the city.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
           <context context-type="linenumber">82</context>
@@ -977,7 +953,7 @@
       </trans-unit>
       <trans-unit id="6770325376800241537" datatype="html">
         <source> Reč „bal“ potiče od latinskog ballare — igrati. Tokom vekova balovi su bili mnogo više od plesnih svečanosti: predstavljali su priliku za susrete, razgovore, povezivanje i dogovore. Na dobrotvornim balovima prikupljala su se sredstva za škole, društva i druge javne potrebe. </source>
-        <target> The word ball comes from the Latin ballare — to dance. For centuries balls were places of meeting, conversation, connection and agreement, and charity balls raised funds for schools, societies and other public needs. </target>
+        <target>The word ball derives from the Latin ballare — to dance. Throughout history, balls have been more than occasions for dancing. They have brought people together for conversation, connection and the exchange of ideas, while charity balls have raised funds for schools, societies and other public causes.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-ball.section.ts</context>
           <context context-type="linenumber">14</context>
@@ -985,7 +961,7 @@
       </trans-unit>
       <trans-unit id="6040662272004730528" datatype="html">
         <source>Priča o balskoj tradiciji</source>
-        <target>The story of the ball tradition</target>
+        <target>The tradition of the ball</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-ball.section.ts</context>
           <context context-type="linenumber">16,17</context>
@@ -1005,7 +981,7 @@
       </trans-unit>
       <trans-unit id="6991845676454044894" datatype="html">
         <source> Reč „sretenje“ u srpskom i slovenačkom jeziku znači susret. U simbolici ovog praznika prepliću se duhovno predanje, narodna verovanja i istorijsko nasleđe. </source>
-        <target> In both Serbian and Slovenian the word sretenje means encounter, and a single feast symbolises so many encounters. </target>
+        <target>In Serbian and Slovenian, the word sretenje carries the meaning of an encounter. The symbolism of the feast brings together spiritual tradition, folk beliefs and historical heritage.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">21</context>
@@ -1021,7 +997,7 @@
       </trans-unit>
       <trans-unit id="3411350760185514314" datatype="html">
         <source>Na toj ideji počiva i Sretenjski bal, zamišljen kao susret srpske i slovenačke kulture.</source>
-        <target>Sretenjski bal arises from the idea of an encounter between Serbian and Slovenian culture.</target>
+        <target>It is upon this idea that Sretenjski bal is founded — as an encounter between Serbian and Slovenian culture.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">39,40</context>
@@ -1037,7 +1013,7 @@
       </trans-unit>
       <trans-unit id="6877011728990343567" datatype="html">
         <source>Prema Jevanđelju po Luki, četrdesetog dana po Isusovom rođenju, Marija i Josif doneli su ga u jerusalimski hram. Tamo ga je starac Simeon uzeo u naručje i prepoznao kao svetlost.</source>
-        <target>According to the Gospel of Luke, forty days after his birth Mary and Joseph bring Jesus to the Temple in Jerusalem, where the elder Simeon takes him in his arms and recognises him as the light.</target>
+        <target>According to the Gospel of Luke, forty days after the birth of Jesus, Mary and Joseph brought the child to the Temple in Jerusalem. There, the elder Simeon took him in his arms and recognised him as the light.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">66</context>
@@ -1053,7 +1029,7 @@
       </trans-unit>
       <trans-unit id="4033030178793379522" datatype="html">
         <source>U narodnom predanju Sretenje se vezuje za simbolični susret zime i proleća.</source>
-        <target>In folk tradition, Sretenje is tied to the symbolic meeting of winter and spring.</target>
+        <target>In folk tradition, Sretenje symbolises the meeting of winter and spring.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">70</context>
@@ -1061,7 +1037,7 @@
       </trans-unit>
       <trans-unit id="1680806337448738481" datatype="html">
         <source>Na Sretenje je u Orašcu podignut Prvi srpski ustanak, čime je započeta borba za oslobođenje Srbije od osmanske vlasti.</source>
-        <target>On Sretenje the First Serbian Uprising was raised at Orašac, beginning the struggle to free Serbia from Ottoman rule.</target>
+        <target>On Sretenje, the First Serbian Uprising began in Orašac, marking the beginning of the struggle to liberate Serbia from Ottoman rule.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">74</context>
@@ -1069,7 +1045,7 @@
       </trans-unit>
       <trans-unit id="8247236014703144186" datatype="html">
         <source>U Kragujevcu je proglašen Sretenjski ustav, kojim su prvi put jasno postavljeni temelji moderne srpske države.</source>
-        <target>The Sretenje Constitution was proclaimed in Kragujevac. It laid, for the first time, clear foundations of the modern Serbian state.</target>
+        <target>The Sretenje Constitution was proclaimed in Kragujevac, laying down, for the first time, the foundations of the modern Serbian state.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">78</context>
@@ -1085,7 +1061,7 @@
       </trans-unit>
       <trans-unit id="1739115717252133771" datatype="html">
         <source>Sretenje je Dan državnosti Republike Srbije.</source>
-        <target>Sretenje is the Statehood Day of the Republic of Serbia.</target>
+        <target>Since 2002, Sretenje has been celebrated as Statehood Day of the Republic of Serbia.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
           <context context-type="linenumber">82</context>
@@ -1181,7 +1157,7 @@
       </trans-unit>
       <trans-unit id="9090159786512305929" datatype="html">
         <source>Vrsta ulaznice</source>
-        <target>Ticket type</target>
+        <target>Ticket category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">8</context>
@@ -1245,7 +1221,7 @@
       </trans-unit>
       <trans-unit id="8552408842122351280" datatype="html">
         <source>Ulaznice će glasiti na vaše ime. Potvrdu rezervacije i podatke za uplatu poslaćemo na e-adresu koju navedete.</source>
-        <target>Tickets will be issued in your name, and we will send the reservation confirmation and payment details to the email address provided.</target>
+        <target>Tickets will be issued in your name. Your reservation confirmation and payment details will be sent to the email address you provide.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">35,36</context>
@@ -1309,7 +1285,7 @@
       </trans-unit>
       <trans-unit id="8966315990402221017" datatype="html">
         <source>E-adresa</source>
-        <target>Email</target>
+        <target>Email address</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">54,55</context>
@@ -1337,7 +1313,7 @@
       </trans-unit>
       <trans-unit id="1520006448386955972" datatype="html">
         <source>Broj telefona</source>
-        <target>Contact phone</target>
+        <target>Telephone number</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">60,61</context>
@@ -1389,7 +1365,7 @@
       </trans-unit>
       <trans-unit id="3835956186135508368" datatype="html">
         <source>Moguće je rezervisati najviše jedan sto.</source>
-        <target>You can reserve at most 1 table.</target>
+        <target>A maximum of one table may be reserved.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">98,99</context>
@@ -1453,7 +1429,7 @@
       </trans-unit>
       <trans-unit id="2939950779046192857" datatype="html">
         <source>Ishrana i dodatne napomene</source>
-        <target>Diet and notes</target>
+        <target>Dietary requirements and additional notes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">147,148</context>
@@ -1461,7 +1437,7 @@
       </trans-unit>
       <trans-unit id="2389242545760143720" datatype="html">
         <source>Alergije</source>
-        <target>Allergies</target>
+        <target>Allergies and dietary requirements</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">151</context>
@@ -1485,7 +1461,7 @@
       </trans-unit>
       <trans-unit id="7362040298213844934" datatype="html">
         <source>Ako rezervišete ulaznice za više osoba, navedite na koga se napomena odnosi.</source>
-        <target>If you are booking for several people, say who the note applies to.</target>
+        <target>If you are reserving tickets for more than one guest, please indicate whom each note concerns.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">153,154</context>
@@ -1509,7 +1485,7 @@
       </trans-unit>
       <trans-unit id="1373229906205887606" datatype="html">
         <source>Ostale napomene</source>
-        <target>Other notes</target>
+        <target>Additional notes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">167</context>
@@ -1517,7 +1493,7 @@
       </trans-unit>
       <trans-unit id="8119327420273017319" datatype="html">
         <source>Da li vam je potreban račun na ime firme?</source>
-        <target>Do you need an invoice made out to a company?</target>
+        <target>Would you like an invoice issued in a company's name?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">177,178</context>
@@ -1677,7 +1653,7 @@
       </trans-unit>
       <trans-unit id="1278343785284162810" datatype="html">
         <source>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
-        <target>All fields are required unless marked optional. We use your details solely for your reservation and keep them for no longer than six months after the ball; you may request access, correction or deletion at any time. More in our <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <target>All fields are required unless marked as optional. We use the information you provide solely to process your reservation and retain it for no longer than six months after the ball. You may request access to your data, its correction or deletion at any time. Further information is available in our <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">244,245</context>
@@ -1693,7 +1669,7 @@
       </trans-unit>
       <trans-unit id="8476889264056901692" datatype="html">
         <source>Pošaljite rezervaciju</source>
-        <target>Send reservation</target>
+        <target>Submit reservation</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
           <context context-type="linenumber">248</context>
@@ -1797,7 +1773,7 @@
       </trans-unit>
       <trans-unit id="7529083809486407773" datatype="html">
         <source>Rezervacija ulaznica</source>
-        <target>Ticket reservation.</target>
+        <target>Ticket reservations</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
           <context context-type="linenumber">14</context>
@@ -1805,7 +1781,7 @@
       </trans-unit>
       <trans-unit id="1628466348658521599" datatype="html">
         <source>Popunite obrazac za rezervaciju ulaznica za Sretenjski bal. U roku od tri dana kontaktiraćemo vas sa informacijama o uplati.</source>
-        <target>Fill in the form and reserve your tickets for Sretenjski bal. We will contact you within 3 days with payment details.</target>
+        <target>Please complete the form to reserve your tickets for Sretenjski bal. We will contact you within three days with the payment details.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
           <context context-type="linenumber">17,18</context>
@@ -1869,7 +1845,7 @@
       </trans-unit>
       <trans-unit id="5484473874650025693" datatype="html">
         <source>© <x id="INTERPOLATION" equiv-text="{{ year }}"/> Kulturni centar Sretenje</source>
-        <target>© <x id="INTERPOLATION" equiv-text="{{ year }}"/> Sretenje Cultural Centre</target>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ year }}"/> Kulturni centar Sretenje</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
           <context context-type="linenumber">36,38</context>
@@ -1917,7 +1893,7 @@
       </trans-unit>
       <trans-unit id="7555925861575209349" datatype="html">
         <source>Kulturni centar Sretenje</source>
-        <target>Sretenje Cultural Centre</target>
+        <target>Kulturni centar Sretenje</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav.ts</context>
           <context context-type="linenumber">29</context>
@@ -1981,7 +1957,7 @@
       </trans-unit>
       <trans-unit id="7001187529302712882" datatype="html">
         <source>Dajem saglasnost da organizator obradi moje ime, e-adresu i poruku radi odgovora na upit i da te podatke čuva do 12 meseci. Saglasnost mogu opozvati u svakom trenutku. Više informacija nalazi se u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
-        <target>I agree that the organiser may process my name, email address and message in order to reply to my enquiry, and keep them for up to 12 months. I can withdraw my consent at any time. More in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;inline-link&quot;&gt;"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <target>I consent to the organiser processing my name, email address and message for the purpose of responding to my enquiry and retaining this information for up to 12 months. I may withdraw my consent at any time. Further information is available in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;inline-link&quot;&gt;"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
           <context context-type="linenumber">45,46</context>
@@ -2005,7 +1981,7 @@
       </trans-unit>
       <trans-unit id="5171855009875770665" datatype="html">
         <source>Pošaljite poruku</source>
-        <target>Send message</target>
+        <target>Send your message</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
           <context context-type="linenumber">53</context>
