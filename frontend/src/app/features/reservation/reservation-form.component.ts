@@ -33,8 +33,11 @@ export const SOURCE_OPTIONS: { value: ReservationSource; label: string }[] = [
   { value: 'DRUGO', label: $localize`Drugo` },
 ];
 
-/** Tehnička zaštita od zloupotrebe forme (nije prodajno ograničenje); ista vrednost je u backendu i Apps Scriptu. */
-const MAX_TICKETS = 8;
+/** Svečane ulaznice: jedna rezervacija je jedan sto, najviše 8 ulaznica. */
+const MAX_TICKETS_SVECANA = 8;
+/** Ostale ulaznice (galerija): samo tehnička zaštita od zloupotrebe; ista vrednost je u Apps Scriptu (MAX_TICKETS_PER_RESERVATION). */
+const MAX_TICKETS = 100;
+const maxTicketsFor = (type: TicketTypeCode | '' | null | undefined) => (type === 'SVECANA' || !type ? MAX_TICKETS_SVECANA : MAX_TICKETS);
 /** Isti uslov kao na backendu: cifre, razmaci, + ( ) / . - i najmanje 6 cifara. */
 const PHONE = /^(?=(?:\D*\d){6})[+0-9 ()/.-]{6,30}$/;
 const UTM_KEYS = ['source', 'medium', 'campaign', 'term', 'content'] as const;
@@ -84,7 +87,6 @@ export class ReservationFormComponent {
     return { ...t, cents, price: cents > 0 ? formatPrice(cents) : null };
   });
   protected readonly sources = SOURCE_OPTIONS;
-  protected readonly maxTickets = MAX_TICKETS;
   /** Forma se prikazuje odmah; ako provera pokaže da su rezervacije zatvorene, zamenjuje je obaveštenje. */
   protected readonly booking = signal<Booking>('open');
   protected readonly sending = signal(false);
@@ -112,7 +114,7 @@ export class ReservationFormComponent {
     lastName: ['', [Validators.required, personName, Validators.maxLength(60)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
     phone: ['', [Validators.required, Validators.pattern(PHONE)]],
-    ticketCount: [1 as number | null, [Validators.required, wholeNumber, Validators.min(1), Validators.max(MAX_TICKETS)]],
+    ticketCount: [1 as number | null, [Validators.required, wholeNumber, Validators.min(1), (c: AbstractControl) => this.overMax(c)]],
     ticketType: ['SVECANA' as TicketTypeCode | '', Validators.required],
     guests: this.fb.array<ReturnType<ReservationFormComponent['newGuest']>>([]),
     diet: ['', Validators.maxLength(1000)],
@@ -149,13 +151,15 @@ export class ReservationFormComponent {
   protected readonly invoiceNeeded = toSignal(this.form.controls.invoiceNeeded.valueChanges, { initialValue: false });
   protected readonly ticketCount = toSignal(this.form.controls.ticketCount.valueChanges, { initialValue: 1 as number | null });
   protected readonly ticketType = toSignal(this.form.controls.ticketType.valueChanges, { initialValue: 'SVECANA' as TicketTypeCode | '' });
+  /** Najveći broj ulaznica za izabrani tip (svečane: jedan sto, 8 ulaznica). */
+  protected readonly maxTickets = computed(() => maxTicketsFor(this.ticketType()));
   protected readonly source = toSignal(this.form.controls.source.valueChanges, { initialValue: '' as ReservationSource | '' });
 
   /** Okvirni iznos po cenama sa sajta; tačan iznos stiže u mejlu sa instrukcijama za uplatu. */
   protected readonly estimate = computed(() => {
     const t = this.ticketTypes.find((x) => x.value === this.ticketType());
     const count = Number(this.ticketCount());
-    if (!t || t.cents <= 0 || !Number.isInteger(count) || count < 1 || count > MAX_TICKETS) return null;
+    if (!t || t.cents <= 0 || !Number.isInteger(count) || count < 1 || count > this.maxTickets()) return null;
     return { total: formatPrice(t.cents * count), count, unit: t.price };
   });
 
@@ -164,12 +168,18 @@ export class ReservationFormComponent {
     c.company.disable();
     const syncGuests = () => {
       const raw = Number(c.ticketCount.value);
-      const want = Number.isInteger(raw) ? Math.min(MAX_TICKETS, Math.max(1, raw)) - 1 : 0;
+      const want = Number.isInteger(raw) ? Math.min(maxTicketsFor(c.ticketType.value), Math.max(1, raw)) - 1 : 0;
       const arr = c.guests;
       while (arr.length < want) arr.push(this.newGuest());
       while (arr.length > want) arr.removeAt(arr.length - 1);
     };
     c.ticketCount.valueChanges.subscribe(syncGuests);
+    // Promena tipa ulaznice menja najveći dozvoljeni broj (svečane: 8).
+    c.ticketType.valueChanges.subscribe((type) => {
+      const max = maxTicketsFor(type);
+      if (Number.isInteger(c.ticketCount.value) && (c.ticketCount.value as number) > max) c.ticketCount.setValue(max);
+      else c.ticketCount.updateValueAndValidity();
+    });
     // Saglasnost za podatke o zdravlju traži se samo kad je ishrana popunjena.
     c.dietConsent.disable();
     c.diet.valueChanges.subscribe((text) => {
@@ -192,6 +202,11 @@ export class ReservationFormComponent {
     });
   }
 
+  private overMax(c: AbstractControl): ValidationErrors | null {
+    const max = maxTicketsFor(this.form?.controls.ticketType.value);
+    return typeof c.value === 'number' && c.value > max ? { max: { max, actual: c.value } } : null;
+  }
+
   protected invalid(c: AbstractControl): boolean {
     return c.invalid && (c.touched || this.submitted());
   }
@@ -200,7 +215,7 @@ export class ReservationFormComponent {
   protected step(delta: number): void {
     const c = this.form.controls.ticketCount;
     const current = Number.isInteger(c.value) ? (c.value as number) : 1;
-    c.setValue(Math.min(MAX_TICKETS, Math.max(1, current + delta)));
+    c.setValue(Math.min(this.maxTickets(), Math.max(1, current + delta)));
     c.markAsTouched();
   }
 

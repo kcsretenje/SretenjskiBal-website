@@ -75,7 +75,8 @@
   position: absolute;
   right: 1.5rem;
   bottom: 0;
-  height: min(78%, 650px);
+  // --couple-hmax: komponenta ga postavlja kad bi par preklopio naslov (manji ekrani računara i tableti).
+  height: min(78%, 650px, var(--couple-hmax, 650px));
   aspect-ratio: 783 / 846;
   // Linije crta sam SVG (public/brand/plesni-par-linije.svg, oko 2,8 s); posle toga par lagano lebdi.
   animation: sway 16s ease-in-out 3.5s infinite alternate;

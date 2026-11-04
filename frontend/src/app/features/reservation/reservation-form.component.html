@@ -32,7 +32,7 @@
         <section class="row" aria-labelledby="sec-contact">
           <div class="row__aside">
             <h2 class="label legend" id="sec-contact" i18n>Vaši podaci</h2>
-            <p class="aside-text" i18n>Ulaznice će glasiti na vaše ime. Potvrdu rezervacije i podatke za uplatu poslaćemo na e-adresu koju navedete.</p>
+            <p class="aside-text" i18n>Ulaznice će glasiti na Vaše ime. Potvrdu rezervacije i podatke za uplatu poslaćemo na e-⁠adresu koju navedete.</p>
           </div>
           <div class="row__main fields">
             <div class="pair">
@@ -51,8 +51,8 @@
             </div>
             <div class="pair">
               <label class="field">
-                <span class="field__label" i18n>E-adresa</span>
-                <input class="field__control" type="email" formControlName="email" autocomplete="email" placeholder="ime@email.com" required
+                <span class="field__label" i18n>E-⁠adresa</span>
+                <input class="field__control" type="email" formControlName="email" autocomplete="email" required
                   [attr.aria-invalid]="invalid(form.controls.email)" aria-describedby="err-email" />
                 @if (invalid(form.controls.email)) { <span class="field__error" id="err-email" i18n>Unesite ispravnu email adresu.</span> }
               </label>
@@ -90,12 +90,14 @@
                 <label class="field__label" for="ticketCount" i18n>Broj ulaznica</label>
                 <div class="stepper">
                   <button type="button" class="stepper__btn" (click)="step(-1)" [disabled]="(ticketCount() ?? 1) <= 1" i18n-aria-label aria-label="Jedna ulaznica manje">−</button>
-                  <input id="ticketCount" class="field__control stepper__input" type="number" inputmode="numeric" min="1" [max]="maxTickets" step="1"
+                  <input id="ticketCount" class="field__control stepper__input" type="number" inputmode="numeric" min="1" [max]="maxTickets()" step="1"
                     formControlName="ticketCount" required [attr.aria-invalid]="invalid(form.controls.ticketCount)" aria-describedby="err-ticketCount" />
                   <button type="button" class="stepper__btn" (click)="step(1)" i18n-aria-label aria-label="Jedna ulaznica više">+</button>
                 </div>
                 @if (invalid(form.controls.ticketCount)) { <span class="field__error" id="err-ticketCount" i18n>Unesite broj ulaznica (ceo broj, najmanje 1).</span> }
-                <span class="field__hint" i18n>Moguće je rezervisati najviše jedan sto.</span>
+                @if (ticketType() === 'SVECANA') {
+                  <span class="field__hint" i18n>Moguće je rezervisati najviše jedan sto (8 ulaznica).</span>
+                }
               </div>
 
               @if (estimate(); as e) {
@@ -125,8 +127,8 @@
                         @if (invalid(g.controls.lastName)) { <span class="field__error" i18n>Unesite prezime gosta.</span> }
                       </label>
                       <label class="field">
-                        <span class="field__label" i18n>E-adresa</span>
-                        <input class="field__control" type="email" formControlName="email" autocomplete="off" placeholder="ime@email.com" required [attr.aria-invalid]="invalid(g.controls.email)" />
+                        <span class="field__label" i18n>E-⁠adresa</span>
+                        <input class="field__control" type="email" formControlName="email" autocomplete="off" required [attr.aria-invalid]="invalid(g.controls.email)" />
                         @if (invalid(g.controls.email)) { <span class="field__error" i18n>Unesite ispravnu email adresu gosta.</span> }
                       </label>
                       <label class="field">
@@ -174,7 +176,7 @@
           <div class="row__aside" aria-hidden="true"></div>
           <div class="row__main fields">
             <fieldset class="choice">
-              <legend class="field__label" i18n>Da li vam je potreban račun na ime firme?</legend>
+              <legend class="field__label" i18n>Da li Vam je potreban račun na ime firme?</legend>
               <div class="options">
                 <label class="checkbox"><input type="radio" formControlName="invoiceNeeded" [value]="false" /><span i18n>Ne</span></label>
                 <label class="checkbox"><input type="radio" formControlName="invoiceNeeded" [value]="true" /><span i18n>Da</span></label>
@@ -195,7 +197,6 @@
                     <option value="SI" i18n>Slovenija</option>
                     <option value="EU" i18n>Druga država članica EU</option>
                   </select>
-                  <span class="field__hint" i18n>Fakturu izdajemo samo firmama sa sedištem u Sloveniji ili drugoj državi članici EU.</span>
                 </label>
                 <label class="field">
                   <span class="field__label" i18n>Sedište firme (ulica, poštanski broj, mesto)</span>
@@ -241,7 +242,7 @@
         <div class="row row--submit">
           <div class="row__main fields">
             <input class="hp" type="text" formControlName="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <p class="note" i18n>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <a routerLink="/privacy" target="_blank" class="inline-link">politici privatnosti</a>.</p>
+            <p class="note" i18n>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu Vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <a routerLink="/privacy" target="_blank" class="inline-link">politici privatnosti</a>.</p>
             <app-turnstile (token)="captcha.set($event)" (failed)="captchaFailed.set(true)" />
             @if (serverError()) { <p class="server-error" role="alert">{{ serverError() }}</p> }
             <button class="btn btn--primary submit" type="submit" [disabled]="sending()" [attr.aria-busy]="sending()">

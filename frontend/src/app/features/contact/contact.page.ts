@@ -14,7 +14,7 @@ import { SectionHeadingComponent } from '../../shared/components/section-heading
           <app-section-heading [level]="1" headingId="contact-title" i18n-eyebrow eyebrow="Kontakt">
             <ng-container i18n>Pišite nam</ng-container>
           </app-section-heading>
-          <p class="lead" i18n>Za sva pitanja o Sretenjskom balu, mogućnostima partnerstva, medijskom izveštavanju ili učešću u programu, možete nam se obratiti putem kontakt-obrasca. Rado ćemo vam odgovoriti u najkraćem mogućem roku.</p>
+          <p class="lead" i18n>Za sva pitanja o Sretenjskom balu, mogućnostima partnerstva, medijskom izveštavanju ili učešću u programu, možete nam se obratiti putem kontakt-obrasca. Rado ćemo Vam odgovoriti u najkraćem mogućem roku.</p>
           <p class="note">Kulturni centar Sretenje · Maribor<br /><a class="mail" [href]="'mailto:' + email">{{ email }}</a></p>
         </div>
         <app-contact-form class="form" [topic]="tema()" />

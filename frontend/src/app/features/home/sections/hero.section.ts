@@ -27,9 +27,32 @@ export class HeroSectionComponent {
       const hero = host.querySelector<HTMLElement>('.hero');
       const line = host.querySelector<HTMLElement>('.title span:last-child');
       if (!hero || !line || typeof ResizeObserver === 'undefined') return;
+      const first = host.querySelector<HTMLElement>('.title span:first-child');
+      const textBox = (el: HTMLElement) => {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        return r.getBoundingClientRect();
+      };
       const place = () => {
-        const top = line.getBoundingClientRect().top - hero.getBoundingClientRect().top;
+        const h = hero.getBoundingClientRect();
+        const top = line.getBoundingClientRect().top - h.top;
         hero.style.setProperty('--couple-top', `${Math.round(top)}px`);
+        // Računar/tablet: par ne sme da preklopi „SRETENJSKI". Ako bi se preklopio, smanjujemo ga tako da glave
+        // počnu u visini reda „BAL" i da ostane razmak desno od teksta.
+        hero.style.removeProperty('--couple-hmax');
+        if (!first || window.matchMedia('(max-width: 767.98px)').matches) return;
+        const ratio = 783 / 846;
+        const gap = 32;
+        const right = 24;
+        const fullH = Math.min(h.height * 0.78, 650);
+        const fullLeft = h.width - right - fullH * ratio;
+        const row1 = textBox(first);
+        const row2 = textBox(line);
+        const overlaps = h.height - fullH < row1.bottom - h.top && fullLeft < row1.right - h.left + gap;
+        if (!overlaps) return;
+        const byHeight = h.height - top;
+        const byWidth = (h.width - right - (row2.right - h.left) - gap) / ratio;
+        hero.style.setProperty('--couple-hmax', `${Math.max(0, Math.round(Math.min(byHeight, byWidth)))}px`);
       };
       place();
       const ro = new ResizeObserver(place);

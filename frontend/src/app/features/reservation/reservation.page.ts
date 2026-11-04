@@ -14,7 +14,7 @@ import { ReservationFormComponent } from './reservation-form.component';
             <ng-container i18n>Rezervacija ulaznica</ng-container>
           </app-section-heading>
           <div class="intro">
-            <p class="lead" i18n>Popunite obrazac za rezervaciju ulaznica za Sretenjski bal. U roku od tri dana kontaktiraćemo vas sa informacijama o uplati.</p>
+            <p class="lead" i18n>Popunite obrazac za rezervaciju ulaznica za Sretenjski bal. U roku od tri dana kontaktiraćemo Vas sa informacijama o uplati.</p>
             <p class="note" i18n>13.2.2027 · Maribor</p>
           </div>
         </header>

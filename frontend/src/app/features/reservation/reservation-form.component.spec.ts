@@ -95,7 +95,7 @@ describe('ReservationFormComponent', () => {
     expect($('form')).toBeTruthy();
     expect($$('h2.legend').map((h) => h.textContent!.trim())).toEqual(['Vaši podaci', 'Ulaznice', 'Ishrana i dodatne napomene']);
     expect($('.guests')).toBeNull();
-    expect(el.textContent).toContain('Ulaznice će glasiti na vaše ime');
+    expect(el.textContent).toContain('Ulaznice će glasiti na Vaše ime');
     expect(el.textContent).toContain('Sva polja su obavezna, osim onih označenih kao neobavezna.');
     expect($('a[href="/privacy"]')).toBeTruthy();
   });
@@ -126,6 +126,19 @@ describe('ReservationFormComponent', () => {
     expect(count().value).toBe('2');
     await type(count(), '8');
     expect(errors()).toEqual([]);
+  });
+
+  it('svečane: najviše jedan sto (8 ulaznica) i napomena; galerija: bez tog ograničenja', async () => {
+    await open();
+    expect(el.textContent).toContain('Moguće je rezervisati najviše jedan sto (8 ulaznica).');
+    const countCtrl = () => (fixture.componentInstance as unknown as { form: { controls: { ticketCount: { valid: boolean; value: unknown } } } }).form.controls.ticketCount;
+    await type(count(), '9');
+    expect(countCtrl().valid).toBe(false);
+    await click(ticketRadios()[1]);
+    expect(el.textContent).not.toContain('najviše jedan sto');
+    expect(countCtrl().valid).toBe(true);
+    await click(ticketRadios()[0]);
+    expect(countCtrl().value).toBe(8);
   });
 
   it('dva tipa ulaznica kao kartice sa cenom', async () => {

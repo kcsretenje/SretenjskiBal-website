@@ -32,7 +32,7 @@ const privacySr: LegalDoc = {
     {
       h: '1. Ko je upravljač podataka',
       p: [
-        `Upravljač vaših ličnih podataka je ${O.legalName}, ${O.address}, ${O.registration} (u daljem tekstu: organizator). Pitanja o privatnosti: ${O.privacyEmail}.`,
+        `Upravljač Vaših ličnih podataka je ${O.legalName}, ${O.address}, ${O.registration} (u daljem tekstu: organizator). Pitanja o privatnosti: ${O.privacyEmail}.`,
         'Ova politika važi za sajt Sretenjskog bala i obrađuje podatke u skladu sa Uredbom (EU) 2016/679 (GDPR) i slovenačkim Zakonom o zaštiti ličnih podataka (ZVOP-2).',
       ],
     },
@@ -41,9 +41,9 @@ const privacySr: LegalDoc = {
       table: {
         head: ['Svrha', 'Podaci', 'Pravni osnov'],
         rows: [
-          ['Rezervacija ulaznica', 'Ime i prezime, e-adresa, telefon, vrsta i broj ulaznica, napomena, izvor informacije o balu, podaci za račun (ako ih tražite)', 'Izvršenje ugovora / radnje na vaš zahtev pre ugovora (čl. 6(1)(b) GDPR)'],
+          ['Rezervacija ulaznica', 'Ime i prezime, e-⁠adresa, telefon, vrsta i broj ulaznica, napomena, izvor informacije o balu, podaci za račun (ako ih tražite)', 'Izvršenje ugovora / radnje na Vaš zahtev pre ugovora (čl. 6(1)(b) GDPR)'],
           ['Ishrana i alergije (nije obavezno)', 'Slobodan tekst koji sami upišete; može otkriti zdravstveno stanje', 'Vaša izričita saglasnost (čl. 9(2)(a) GDPR); možete je opozvati u svakom trenutku'],
-          ['Poruke putem kontakt-obrasca', 'Ime, e-adresa, tekst poruke', 'Saglasnost (čl. 6(1)(a)); odgovor na vaš upit (čl. 6(1)(b))'],
+          ['Poruke putem kontakt-obrasca', 'Ime, e-⁠adresa, tekst poruke', 'Saglasnost (čl. 6(1)(a)); odgovor na Vaš upit (čl. 6(1)(b))'],
           ['Račun i knjigovodstvo', 'Podaci na računu', 'Zakonska obaveza (čl. 6(1)(c))'],
           ['Zaštita od zloupotrebe (neželjene poruke)', 'Tehnički podaci o slanju obrasca, bez kolačića', 'Legitimni interes (čl. 6(1)(f)) — bezbednost sajta'],
         ],
@@ -67,7 +67,7 @@ const privacySr: LegalDoc = {
       // na sva tri jezika i proveriti tekst stranice Kolačići — sajt sada učitava Turnstile sa challenges.cloudflare.com.
       list: [
         `Hosting sajta: ${O.hosting}`,
-        `Slanje e-pošte: ${O.mailProvider}`,
+        `Slanje e-⁠pošte: ${O.mailProvider}`,
         'Google Ireland Ltd. (Google Sheets / Apps Script) — evidencija rezervacija. Mogući prenos podataka van EU zasniva se na Okviru EU–SAD za privatnost podataka ili standardnim ugovornim klauzulama.',
       ],
     },
@@ -82,13 +82,13 @@ const privacySr: LegalDoc = {
     {
       h: '6. Obaveznost podataka i automatsko odlučivanje',
       p: [
-        'Ime, e-adresa, telefon i broj ulaznica potrebni su da bismo obradili rezervaciju; bez njih ne možemo da je primimo. Podaci o ishrani su dobrovoljni. Ne vršimo automatsko odlučivanje ni profilisanje.',
+        'Ime, e-⁠adresa, telefon i broj ulaznica potrebni su da bismo obradili rezervaciju; bez njih ne možemo da je primimo. Podaci o ishrani su dobrovoljni. Ne vršimo automatsko odlučivanje ni profilisanje.',
         'Sajt je namenjen osobama starijim od 15 godina; maloletnici mlađi od 15 godina ne mogu sami da daju saglasnost.',
       ],
     },
     {
       h: '7. Kolačići i praćenje',
-      p: ['Sajt ne postavlja kolačiće niti upisuje podatke u lokalnu memoriju pregledača (localStorage), a ne koristimo ni analitiku, oglase, društvene dodatke ili spoljne servise koji prate posetioce. Fontovi se učitavaju sa našeg servera. Zato nema banera za saglasnost; ako u budućnosti uvedemo analitiku, tražićemo vašu saglasnost pre toga.'],
+      p: ['Sajt ne postavlja kolačiće niti upisuje podatke u lokalnu memoriju pregledača (localStorage), a ne koristimo ni analitiku, oglase, društvene dodatke ili spoljne servise koji prate posetioce. Fontovi se učitavaju sa našeg servera. Zato nema banera za saglasnost; ako u budućnosti uvedemo analitiku, tražićemo Vašu saglasnost pre toga.'],
     },
     {
       h: '8. Fotografisanje na balu',
@@ -117,9 +117,9 @@ const privacySl: LegalDoc = {
       table: {
         head: ['Namen', 'Podatki', 'Pravna podlaga'],
         rows: [
-          ['Rezervacija vstopnic', 'Ime in priimek, e-naslov, telefon, vrsta in število vstopnic, opomba, vir informacije o balu, podatki za račun (če ga zahtevate)', 'Izvajanje pogodbe / ukrepi na Vašo zahtevo pred sklenitvijo pogodbe (čl. 6(1)(b) GDPR)'],
+          ['Rezervacija vstopnic', 'Ime in priimek, e-⁠naslov, telefon, vrsta in število vstopnic, opomba, vir informacije o balu, podatki za račun (če ga zahtevate)', 'Izvajanje pogodbe / ukrepi na Vašo zahtevo pred sklenitvijo pogodbe (čl. 6(1)(b) GDPR)'],
           ['Prehrana in alergije (neobvezno)', 'Prosto besedilo, ki ga vnesete sami; lahko razkrije zdravstveno stanje', 'Vaša izrecna privolitev (čl. 9(2)(a) GDPR); prekličete jo lahko kadar koli'],
-          ['Sporočila prek kontaktnega obrazca', 'Ime, e-naslov, besedilo sporočila', 'Privolitev (čl. 6(1)(a)); odgovor na Vaše vprašanje (čl. 6(1)(b))'],
+          ['Sporočila prek kontaktnega obrazca', 'Ime, e-⁠naslov, besedilo sporočila', 'Privolitev (čl. 6(1)(a)); odgovor na Vaše vprašanje (čl. 6(1)(b))'],
           ['Računi in računovodstvo', 'Podatki na računu', 'Zakonska obveznost (čl. 6(1)(c))'],
           ['Zaščita pred zlorabo (neželena sporočila)', 'Tehnični podatki o oddaji obrazca, brez piškotkov', 'Zakoniti interes (čl. 6(1)(f)) — varnost spletne strani'],
         ],
@@ -139,7 +139,7 @@ const privacySl: LegalDoc = {
       p: ['Do podatkov dostopajo le člani organizacijske ekipe. Uporabljamo naslednje obdelovalce, ki podatke obdelujejo samo po naših navodilih:'],
       list: [
         `Gostovanje spletne strani: ${O.hosting}`,
-        `Pošiljanje e-pošte: ${O.mailProvider}`,
+        `Pošiljanje e-⁠pošte: ${O.mailProvider}`,
         'Google Ireland Ltd. (Google Sheets / Apps Script) — evidenca rezervacij. Morebitni prenos podatkov izven EU temelji na okviru EU–ZDA za varstvo podatkov ali standardnih pogodbenih klavzulah.',
       ],
     },
@@ -154,7 +154,7 @@ const privacySl: LegalDoc = {
     {
       h: '6. Obveznost podatkov in avtomatsko odločanje',
       p: [
-        'Ime, e-naslov, telefon in število vstopnic so potrebni za obdelavo rezervacije; brez njih je ne moremo sprejeti. Podatki o prehrani so prostovoljni. Ne izvajamo avtomatskega odločanja ali profiliranja.',
+        'Ime, e-⁠naslov, telefon in število vstopnic so potrebni za obdelavo rezervacije; brez njih je ne moremo sprejeti. Podatki o prehrani so prostovoljni. Ne izvajamo avtomatskega odločanja ali profiliranja.',
         'Spletna stran je namenjena osebam, starejšim od 15 let; mlajši od 15 let ne morejo sami dati privolitve.',
       ],
     },
