@@ -124,7 +124,7 @@ describe('ReservationFormComponent', () => {
     expect(count().value).toBe('3');
     await click(minus);
     expect(count().value).toBe('2');
-    await type(count(), '25');
+    await type(count(), '8');
     expect(errors()).toEqual([]);
   });
 
