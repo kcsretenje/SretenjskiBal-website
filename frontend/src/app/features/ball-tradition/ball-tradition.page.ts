@@ -75,7 +75,7 @@ interface Chapter {
     .chapter:last-child { padding-bottom: 0; }
     .chapter::before { content: ''; position: absolute; left: calc(33.333% - 5px); top: 1.4rem; width: 9px; height: 9px; background: var(--c-parchment); border: 1px solid var(--c-brass); transform: rotate(45deg); }
     .mark-col { text-align: right; }
-    .mark { position: sticky; top: calc(var(--header-h) + 1.5rem); display: inline-block; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.05; color: var(--c-burgundy); padding-right: 1.5rem; }
+    .mark { display: inline-block; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.05; color: var(--c-burgundy); padding-right: 1.5rem; }
     .text-col { display: flex; flex-direction: column; gap: 1.1rem; max-width: 36em; padding-top: 0.4rem; }
     .chapter__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2.4vw, 2rem); color: var(--c-wine); }
     .text-col p { font-weight: 300; line-height: 1.75; }
@@ -93,7 +93,7 @@ interface Chapter {
       .chapter { grid-template-columns: 1fr; padding-left: 2.25rem; gap: 0.75rem; }
       .chapter::before { left: calc(0.5rem - 4px); }
       .mark-col { text-align: left; }
-      .mark { position: static; padding: 0; }
+      .mark { padding: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       .rise { animation: none; opacity: 1; transform: none; }
