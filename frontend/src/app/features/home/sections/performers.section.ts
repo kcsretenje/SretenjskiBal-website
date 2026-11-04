@@ -59,6 +59,14 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
               </li>
             }
           </ul>
+          @if (performers.length > 1) {
+            <!-- Telefon: tačkice pokazuju da ima još učesnika i koji je trenutno prikazan. -->
+            <div class="dots" role="group" i18n-aria-label aria-label="Učesnici programa">
+              @for (p of performers; track p.role + p.name; let i = $index) {
+                <button type="button" class="dot" [class.dot--on]="i === current()" (click)="goTo(i)" [attr.aria-label]="p.name ?? p.role" [attr.aria-current]="i === current() ? 'true' : null"></button>
+              }
+            </div>
+          }
           <p class="more" appReveal i18n>Imena ostalih učesnika programa biće uskoro objavljena.</p>
         } @else {
           <ul class="track track--soon" appReveal [appRevealDelay]="120" aria-hidden="true">
@@ -153,10 +161,16 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
     .more { margin: 2.25rem 0 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 1.8vw, 1.5rem); color: var(--c-burgundy); }
 
     @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
+    .dots { display: none; }
     @media (max-width: 767.98px) {
-      .track { --card-w: 72vw; }
-      .card--wide { flex-basis: 88vw; }
+      /* Kartice uže od ekrana: sledeći učesnik viri sa desne strane, pa se vidi da ima još. */
+      .track { --card-w: 64vw; }
+      .card--wide { flex-basis: 76vw; }
       .controls .arrow { display: none; }
+      .dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
+      .dot { width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+      .dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--c-rule-dark); transition: background-color 200ms, transform 200ms; }
+      .dot--on::before { background: var(--c-wine); transform: scale(1.3); }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -166,6 +180,8 @@ export class PerformersSectionComponent {
   protected readonly soon = [1, 2, 3, 4, 5];
   protected readonly atStart = signal(true);
   protected readonly atEnd = signal(false);
+  /** Kartica koja je trenutno na početku karusela (za tačkice na telefonu). */
+  protected readonly current = signal(0);
   private readonly track = viewChild<ElementRef<HTMLUListElement>>('track');
 
   constructor() {
@@ -193,5 +209,22 @@ export class PerformersSectionComponent {
     const max = el.scrollWidth - el.clientWidth;
     this.atStart.set(el.scrollLeft <= 2);
     this.atEnd.set(el.scrollLeft >= max - 2);
+    const cards = Array.from(el.querySelectorAll<HTMLElement>('.card'));
+    if (!cards.length) return;
+    const x0 = cards[0].offsetLeft;
+    let best = 0;
+    cards.forEach((c, i) => {
+      if (Math.abs(c.offsetLeft - x0 - el.scrollLeft) < Math.abs(cards[best].offsetLeft - x0 - el.scrollLeft)) best = i;
+    });
+    // Na kraju trake poslednja kartica ne može da stigne do levog ruba — tada je ona aktivna.
+    this.current.set(el.scrollLeft >= max - 2 ? cards.length - 1 : best);
+  }
+
+  /** Tačkica: skrol do izabrane kartice. */
+  protected goTo(i: number): void {
+    const el = this.track()?.nativeElement;
+    const cards = el ? Array.from(el.querySelectorAll<HTMLElement>('.card')) : [];
+    if (!el || !cards[i]) return;
+    el.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft });
   }
 }
