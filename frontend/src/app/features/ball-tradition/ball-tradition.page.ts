@@ -52,7 +52,7 @@ interface Chapter {
           </div>
           <p class="lead" appReveal [appRevealDelay]="100" i18n>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</p>
         } @else {
-          <!-- Slovenačka i engleska verzija zadržavaju raniji raspored (tri pasusa). -->
+          <!-- Engleska verzija zadržava raniji raspored (tri pasusa). -->
           <div class="lines" appReveal>
             <p class="quote" i18n>Tako su prostori za susret postajali više od prostora.</p>
             <p class="quote soft" i18n>Postajali su mesta na kojima se gradila kultura, povezivali ljudi i stvarale ideje koje su trajale mnogo duže od jedne večeri.</p>
@@ -112,8 +112,8 @@ interface Chapter {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BallTraditionPage {
-  /** Srpski tekst završnog dela ima dva pasusa; SL/EN zadržavaju raniji raspored. */
-  protected readonly sr = inject(LOCALE_ID).startsWith('sr');
+  /** Srpski i slovenački tekst završnog dela imaju dva pasusa; engleski zadržava raniji raspored. */
+  protected readonly sr = !inject(LOCALE_ID).startsWith('en');
   protected readonly chapters: Chapter[] = [
     {
       mark: '1834.',

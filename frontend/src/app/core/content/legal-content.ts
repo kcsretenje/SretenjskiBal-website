@@ -103,10 +103,10 @@ const privacySr: LegalDoc = {
 
 const privacySl: LegalDoc = {
   title: 'Politika zasebnosti',
-  updated: `Različica ${PRIVACY_POLICY_VERSION}`,
+  updated: 'Različica z dne 28. oktobra 2026',
   sections: [
     {
-      h: '1. Kdo je upravljavec podatkov',
+      h: '1. Upravljavec osebnih podatkov',
       p: [
         `Upravljavec Vaših osebnih podatkov je ${O.legalName}, ${O.address}, ${O.registration} (v nadaljevanju: organizator). Vprašanja o zasebnosti: ${O.privacyEmail}.`,
         'Ta politika velja za spletno stran Sretenjskega bala; podatke obdelujemo v skladu z Uredbo (EU) 2016/679 (GDPR) in Zakonom o varstvu osebnih podatkov (ZVOP-2).',
@@ -117,7 +117,7 @@ const privacySl: LegalDoc = {
       table: {
         head: ['Namen', 'Podatki', 'Pravna podlaga'],
         rows: [
-          ['Rezervacija vstopnic', 'Ime in priimek, e-naslov, telefon, vrsta in število vstopnic, opomba, vir informacije o plesu, podatki za račun (če ga zahtevate)', 'Izvajanje pogodbe / ukrepi na Vašo zahtevo pred sklenitvijo pogodbe (čl. 6(1)(b) GDPR)'],
+          ['Rezervacija vstopnic', 'Ime in priimek, e-naslov, telefon, vrsta in število vstopnic, opomba, vir informacije o balu, podatki za račun (če ga zahtevate)', 'Izvajanje pogodbe / ukrepi na Vašo zahtevo pred sklenitvijo pogodbe (čl. 6(1)(b) GDPR)'],
           ['Prehrana in alergije (neobvezno)', 'Prosto besedilo, ki ga vnesete sami; lahko razkrije zdravstveno stanje', 'Vaša izrecna privolitev (čl. 9(2)(a) GDPR); prekličete jo lahko kadar koli'],
           ['Sporočila prek kontaktnega obrazca', 'Ime, e-naslov, besedilo sporočila', 'Privolitev (čl. 6(1)(a)); odgovor na Vaše vprašanje (čl. 6(1)(b))'],
           ['Računi in računovodstvo', 'Podatki na računu', 'Zakonska obveznost (čl. 6(1)(c))'],
@@ -128,7 +128,7 @@ const privacySl: LegalDoc = {
     {
       h: '3. Kako dolgo hranimo podatke',
       list: [
-        'Podatki o rezervaciji: do 6 mesecev po plesu, razen podatkov, ki jih moramo hraniti po zakonu (računi).',
+        'Podatki o rezervaciji: do 6 mesecev po balu, razen podatkov, ki jih moramo hraniti po zakonu (računi).',
         'Podatki o prehrani in alergijah: do 30 dni po plesu, prej, če privolitev prekličete.',
         'Sporočila iz kontaktnega obrazca: do 12 mesecev.',
         'Računi in računovodska dokumentacija: v skladu z zakonom.',
@@ -163,8 +163,8 @@ const privacySl: LegalDoc = {
       p: ['Spletna stran ne nastavlja piškotkov in ne zapisuje podatkov v lokalni pomnilnik brskalnika (localStorage); ne uporabljamo niti analitike, oglasov, družbenih vtičnikov ali zunanjih storitev, ki bi sledile obiskovalcem. Pisave se nalagajo z našega strežnika. Zato ni pasice za privolitev; če bomo v prihodnje uvedli analitiko, bomo pred tem zahtevali Vašo privolitev.'],
     },
     {
-      h: '8. Fotografiranje na plesu',
-      p: ['Na plesu lahko nastajajo fotografije in video posnetki. Obvestilo bo objavljeno ob vhodu; če ne želite biti posneti, to sporočite osebju.'],
+      h: '8. Fotografiranje na balu',
+      p: ['Na balu lahko nastajajo fotografije in videoposnetki. Obvestilo o tem bo objavljeno ob vhodu. Če ne želite biti posneti, o tem obvestite osebje.'],
     },
     {
       h: '9. Spremembe politike',
