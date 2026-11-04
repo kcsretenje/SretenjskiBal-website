@@ -1,0 +1,9 @@
+# Sretenjski bal — sretenjskibal.si
+User-agent: *
+Allow: /
+# Stranica za skeniranje ulaznica na ulazu nije za pretragu
+Disallow: /ulaz
+Disallow: /sl/ulaz
+Disallow: /en/ulaz
+
+Sitemap: https://sretenjskibal.si/sitemap.xml
