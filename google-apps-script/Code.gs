@@ -935,8 +935,8 @@ const MAIL = {
     upn: { title: 'Plaćanje QR kodom', text: 'Skenirajte kod u aplikaciji svoje banke (UPN QR, za račune u Sloveniji) — primalac, iznos, rok, referenca i svrha se popunjavaju sami.' },
     labels: { number: 'Broj rezervacije', ticketType: 'Tip ulaznice', ticketCount: 'Broj ulaznica', guests: 'Gosti', note: 'Napomena', diet: 'Alergije', amount: 'Iznos za uplatu', deadline: 'Rok za uplatu', payee: 'Primalac', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Svrha uplate', reference: 'Referenca primaoca' },
     received: {
-      subject: function (n) { return 'Ulaznice za prvi Sretenjski bal — rezervacija ' + n; },
-      title: 'Ulaznice za prvi Sretenjski bal',
+      subject: function (n) { return 'Rezervacija ' + n; },
+      title: 'Rezervacija za prvi Sretenjski bal',
       intro: ['Zahvaljujemo Vam na rezervaciji ulaznica za prvi Sretenjski bal. Vaša rezervacija je evidentirana pod brojem:'],
       outro: function () {
         return [
@@ -982,8 +982,8 @@ const MAIL = {
     upn: { title: 'Plačilo s kodo QR', text: 'Kodo skenirajte v mobilni banki (UPN QR) — prejemnik, znesek, rok, referenca in namen se izpolnijo sami.' },
     labels: { number: 'Številka rezervacije', ticketType: 'Vrsta vstopnice', ticketCount: 'Število vstopnic', guests: 'Gostje', note: 'Opomba', diet: 'Alergije', amount: 'Znesek za plačilo', deadline: 'Rok plačila', payee: 'Prejemnik', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Namen plačila', reference: 'Referenca prejemnika' },
     received: {
-      subject: function (n) { return 'Vstopnice za prvi Sretenjski bal — rezervacija ' + n; },
-      title: 'Vstopnice za prvi Sretenjski bal',
+      subject: function (n) { return 'Rezervacija ' + n; },
+      title: 'Rezervacija za prvi Sretenjski bal',
       intro: ['Zahvaljujemo se Vam za rezervacijo vstopnic za prvi Sretenjski bal. Vaša rezervacija je evidentirana pod številko:'],
       outro: function () {
         return [
@@ -1029,8 +1029,8 @@ const MAIL = {
     upn: { title: 'Pay by QR code', text: 'Scan the code in your banking app (UPN QR, for accounts at Slovenian banks) — payee, amount, due date, reference and purpose are filled in automatically.' },
     labels: { number: 'Reservation number', ticketType: 'Ticket type', ticketCount: 'Number of tickets', guests: 'Guests', note: 'Note', diet: 'Allergies', amount: 'Amount due', deadline: 'Payment deadline', payee: 'Payee', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Bank', purpose: 'Payment reference', reference: 'Creditor reference' },
     received: {
-      subject: function (n) { return 'Tickets for the first Sretenjski bal — reservation ' + n; },
-      title: 'Tickets for the first Sretenjski bal',
+      subject: function (n) { return 'Reservation ' + n; },
+      title: 'Reservation for the first Sretenjski bal',
       intro: ['Thank you for reserving tickets for the first Sretenjski bal. Your reservation has been recorded under the number:'],
       outro: function () {
         return [

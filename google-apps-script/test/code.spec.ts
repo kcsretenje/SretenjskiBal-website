@@ -277,7 +277,7 @@ describe('Apps Script (Code.gs)', () => {
       create(reservation({ locale: 'sl', email: 'sl@primer.si' }));
       create(reservation({ locale: 'en', email: 'en@primer.si', tickets: [{ ticketType: 'GALERIJA', count: 2 }] }));
       const sr = gas.outbox.find((m) => m.to === 'ana@primer.si')!;
-      expect(sr.subject).toBe('Ulaznice za prvi Sretenjski bal — rezervacija 27001');
+      expect(sr.subject).toBe('Rezervacija 27001');
       expect(sr.body).toContain('Poštovani/a Ana Anić,');
       expect(sr.htmlBody).toContain('cid:sblogo');
       expect(Object.keys(sr.inlineImages as object)).toEqual(['sblogo']);
