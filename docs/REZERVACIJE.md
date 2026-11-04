@@ -425,3 +425,12 @@ na Drajvu naloga pod kojim skripta radi (Otpad se sam prazni posle 30 dana). Jez
 - Posle dodavanja fajla `Ulaznica.gs` Google jednom ponovo traži dozvolu (Slides i Drive).
 - Izgled (tekst, boje, raspored) menja se u `Ulaznica.gs`; pozadina (bordo deo sa logom, papir, belo polje za QR)
   je JPEG slika ugrađena na kraju tog fajla.
+
+## Rezervne kopije
+
+- Meni **Sretenjski bal → Uključi dnevnu rezervnu kopiju**: svake noći (3–4 h) skripta pravi kopiju cele tabele u
+  fascikli „Sretenjski bal — rezervne kopije" na Drajvu i čuva poslednjih 14 (starije idu u Otpad). Prva kopija se
+  pravi odmah.
+- **Napravi rezervnu kopiju sada**: jedna kopija odmah, npr. pre većih izmena.
+- Vraćanje: otvorite kopiju iz fascikle i iz nje prepišite potrebne redove; ili u originalnoj tabeli
+  **Datoteka → Istorija verzija**.

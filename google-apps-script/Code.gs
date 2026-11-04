@@ -1834,6 +1834,70 @@ function upnMailBlock_(labels) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Rezervne kopije
+// ─────────────────────────────────────────────────────────────────────────────
+
+const BACKUP_FOLDER_NAME = 'Sretenjski bal — rezervne kopije';
+const BACKUP_KEEP = 14;
+
+/**
+ * Pravi kopiju cele tabele u fascikli „Sretenjski bal — rezervne kopije" na Drajvu naloga pod kojim radi,
+ * i čuva poslednjih BACKUP_KEEP kopija (starije idu u Otpad). Pokreće se svake noći (meni „Uključi dnevnu
+ * rezervnu kopiju") ili ručno iz menija.
+ */
+function dailyBackup() {
+  const ss = spreadsheet_();
+  const folder = backupFolder_();
+  const stamp = Utilities.formatDate(new Date(), TIME_ZONE, 'yyyy-MM-dd HH-mm');
+  const copy = DriveApp.getFileById(ss.getId()).makeCopy(ss.getName() + ' — kopija ' + stamp, folder);
+  const files = [];
+  const it = folder.getFiles();
+  while (it.hasNext()) files.push(it.next());
+  files
+    .filter(function (f) { return f.getMimeType() === MimeType.GOOGLE_SHEETS; })
+    .sort(function (a, b) { return b.getDateCreated() - a.getDateCreated(); })
+    .slice(BACKUP_KEEP)
+    .forEach(function (f) { f.setTrashed(true); });
+  return copy;
+}
+
+function backupFolder_() {
+  const props = PropertiesService.getScriptProperties();
+  const id = props.getProperty('BACKUP_FOLDER_ID');
+  if (id) {
+    try {
+      const f = DriveApp.getFolderById(id);
+      if (!f.isTrashed()) return f;
+    } catch (err) {
+      // fascikla obrisana — pravimo novu
+    }
+  }
+  const found = DriveApp.getFoldersByName(BACKUP_FOLDER_NAME);
+  const folder = found.hasNext() ? found.next() : DriveApp.createFolder(BACKUP_FOLDER_NAME);
+  props.setProperty('BACKUP_FOLDER_ID', folder.getId());
+  return folder;
+}
+
+/** Meni: dnevna rezervna kopija oko 3 ujutru + jedna kopija odmah. */
+function installBackupTrigger() {
+  ScriptApp.getProjectTriggers().forEach(function (tr) {
+    if (tr.getHandlerFunction() === 'dailyBackup') ScriptApp.deleteTrigger(tr);
+  });
+  ScriptApp.newTrigger('dailyBackup').timeBased().everyDays(1).atHour(3).inTimezone(TIME_ZONE).create();
+  const copy = dailyBackup();
+  SpreadsheetApp.getUi().alert(
+    'Dnevna rezervna kopija je uključena — pravi se svake noći između 3 i 4 časa, a čuva se poslednjih ' + BACKUP_KEEP + ' kopija.\n\n' +
+    'Prva kopija je upravo napravljena: „' + copy.getName() + '" u fascikli „' + BACKUP_FOLDER_NAME + '" na Drajvu.',
+  );
+}
+
+/** Meni: jedna rezervna kopija odmah (npr. pre većih izmena). */
+function menuBackupNow() {
+  const copy = dailyBackup();
+  SpreadsheetApp.getUi().alert('Rezervna kopija je napravljena: „' + copy.getName() + '" u fascikli „' + BACKUP_FOLDER_NAME + '".');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Meni u tabeli
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -1847,6 +1911,8 @@ function onOpen() {
     .addSeparator()
     .addItem('Podesi tabelu (prvo pokretanje)', 'setup')
     .addItem('Uključi dnevnu proveru rokova', 'installTriggers')
+    .addItem('Uključi dnevnu rezervnu kopiju', 'installBackupTrigger')
+    .addItem('Napravi rezervnu kopiju sada', 'menuBackupNow')
     .addItem('Pošalji probni mejl organizatoru', 'sendTestEmail')
     .addItem('Pošalji probnu PDF ulaznicu organizatoru', 'menuTestTicketPdf')
     .addToUi();
