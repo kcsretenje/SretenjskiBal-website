@@ -90,7 +90,7 @@ Tabela → **Deli (Share)** → Opšti pristup → **Ograničeno (Restricted)** 
    Na isti način dodajte i fajl `Ulaznica` sa sadržajem `google-apps-script/Ulaznica.gs` (PDF ulaznice).
 3. ⚙️ **Podešavanja projekta** (Project Settings) → uključite **„Prikaži datoteku manifesta appsscript.json"**.
    Vratite se u Editor, otvorite `appsscript.json` i zamenite sadržaj fajlom `google-apps-script/appsscript.json`.
-   Manifest uključuje i **Google Slides API** (u levom meniju „Services" pojaviće se „Slides"), koji služi
+   Manifest uključuje i **Google Slides API** i **Drive API** (u levom meniju „Services" pojaviće se „Slides" i „Drive"), koji služe
    za pravljenje PDF ulaznica.
 4. Sačuvajte (💾).
 

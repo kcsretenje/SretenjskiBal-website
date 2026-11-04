@@ -6,6 +6,11 @@
         "userSymbol": "Slides",
         "serviceId": "slides",
         "version": "v1"
+      },
+      {
+        "userSymbol": "Drive",
+        "serviceId": "drive",
+        "version": "v3"
       }
     ]
   },
