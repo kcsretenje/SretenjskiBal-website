@@ -17,7 +17,7 @@ const TICKET_PDF_H = 720; // pt (10 in)
 
 const TICKET_PDF_TEXT = {
   sr: {
-    title: 'Sretenjski bal', dateLabel: 'Datum', date: 'Subota, 13. februar 2027.', placeLabel: 'Mesto', place: 'Narodni dom Maribor',
+    title: 'Sretenjski bal', dateLabel: 'Datum', date: 'Subota, 13. februar 2027.', placeLabel: 'Lokacija', place: 'Narodni dom Maribor',
     kicker: 'Ulaznica', types: { Svečana: 'Svečana ulaznica', Galerija: 'Ulaznica za galeriju' },
     of: 'od', reservation: 'rezervacija', show: 'Pokažite QR kod na ulazu.', file: 'Ulaznica',
   },
