@@ -59,9 +59,10 @@ const COL = {
   deadline: 'Rok za uplatu',
   reminderAt: 'Datum slanja podsetnika',
   paidAt: 'Datum evidentirane uplate',
+  paymentMethod: 'Način plaćanja',
   paymentConfirmedAt: 'Datum slanja potvrde uplate',
   closedAt: 'Datum isteka/otkazivanja',
-  adminNote: 'Administrativna napomena',
+  adminNote: 'Komentar',
   // Faktura i izvor
   invoice: 'Faktura na firmu',
   company: 'Podaci firme',
@@ -79,7 +80,7 @@ const COL = {
 /** Grupe kolona: boja zaglavlja; tehnički podaci su skupljeni (otvaraju se klikom na „+" iznad kolona). */
 const COLUMN_GROUPS = [
   { color: '#5a1723', keys: ['number', 'status', 'fullName', 'ticketType', 'ticketCount', 'amount', 'diet', 'note', 'createdAt', 'email', 'phone'] },
-  { color: '#26352c', keys: ['instructionsAt', 'deadline', 'reminderAt', 'paidAt', 'paymentConfirmedAt', 'closedAt', 'adminNote'] },
+  { color: '#26352c', keys: ['instructionsAt', 'deadline', 'reminderAt', 'paidAt', 'paymentMethod', 'paymentConfirmedAt', 'closedAt', 'adminNote'] },
   { color: '#7a6438', keys: ['invoice', 'company', 'source', 'sourceOther', 'locale'] },
   { color: '#5b4f48', keys: ['pageUrl', 'utm', 'systemNote', 'consent', 'requestId'], collapsed: true },
 ];
@@ -95,10 +96,17 @@ const HEADER_NOTES = {
   reminderAt: 'Upisuje dnevna provera rokova kad pošalje podsetnik.',
   paidAt: 'Datum kad je uplata viđena na izvodu. Ako ostane prazno, upisuje se pri slanju potvrde uplate.',
   paymentConfirmedAt: 'Upisuje se kad iz menija pošaljete potvrdu uplate. Obrišite ga samo ako potvrdu treba poslati ponovo.',
-  adminNote: 'Slobodno polje za ekipu — skripta ga nikad ne menja.',
+  paymentMethod: 'Izaberite iz liste: Na račun ili Gotovina. Popunjava ko evidentira uplatu.',
+  adminNote: 'Komentar ekipe o rezervaciji (slobodan tekst). Skripta ga nikad ne menja i gost ga ne vidi.',
   systemNote: 'Upisuje skripta (npr. da li su mejlovi poslati).',
   consent: 'Dokaz o obaveštavanju i saglasnosti: verzija politike privatnosti koju je gost video i, ako je naveo ishranu, izričita saglasnost za podatke o zdravlju (član 9 GDPR). Ne brisati dok se rezervacija čuva.',
 };
+
+/** Način plaćanja (padajuća lista u koloni „Način plaćanja"). */
+const PAYMENT_METHODS = ['Na račun', 'Gotovina'];
+
+/** Stari nazivi kolona → novi; pri otvaranju tabele zaglavlje se samo preimenuje, podaci ostaju. */
+const LEGACY_HEADERS = { 'Administrativna napomena': COL.adminNote };
 
 const HEADERS = Object.keys(COL).map(function (k) { return COL[k]; });
 const DATE_KEYS = ['instructionsAt', 'deadline', 'reminderAt', 'paidAt', 'paymentConfirmedAt', 'closedAt'];
@@ -561,6 +569,13 @@ function openTable_() {
 function addMissingColumns_(sheet) {
   const lastCol = sheet.getLastColumn();
   const existing = lastCol ? sheet.getRange(1, 1, 1, lastCol).getValues()[0].map(function (h) { return String(h).trim(); }) : [];
+  existing.forEach(function (h, i) {
+    const renamed = LEGACY_HEADERS[h];
+    if (renamed && existing.indexOf(renamed) < 0) {
+      sheet.getRange(1, i + 1).setValue(renamed);
+      existing[i] = renamed;
+    }
+  });
   const missing = HEADERS.filter(function (h) { return existing.indexOf(h) < 0; });
   if (missing.length) sheet.getRange(1, existing.length + 1, 1, missing.length).setValues([missing]);
 }
@@ -1329,9 +1344,9 @@ function renderMail_(m) {
  */
 const GUEST_HEADERS = [
   'Broj rezervacije', 'Gost', 'Ime', 'Prezime', 'E-mail', 'Telefon', 'Status rezervacije', 'Tip ulaznice',
-  'Kako je saznao/la za bal', 'Alergije', 'Napomena', 'Kod ulaznice', 'Ulazak', 'Skenirao',
+  'Kako je saznao/la za bal', 'Alergije', 'Napomena', 'Kod ulaznice', 'Ulazak', 'Skenirao', 'Funkcija / firma', 'Komentar',
 ];
-const G = { number: 0, role: 1, first: 2, last: 3, email: 4, phone: 5, status: 6, type: 7, source: 8, diet: 9, note: 10, code: 11, enteredAt: 12, scannedBy: 13 };
+const G = { number: 0, role: 1, first: 2, last: 3, email: 4, phone: 5, status: 6, type: 7, source: 8, diet: 9, note: 10, code: 11, enteredAt: 12, scannedBy: 13, position: 14, comment: 15 };
 const GUEST_HOLDER = 'Nosilac';
 /** Kolone koje dobijaju boju rezervacije (Broj … Telefon). */
 const GUEST_COLORED_COLS = 6;
@@ -1453,7 +1468,7 @@ function guestsSheet_() {
     sheet.getRange(1, G.enteredAt + 1).setNote('Vreme kad je ulaznica skenirana na ulazu. Obrišite ga da bi ulaznica ponovo važila.');
     sheet.setFrozenRows(1);
     sheet.setFrozenColumns(4);
-    [110, 80, 130, 140, 220, 140, 150, 110, 170, 220, 260, 170, 130, 130].forEach(function (w, i) { sheet.setColumnWidth(i + 1, w); });
+    [110, 80, 130, 140, 220, 140, 150, 110, 170, 220, 260, 170, 130, 130, 200, 260].forEach(function (w, i) { sheet.setColumnWidth(i + 1, w); });
     // Svaka rezervacija u svojoj boji (naizmenično dve nijanse), nosilac podebljan, status sivom pozadinom (ne menja se ovde).
     const rows = sheet.getMaxRows();
     const colored = sheet.getRange(2, 1, rows - 1, GUEST_COLORED_COLS);
@@ -1465,7 +1480,23 @@ function guestsSheet_() {
     ]);
     sheet.getRange(2, G.status + 1, rows - 1, 1).setBackground('#ececec').setFontColor('#5b4f48');
   }
+  upgradeGuestHeaders_(sheet);
   return sheet;
+}
+
+/** Kolone dodate u novijoj verziji („Funkcija / firma", „Komentar") dopisuju se na kraj postojećeg taba. */
+function upgradeGuestHeaders_(sheet) {
+  const width = Math.max(sheet.getLastColumn(), 1);
+  const header = sheet.getRange(1, 1, 1, width).getValues()[0].map(function (h) { return String(h).trim(); });
+  for (let i = 0; i < GUEST_HEADERS.length; i++) {
+    if (header[i] === GUEST_HEADERS[i]) continue;
+    if (header[i]) return; // nepoznata kolona na tom mestu — ne diramo ništa
+    const cell = sheet.getRange(1, i + 1);
+    cell.setValue(GUEST_HEADERS[i]).setFontWeight('bold').setBackground('#5a1723').setFontColor('#f6f1e8');
+    if (i === G.position) cell.setNote('Funkcija ili firma gosta (npr. za protokol i raspored sedenja). Upisuje se ručno.');
+    if (i === G.comment) cell.setNote('Komentar ekipe o gostu (slobodan tekst). Gost ga ne vidi.');
+    sheet.setColumnWidth(i + 1, i === G.comment ? 260 : 200);
+  }
 }
 
 /** Redovi taba „Gosti" za jednu rezervaciju (nosilac i gosti), iz podataka sa forme. */
@@ -1485,7 +1516,9 @@ function guestRowsFromInput_(record, input, startRow) {
 /** Bezbedne vrednosti ćelija + formula za status u svakom redu. */
 function finishGuestRows_(rows, startRow) {
   return rows.map(function (row, i) {
-    return row.map(function (v, c) { return c === G.status ? guestStatusFormula_(startRow + i) : safeCell_(v); });
+    const full = row.slice(0, GUEST_HEADERS.length);
+    while (full.length < GUEST_HEADERS.length) full.push('');
+    return full.map(function (v, c) { return c === G.status ? guestStatusFormula_(startRow + i) : safeCell_(v); });
   });
 }
 
@@ -1966,7 +1999,7 @@ function setupReservationsSheet_(ss) {
     .setFirstRowColor('#ffffff').setSecondRowColor('#f7f3ec');
   all.setVerticalAlignment('middle').setWrapStrategy(SpreadsheetApp.WrapStrategy.CLIP);
   body('diet').setWrapStrategy(SpreadsheetApp.WrapStrategy.WRAP);
-  ['number', 'status', 'ticketCount', 'createdAt', 'invoice', 'locale'].concat(DATE_KEYS).forEach(function (k) {
+  ['number', 'status', 'ticketCount', 'createdAt', 'paymentMethod', 'invoice', 'locale'].concat(DATE_KEYS).forEach(function (k) {
     body(k).setHorizontalAlignment('center');
   });
   body('number').setNumberFormat('@').setFontWeight('bold');
@@ -1978,6 +2011,10 @@ function setupReservationsSheet_(ss) {
   body('status').setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(Object.keys(STATUS).map(function (k) { return STATUS[k]; }), true).setAllowInvalid(false).build(),
   );
+  body('paymentMethod').setDataValidation(
+    SpreadsheetApp.newDataValidation().requireValueInList(PAYMENT_METHODS, true).setAllowInvalid(false).build(),
+  );
+  body('adminNote').setWrapStrategy(SpreadsheetApp.WrapStrategy.WRAP);
   body('amount').setDataValidation(
     SpreadsheetApp.newDataValidation().requireNumberGreaterThanOrEqualTo(0).setAllowInvalid(false).setHelpText('Iznos u evrima, npr. 130 ili 130,50').build(),
   );
@@ -2017,7 +2054,7 @@ function setupReservationsSheet_(ss) {
 
   const widths = {
     number: 95, status: 150, fullName: 190, ticketType: 150, ticketCount: 70, amount: 100, diet: 220, note: 240,
-    createdAt: 125, email: 210, phone: 130, instructionsAt: 115, deadline: 100, reminderAt: 115, paidAt: 115,
+    createdAt: 125, email: 210, phone: 130, instructionsAt: 115, deadline: 100, reminderAt: 115, paidAt: 115, paymentMethod: 110,
     paymentConfirmedAt: 115, closedAt: 115, adminNote: 220, invoice: 75, company: 200, source: 160, sourceOther: 160,
     locale: 70, pageUrl: 140, utm: 160, systemNote: 260, requestId: 120,
   };

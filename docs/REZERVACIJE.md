@@ -195,7 +195,7 @@ Kolone su grupisane po boji zaglavlja:
 | Boja | Grupa | Kolone |
 |---|---|---|
 | bordo | Rezervacija | broj, status, ime, tip i broj karata, iznos, ishrana, napomena, datum prijave, e-mail, telefon |
-| zelena | Uplata | datumi instrukcija, rok, podsetnik, uplata, potvrda, isticanje, administrativna napomena |
+| zelena | Uplata | datumi instrukcija, rok, podsetnik, uplata, **način plaćanja** (Na račun / Gotovina), potvrda, isticanje, **komentar** |
 | mesing | Faktura i izvor | faktura, podaci firme, izvor prijave, jezik |
 | siva | Tehnički podaci | stranica, UTM, sistemska napomena, ID zahteva — skupljeno, otvara se klikom na „+" iznad kolona |
 
@@ -215,6 +215,7 @@ kolonama i ništa se ne briše. Isključuje samo trenutno uključene filtere.
 - **Status rezervacije** (siva kolona) se ovde samo prikazuje — menjajte ga u tabu **Rezervacije**.
 - Imena i kontakte gostiju možete ispraviti direktno ovde; ulaznice se prave iz ovog taba.
 - Rezervacije napravljene pre uvođenja ovog taba dodaje meni **Sretenjski bal → Podesi tabelu**.
+- **Funkcija / firma** i **Komentar** (poslednje dve kolone) popunjava ekipa ručno; skripta ih ne menja i gost ih ne vidi.
 - Tabelu možete filtrirati (npr. po broju rezervacije), ali ne premeštajte kolone.
 
 ### Statusi
