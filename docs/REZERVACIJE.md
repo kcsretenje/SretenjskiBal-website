@@ -88,6 +88,7 @@ Tabela → **Deli (Share)** → Opšti pristup → **Ograničeno (Restricted)** 
    Zatim pored **Files** kliknite **+** → **Script**, nazovite fajl `QrCode` i u njega nalepite ceo sadržaj
    `google-apps-script/QrCode.gs` (biblioteka za QR kodove na ulaznicama; ovaj fajl se dodaje samo jednom).
    Na isti način dodajte i fajl `Ulaznica` sa sadržajem `google-apps-script/Ulaznica.gs` (PDF ulaznice).
+   Isto i fajl `Potvrda` sa sadržajem `google-apps-script/Potvrda.gs` (PDF potvrda o uplati).
 3. ⚙️ **Podešavanja projekta** (Project Settings) → uključite **„Prikaži datoteku manifesta appsscript.json"**.
    Vratite se u Editor, otvorite `appsscript.json` i zamenite sadržaj fajlom `google-apps-script/appsscript.json`.
    Manifest uključuje i **Google Slides API** i **Drive API** (u levom meniju „Services" pojaviće se „Slides" i „Drive"), koji služe
@@ -425,6 +426,23 @@ na Drajvu naloga pod kojim skripta radi (Otpad se sam prazni posle 30 dana). Jez
 - Posle dodavanja fajla `Ulaznica.gs` Google jednom ponovo traži dozvolu (Slides i Drive).
 - Izgled (tekst, boje, raspored) menja se u `Ulaznica.gs`; pozadina (bordo deo sa logom, papir, belo polje za QR)
   je JPEG slika ugrađena na kraju tog fajla.
+
+## PDF potvrda o uplati
+
+Uz ulaznice, u istom mejlu, gost dobija i PDF **„Potvrda o uplati"** (A4) na jeziku forme
+(„Potrdilo o plačilu" / „Payment confirmation"). Broj potvrde je broj rezervacije; nije račun.
+
+- Organizator: Kulturno društvo Kulturni center Sretenje, Zagrebška cesta 20, 2000 Maribor, matični broj 2949903000,
+  poreski broj 41959787, nije obveznik PDV-a (podaci iz registra, upisani u `Potvrda.gs`).
+- Uplatilac: kontakt osoba i e-mail, a ako je tražena faktura na firmu — podaci firme i kontakt osoba.
+- Stavke po tipu karte sa cenama iz Podešavanja; ako upisani iznos ne odgovara cenama (popust, ručna izmena),
+  ide jedna stavka sa upisanim iznosom.
+- Datum uplate iz kolone „Datum evidentirane uplate" (ako je prazna — dan slanja), način plaćanja iz kolone
+  „Način plaćanja" (popunite je pre slanja!), a kod uplate na račun i IBAN primaoca.
+- Potvrda se ne šalje ako „Iznos za uplatu" nije upisan; ako pravljenje ne uspe, mejl ipak odlazi, a poruka to javi.
+- Probni PDF: **Sretenjski bal → Pošalji probnu potvrdu o uplati organizatoru**.
+- Šablon „Sretenjski bal — šablon potvrde o uplati (ne brisati)" skripta sama napravi na Drajvu (ID u Script Properties
+  kao `RECEIPT_TEMPLATE_ID`).
 
 ## Rezervne kopije
 

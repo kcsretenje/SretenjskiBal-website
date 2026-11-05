@@ -137,12 +137,17 @@ function formatDate(date: Date, tz: string, fmt: string): string {
     hourCycle: 'h23',
   }).formatToParts(date);
   const p = (t: string) => parts.find((x) => x.type === t)?.value ?? '';
-  return fmt.replace('yyyy', p('year')).replace('MM', p('month')).replace('dd', p('day')).replace('HH', p('hour')).replace('mm', p('minute'));
+  const month = new Intl.DateTimeFormat('en-GB', { timeZone: tz, month: 'long' }).format(date);
+  const tokens: Record<string, string> = {
+    yyyy: p('year'), MMMM: month, MM: p('month'), M: String(Number(p('month'))),
+    dd: p('day'), d: String(Number(p('day'))), HH: p('hour'), mm: p('minute'),
+  };
+  return fmt.replace(/yyyy|MMMM|MM|M|dd|d|HH|mm/g, (t) => tokens[t]);
 }
 
 export function loadAppsScript(): GasEnv {
   // U Apps Scriptu svi fajlovi projekta dele isti globalni prostor, pa ih učitavamo zajedno.
-  const code = ['QrCode.gs', 'Code.gs'].map((f) => readFileSync(join(import.meta.dirname, '../../', f), 'utf8')).join('\n;\n');
+  const code = ['QrCode.gs', 'Code.gs', 'Potvrda.gs'].map((f) => readFileSync(join(import.meta.dirname, '../../', f), 'utf8')).join('\n;\n');
   const sheets = new Map<string, FakeSheet>();
   const props = new Map<string, string>();
   const cache = new Map<string, string>();

@@ -134,10 +134,18 @@ const TICKET_TEMPLATE_NAME = 'Sretenjski bal — šablon ulaznice (ne brisati)';
 const PPTX_MIME = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
 const SLIDES_MIME = 'application/vnd.google-apps.presentation';
 
-/** ID uspravnog šablona; ako ga nema (ili je obrisan), pravi ga iz ugrađenog .pptx fajla. */
+/** ID uspravnog šablona ulaznice; ako ga nema (ili je obrisan), pravi ga iz ugrađenog .pptx fajla. */
 function ticketTemplateId_() {
+  return slidesTemplateId_(TICKET_TEMPLATE_PROP, TICKET_TEMPLATE_NAME, TICKET_PDF_TEMPLATE_PPTX_BASE64);
+}
+
+/**
+ * ID Google Slides šablona sačuvanog u Script Properties pod `prop`; ako ga nema (ili je obrisan),
+ * pravi ga iz ugrađenog .pptx fajla (base64) i pamti ID.
+ */
+function slidesTemplateId_(prop, name, pptxBase64) {
   const props = PropertiesService.getScriptProperties();
-  const saved = props.getProperty(TICKET_TEMPLATE_PROP);
+  const saved = props.getProperty(prop);
   if (saved) {
     try {
       if (!DriveApp.getFileById(saved).isTrashed()) return saved;
@@ -145,18 +153,18 @@ function ticketTemplateId_() {
       // šablon obrisan ili nedostupan — pravimo novi
     }
   }
-  const blob = Utilities.newBlob(Utilities.base64Decode(TICKET_PDF_TEMPLATE_PPTX_BASE64), PPTX_MIME, TICKET_TEMPLATE_NAME + '.pptx');
+  const blob = Utilities.newBlob(Utilities.base64Decode(pptxBase64), PPTX_MIME, name + '.pptx');
   let id;
   if (typeof Drive !== 'undefined' && Drive.Files) {
     // Drive API (Services) — v3 ima create, v2 insert
     id = Drive.Files.create
-      ? Drive.Files.create({ name: TICKET_TEMPLATE_NAME, mimeType: SLIDES_MIME }, blob).id
-      : Drive.Files.insert({ title: TICKET_TEMPLATE_NAME, mimeType: SLIDES_MIME }, blob, { convert: true }).id;
+      ? Drive.Files.create({ name: name, mimeType: SLIDES_MIME }, blob).id
+      : Drive.Files.insert({ title: name, mimeType: SLIDES_MIME }, blob, { convert: true }).id;
   } else {
     // Bez dodatnog servisa: isti poziv Drive-a preko interneta, sa dozvolom same skripte
     const boundary = 'sb' + Utilities.getUuid().replace(/-/g, '');
     const head = '--' + boundary + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' +
-      JSON.stringify({ name: TICKET_TEMPLATE_NAME, mimeType: SLIDES_MIME }) +
+      JSON.stringify({ name: name, mimeType: SLIDES_MIME }) +
       '\r\n--' + boundary + '\r\nContent-Type: ' + PPTX_MIME + '\r\n\r\n';
     const tail = '\r\n--' + boundary + '--';
     const payload = Utilities.newBlob(head).getBytes().concat(blob.getBytes()).concat(Utilities.newBlob(tail).getBytes());
@@ -168,11 +176,11 @@ function ticketTemplateId_() {
       muteHttpExceptions: true,
     });
     if (res.getResponseCode() >= 300) {
-      throw new Error('Šablon ulaznice nije napravljen (Drive ' + res.getResponseCode() + '): ' + res.getContentText().slice(0, 300));
+      throw new Error('Šablon „' + name + '" nije napravljen (Drive ' + res.getResponseCode() + '): ' + res.getContentText().slice(0, 300));
     }
     id = JSON.parse(res.getContentText()).id;
   }
-  props.setProperty(TICKET_TEMPLATE_PROP, id);
+  props.setProperty(prop, id);
   return id;
 }
 

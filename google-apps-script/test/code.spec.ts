@@ -703,6 +703,53 @@ describe('Apps Script (Code.gs)', () => {
         expect(codeOf(3)).toMatch(/^27006-3-/);
       });
 
+      it('potvrda o uplati: organizator iz registra, stavke po cenama, datum uplate i način plaćanja', () => {
+        const settings = gas.ctx.readSettings_();
+        const r = { number: '27006', fullName: 'Ana Petrović', email: 'ana@primer.si', ticketCount: 2, amount: 280, paymentMethod: 'Na račun', company: '' };
+        const tickets = [{ type: 'Svečana' }, { type: 'Svečana' }];
+        const paidAt = new Date('2026-11-04T10:00:00Z');
+        const now = new Date('2026-11-05T10:00:00Z');
+        const d = gas.ctx.paymentReceiptData_(r, settings, 'sr', paidAt, tickets, now);
+        expect(d.L.title).toBe('Potvrda o uplati');
+        expect(d.L.org).toEqual(['Zagrebška cesta 20, 2000 Maribor, Slovenija', 'Matični broj: 2949903000', 'Poreski broj: 41959787', 'Nije obveznik PDV-a']);
+        expect(d.number).toBe('27006');
+        expect(d.payer).toEqual({ name: 'Ana Petrović', lines: ['ana@primer.si'] });
+        expect(d.lines).toEqual([{ desc: 'Svečana ulaznica — Sretenjski bal, 13. februar 2027.', qty: '2', unit: '140,00 EUR', sum: '280,00 EUR' }]);
+        expect(d.total).toBe('280,00 EUR');
+        expect(d.info).toEqual([
+          ['Broj rezervacije', '27006'], ['Datum uplate', '4. 11. 2026.'], ['Način plaćanja', 'Na račun'],
+          ['Račun primaoca', settings.iban], ['Datum izdavanja potvrde', '5. 11. 2026.'],
+        ]);
+        expect(d.fileName).toBe('Potvrda o uplati 27006.pdf');
+      });
+
+      it('potvrda o uplati: firma kao uplatilac, gotovina bez računa, iznos drugačiji od cena, slovenački', () => {
+        const settings = gas.ctx.readSettings_();
+        const r = {
+          number: '27007', fullName: 'Marko Novak', email: 'marko@primer.si', ticketCount: 3, amount: 200, paymentMethod: 'Gotovina',
+          company: 'Naziv: Primer d.o.o.\nSedež: Glavna 1, Ljubljana\nDržava: Slovenija\nDavčna številka: SI12345678',
+        };
+        const tickets = [{ type: 'Svečana' }, { type: 'Galerija' }, { type: 'Galerija' }];
+        const d = gas.ctx.paymentReceiptData_(r, settings, 'sl', new Date('2026-11-04T10:00:00Z'), tickets, new Date('2026-11-05T10:00:00Z'));
+        expect(d.payer).toEqual({
+          name: 'Primer d.o.o.',
+          lines: ['Glavna 1, Ljubljana', 'Slovenija', 'Davčna številka: SI12345678', 'Kontakt: Marko Novak', 'marko@primer.si'],
+        });
+        expect(d.lines).toEqual([{ desc: 'Vstopnice — Sretenjski bal, 13. februar 2027', qty: '3', unit: '', sum: '200,00 EUR' }]);
+        expect(d.info.map((x: string[]) => x[0])).toEqual(['Številka rezervacije', 'Datum plačila', 'Način plačila', 'Datum izdaje potrdila']);
+        expect(d.info[2][1]).toBe('Gotovina');
+        expect(d.L.org[3]).toBe('Ni zavezanec za DDV');
+      });
+
+      it('potvrda uplate: ako potvrda o uplati (PDF) ne uspe, mejl ipak odlazi i javlja grešku', () => {
+        paid({ amount: 210 });
+        const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+        expect(gas.outbox).toHaveLength(1);
+        expect(res.receipt).toBe(false);
+        expect(res.receiptError).toBeTruthy();
+        expect(gas.outbox[0].body).not.toContain('potvrda o uplati');
+      });
+
       it('ispravka imena u tabu Gosti ide na ulaznicu; ponovno slanje ne pravi nove redove i daje iste kodove', () => {
         const row = paid({ locale: 'en' });
         gas.ctx.sendPaymentConfirmationFor_('27006');
