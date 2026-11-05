@@ -95,6 +95,17 @@ describe('Apps Script (Code.gs)', () => {
     expect(def.GRACE_DAYS).toBe(1);
   });
 
+  it('potvrda rezervacije može ponovo da se pošalje iz podataka iz tabele (red tabele, ne podaci sa forme)', () => {
+    create(reservation({ firstName: 'Ana', lastName: 'Anić', tickets: [{ ticketType: 'SVECANA', count: 2 }],
+      guests: [{ firstName: 'Marko', lastName: 'Anić', email: 'marko@primer.si', phone: '+386 41 222 333' }] }));
+    const num = String(res.data[1][H.indexOf(COL.number)]);
+    gas.outbox.length = 0;
+    gas.ctx.updateReservation_(num, (r: Record<string, unknown>) => { gas.ctx.sendGuestMail_('received', r, gas.ctx.readSettings_()); return {}; });
+    const mail = gas.outbox.find((m) => m.to === 'ana@primer.si')!;
+    expect(mail.subject).toBe('Rezervacija ' + num);
+    expect(mail.htmlBody).toContain('Marko Anić');
+  });
+
   describe('kolone za ekipu', () => {
     it('stara „Administrativna napomena" postaje „Komentar" (podaci ostaju), a dodaje se „Način plaćanja"', () => {
       const i = H.indexOf(COL.adminNote);

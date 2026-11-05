@@ -1904,6 +1904,7 @@ function menuBackupNow() {
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('Sretenjski bal')
+    .addItem('Ponovo pošalji potvrdu rezervacije (izabrani red)', 'menuResendReceived')
     .addItem('Pošalji instrukcije za uplatu (izabrani red)', 'menuSendPaymentInstructions')
     .addItem('Pošalji potvrdu uplate (izabrani red)', 'menuSendPaymentConfirmation')
     .addSeparator()
@@ -1938,6 +1939,23 @@ function selectedReservation_() {
     return null;
   }
   return r;
+}
+
+/** Meni: ponovo pošalji gostu potvrdu prijema rezervacije (npr. kad prvi mejl nije stigao). Ne menja status. */
+function menuResendReceived() {
+  const ui = SpreadsheetApp.getUi();
+  const r = selectedReservation_();
+  if (!r) return;
+  const settings = readSettings_();
+  const n = String(r.number).trim();
+  const question = 'Ponovo poslati potvrdu rezervacije?\n\nRezervacija: ' + n + '\nGost: ' + r.fullName + ' <' + r.email + '>\nJezik mejla: ' + r.locale;
+  if (ui.alert('Potvrda rezervacije', question, ui.ButtonSet.YES_NO) !== ui.Button.YES) return;
+  try {
+    sendGuestMail_('received', r, settings);
+    ui.alert('Potvrda rezervacije ' + n + ' je ponovo poslata na ' + r.email + '.');
+  } catch (err) {
+    ui.alert('Potvrda NIJE poslata: ' + err.message);
+  }
 }
 
 function menuSendPaymentInstructions() {
