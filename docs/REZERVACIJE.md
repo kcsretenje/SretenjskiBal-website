@@ -434,7 +434,7 @@ na Drajvu naloga pod kojim skripta radi (Otpad se sam prazni posle 30 dana). Jez
 Uz ulaznice, u istom mejlu, gost dobija i PDF potvrdu o uplati (A4) — **samo ako je plaćeno na račun**
 (kolona „Način plaćanja" = Na račun). Za gotovinu se potvrda ne pravi i ne šalje (ulaznice idu normalno).
 Potvrda je **uvek na slovenačkom** („Potrdilo o plačilu"), bez obzira na jezik forme; mejl gostu je i dalje
-na njegovom jeziku i kaže da je potvrda na slovenačkom. Broj potvrde je broj rezervacije; nije račun.
+na njegovom jeziku. Broj potvrde je broj rezervacije; nije račun.
 
 - Organizator: Kulturno društvo Kulturni center Sretenje, Zagrebška cesta 20, 2000 Maribor, matični broj 2949903000,
   poreski broj 41959787, nije obveznik PDV-a (podaci iz registra, upisani u `Potvrda.gs`).

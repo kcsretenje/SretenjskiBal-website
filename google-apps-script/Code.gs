@@ -935,7 +935,7 @@ const MAIL = {
   sr: {
     greeting: function (n) { return 'Poštovani/a ' + n + ','; },
     signoff: ['Srdačan pozdrav,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod', pdf: 'Ulaznice su priložene i kao PDF, ako želite da ih sačuvate ili odštampate.', receipt: 'U prilogu je i potvrda o uplati (na slovenačkom jeziku).' },
+    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod', pdf: 'Ulaznice su priložene i kao PDF, ako želite da ih sačuvate ili odštampate.', receipt: 'U prilogu je i potvrda o uplati.' },
     upn: { title: 'Plaćanje QR kodom', text: 'Skenirajte kod u aplikaciji svoje banke (UPN QR, za račune u Sloveniji) — primalac, iznos, rok, referenca i svrha se popunjavaju sami.' },
     labels: { number: 'Broj rezervacije', ticketType: 'Tip ulaznice', ticketCount: 'Broj ulaznica', guests: 'Gosti', note: 'Napomena', diet: 'Alergije', amount: 'Iznos za uplatu', deadline: 'Rok za uplatu', payee: 'Primalac', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Svrha uplate', reference: 'Referenca primaoca' },
     received: {
@@ -1029,7 +1029,7 @@ const MAIL = {
   en: {
     greeting: function (n) { return 'Dear ' + n + ','; },
     signoff: ['Kind regards,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ticket', of: 'of', code: 'Code', pdf: 'Your tickets are also attached as PDF files, should you wish to save or print them.', receipt: 'A payment confirmation (in Slovenian) is also attached.' },
+    tickets: { label: 'Ticket', of: 'of', code: 'Code', pdf: 'Your tickets are also attached as PDF files, should you wish to save or print them.', receipt: 'A payment confirmation is also attached.' },
     upn: { title: 'Pay by QR code', text: 'Scan the code in your banking app (UPN QR, for accounts at Slovenian banks) — payee, amount, due date, reference and purpose are filled in automatically.' },
     labels: { number: 'Reservation number', ticketType: 'Ticket type', ticketCount: 'Number of tickets', guests: 'Guests', note: 'Note', diet: 'Allergies', amount: 'Amount due', deadline: 'Payment deadline', payee: 'Payee', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Bank', purpose: 'Payment reference', reference: 'Creditor reference' },
     received: {
