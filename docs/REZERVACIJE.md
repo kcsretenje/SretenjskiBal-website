@@ -216,7 +216,9 @@ kolonama i ništa se ne briše. Isključuje samo trenutno uključene filtere.
 - **Status rezervacije** (siva kolona) se ovde samo prikazuje — menjajte ga u tabu **Rezervacije**.
 - Imena i kontakte gostiju možete ispraviti direktno ovde; ulaznice se prave iz ovog taba.
 - Rezervacije napravljene pre uvođenja ovog taba dodaje meni **Sretenjski bal → Podesi tabelu**.
-- **Funkcija / firma** i **Komentar** (poslednje dve kolone) popunjava ekipa ručno; skripta ih ne menja i gost ih ne vidi.
+- **Funkcija / firma** i **Komentar** popunjava ekipa ručno; skripta ih ne menja i gost ih ne vidi.
+- **Dodatno mesto (galerija)** (poslednja kolona): polje za štikliranje kod gostiju sa galerijskom kartom. Štiklirajte
+  ga kad gost sedi na dodatnom mestu — tab Statistika ga onda računa u dodatna (`CAPACITY_GALERIJA_EXTRA`), a ne u osnovna mesta.
 - Tabelu možete filtrirati (npr. po broju rezervacije), ali ne premeštajte kolone.
 
 ### Statusi
@@ -325,7 +327,7 @@ Ponovno otvaranje: označite ☑ `BOOKING_OPEN`.
 ### Statistika
 
 Tab **Statistika** se računa sam: broj prijava, broj karata (ukupno i rezervisanih — sve osim isteklih
-i otkazanih), po statusu, procenat plaćenih, iznos evidentiranih uplata, prosečan broj dana od prijave do uplate, izvor
+i otkazanih), po statusu, procenat plaćenih, popunjenost (svečane, galerija osnovna i dodatna mesta), iznos evidentiranih uplata, prosečan broj dana od prijave do uplate, izvor
 prijave, jezik forme i broj zahteva za fakturu. Za dublju analizu svaki red ima i stranicu prijave
 i UTM parametre kampanje (ako ih je link imao).
 

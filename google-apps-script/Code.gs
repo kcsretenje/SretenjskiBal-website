@@ -1362,8 +1362,10 @@ function renderMail_(m) {
 const GUEST_HEADERS = [
   'Broj rezervacije', 'Gost', 'Ime', 'Prezime', 'E-mail', 'Telefon', 'Status rezervacije', 'Tip ulaznice',
   'Kako je saznao/la za bal', 'Alergije', 'Napomena', 'Kod ulaznice', 'Ulazak', 'Skenirao', 'Funkcija / firma', 'Komentar',
+  'Dodatno mesto (galerija)',
 ];
-const G = { number: 0, role: 1, first: 2, last: 3, email: 4, phone: 5, status: 6, type: 7, source: 8, diet: 9, note: 10, code: 11, enteredAt: 12, scannedBy: 13, position: 14, comment: 15 };
+const G = { number: 0, role: 1, first: 2, last: 3, email: 4, phone: 5, status: 6, type: 7, source: 8, diet: 9, note: 10, code: 11, enteredAt: 12, scannedBy: 13, position: 14, comment: 15, extra: 16 };
+const GUEST_EXTRA_NOTE = 'Štiklirajte ako gost sa galerijskom kartom sedi na dodatnom mestu. Tab Statistika ga tada računa u dodatna mesta, a ne u osnovna.';
 const GUEST_HOLDER = 'Nosilac';
 /** Kolone koje dobijaju boju rezervacije (Broj … Telefon). */
 const GUEST_COLORED_COLS = 6;
@@ -1485,7 +1487,7 @@ function guestsSheet_() {
     sheet.getRange(1, G.enteredAt + 1).setNote('Vreme kad je ulaznica skenirana na ulazu. Obrišite ga da bi ulaznica ponovo važila.');
     sheet.setFrozenRows(1);
     sheet.setFrozenColumns(4);
-    [110, 80, 130, 140, 220, 140, 150, 110, 170, 220, 260, 170, 130, 130, 200, 260].forEach(function (w, i) { sheet.setColumnWidth(i + 1, w); });
+    [110, 80, 130, 140, 220, 140, 150, 110, 170, 220, 260, 170, 130, 130, 200, 260, 170].forEach(function (w, i) { sheet.setColumnWidth(i + 1, w); });
     // Svaka rezervacija u svojoj boji (naizmenično dve nijanse), nosilac podebljan, status sivom pozadinom (ne menja se ovde).
     const rows = sheet.getMaxRows();
     const colored = sheet.getRange(2, 1, rows - 1, GUEST_COLORED_COLS);
@@ -1512,7 +1514,17 @@ function upgradeGuestHeaders_(sheet) {
     cell.setValue(GUEST_HEADERS[i]).setFontWeight('bold').setBackground('#5a1723').setFontColor('#f6f1e8');
     if (i === G.position) cell.setNote('Funkcija ili firma gosta (npr. za protokol i raspored sedenja). Upisuje se ručno.');
     if (i === G.comment) cell.setNote('Komentar ekipe o gostu (slobodan tekst). Gost ga ne vidi.');
-    sheet.setColumnWidth(i + 1, i === G.comment ? 260 : 200);
+    if (i === G.extra) cell.setNote(GUEST_EXTRA_NOTE);
+    sheet.setColumnWidth(i + 1, i === G.comment ? 260 : i === G.extra ? 170 : 200);
+    if (i === G.extra) {
+      // Postojeći gosti sa galerijskom kartom dobijaju polje za štikliranje.
+      const last = sheet.getLastRow();
+      if (last > 1) {
+        sheet.getRange(2, G.type + 1, last - 1, 1).getValues().forEach(function (v, r) {
+          if (String(v[0]).trim() === TICKET_TYPES.GALERIJA) sheet.getRange(r + 2, G.extra + 1).insertCheckboxes();
+        });
+      }
+    }
   }
 }
 
@@ -1542,7 +1554,12 @@ function finishGuestRows_(rows, startRow) {
 function appendGuestRows_(rows) {
   if (!rows.length) return;
   const sheet = guestsSheet_();
-  sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, GUEST_HEADERS.length).setValues(rows);
+  const start = sheet.getLastRow() + 1;
+  sheet.getRange(start, 1, rows.length, GUEST_HEADERS.length).setValues(rows);
+  // Galerijski gosti dobijaju polje „Dodatno mesto" za štikliranje.
+  rows.forEach(function (row, i) {
+    if (String(row[G.type]).trim() === TICKET_TYPES.GALERIJA) sheet.getRange(start + i, G.extra + 1).insertCheckboxes();
+  });
 }
 
 /**
@@ -2247,6 +2264,10 @@ function setupStatsSheet_(ss) {
   const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
   const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '", ' + R('status') + ', "' + STATUS.PAID + '")'; };
   const S = TICKET_TYPES.SVECANA, GA = TICKET_TYPES.GALERIJA;
+  // Galerijski gosti štiklirani u tabu Gosti kao „Dodatno mesto" (bez isteklih i otkazanih rezervacija)
+  const gaExtra = 'COUNTIFS(' + GC(G.type) + ', "' + GA + '", ' + GC(G.extra) + ', TRUE, ' + GC(G.status) + ', "<>' + STATUS.EXPIRED + '", ' +
+    GC(G.status) + ', "<>' + STATUS.CANCELLED + '")';
+  const gaBase = '(' + typeActive(GA) + ' - ' + gaExtra + ')';
   const pct = '0%', money = '#,##0.00';
   // [naziv, formula, format?] — rezervisano = aktivne karte (bez isteklih i otkazanih)
   const rows = [
@@ -2263,9 +2284,13 @@ function setupStatsSheet_(ss) {
     ['Galerija — dodatna mesta', '=' + cap('CAPACITY_GALERIJA_EXTRA')],
     ['Galerija — rezervisano (čeka uplatu + plaćeno)', '=' + typeActive(GA)],
     ['Galerija — plaćeno', '=' + typePaid(GA)],
-    ['Galerija — slobodno od osnovnih', '=' + cap('CAPACITY_GALERIJA') + ' - ' + typeActive(GA)],
-    ['Galerija — slobodno sa dodatnim', '=' + cap('CAPACITY_GALERIJA') + ' + ' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + typeActive(GA)],
-    ['Galerija — popunjenost osnovnih', '=IFERROR(' + typeActive(GA) + ' / ' + cap('CAPACITY_GALERIJA') + ', 0)', pct],
+    ['Galerija — na osnovnim mestima', '=' + gaBase],
+    ['Galerija — na dodatnim mestima (štiklirano u tabu Gosti)', '=' + gaExtra],
+    ['Galerija — slobodno od osnovnih', '=' + cap('CAPACITY_GALERIJA') + ' - ' + gaBase],
+    ['Galerija — slobodno od dodatnih', '=' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + gaExtra],
+    ['Galerija — slobodno ukupno (osnovna + dodatna)', '=' + cap('CAPACITY_GALERIJA') + ' + ' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + typeActive(GA)],
+    ['Galerija — popunjenost osnovnih', '=IFERROR(' + gaBase + ' / ' + cap('CAPACITY_GALERIJA') + ', 0)', pct],
+    ['Galerija — popunjenost dodatnih', '=IFERROR(' + gaExtra + ' / ' + cap('CAPACITY_GALERIJA_EXTRA') + ', 0)', pct],
     ['', ''],
     ['UPLATE', ''],
     ['Uplate na račun (iznos)', '=SUMIFS(' + R('amount') + ', ' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "Na račun")', money],

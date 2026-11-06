@@ -486,7 +486,11 @@ describe('Apps Script (Code.gs)', () => {
       const stats = gas.sheets.get('Statistika')!.data;
       const f = (label: string) => { const v = stats.find((r) => r[0] === label)?.[1]; return v instanceof Formula ? v.text : String(v ?? ''); };
       expect(f('Svečane — kapacitet')).toContain('VLOOKUP("CAPACITY_SVECANA"');
-      expect(f('Galerija — slobodno sa dodatnim')).toContain('CAPACITY_GALERIJA_EXTRA');
+      expect(f('Galerija — slobodno ukupno (osnovna + dodatna)')).toContain('CAPACITY_GALERIJA_EXTRA');
+      // Dodatna mesta na galeriji se broje iz taba Gosti (kolona Q „Dodatno mesto (galerija)" = TRUE)
+      expect(f('Galerija — na dodatnim mestima (štiklirano u tabu Gosti)')).toContain("'Gosti'!Q2:Q, TRUE");
+      expect(f('Galerija — slobodno od osnovnih')).toContain("'Gosti'!Q2:Q, TRUE");
+      expect(f('Galerija — popunjenost dodatnih')).toContain('CAPACITY_GALERIJA_EXTRA');
       expect(f('Uplate u gotovini (iznos)')).toContain('"Gotovina"');
       expect(f('Ušlo gostiju (skenirane ulaznice)')).toContain("'Gosti'!M2:M");
       expect(keys).toContain('CAPACITY_SVECANA');
@@ -669,7 +673,7 @@ describe('Apps Script (Code.gs)', () => {
         expect((g[2][G().status] as Formula).text).toContain('$A3');
       });
 
-      it('stari tab Gosti dobija kolone „Funkcija / firma" i „Komentar" na kraju, bez diranja postojećih', () => {
+      it('stari tab Gosti dobija kolone „Funkcija / firma", „Komentar" i „Dodatno mesto (galerija)" na kraju, bez diranja postojećih', () => {
         const old = new FakeSheet('Gosti');
         const headers = gas.get<string[]>('GUEST_HEADERS');
         old.data.push(headers.slice(0, 14));
@@ -677,7 +681,7 @@ describe('Apps Script (Code.gs)', () => {
         gas.sheets.set('Gosti', old);
         gas.ctx.guestsSheet_();
         expect(guests()[0]).toEqual(headers);
-        expect(headers.slice(-2)).toEqual(['Funkcija / firma', 'Komentar']);
+        expect(headers.slice(-3)).toEqual(['Funkcija / firma', 'Komentar', 'Dodatno mesto (galerija)']);
         expect(guests()[1].slice(0, 4)).toEqual(['27005', 'Nosilac', 'Ana', 'Anić']);
       });
 
