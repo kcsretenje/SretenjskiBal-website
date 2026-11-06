@@ -11,6 +11,7 @@ import {
 import { PERFORMERS } from '../../../core/content/site-content';
 import { SectionHeadingComponent } from '../../../shared/components/section-heading/section-heading.component';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
+import { CyrPipe } from '../../../shared/pipes/cyr.pipe';
 
 /**
   * Izvođači kao karusel: portreti (motiv iz znaka), prevlačenje prstom
@@ -18,7 +19,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
  */
 @Component({
   selector: 'app-performers-section',
-  imports: [SectionHeadingComponent, RevealDirective],
+  imports: [SectionHeadingComponent, RevealDirective, CyrPipe],
   template: `
     <section id="izvodjaci" class="section bg-ivory performers" aria-labelledby="performers-title">
       <div class="container">
@@ -45,13 +46,13 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
               <li class="card" [class.card--featured]="p.featured" [class.card--wide]="p.wide">
                 <div class="portrait">
                   @if (p.photo) {
-                    <img [src]="p.photo" [alt]="p.name ?? p.role" loading="lazy" decoding="async" />
+                    <img [src]="p.photo" [alt]="(p.name | cyr) ?? p.role" loading="lazy" decoding="async" />
                   } @else {
                     <span class="portrait__mark" aria-hidden="true"></span>
                   }
                 </div>
                 @if (p.name) {
-                  <h3 class="name">{{ p.name }}</h3>
+                  <h3 class="name">{{ p.name | cyr }}</h3>
                 } @else {
                   <h3 class="name name--soon" i18n>Uskoro</h3>
                 }
@@ -63,7 +64,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
             <!-- Telefon: tačkice pokazuju da ima još učesnika i koji je trenutno prikazan. -->
             <div class="dots" role="group" i18n-aria-label aria-label="Učesnici programa">
               @for (p of performers; track p.role + p.name; let i = $index) {
-                <button type="button" class="dot" [class.dot--on]="i === current()" (click)="goTo(i)" [attr.aria-label]="p.name ?? p.role" [attr.aria-current]="i === current() ? 'true' : null"></button>
+                <button type="button" class="dot" [class.dot--on]="i === current()" (click)="goTo(i)" [attr.aria-label]="(p.name | cyr) ?? p.role" [attr.aria-current]="i === current() ? 'true' : null"></button>
               }
             </div>
           }

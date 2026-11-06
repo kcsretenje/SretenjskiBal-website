@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SectionHeadingComponent } from '../../../shared/components/section-heading/section-heading.component';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
+import { CyrPipe } from '../../../shared/pipes/cyr.pipe';
 
 @Component({
   selector: 'app-organizer-section',
-  imports: [SectionHeadingComponent, RevealDirective],
+  imports: [SectionHeadingComponent, RevealDirective, CyrPipe],
   template: `
     <section id="organizator" class="section bg-parchment paper" aria-labelledby="org-title">
       <div class="container grid">
         <div class="heading" appReveal>
-          <app-section-heading headingId="org-title" i18n-eyebrow eyebrow="Organizator">Kulturni centar Sretenje</app-section-heading>
+          <app-section-heading headingId="org-title" i18n-eyebrow eyebrow="Organizator">{{ 'Kulturni centar Sretenje' | cyr }}</app-section-heading>
         </div>
         <div class="body" appReveal [appRevealDelay]="120">
           <p class="lead" i18n>

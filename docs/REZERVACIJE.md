@@ -431,8 +431,10 @@ na Drajvu naloga pod kojim skripta radi (Otpad se sam prazni posle 30 dana). Jez
 
 ## PDF potvrda o uplati
 
-Uz ulaznice, u istom mejlu, gost dobija i PDF **„Potvrda o uplati"** (A4) na jeziku forme
-(„Potrdilo o plačilu" / „Payment confirmation"). Broj potvrde je broj rezervacije; nije račun.
+Uz ulaznice, u istom mejlu, gost dobija i PDF potvrdu o uplati (A4) — **samo ako je plaćeno na račun**
+(kolona „Način plaćanja" = Na račun). Za gotovinu se potvrda ne pravi i ne šalje (ulaznice idu normalno).
+Potvrda je **uvek na slovenačkom** („Potrdilo o plačilu"), bez obzira na jezik forme; mejl gostu je i dalje
+na njegovom jeziku i kaže da je potvrda na slovenačkom. Broj potvrde je broj rezervacije; nije račun.
 
 - Organizator: Kulturno društvo Kulturni center Sretenje, Zagrebška cesta 20, 2000 Maribor, matični broj 2949903000,
   poreski broj 41959787, nije obveznik PDV-a (podaci iz registra, upisani u `Potvrda.gs`).
@@ -441,7 +443,8 @@ Uz ulaznice, u istom mejlu, gost dobija i PDF **„Potvrda o uplati"** (A4) na j
   ide jedna stavka sa upisanim iznosom.
 - Datum uplate iz kolone „Datum evidentirane uplate" (ako je prazna — dan slanja), način plaćanja iz kolone
   „Način plaćanja" (popunite je pre slanja!), a kod uplate na račun i IBAN primaoca.
-- Potvrda se ne šalje ako „Iznos za uplatu" nije upisan; ako pravljenje ne uspe, mejl ipak odlazi, a poruka to javi.
+- Potvrda se ne šalje ako je plaćeno u gotovini, ako način plaćanja nije upisan ili ako „Iznos za uplatu" nije upisan —
+  poruka posle slanja kaže zašto. Ako pravljenje ne uspe, mejl ipak odlazi, a poruka to javi.
 - Probni PDF: **Sretenjski bal → Pošalji probnu potvrdu o uplati organizatoru**.
 - Šablon „Sretenjski bal — šablon potvrde o uplati (ne brisati)" skripta sama napravi na Drajvu (ID u Script Properties
   kao `RECEIPT_TEMPLATE_ID`).

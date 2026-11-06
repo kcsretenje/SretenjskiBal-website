@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { LEGAL, LEGAL_LANG_LABEL } from '../../core/content/legal-content';
-import { Locale, currentLocale } from '../../core/i18n/locale';
+import { LEGAL, LEGAL_KEEP_LATIN, LEGAL_LANG_LABEL } from '../../core/content/legal-content';
+import { deepToCyrillic, toCyrillic } from '../../core/i18n/cyrillic';
+import { Locale, currentLocale, isCyrillic } from '../../core/i18n/locale';
 import { SeoService } from '../../core/services/seo.service';
 
 /** Pravne stranice (politika privatnosti, kolačići). Tekst je uvek na sva tri jezika, bez obzira na jezik sajta. */
@@ -82,9 +83,16 @@ export class LegalPage {
   /** Iz route data: 'privacy'. */
   readonly kind = input<'privacy'>('privacy');
   protected readonly langs: Locale[] = ['sr', 'sl', 'en'];
-  protected readonly label = LEGAL_LANG_LABEL;
+  private readonly cyrillic = isCyrillic();
+  /** Na ćiriličnoj verziji sajta srpski tekst se prikazuje ćirilicom (preslovljen u stranici). */
+  protected readonly label: Record<Locale, string> = this.cyrillic
+    ? { ...LEGAL_LANG_LABEL, sr: toCyrillic(LEGAL_LANG_LABEL.sr) }
+    : LEGAL_LANG_LABEL;
   protected readonly lang = signal<Locale>(currentLocale());
-  protected readonly doc = computed(() => LEGAL[this.kind()][this.lang()]);
+  protected readonly doc = computed(() => {
+    const d = LEGAL[this.kind()][this.lang()];
+    return this.cyrillic && this.lang() === 'sr' ? deepToCyrillic(d, LEGAL_KEEP_LATIN) : d;
+  });
 
   constructor() {
     const router = inject(Router);

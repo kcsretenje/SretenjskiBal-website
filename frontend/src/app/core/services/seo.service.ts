@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { SITE_NAME, SITE_URL } from '../config/app.constants';
-import { LOCALES, Locale, currentLocale, localePrefix } from '../i18n/locale';
+import { LOCALES, SiteLocale, currentSiteLocale, localePrefix } from '../i18n/locale';
 
 export interface PageSeo {
   title: string;
@@ -13,14 +13,17 @@ export interface PageSeo {
   type?: 'website' | 'article';
 }
 
-const OG_LOCALE: Record<Locale, string> = { sr: 'sr_RS', sl: 'sl_SI', en: 'en_GB' };
+const OG_LOCALE: Record<SiteLocale, string> = { sr: 'sr_RS', 'sr-Cyrl': 'sr_RS', sl: 'sl_SI', en: 'en_GB' };
+
+/** hreflang za svaku verziju; srpski latinicom ostaje „sr" (koren sajta), ćirilica je „sr-Cyrl". */
+const HREFLANG: Record<SiteLocale, string> = { sr: 'sr', 'sr-Cyrl': 'sr-Cyrl', sl: 'sl', en: 'en' };
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly doc = inject(DOCUMENT);
-  private readonly locale = currentLocale();
+  private readonly locale = currentSiteLocale();
 
   set(page: PageSeo): void {
     const url = this.urlFor(this.locale, page.path);
@@ -46,8 +49,8 @@ export class SeoService {
     this.setAlternates(page.path);
   }
 
-  /** Puna adresa stranice u datom jeziku (srpski je u korenu, ostali pod /sl, /en). */
-  private urlFor(locale: Locale, path: string): string {
+  /** Puna adresa stranice u datoj verziji (srpski latinicom je u korenu, ostali pod /cir, /sl, /en). */
+  private urlFor(locale: SiteLocale, path: string): string {
     const clean = path === '/' ? '/' : path;
     return `${SITE_URL}${localePrefix(locale)}${clean}`;
   }
@@ -62,7 +65,7 @@ export class SeoService {
       link.href = href;
       this.doc.head.appendChild(link);
     };
-    for (const l of LOCALES) add(l.code, this.urlFor(l.code, path));
+    for (const l of LOCALES) add(HREFLANG[l.code], this.urlFor(l.code, path));
     add('x-default', this.urlFor('sr', path));
   }
 

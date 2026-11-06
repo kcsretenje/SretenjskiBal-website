@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-import { LOCALES, currentLocale } from '../../../core/i18n/locale';
+import { LOCALES, currentSiteLocale } from '../../../core/i18n/locale';
 
 @Component({
   selector: 'app-language-switcher',
@@ -11,9 +11,9 @@ import { LOCALES, currentLocale } from '../../../core/i18n/locale';
       @for (l of locales; track l.code) {
         <li>
           @if (l.code === active) {
-            <span class="lang is-active" aria-current="true">{{ l.label }}</span>
+            <span class="lang is-active" aria-current="true" [attr.title]="l.name">{{ l.label }}</span>
           } @else if (l.available) {
-            <a class="lang" [href]="href(l.path)" [attr.hreflang]="l.code">{{ l.label }}</a>
+            <a class="lang" [href]="href(l.path)" [attr.hreflang]="l.code" [attr.lang]="l.code" [attr.title]="l.name" [attr.aria-label]="l.name">{{ l.label }}</a>
           } @else {
             <span class="lang is-soon" title="—">{{ l.label }}</span>
           }
@@ -31,7 +31,7 @@ import { LOCALES, currentLocale } from '../../../core/i18n/locale';
 })
 export class LanguageSwitcherComponent {
   protected readonly locales = LOCALES;
-  protected readonly active = currentLocale();
+  protected readonly active = currentSiteLocale();
   private readonly router = inject(Router);
   private readonly url = toSignal(
     this.router.events.pipe(

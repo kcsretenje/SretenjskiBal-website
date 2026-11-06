@@ -1,0 +1,2096 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="sr-Latn" target-language="sr-Cyrl" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8739965563912784562" datatype="html">
+        <source>Program</source>
+        <target>Програм</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1697533430193824854" datatype="html">
+        <source>Prostor</source>
+        <target>Простор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4533138257007199324" datatype="html">
+        <source>Partneri</source>
+        <target>Партнери</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5221941272442499698" datatype="html">
+        <source>Preskoči na sadržaj</source>
+        <target>Прескочи на садржај</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.ts</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5491334149578453705" datatype="html">
+        <source>Prijem gostiju</source>
+        <target>Пријем гостију</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="452588451974005074" datatype="html">
+        <source>Doček gostiju u foajeu Narodnog doma, uz piće dobrodošlice, muziku i fotografisanje.</source>
+        <target>Дочек гостију у фоајеу Народног дома, уз пиће добродошлице, музику и фотографисање.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8639838644508598336" datatype="html">
+        <source>Svečano otvaranje</source>
+        <target>Свечано отварање</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5686989408985552547" datatype="html">
+        <source>Intoniranje himni Slovenije i Srbije, nakon čega slede izlazak voditeljke programa i uvodna reč.</source>
+        <target>Интонирање химни Словеније и Србије, након чега следе излазак водитељке програма и уводна реч.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5869630376464937696" datatype="html">
+        <source>Svečana večera</source>
+        <target>Свечана вечера</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5039980571356143066" datatype="html">
+        <source>Svečana večera u Dvorani generala Maistra.</source>
+        <target>Свечана вечера у Дворани генерала Мајстра.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4921732235370732360" datatype="html">
+        <source>Kulturno-umetnički program</source>
+        <target>Културно-уметнички програм</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5468966185035914804" datatype="html">
+        <source>Koncert grupe Galija</source>
+        <target>Концерт групе Галија</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="598681352794067076" datatype="html">
+        <source>Glavni muzički deo večeri, kojim se bal završava.</source>
+        <target>Главни музички део вечери, којим се бал завршава.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3611130896558542601" datatype="html">
+        <source>Svečana</source>
+        <target>Свечана</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1426827570925947520" datatype="html">
+        <source>Kulturno-umetnički program i koncert grupe Galija</source>
+        <target>Културно-уметнички програм и концерт групе Галија</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8096000637451825549" datatype="html">
+        <source>Neograničeno posluženje pića tokom večeri</source>
+        <target>Неограничено послужење пића током вечери</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5563874495808506497" datatype="html">
+        <source>Rezervisano mesto za stolom u Dvorani generala Maistra</source>
+        <target>Резервисано место за столом у Дворани генерала Мајстра</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="108535653952525208" datatype="html">
+        <source>Galerija</source>
+        <target>Галерија</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5684904892723536855" datatype="html">
+        <source>Koktel posluženje i piće dobrodošlice</source>
+        <target>Коктел послужење и пиће добродошлице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="255126846467855915" datatype="html">
+        <source>Mesto za stajanje na galeriji, sa pogledom na celokupan program</source>
+        <target>Место за стајање на галерији, са погледом на целокупан програм</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1765158419371170444" datatype="html">
+        <source>Ulazak u Dvoranu generala Maistra po završetku zvaničnog dela programa, od početka nastupa grupe Galija</source>
+        <target>Улазак у Дворану генерала Мајстра по завршетку званичног дела програма, од почетка наступа групе Галија</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8111139356444734112" datatype="html">
+        <source>Muzička grupa</source>
+        <target>Музичка група</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7789882067463560772" datatype="html">
+        <source>Voditeljka programa</source>
+        <target>Водитељка програма</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5615598052097456609" datatype="html">
+        <source>Profesor književnosti i pisac</source>
+        <target>Професор књижевности и писац</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7875408122500418531" datatype="html">
+        <source>Glumac</source>
+        <target>Глумац</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4743698184641915193" datatype="html">
+        <source>Operska pevačica</source>
+        <target>Оперска певачица</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6230209898895199736" datatype="html">
+        <source>Profesor harmonike</source>
+        <target>Професор хармонике</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="557727155035277857" datatype="html">
+        <source>Balska tradicija</source>
+        <target>Балска традиција</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3564348663653334690" datatype="html">
+        <source>Bal nikada nije bio samo ples.</source>
+        <target>Бал никада није био само плес.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-ball.section.ts</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4784496102726120088" datatype="html">
+        <source>Reč „bal“ javlja se još u XII veku, a poreklo vodi od latinskog <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>ballare<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> — igrati.</source>
+        <target>Реч „бал“ јавља се још у XII веку, а порекло води од латинског <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>ballare<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> — играти.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8788663664325974057" datatype="html">
+        <source>Takva mesta vremenom su dobijala značaj daleko veći od svoje prvobitne namene. U njima se razvijao kulturni život, povezivali ljudi i rađale ideje čiji je značaj trajao mnogo duže od jedne večeri.</source>
+        <target>Таква места временом су добијала значај далеко већи од своје првобитне намене. У њима се развијао културни живот, повезивали људи и рађале идеје чији је значај трајао много дуже од једне вечери.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7898776298845415227" datatype="html">
+        <source>Bila su to mesta na kojima su se različite kulture približavale i na kojima su iz susreta nastajale veze koje su nadživljavale pojedinačne svečanosti.</source>
+        <target>Била су то места на којима су се различите културе приближавале и на којима су из сусрета настајале везе које су надживљавале појединачне свечаности.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8262890307708113078" datatype="html">
+        <source>U tom duhu nastaje i Sretenjski bal u Mariboru — kao susret srpske i slovenačke kulture i početak jedne nove tradicije.</source>
+        <target>У том духу настаје и Сретењски бал у Марибору — као сусрет српске и словеначке културе и почетак једне нове традиције.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="728129263221192298" datatype="html">
+        <source>Rezervišite ulaznice</source>
+        <target>Резервишите улазнице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1308274325332162407" datatype="html">
+        <source>Kragujevac, dvor kneza Miloša</source>
+        <target>Крагујевац, двор кнеза Милоша</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4219978041275170844" datatype="html">
+        <source>Prvi bal u Kneževini Srbiji održan je 1834. godine u Kragujevcu, na dvoru kneza Miloša.</source>
+        <target>Први бал у Кнежевини Србији одржан је 1834. године у Крагујевцу, на двору кнеза Милоша.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6184014637241779905" datatype="html">
+        <source>U decenijama koje su usledile, balovi su postali važna mesta susreta, razgovora, povezivanja i dogovora. Okupljali su ljude iz sveta politike, kulture, privrede i umetnosti, dok su se na dobrotvornim balovima prikupljala sredstva za škole, društva i druge javne potrebe.</source>
+        <target>У деценијама које су уследиле, балови су постали важна места сусрета, разговора, повезивања и договора. Окупљали су људе из света политике, културе, привреде и уметности, док су се на добротворним баловима прикупљала средства за школе, друштва и друге јавне потребе.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8200896258804099939" datatype="html">
+        <source>1860-ih</source>
+        <target>1860-их</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3866581712148650181" datatype="html">
+        <source>Slovenačke zemlje i čitalnice</source>
+        <target>Словеначке земље и читалнице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5812441544755261721" datatype="html">
+        <source>I u slovenačkim zemljama ples je odavno bio sastavni deo građanskog i društvenog života. Do tada se balska kultura razvijala u građanskim krugovima, često pod snažnim nemačkim i austrijskim kulturnim uticajem.</source>
+        <target>И у словеначким земљама плес је одавно био саставни део грађанског и друштвеног живота. До тада се балска култура развијала у грађанским круговима, често под снажним немачким и аустријским културним утицајем.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8757037308736691860" datatype="html">
+        <source>Od šezdesetih godina XIX veka počinje da se razvija mreža slovenskih čitalnica.</source>
+        <target>Од шездесетих година XIX века почиње да се развија мрежа словенских читалница.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2054922500324554374" datatype="html">
+        <source>Čitalnica u Kranju</source>
+        <target>Читалница у Крању</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8639100598853566161" datatype="html">
+        <source>Na svečanom otvaranju čitalnice u Kranju 1863. godine, nakon izvođenja pesme „Hej Slovani“, usledio je ples kojim je svečanost završena.</source>
+        <target>На свечаном отварању читалнице у Крању 1863. године, након извођења песме „Хеј Словани“, уследио је плес којим је свечаност завршена.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2336071244271270039" datatype="html">
+        <source>Čitalnice nisu bile samo mesta za čitanje knjiga. U njima su se ljudi okupljali, slušali muziku, prisustvovali predstavama i predavanjima, ali i učestvovali u plesnim svečanostima.</source>
+        <target>Читалнице нису биле само места за читање књига. У њима су се људи окупљали, слушали музику, присуствовали представама и предавањима, али и учествовали у плесним свечаностима.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="516219425988729566" datatype="html">
+        <source>U Mariboru je ta ideja dobila svoj dom</source>
+        <target>У Марибору је та идеја добила свој дом</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1711795589952634505" datatype="html">
+        <source>Godine 1898. podignut je Narodni dom, središte kulturnog i društvenog života mariborskih Slovenaca. Pod njegovim krovom svoje mesto pronašli su čitaonica, biblioteka, muzička i dramska društva, dok su se u svečanoj dvorani održavali koncerti, predstave, skupovi i plesovi.</source>
+        <target>Године 1898. подигнут је Народни дом, средиште културног и друштвеног живота мариборских Словенаца. Под његовим кровом своје место пронашли су читаоница, библиотека, музичка и драмска друштва, док су се у свечаној дворани одржавали концерти, представе, скупови и плесови.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7800743159455711142" datatype="html">
+        <source>Bal nikada nije bio samo ples: od latinskog ballare, preko prvog bala u Kragujevcu i slovenačkih čitalnica, do Narodnog doma u Mariboru.</source>
+        <target>Бал никада није био само плес: од латинског ballare, преко првог бала у Крагујевцу и словеначких читалница, до Народног дома у Марибору.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ball-tradition/ball-tradition.page.ts</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="397497450705980813" datatype="html">
+        <source>Kontakt</source>
+        <target>Контакт</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="132909247146762410" datatype="html">
+        <source>Pišite nam</source>
+        <target>Пишите нам</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2581705444130999362" datatype="html">
+        <source>Za sva pitanja o Sretenjskom balu, mogućnostima partnerstva, medijskom izveštavanju ili učešću u programu, možete nam se obratiti putem kontakt-obrasca. Rado ćemo Vam odgovoriti u najkraćem mogućem roku.</source>
+        <target>За сва питања о Сретењском балу, могућностима партнерства, медијском извештавању или учешћу у програму, можете нам се обратити путем контакт-обрасца. Радо ћемо Вам одговорити у најкраћем могућем року.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="581882906330308925" datatype="html">
+        <source>Kontakt | Sretenjski bal</source>
+        <target>Контакт | Сретењски бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6064511537905018635" datatype="html">
+        <source>Pišite organizatoru Sretenjskog bala — partnerstva, mediji, nastupi i opšta pitanja.</source>
+        <target>Пишите организатору Сретењског бала — партнерства, медији, наступи и општа питања.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/contact/contact.page.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="429229828439857806" datatype="html">
+        <source>Sretenjski bal</source>
+        <target>Сретењски бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3278382914621095717" datatype="html">
+        <source>Sretenjski bal, 13. februara 2027. u Mariboru. Kulturno-muzičko veče i početak jedne nove tradicije. Kultura koja spaja.</source>
+        <target>Сретењски бал, 13. фебруара 2027. у Марибору. Културно-музичко вече и почетак једне нове традиције. Култура која спаја.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.page.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3352342519226337555" datatype="html">
+        <source>Datum bala</source>
+        <target>Датум бала</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/date-moment.section.ts</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2009172138705298825" datatype="html">
+        <source>Prvi Sretenjski bal</source>
+        <target>Први Сретењски бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/date-moment.section.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2033857930461142962" datatype="html">
+        <source>Svečani kodeks</source>
+        <target>Свечани кодекс</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2360457824572470031" datatype="html">
+        <source>Kodeks oblačenja</source>
+        <target>Кодекс облачења</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1409969045617588604" datatype="html">
+        <source>Predviđena svečana odeća</source>
+        <target>Предвиђена свечана одећа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8595816786923578268" datatype="html">
+        <source>Nije dozvoljeno</source>
+        <target>Није дозвољено</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7341744521157313752" datatype="html">
+        <source>Za dame</source>
+        <target>За даме</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7069415753275284497" datatype="html">
+        <source>Duga večernja ili balska haljina do poda</source>
+        <target>Дуга вечерња или балска хаљина до пода</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4252174064641854347" datatype="html">
+        <source>Elegantna svečana obuća</source>
+        <target>Елегантна свечана обућа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2357352560447145448" datatype="html">
+        <source>Kratke haljine i koktel-haljine</source>
+        <target>Кратке хаљине и коктел-хаљине</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2726314489723701412" datatype="html">
+        <source>Kratke suknje i svakodnevna odeća</source>
+        <target>Кратке сукње и свакодневна одећа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1786629259098289702" datatype="html">
+        <source>Patike i druga neformalna obuća</source>
+        <target>Патике и друга неформална обућа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="702065592462377042" datatype="html">
+        <source>Narodne nošnje</source>
+        <target>Народне ношње</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="156529230216849476" datatype="html">
+        <source>Za gospodu</source>
+        <target>За господу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4677238505483944009" datatype="html">
+        <source>Crni frak ili smoking</source>
+        <target>Црни фрак или смокинг</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="839543756183919459" datatype="html">
+        <source>Elegantno crno ili tamno odelo</source>
+        <target>Елегантно црно или тамно одело</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7846690678718200764" datatype="html">
+        <source>Bela košulja i leptir-mašna</source>
+        <target>Бела кошуља и лептир-машна</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="202273428748344888" datatype="html">
+        <source>Kravate umesto leptir-mašne</source>
+        <target>Кравате уместо лептир-машне</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1748523902439951457" datatype="html">
+        <source>Sportska i neformalna odeća</source>
+        <target>Спортска и неформална одећа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/dress-code.section.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2610572581333992138" datatype="html">
+        <source>13.2.2027.</source>
+        <target>13.2.2027.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/hero.section.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6296338303703479731" datatype="html">
+        <source>Narodni dom · Maribor</source>
+        <target>Народни дом · Марибор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/hero.section.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="368377088862632853" datatype="html">
+        <source>Kultura koja spaja.</source>
+        <target>Култура која спаја.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/hero.section.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="829274021589845479" datatype="html">
+        <source>Rezervišite ulaznice</source>
+        <target>Резервишите улазнице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/hero.section.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <note priority="1" from="meaning">hero</note>
+      </trans-unit>
+      <trans-unit id="3092170232229881559" datatype="html">
+        <source>Neke tradicije počinju tiho.</source>
+        <target>Неке традиције почињу тихо.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/intro.section.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2036559287774115040" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednim susretom.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednom večeri.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Jednom idejom.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Једним сусретом.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Једном вечери.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Једном идејом.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/intro.section.ts</context>
+          <context context-type="linenumber">17,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1470476207303282205" datatype="html">
+        <source>Organizator</source>
+        <target>Организатор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2683088177218803675" datatype="html">
+        <source> Prvi Sretenjski bal organizuje Kulturni centar Sretenje, inicijativa nastala iz želje da građanska kultura i njene pomalo zaboravljene vrednosti ponovo dobiju svoje mesto u savremenom društvu. </source>
+        <target> Први Сретењски бал организује Културни центар Сретење, иницијатива настала из жеље да грађанска култура и њене помало заборављене вредности поново добију своје место у савременом друштву. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3023711163420885821" datatype="html">
+        <source> Tokom istorije, srpska zajednica na ovim prostorima ostavljala je trag u kulturi, obrazovanju, privredi i duhovnom životu. Naša je namera da to nasleđe približimo savremenom trenutku — ne kao povratak u prošlost, već kao temelj za ono što ćemo tek stvarati. </source>
+        <target> Током историје, српска заједница на овим просторима остављала је траг у култури, образовању, привреди и духовном животу. Наша је намера да то наслеђе приближимо савременом тренутку — не као повратак у прошлост, већ као темељ за оно што ћемо тек стварати. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3991160227285274558" datatype="html">
+        <source> Kulturni centar Sretenje zamišljen je kao trajno mesto okupljanja ljudi iz sveta kulture, nauke, privrede i duhovnog života — mesto razgovora, povezivanja i novih ideja. Njegova je namera da neguje sopstveno nasleđe i istovremeno gradi odnose sa kulturnom sredinom u kojoj deluje. </source>
+        <target> Културни центар Сретење замишљен је као трајно место окупљања људи из света културе, науке, привреде и духовног живота — место разговора, повезивања и нових идеја. Његова је намера да негује сопствено наслеђе и истовремено гради односе са културном средином у којој делује. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4476387950020781460" datatype="html">
+        <source>Ideja Sretenja</source>
+        <target>Идеја Сретења</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7803798498131775638" datatype="html">
+        <source> U imenu Sretenje sadržana je suština ove zamisli: susret duhovnog i građanskog, tradicije i savremenosti, našeg nasleđa i kulture sredine u kojoj živimo. Verujemo da upravo iz takvih susreta nastaju nove veze i trajna prijateljstva. </source>
+        <target> У имену Сретење садржана је суштина ове замисли: сусрет духовног и грађанског, традиције и савремености, нашег наслеђа и културе средине у којој живимо. Верујемо да управо из таквих сусрета настају нове везе и трајна пријатељства. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4553042627119248219" datatype="html">
+        <source>Sretenjski bal prvi je korak ka ostvarenju te zamisli.</source>
+        <target>Сретењски бал први је корак ка остварењу те замисли.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1949152281960022105" datatype="html">
+        <source>U programu učestvuju</source>
+        <target>У програму учествују</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6214294666526846202" datatype="html">
+        <source>Učesnici programa</source>
+        <target>Учесници програма</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7430332357056817082" datatype="html">
+        <source>Prethodni izvođač</source>
+        <target>Претходни извођач</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="313594671133839929" datatype="html">
+        <source>Sledeći izvođač</source>
+        <target>Следећи извођач</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1494371750344720325" datatype="html">
+        <source>Uskoro</source>
+        <target>Ускоро</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5105166380717323557" datatype="html">
+        <source>Imena ostalih učesnika programa biće uskoro objavljena.</source>
+        <target>Имена осталих учесника програма биће ускоро објављена.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4396654337997554664" datatype="html">
+        <source>Imena izvođača objavljujemo uskoro.</source>
+        <target>Имена извођача објављујемо ускоро.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
+          <context context-type="linenumber">77,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2852142514729307429" datatype="html">
+        <source>13. februar 2027</source>
+        <target>13. фебруар 2027</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/program-preview.section.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2063332944334838219" datatype="html">
+        <source>Program večeri</source>
+        <target>Програм вечери</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/program-preview.section.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6640999522588551317" datatype="html">
+        <source>Satnica je okvirna. Konačna vremena biće naknadno potvrđena.</source>
+        <target>Сатница је оквирна. Коначна времена биће накнадно потврђена.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/program-preview.section.ts</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4599884787408513085" datatype="html">
+        <source>Ulaznice</source>
+        <target>Улазнице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">71,72</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1390357696379276566" datatype="html">
+        <source>Neke večeri ostaju u sećanju. Neke označe početak nove tradicije.</source>
+        <target>Неке вечери остају у сећању. Неке означе почетак нове традиције.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7419168025510372642" datatype="html">
+        <source>Prodaja uskoro počinje.</source>
+        <target>Продаја ускоро почиње.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2858424969585127899" datatype="html">
+        <source>Sve ulaznice su rasprodate.</source>
+        <target>Све улазнице су распродате.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5647068906436906748" datatype="html">
+        <source>Narodni dom, Maribor</source>
+        <target>Народни дом, Марибор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="131999230330522389" datatype="html">
+        <source> Krajem XIX veka, u Mariboru, gde su Slovenci bili manjina, nastala je zamisao o domu koji će čuvati slovenački jezik, kulturu i zajedništvo. Iz te zamisli nastao je Narodni dom. </source>
+        <target> Крајем XIX века, у Марибору, где су Словенци били мањина, настала је замисао о дому који ће чувати словеначки језик, културу и заједништво. Из те замисли настао је Народни дом. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5547515422601856200" datatype="html">
+        <source>U zdanju koje pamti brojne susrete započinje jedan novi.</source>
+        <target>У здању које памти бројне сусрете започиње један нови.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1605164653539229717" datatype="html">
+        <source>Otvori mapu</source>
+        <target>Отвори мапу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7897463753577337726" datatype="html">
+        <source>Mesto održavanja</source>
+        <target>Место одржавања</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1833727098177153505" datatype="html">
+        <source>Narodni dom, podignut prema projektu češkog arhitekte Jana Vejrycha u stilu češke neorenesanse, počinje da radi 1. oktobra.</source>
+        <target>Народни дом, подигнут према пројекту чешког архитекте Јана Вејриха у стилу чешке неоренесансе, почиње да ради 1. октобра.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4230761435554674829" datatype="html">
+        <source>U velikoj dvorani osnovano je Slovenačko pozorište u Mariboru.</source>
+        <target>У великој дворани основано је Словеначко позориште у Марибору.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1072859683978452717" datatype="html">
+        <source>U Domu je osnovan Narodni savet za Štajersku.</source>
+        <target>У Дому је основан Народни савет за Штајерску.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="374762625738075506" datatype="html">
+        <source>Narodni dom ponovo postaje kulturni centar grada.</source>
+        <target>Народни дом поново постаје културни центар града.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6770325376800241537" datatype="html">
+        <source> Reč „bal“ potiče od latinskog ballare — igrati. Tokom vekova balovi su bili mnogo više od plesnih svečanosti: predstavljali su priliku za susrete, razgovore, povezivanje i dogovore. Na dobrotvornim balovima prikupljala su se sredstva za škole, društva i druge javne potrebe. </source>
+        <target> Реч „бал“ потиче од латинског ballare — играти. Током векова балови су били много више од плесних свечаности: представљали су прилику за сусрете, разговоре, повезивање и договоре. На добротворним баловима прикупљала су се средства за школе, друштва и друге јавне потребе. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-ball.section.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6040662272004730528" datatype="html">
+        <source>Priča o balskoj tradiciji</source>
+        <target>Прича о балској традицији</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-ball.section.ts</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2676014079781017565" datatype="html">
+        <source>Zašto Sretenje?</source>
+        <target>Зашто Сретење?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6991845676454044894" datatype="html">
+        <source> Reč „sretenje“ u srpskom i slovenačkom jeziku znači susret. U simbolici ovog praznika prepliću se duhovno predanje, narodna verovanja i istorijsko nasleđe. </source>
+        <target> Реч „сретење“ у српском и словеначком језику значи сусрет. У симболици овог празника преплићу се духовно предање, народна веровања и историјско наслеђе. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2022211048634586863" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Vere i istorije.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Zime i proleća.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Prošlosti i budućnosti.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Вере и историје.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Зиме и пролећа.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Прошлости и будућности.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">24,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3411350760185514314" datatype="html">
+        <source>Na toj ideji počiva i Sretenjski bal, zamišljen kao susret srpske i slovenačke kulture.</source>
+        <target>На тој идеји почива и Сретењски бал, замишљен као сусрет српске и словеначке културе.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3330125957715564872" datatype="html">
+        <source>Sretenje Gospodnje</source>
+        <target>Сретење Господње</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6877011728990343567" datatype="html">
+        <source>Prema Jevanđelju po Luki, četrdesetog dana po Isusovom rođenju, Marija i Josif doneli su ga u jerusalimski hram. Tamo ga je starac Simeon uzeo u naručje i prepoznao kao svetlost.</source>
+        <target>Према Јеванђељу по Луки, четрдесетог дана по Исусовом рођењу, Марија и Јосиф донели су га у јерусалимски храм. Тамо га је старац Симеон узео у наручје и препознао као светлост.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8696670668428605045" datatype="html">
+        <source>Narodna tradicija</source>
+        <target>Народна традиција</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4033030178793379522" datatype="html">
+        <source>U narodnom predanju Sretenje se vezuje za simbolični susret zime i proleća.</source>
+        <target>У народном предању Сретење се везује за симболични сусрет зиме и пролећа.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1680806337448738481" datatype="html">
+        <source>Na Sretenje je u Orašcu podignut Prvi srpski ustanak, čime je započeta borba za oslobođenje Srbije od osmanske vlasti.</source>
+        <target>На Сретење је у Орашцу подигнут Први српски устанак, чиме је започета борба за ослобођење Србије од османске власти.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8247236014703144186" datatype="html">
+        <source>U Kragujevcu je proglašen Sretenjski ustav, kojim su prvi put jasno postavljeni temelji moderne srpske države.</source>
+        <target>У Крагујевцу је проглашен Сретењски устав, којим су први пут јасно постављени темељи модерне српске државе.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8152524944166531119" datatype="html">
+        <source>Od 2002.</source>
+        <target>Од 2002.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1739115717252133771" datatype="html">
+        <source>Sretenje je Dan državnosti Republike Srbije.</source>
+        <target>Сретење је Дан државности Републике Србије.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/sections/why-sretenje.section.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6712219987750795745" datatype="html">
+        <source>Jezik teksta</source>
+        <target>Језик текста</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7163647533745556564" datatype="html">
+        <source>Na početnu</source>
+        <target>На почетну</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/coming-soon.page.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/not-found.page.ts</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3288955558697032360" datatype="html">
+        <source>Sretenjski bal, 13. februara 2027. u Mariboru.</source>
+        <target>Сретењски бал, 13. фебруара 2027. у Марибору.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/coming-soon.page.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6206871720419449677" datatype="html">
+        <source>Ova stranica je u pripremi. Do tada, sve najvažnije o balu naći ćete na početnoj.</source>
+        <target>Ова страница је у припреми. До тада, све најважније о балу наћи ћете на почетној.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/coming-soon.page.ts</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1456328202927394106" datatype="html">
+        <source>Ova stranica ne postoji.</source>
+        <target>Ова страница не постоји.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/not-found.page.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6709570098482739292" datatype="html">
+        <source>Stranica nije pronađena | Sretenjski bal</source>
+        <target>Страница није пронађена | Сретењски бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/not-found.page.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6352453219231554480" datatype="html">
+        <source>Tražena stranica ne postoji.</source>
+        <target>Тражена страница не постоји.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pages/not-found.page.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1743497951706628286" datatype="html">
+        <source>Rezervacija je evidentirana</source>
+        <target>Резервација је евидентирана</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4185800474739034395" datatype="html">
+        <source>Hvala Vam. Vaš zahtev za rezervaciju je primljen i upisan.</source>
+        <target>Хвала Вам. Ваш захтев за резервацију је примљен и уписан.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9090159786512305929" datatype="html">
+        <source>Vrsta ulaznice</source>
+        <target>Врста улазнице</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1781694290538879422" datatype="html">
+        <source>Broj ulaznica</source>
+        <target>Број улазница</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">90,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7618340038393345706" datatype="html">
+        <source>Javićemo Vam se u roku od 3 dana sa detaljima za uplatu.</source>
+        <target>Јавићемо Вам се у року од 3 дана са детаљима за уплату.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8865344529989795563" datatype="html">
+        <source>Potvrdu sa ovim podacima poslali smo i na adresu <x id="INTERPOLATION" equiv-text="{{ r.mailTo }}"/>.</source>
+        <target>Потврду са овим подацима послали смо и на адресу <x id="INTERPOLATION" equiv-text="{{ r.mailTo }}"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8424163538442803879" datatype="html">
+        <source>Rezervacije trenutno nisu dostupne.</source>
+        <target>Резервације тренутно нису доступне.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7760257839120612102" datatype="html">
+        <source>Za pitanja o ulaznicama <x id="START_LINK" ctype="x-a" equiv-text="&lt;a class=&quot;inline-link&quot; routerLink=&quot;/kontakt&quot;&gt;"/>pišite nam<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>За питања о улазницама <x id="START_LINK" ctype="x-a" equiv-text="&lt;a class=&quot;inline-link&quot; routerLink=&quot;/kontakt&quot;&gt;"/>пишите нам<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4499252995782089073" datatype="html">
+        <source>Vaši podaci</source>
+        <target>Ваши подаци</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9212930346225026442" datatype="html">
+        <source>Ulaznice će glasiti na Vaše ime. Potvrdu rezervacije i podatke za uplatu poslaćemo na e-⁠adresu koju navedete.</source>
+        <target>Улазнице ће гласити на Ваше име. Потврду резервације и податке за уплату послаћемо на е-⁠адресу коју наведете.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9117900080958206574" datatype="html">
+        <source>Ime</source>
+        <target>Име</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6320500480449339594" datatype="html">
+        <source>Unesite ime.</source>
+        <target>Унесите име.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4600212617086146049" datatype="html">
+        <source>Prezime</source>
+        <target>Презиме</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">125,126</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="524246826987967678" datatype="html">
+        <source>Unesite prezime.</source>
+        <target>Унесите презиме.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="323588424601272633" datatype="html">
+        <source>E-⁠adresa</source>
+        <target>Е-⁠адреса</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">130,131</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4732501970037542835" datatype="html">
+        <source>Unesite ispravnu email adresu.</source>
+        <target>Унесите исправну емаил адресу.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1520006448386955972" datatype="html">
+        <source>Broj telefona</source>
+        <target>Број телефона</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">135,136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3091729302238664851" datatype="html">
+        <source>Unesite broj telefona, npr. +386 40 123 456.</source>
+        <target>Унесите број телефона, нпр. +386 40 123 456.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3645830667974254305" datatype="html">
+        <source>Izaberite tip ulaznice.</source>
+        <target>Изаберите тип улазнице.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2306797987702038394" datatype="html">
+        <source>Jedna ulaznica manje</source>
+        <target>Једна улазница мање</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4875947029698499598" datatype="html">
+        <source>Jedna ulaznica više</source>
+        <target>Једна улазница више</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1627192870989756628" datatype="html">
+        <source>Unesite broj ulaznica (ceo broj, najmanje 1).</source>
+        <target>Унесите број улазница (цео број, најмање 1).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4140330163837907610" datatype="html">
+        <source>Moguće je rezervisati najviše jedan sto (8 ulaznica).</source>
+        <target>Могуће је резервисати највише један сто (8 улазница).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7532126323098697328" datatype="html">
+        <source>Podaci o gostima</source>
+        <target>Подаци о гостима</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">113,114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3752351958644668709" datatype="html">
+        <source>Prva ulaznica glasi na osobu iz podataka iznad. Za svaku od ostalih ulaznica upišite podatke gosta.</source>
+        <target>Прва улазница гласи на особу из података изнад. За сваку од осталих улазница упишите податке госта.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7425673652811961590" datatype="html">
+        <source>Gost</source>
+        <target>Гост</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3925623638530273299" datatype="html">
+        <source>Unesite ime gosta.</source>
+        <target>Унесите име госта.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5111776119881670153" datatype="html">
+        <source>Unesite prezime gosta.</source>
+        <target>Унесите презиме госта.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">127,128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6009132648894284146" datatype="html">
+        <source>Unesite ispravnu email adresu gosta.</source>
+        <target>Унесите исправну емаил адресу госта.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">132,133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7249183036336256865" datatype="html">
+        <source>Unesite broj telefona gosta.</source>
+        <target>Унесите број телефона госта.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">137,138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2939950779046192857" datatype="html">
+        <source>Ishrana i dodatne napomene</source>
+        <target>Исхрана и додатне напомене</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">149,150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2389242545760143720" datatype="html">
+        <source>Alergije</source>
+        <target>Алергије</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4320021743798520011" datatype="html">
+        <source>(neobavezno)</source>
+        <target>(необавезно)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">235</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7362040298213844934" datatype="html">
+        <source>Ako rezervišete ulaznice za više osoba, navedite na koga se napomena odnosi.</source>
+        <target>Ако резервишете улазнице за више особа, наведите на кога се напомена односи.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">155,156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5494293923277901938" datatype="html">
+        <source>Izričito pristajem da organizator obradi podatke o mojoj ishrani i alergijama (mogu otkrivati zdravstveno stanje) isključivo radi pripreme menija, i da ih čuva najduže 30 dana nakon bala. Saglasnost mogu opozvati u svakom trenutku, o čemu više u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>Изричито пристајем да организатор обради податке о мојој исхрани и алергијама (могу откривати здравствено стање) искључиво ради припреме менија, и да их чува најдуже 30 дана након бала. Сагласност могу опозвати у сваком тренутку, о чему више у <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>политици приватности<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">162,163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1980519301172240159" datatype="html">
+        <source>Bez saglasnosti ne možemo da primimo podatke o ishrani — uklonite ih ili potvrdite saglasnost.</source>
+        <target>Без сагласности не можемо да примимо податке о исхрани — уклоните их или потврдите сагласност.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">164,165</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1373229906205887606" datatype="html">
+        <source>Ostale napomene</source>
+        <target>Остале напомене</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8713941297318937240" datatype="html">
+        <source>Da li Vam je potreban račun na ime firme?</source>
+        <target>Да ли Вам је потребан рачун на име фирме?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">179,180</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="278437647854252271" datatype="html">
+        <source>Ne</source>
+        <target>Не</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">181</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6143849677525158412" datatype="html">
+        <source>Da</source>
+        <target>Да</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7577760098968634757" datatype="html">
+        <source>Naziv firme</source>
+        <target>Назив фирме</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">189,190</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7913400225632113504" datatype="html">
+        <source>Unesite naziv firme.</source>
+        <target>Унесите назив фирме.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">192,193</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7768955928692072398" datatype="html">
+        <source>Država sedišta firme</source>
+        <target>Држава седишта фирме</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">195,196</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="139532704682040891" datatype="html">
+        <source>Slovenija</source>
+        <target>Словенија</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">197,198</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8820025993079898544" datatype="html">
+        <source>Druga država članica EU</source>
+        <target>Друга држава чланица ЕУ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">198,199</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7470764457069420851" datatype="html">
+        <source>Sedište firme (ulica, poštanski broj, mesto)</source>
+        <target>Седиште фирме (улица, поштански број, место)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">202,203</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="902385744557777860" datatype="html">
+        <source>Unesite adresu firme.</source>
+        <target>Унесите адресу фирме.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">205,206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8022188998745815115" datatype="html">
+        <source>Poreski broj firme (davčna številka)</source>
+        <target>Порески број фирме (давчна штевилка)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">208,209</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7689050336672454061" datatype="html">
+        <source>Poreski broj firme (sa oznakom države, npr. HR12345678901)</source>
+        <target>Порески број фирме (са ознаком државе, нпр. HR12345678901)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">209,210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3683254962885370853" datatype="html">
+        <source>Unesite poreski broj firme.</source>
+        <target>Унесите порески број фирме.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">212,213</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8971501769065979755" datatype="html">
+        <source>Slovenački poreski broj ima 8 cifara (npr. 12345678 ili SI12345678).</source>
+        <target>Словеначки порески број има 8 цифара (нпр. 12345678 или SI12345678).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8950737222174721452" datatype="html">
+        <source>Poreski broj počinje oznakom države, npr. HR12345678901 ili ATU12345678.</source>
+        <target>Порески број почиње ознаком државе, нпр. HR12345678901 или ATU12345678.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">216</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3146827773544375678" datatype="html">
+        <source>Kako ste saznali za Sretenjski bal?</source>
+        <target>Како сте сазнали за Сретењски бал?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">224,225</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="142131213832145335" datatype="html">
+        <source>Izaberite…</source>
+        <target>Изаберите…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">227,228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1997448713727423076" datatype="html">
+        <source>Izaberite jednu od ponuđenih mogućnosti.</source>
+        <target>Изаберите једну од понуђених могућности.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">230,231</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3916801985078183896" datatype="html">
+        <source>Recite nam više</source>
+        <target>Реците нам више</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">235</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1448591909643824360" datatype="html">
+        <source>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu Vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>Сва поља су обавезна, осим оних означених као необавезна. Податке користимо искључиво за обраду Ваше резервације и чувамо их најдуже шест месеци након бала. У сваком тренутку можете затражити увид, исправку или брисање података. Више информација налази се у <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>политици приватности<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">245,246</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8467900396278814444" datatype="html">
+        <source>Slanje rezervacije…</source>
+        <target>Слање резервације…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8476889264056901692" datatype="html">
+        <source>Pošaljite rezervaciju</source>
+        <target>Пошаљите резервацију</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8864608791497682157" datatype="html">
+        <source>Preporuka prijatelja</source>
+        <target>Препорука пријатеља</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4219590282319438393" datatype="html">
+        <source>Društvene mreže</source>
+        <target>Друштвене мреже</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7256240574498338805" datatype="html">
+        <source>Drugo</source>
+        <target>Друго</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="591256854503024091" datatype="html">
+        <source>Provera da niste robot nije mogla da se učita. Proverite internet vezu ili isključite blokator reklama za ovaj sajt, pa osvežite stranicu.</source>
+        <target>Провера да нисте робот није могла да се учита. Проверите интернет везу или искључите блокатор реклама за овај сајт, па освежите страницу.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">235</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5058535692094076074" datatype="html">
+        <source>Još trenutak — proveravamo da niste robot. Pokušajte ponovo za nekoliko sekundi.</source>
+        <target>Још тренутак — проверавамо да нисте робот. Покушајте поново за неколико секунди.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">236</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5580782860779350451" datatype="html">
+        <source>Rezervacije su u međuvremenu zatvorene, pa Vaša rezervacija nije evidentirana.</source>
+        <target>Резервације су у међувремену затворене, па Ваша резервација није евидентирана.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9028299304491900479" datatype="html">
+        <source>Trenutno je velika gužva. Pokušajte ponovo za minut — uneti podaci su sačuvani u formi i nećete napraviti duplu rezervaciju.</source>
+        <target>Тренутно је велика гужва. Покушајте поново за минут — унети подаци су сачувани у форми и нећете направити дуплу резервацију.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">268</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3951603918850603874" datatype="html">
+        <source>Provera da niste robot nije prošla. Pokušajte ponovo za nekoliko sekundi.</source>
+        <target>Провера да нисте робот није прошла. Покушајте поново за неколико секунди.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">270</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5607870672279336271" datatype="html">
+        <source>Proverite unete podatke i pokušajte ponovo.</source>
+        <target>Проверите унете податке и покушајте поново.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">272</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2797355341777507315" datatype="html">
+        <source>Rezervacija nije sačuvana zbog privremenog tehničkog problema. Vaši podaci su ostali u formi — pokušajte ponovo za nekoliko trenutaka. Ponovnim slanjem nećete napraviti duplu rezervaciju.</source>
+        <target>Резервација није сачувана због привременог техничког проблема. Ваши подаци су остали у форми — покушајте поново за неколико тренутака. Поновним слањем нећете направити дуплу резервацију.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.ts</context>
+          <context context-type="linenumber">275</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7529083809486407773" datatype="html">
+        <source>Rezervacija ulaznica</source>
+        <target>Резервација улазница</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6195477665605699629" datatype="html">
+        <source>Popunite obrazac za rezervaciju ulaznica za Sretenjski bal. U roku od tri dana kontaktiraćemo Vas sa informacijama o uplati.</source>
+        <target>Попуните образац за резервацију улазница за Сретењски бал. У року од три дана контактираћемо Вас са информацијама о уплати.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2557052149872746084" datatype="html">
+        <source>13.2.2027 · Maribor</source>
+        <target>13.2.2027 · Марибор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2217694666843237462" datatype="html">
+        <source>Rezervacija ulaznica | Sretenjski bal</source>
+        <target>Резервација улазница | Сретењски бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8462641488331426114" datatype="html">
+        <source>Rezervišite ulaznice za Sretenjski bal, 13. februara 2027. u Mariboru.</source>
+        <target>Резервишите улазнице за Сретењски бал, 13. фебруара 2027. у Марибору.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation.page.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6260682911141366554" datatype="html">
+        <source>13. februar 2027. · Narodni dom, Maribor</source>
+        <target>13. фебруар 2027. · Народни дом, Марибор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8481522893984750087" datatype="html">
+        <source>Linkovi u podnožju</source>
+        <target>Линкови у подножју</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6510341816615809552" datatype="html">
+        <source>Bal</source>
+        <target>Бал</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3725118664408024999" datatype="html">
+        <source>Kontakt i pitanja</source>
+        <target>Контакт и питања</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5484473874650025693" datatype="html">
+        <source>© <x id="INTERPOLATION" equiv-text="{{ year }}"/> Kulturni centar Sretenje</source>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ year }}"/> Културни центар Сретење</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4516372548704749282" datatype="html">
+        <source>Sretenjski bal, početna</source>
+        <target>Сретењски бал, почетна</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6835576880442381550" datatype="html">
+        <source>Glavni meni</source>
+        <target>Главни мени</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4557270280917851899" datatype="html">
+        <source>Zatvori meni</source>
+        <target>Затвори мени</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2141513718202231775" datatype="html">
+        <source>Otvori meni</source>
+        <target>Отвори мени</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8394722487927547538" datatype="html">
+        <source>Meni</source>
+        <target>Мени</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7555925861575209349" datatype="html">
+        <source>Kulturni centar Sretenje</source>
+        <target>Културни центар Сретење</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3413577107313974380" datatype="html">
+        <source>Politika privatnosti</source>
+        <target>Политика приватности</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5127310159517988780" datatype="html">
+        <source>Hvala na poruci.</source>
+        <target>Хвала на поруци.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6928769270837945182" datatype="html">
+        <source>Odgovorićemo Vam u najkraćem roku.</source>
+        <target>Одговорићемо Вам у најкраћем року.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8431948583668876741" datatype="html">
+        <source>Pošalji novu poruku</source>
+        <target>Пошаљи нову поруку</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2473708249335920209" datatype="html">
+        <source>Tema</source>
+        <target>Тема</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="182006008441355091" datatype="html">
+        <source>Poruka</source>
+        <target>Порука</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6245015869844514441" datatype="html">
+        <source>Poruka treba da ima najmanje 10 znakova.</source>
+        <target>Порука треба да има најмање 10 знакова.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5468492768937984515" datatype="html">
+        <source>Dajem saglasnost da organizator obradi moje ime, e-⁠adresu i poruku radi odgovora na upit i da te podatke čuva do 12 meseci. Saglasnost mogu opozvati u svakom trenutku. Više informacija nalazi se u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>Дајем сагласност да организатор обради моје име, е-⁠адресу и поруку ради одговора на упит и да те податке чува до 12 месеци. Сагласност могу опозвати у сваком тренутку. Више информација налази се у <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;inline-link&quot;&gt;"/>политици приватности<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2320064686239323326" datatype="html">
+        <source>Potrebna je Vaša saglasnost.</source>
+        <target>Потребна је Ваша сагласност.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8548104310093134468" datatype="html">
+        <source>Slanje…</source>
+        <target>Слање…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5171855009875770665" datatype="html">
+        <source>Pošaljite poruku</source>
+        <target>Пошаљите поруку</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7128330101378913854" datatype="html">
+        <source>Opšti upit</source>
+        <target>Општи упит</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1069740115477454034" datatype="html">
+        <source>Partnerstvo i sponzorstvo</source>
+        <target>Партнерство и спонзорство</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6353418349096575841" datatype="html">
+        <source>Mediji</source>
+        <target>Медији</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7928637202092451803" datatype="html">
+        <source>Saradnja i nastup</source>
+        <target>Сарадња и наступ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5354789577111419535" datatype="html">
+        <source>Trenutno je velika gužva. Pokušajte ponovo za minut.</source>
+        <target>Тренутно је велика гужва. Покушајте поново за минут.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4309241319714207671" datatype="html">
+        <source>Poruka trenutno nije poslata. Pokušajte ponovo ili nam pišite direktno na email.</source>
+        <target>Порука тренутно није послата. Покушајте поново или нам пишите директно на емаил.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2573159024509417433" datatype="html">
+        <source>Do bala je ostalo</source>
+        <target>До бала је остало</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/countdown/countdown.component.ts</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7128180852761354365" datatype="html">
+        <source>Dana</source>
+        <target>Дана</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/countdown/countdown.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5407432267047714746" datatype="html">
+        <source>Sati</source>
+        <target>Сати</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/countdown/countdown.component.ts</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8338263757074864989" datatype="html">
+        <source>Minuta</source>
+        <target>Минута</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/countdown/countdown.component.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1655835110344705823" datatype="html">
+        <source>Jezik</source>
+        <target>Језик</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/language-switcher/language-switcher.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8061977853310460483" datatype="html">
+        <source>Rasprodato</source>
+        <target>Распродато</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/ticket-list/ticket-list.component.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7679985942478362177" datatype="html">
+        <source>Cena uskoro</source>
+        <target>Цена ускоро</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/ticket-list/ticket-list.component.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

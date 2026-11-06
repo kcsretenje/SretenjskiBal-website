@@ -32,17 +32,17 @@
                 "input": "public"
               },
               {
-                "glob": "playfair-display-latin*-{400,500}-normal.woff2",
+                "glob": "playfair-display-{latin,latin-ext,cyrillic}-{400,500}-normal.woff2",
                 "input": "node_modules/@fontsource/playfair-display/files",
                 "output": "fonts"
               },
               {
-                "glob": "manrope-latin*-{300,400,500}-normal.woff2",
+                "glob": "manrope-{latin,latin-ext,cyrillic}-{300,400,500}-normal.woff2",
                 "input": "node_modules/@fontsource/manrope/files",
                 "output": "fonts"
               },
               {
-                "glob": "cormorant-garamond-latin*-{300,400,500}-{normal,italic}.woff2",
+                "glob": "cormorant-garamond-{latin,latin-ext,cyrillic}-{300,400,500}-{normal,italic}.woff2",
                 "input": "node_modules/@fontsource/cormorant-garamond/files",
                 "output": "fonts"
               }
@@ -120,6 +120,10 @@
           "sl": {
             "translation": "src/locale/messages.sl.xlf",
             "subPath": "sl"
+          },
+          "sr-Cyrl": {
+            "translation": "src/locale/messages.sr-Cyrl.xlf",
+            "subPath": "cir"
           },
           "en": {
             "translation": "src/locale/messages.en.xlf",

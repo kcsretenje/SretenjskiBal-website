@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { BALL_TRADITION_IMAGE, EVENT } from '../../../core/content/site-content';
+import { toCyrillic } from '../../../core/i18n/cyrillic';
+import { isCyrillic } from '../../../core/i18n/locale';
 import { EventInfo } from '../../../core/models/content.models';
 import { SectionHeadingComponent } from '../../../shared/components/section-heading/section-heading.component';
 import { RevealDirective } from '../../../shared/directives/reveal.directive';
@@ -30,7 +32,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
           <p class="quote closing" appReveal i18n>U zdanju koje pamti brojne susrete započinje jedan novi.</p>
           <address class="details" appReveal>
             @if (event().venueName; as name) {
-              <span class="name">{{ name }}</span>
+              <span class="name">{{ cyrillic ? toCyrillic(name) : name }}</span>
               @if (event().venueAddress; as address) { <span>{{ address }}</span> }
             }
             @if (event().mapUrl; as map) {
@@ -40,7 +42,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
         </div>
         <figure class="photo" appReveal [appRevealImage]="true">
           @if (photo.src; as src) {
-            <img [src]="src" [alt]="photo.alt" loading="lazy" />
+            <img [src]="src" [alt]="cyrillic ? toCyrillic(photo.alt) : photo.alt" loading="lazy" />
           }
           @if (photo.credit) { <figcaption class="label">{{ photo.credit }}</figcaption> }
         </figure>
@@ -83,4 +85,7 @@ export class VenueSectionComponent {
   ];
   protected readonly photo = BALL_TRADITION_IMAGE;
   protected readonly event = signal<EventInfo>(EVENT);
+  /** Na /cir/ naziv mesta ćirilicom; adresa u Sloveniji ostaje latinicom. */
+  protected readonly cyrillic = isCyrillic();
+  protected readonly toCyrillic = toCyrillic;
 }

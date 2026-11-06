@@ -250,3 +250,12 @@ export const LEGAL: Record<'privacy', Record<Locale, LegalDoc>> = {
 };
 
 export const LEGAL_LANG_LABEL: Record<Locale, string> = { sr: 'Srpski', sl: 'Slovenščina', en: 'English' };
+
+/**
+ * Na ćiriličnoj verziji sajta srpski pravni tekst se preslovljava, a ovo ostaje latinicom:
+ * nazivi i adrese pravnih lica u Sloveniji i inostranstvu, matični/poreski brojevi.
+ */
+export const LEGAL_KEEP_LATIN: readonly string[] = [
+  O.legalName, O.name, O.address, O.registration, O.hosting, O.mailProvider, IP.name, IP.address,
+  'Kulturno društvo Kulturni center Sretenje',
+];

@@ -746,12 +746,51 @@ describe('Apps Script (Code.gs)', () => {
       });
 
       it('potvrda uplate: ako potvrda o uplati (PDF) ne uspe, mejl ipak odlazi i javlja grešku', () => {
-        paid({ amount: 210 });
+        paid({ amount: 210, paymentMethod: 'Na račun' });
         const res = gas.ctx.sendPaymentConfirmationFor_('27006');
         expect(gas.outbox).toHaveLength(1);
         expect(res.receipt).toBe(false);
         expect(res.receiptError).toBeTruthy();
         expect(gas.outbox[0].body).not.toContain('potvrda o uplati');
+      });
+
+      describe('potvrda o uplati: samo za uplatu na račun, uvek na slovenačkom', () => {
+        const spyReceipt = () => {
+          const calls: unknown[][] = [];
+          gas.ctx.paymentReceiptPdf_ = (...args: unknown[]) => {
+            calls.push(args);
+            return { getName: () => 'Potrdilo o placilu 27006.pdf' };
+          };
+          return calls;
+        };
+
+        it.each(['sr', 'en', 'sl'])('uplata na račun, jezik rezervacije %s → potvrda na slovenačkom', (locale) => {
+          const calls = spyReceipt();
+          paid({ amount: 210, paymentMethod: 'Na račun', locale });
+          const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(calls).toHaveLength(1);
+          expect(calls[0][2]).toBe('sl');
+          expect(res.receipt).toBe(true);
+        });
+
+        it('gotovina → nema potvrde o uplati, a mejl sa ulaznicama ipak odlazi', () => {
+          const calls = spyReceipt();
+          paid({ amount: 210, paymentMethod: 'Gotovina' });
+          const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(calls).toHaveLength(0);
+          expect(gas.outbox).toHaveLength(1);
+          expect(res.receipt).toBe(false);
+          expect(res.receiptError).toBe('');
+          expect(gas.outbox[0].body).not.toContain('potvrda o uplati');
+          expect(gas.ctx.receiptSkipReason_({ amount: 210, paymentMethod: 'Gotovina' })).toBe('plaćeno je u gotovini.');
+        });
+
+        it('bez upisanog načina plaćanja → nema potvrde', () => {
+          const calls = spyReceipt();
+          paid({ amount: 210, paymentMethod: '' });
+          gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(calls).toHaveLength(0);
+        });
       });
 
       it('ispravka imena u tabu Gosti ide na ulaznicu; ponovno slanje ne pravi nove redove i daje iste kodove', () => {

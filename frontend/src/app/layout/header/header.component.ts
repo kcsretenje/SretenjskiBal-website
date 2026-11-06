@@ -16,11 +16,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
 import { EmblemComponent } from '../../shared/components/emblem/emblem.component';
 import { LanguageSwitcherComponent } from '../../shared/components/language-switcher/language-switcher.component';
+import { CyrPipe } from '../../shared/pipes/cyr.pipe';
 import { MAIN_NAV, SECTION_NAV, SectionNavItem } from '../nav';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, EmblemComponent, LanguageSwitcherComponent],
+  imports: [RouterLink, RouterLinkActive, EmblemComponent, LanguageSwitcherComponent, CyrPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

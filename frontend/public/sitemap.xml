@@ -3,6 +3,16 @@
   <url>
     <loc>https://sretenjskibal.si/</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sretenjskibal.si/cir/</loc>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/"/>
@@ -11,6 +21,7 @@
   <url>
     <loc>https://sretenjskibal.si/sl/</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/"/>
@@ -19,6 +30,7 @@
   <url>
     <loc>https://sretenjskibal.si/en/</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/"/>
@@ -27,6 +39,16 @@
   <url>
     <loc>https://sretenjskibal.si/balska-tradicija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/balska-tradicija"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sretenjskibal.si/cir/balska-tradicija</loc>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/balska-tradicija"/>
@@ -35,6 +57,7 @@
   <url>
     <loc>https://sretenjskibal.si/sl/balska-tradicija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/balska-tradicija"/>
@@ -43,6 +66,7 @@
   <url>
     <loc>https://sretenjskibal.si/en/balska-tradicija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/balska-tradicija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/balska-tradicija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/balska-tradicija"/>
@@ -51,6 +75,16 @@
   <url>
     <loc>https://sretenjskibal.si/rezervacija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/rezervacija"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sretenjskibal.si/cir/rezervacija</loc>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/rezervacija"/>
@@ -59,6 +93,7 @@
   <url>
     <loc>https://sretenjskibal.si/sl/rezervacija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/rezervacija"/>
@@ -67,6 +102,7 @@
   <url>
     <loc>https://sretenjskibal.si/en/rezervacija</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/rezervacija"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/rezervacija"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/rezervacija"/>
@@ -75,6 +111,16 @@
   <url>
     <loc>https://sretenjskibal.si/kontakt</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/kontakt"/>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sretenjskibal.si/cir/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/kontakt"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/kontakt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/kontakt"/>
@@ -83,6 +129,7 @@
   <url>
     <loc>https://sretenjskibal.si/sl/kontakt</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/kontakt"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/kontakt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/kontakt"/>
@@ -91,6 +138,7 @@
   <url>
     <loc>https://sretenjskibal.si/en/kontakt</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/kontakt"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/kontakt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/kontakt"/>
@@ -99,6 +147,16 @@
   <url>
     <loc>https://sretenjskibal.si/privacy</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/privacy"/>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://sretenjskibal.si/cir/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/privacy"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/privacy"/>
@@ -107,6 +165,7 @@
   <url>
     <loc>https://sretenjskibal.si/sl/privacy</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/privacy"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/privacy"/>
@@ -115,6 +174,7 @@
   <url>
     <loc>https://sretenjskibal.si/en/privacy</loc>
     <xhtml:link rel="alternate" hreflang="sr" href="https://sretenjskibal.si/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sr-Cyrl" href="https://sretenjskibal.si/cir/privacy"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://sretenjskibal.si/sl/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sretenjskibal.si/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sretenjskibal.si/privacy"/>

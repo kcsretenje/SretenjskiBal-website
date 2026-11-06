@@ -1,5 +1,7 @@
 /**
- * PDF „Potvrda o uplati" (A4) — ide u prilogu mejla „potvrda uplate", uz PDF ulaznice, na jeziku rezervacije.
+ * PDF „Potvrda o uplati" (A4) — ide u prilogu mejla „potvrda uplate", uz PDF ulaznice.
+ * Pravi se SAMO za uplatu na račun (ne za gotovinu) i UVEK je na slovenačkom (Potrdilo o plačilu),
+ * bez obzira na jezik rezervacije. Tekstovi za sr/en ostaju u RECEIPT_TEXT ako zatrebaju.
  * Broj potvrde = broj rezervacije. Nije račun (nema fiskalizacije ni posebne numeracije).
  *
  * Kako radi (kao ulaznice, vidi Ulaznica.gs): skripta jednom napravi A4 šablon na Drajvu
@@ -10,6 +12,22 @@
  */
 
 const RECEIPT_ORGANIZER = 'Kulturno društvo Kulturni center Sretenje';
+
+/** Potvrda o uplati je uvek na slovenačkom. */
+const RECEIPT_LANG = 'sl';
+
+/** Potvrda o uplati ide samo uz uplatu na račun, sa upisanim iznosom. */
+function receiptApplies_(r) {
+  return Number(r.amount) > 0 && String(r.paymentMethod || '').trim() === 'Na račun';
+}
+
+/** Zašto potvrda nije priložena — za poruku organizatoru u tabeli. */
+function receiptSkipReason_(r) {
+  const method = String(r.paymentMethod || '').trim();
+  if (method === 'Gotovina') return 'plaćeno je u gotovini.';
+  if (method !== 'Na račun') return 'način plaćanja nije upisan (potvrda ide samo za „Na račun").';
+  return 'iznos nije upisan.';
+}
 
 const RECEIPT_TEXT = {
   sr: {
@@ -255,7 +273,7 @@ function menuTestReceiptPdf() {
       amount: (Number(s.prices.SVECANA) || 140) * 2, paymentMethod: 'Na račun', company: '',
     };
     const tickets = [{ type: TICKET_TYPES.SVECANA }, { type: TICKET_TYPES.SVECANA }];
-    const pdf = paymentReceiptPdf_(sample, s, 'sr', new Date(), tickets);
+    const pdf = paymentReceiptPdf_(sample, s, RECEIPT_LANG, new Date(), tickets);
     sendMail_(s, {
       to: s.adminEmail,
       subject: 'Sretenjski bal — probna potvrda o uplati',

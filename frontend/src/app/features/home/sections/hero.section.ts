@@ -3,6 +3,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HERO_IMAGE } from '../../../core/content/site-content';
 import { EmblemComponent } from '../../../shared/components/emblem/emblem.component';
+import { CyrPipe } from '../../../shared/pipes/cyr.pipe';
 
 /**
  * Leva ivica crteža para (plesni-par-linije.svg) u 20 vodoravnih pojaseva od vrha do dna, kao deo širine slike.
@@ -17,7 +18,7 @@ const COUPLE_LEFT_EDGE = [0.585, 0.437, 0.391, 0.369, 0.37, 0.406, 0.407, 0.45, 
  */
 @Component({
   selector: 'app-hero-section',
-  imports: [NgOptimizedImage, RouterLink, EmblemComponent],
+  imports: [NgOptimizedImage, RouterLink, EmblemComponent, CyrPipe],
   templateUrl: './hero.section.html',
   styleUrl: './hero.section.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

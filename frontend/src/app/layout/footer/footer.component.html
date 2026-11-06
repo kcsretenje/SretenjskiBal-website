@@ -1,8 +1,8 @@
 <footer class="footer">
   <div class="container grid top">
     <div class="identity" appReveal>
-      <app-emblem [size]="88" label="Sretenjski bal" />
-      <p class="name">Sretenjski bal</p>
+      <app-emblem [size]="88" [label]="'Sretenjski bal' | cyr" />
+      <p class="name">{{ 'Sretenjski bal' | cyr }}</p>
       <p class="when" i18n>13. februar 2027. · Narodni dom, Maribor</p>
       <p class="tagline" i18n>Kultura koja spaja.</p>
     </div>
@@ -21,7 +21,7 @@
 
     <div class="org" appReveal [appRevealDelay]="240">
       <p class="label" i18n>Organizator</p>
-      <span class="org-title">{{ org.legalName }}</span>
+      <span class="org-title">{{ org.legalName | cyr }}</span>
       <span class="org-addr">{{ org.address }}</span>
       <span class="org-addr">{{ org.registration }}</span>
       <a routerLink="/kontakt" class="contact" i18n>Kontakt i pitanja</a>

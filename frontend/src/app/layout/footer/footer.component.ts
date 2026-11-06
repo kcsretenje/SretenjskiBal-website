@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { EmblemComponent } from '../../shared/components/emblem/emblem.component';
+import { CyrPipe } from '../../shared/pipes/cyr.pipe';
 import { ORGANIZER } from '../../core/content/site-content';
 import { FOOTER_SECTION_IDS, FOOTER_STORY, LEGAL_NAV, SECTION_NAV } from '../nav';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink, EmblemComponent, RevealDirective],
+  imports: [RouterLink, EmblemComponent, RevealDirective, CyrPipe],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

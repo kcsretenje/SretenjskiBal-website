@@ -1,5 +1,5 @@
 /**
- * Lokalna provera gotovog sajta na sva tri jezika (/, /sl/, /en/): `npm run start:all`, pa http://localhost:4000/
+ * Lokalna provera gotovog sajta na sva četiri izdanja (SR latinica, SR ćirilica, SL, EN) (/, /cir/, /sl/, /en/): `npm run start:all`, pa http://localhost:4000/
  * Isto kao što radi statički hosting: nepoznata adresa vraća 404.html.
  */
 import { createServer } from 'node:http';
@@ -18,4 +18,4 @@ createServer((req, res) => {
   if (!existsSync(file)) { file = join(root, '404.html'); status = 404; }
   res.writeHead(status, { 'content-type': types[extname(file)] ?? 'application/octet-stream' });
   res.end(readFileSync(file));
-}).listen(port, () => console.log(`Sajt: http://localhost:${port}/  (/sl/, /en/)`));
+}).listen(port, () => console.log(`Sajt: http://localhost:${port}/  (/cir/, /sl/, /en/)`));
