@@ -24,6 +24,10 @@ body {
   // Ravni brojevi (Playfair inače ima „starinske" cifre koje silaze ispod linije, npr. u satnici).
   font-variant-numeric: lining-nums;
   line-height: var(--lh-body);
+  // Ćirilica: kurziv sa oblicima slova kao u latiničnom kurzivu (т, п, г, д), bez srpskih varijanti (т̄, п̄).
+  &:lang(sr-Cyrl) {
+    font-feature-settings: 'locl' 0;
+  }
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;

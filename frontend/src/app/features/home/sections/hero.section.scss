@@ -223,6 +223,11 @@
     font-size: min(15vw, 6rem);
   }
 
+  // Ćirilica je šira („СРЕТЕЊСКИ"), pa je naslov na telefonu manji da stane u ekran.
+  .title:lang(sr-Cyrl) {
+    font-size: min(12.4vw, 5rem);
+  }
+
   // Kraća linija ispod naslova, da ne seče glavu plesačice.
   .line {
     width: 96px;
