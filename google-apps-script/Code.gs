@@ -2253,7 +2253,7 @@ function setupStatsSheet_(ss) {
     ['Pokazatelj', 'Vrednost'],
     ['POPUNJENOST', ''],
     ['Svečane — kapacitet', '=' + cap('CAPACITY_SVECANA')],
-    ['Svečane — rezervisano', '=' + typeActive(S)],
+    ['Svečane — rezervisano (čeka uplatu + plaćeno)', '=' + typeActive(S)],
     ['Svečane — plaćeno', '=' + typePaid(S)],
     ['Svečane — slobodno', '=' + cap('CAPACITY_SVECANA') + ' - ' + typeActive(S)],
     ['Svečane — popunjenost', '=IFERROR(' + typeActive(S) + ' / ' + cap('CAPACITY_SVECANA') + ', 0)', pct],
@@ -2261,7 +2261,7 @@ function setupStatsSheet_(ss) {
     ['Stolovi — ukupno (po 8 mesta)', '=ROUNDUP(' + cap('CAPACITY_SVECANA') + ' / 8)'],
     ['Galerija — kapacitet (osnovni)', '=' + cap('CAPACITY_GALERIJA')],
     ['Galerija — dodatna mesta', '=' + cap('CAPACITY_GALERIJA_EXTRA')],
-    ['Galerija — rezervisano', '=' + typeActive(GA)],
+    ['Galerija — rezervisano (čeka uplatu + plaćeno)', '=' + typeActive(GA)],
     ['Galerija — plaćeno', '=' + typePaid(GA)],
     ['Galerija — slobodno od osnovnih', '=' + cap('CAPACITY_GALERIJA') + ' - ' + typeActive(GA)],
     ['Galerija — slobodno sa dodatnim', '=' + cap('CAPACITY_GALERIJA') + ' + ' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + typeActive(GA)],
@@ -2279,7 +2279,7 @@ function setupStatsSheet_(ss) {
     ['REZERVACIJE', ''],
     ['Broj prijava (sve rezervacije)', '=COUNTA(' + R('number') + ')'],
     ['Ukupno rezervisanih karata (sve prijave)', '=SUM(' + R('ticketCount') + ')'],
-    ['Aktivne karte (bez isteklih i otkazanih)', '=SUMIFS(' + R('ticketCount') + active + ')'],
+    ['Rezervisane karte (bez isteklih i otkazanih)', '=SUMIFS(' + R('ticketCount') + active + ')'],
     ['', ''],
     ['Status: ' + STATUS.NEW, '=COUNTIF(' + R('status') + ', "' + STATUS.NEW + '")'],
     ['Status: ' + STATUS.AWAITING, '=COUNTIF(' + R('status') + ', "' + STATUS.AWAITING + '")'],
@@ -2293,10 +2293,6 @@ function setupStatsSheet_(ss) {
     ['Prosečan broj dana od prijave do uplate', '=IFERROR(AVERAGE(FILTER(INT(' + R('paidAt') + ') - INT(' + R('createdAt') + '), ' + R('paidAt') + ' <> "")), "—")', '0.0'],
     ['', ''],
   ];
-  Object.keys(TICKET_TYPES).forEach(function (k) {
-    rows.push(['Karte — ' + TICKET_TYPES[k] + ' (aktivne)', '=SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + TICKET_TYPES[k] + '"' + active + ')']);
-  });
-  rows.push(['', '']);
   Object.keys(SOURCES).forEach(function (k) {
     rows.push(['Izvor — ' + SOURCES[k], '=COUNTIF(' + R('source') + ', "' + SOURCES[k] + '")']);
   });
@@ -2305,13 +2301,16 @@ function setupStatsSheet_(ss) {
   rows.push(['', ''], ['Zahtevi za fakturu na firmu', '=COUNTIF(' + R('invoice') + ', "DA")']);
   rows.push(['Rezervacije sa posebnom ishranom', '=COUNTIF(' + R('diet') + ', "?*")']);
 
+  // Brojevi bez decimala svuda, pa posebni formati (procenat, iznos) samo gde treba — stari formati
+  // iz prethodnog rasporeda tabele ne smeju da ostanu na drugim redovima.
+  sheet.getRange(1, 2, sheet.getMaxRows(), 1).setNumberFormat('0');
   sheet.getRange(1, 1, rows.length, 2).setValues(rows.map(function (r) { return [r[0], r[1]]; }));
   sheet.getRange(1, 1, 1, 2).setFontWeight('bold').setBackground('#5a1723').setFontColor('#f6f1e8');
   rows.forEach(function (r, i) {
     if (r[2]) sheet.getRange(i + 1, 2).setNumberFormat(r[2]);
     if (r[0] && r[0] === r[0].toUpperCase() && !r[1]) sheet.getRange(i + 1, 1, 1, 2).setFontWeight('bold').setBackground('#f3e9d8');
   });
-  sheet.setColumnWidth(1, 340);
+  sheet.setColumnWidth(1, 400);
   sheet.setColumnWidth(2, 140);
   sheet.setFrozenRows(1);
 }

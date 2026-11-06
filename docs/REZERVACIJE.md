@@ -324,8 +324,8 @@ Ponovno otvaranje: označite ☑ `BOOKING_OPEN`.
 
 ### Statistika
 
-Tab **Statistika** se računa sam: broj prijava, broj karata (ukupno i aktivnih), po statusu, procenat
-plaćenih, iznos evidentiranih uplata, prosečan broj dana od prijave do uplate, karte po tipu, izvor
+Tab **Statistika** se računa sam: broj prijava, broj karata (ukupno i rezervisanih — sve osim isteklih
+i otkazanih), po statusu, procenat plaćenih, iznos evidentiranih uplata, prosečan broj dana od prijave do uplate, izvor
 prijave, jezik forme i broj zahteva za fakturu. Za dublju analizu svaki red ima i stranicu prijave
 i UTM parametre kampanje (ako ih je link imao).
 
