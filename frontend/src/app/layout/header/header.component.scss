@@ -209,35 +209,42 @@
     line-height: 1.4;
   }
 
-  &__foot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 1.75rem;
-    border-top: 1px solid var(--c-rule-brass);
-    color: var(--c-brass);
-  }
 }
 
 @media (max-width: 1239.98px) {
-  .nav,
-  .tools > app-language-switcher {
+  .nav {
     display: none;
   }
 
+  // Jezik ostaje u zaglavlju i na manjim ekranima (ne u meniju), samo uz manji razmak.
+  .tools {
+    gap: 1.25rem;
+  }
 }
 
-@media (max-width: 479.98px) {
+// Telefon: uži razmaci, da logo, jezici i meni stanu u jedan red.
+@media (max-width: 599.98px) {
+  .tools {
+    gap: 1rem;
+  }
+
+  .tools > app-language-switcher {
+    --lang-gap: 0.2rem;
+  }
+}
+
+// Telefon i uski tablet: jezici su u zaglavlju, pa dugme „Ulaznice" (ima ga u meniju) i naziv pored logoa
+// ne staju u isti red.
+@media (max-width: 719.98px) {
   .cta,
   .brand__name {
     display: none;
   }
 }
 
-// Na širokom ekranu jezik i dugme „Ulaznice" već stoje u zaglavlju — u otvorenom meniju se ne ponavljaju.
+// Na širokom ekranu dugme „Ulaznice" već stoji u zaglavlju — u otvorenom meniju se ne ponavlja.
 @media (min-width: 1240px) {
-  .overlay__cta,
-  .overlay__foot {
+  .overlay__cta {
     display: none;
   }
 }

@@ -22,8 +22,8 @@ import { LOCALES, currentSiteLocale } from '../../../core/i18n/locale';
     </ul>
   `,
   styles: `
-    .langs { display: flex; gap: 0.25rem; font-size: 0.75rem; letter-spacing: 0.14em; }
-    li + li::before { content: '/'; margin-right: 0.25rem; opacity: 0.5; }
+    .langs { display: flex; gap: var(--lang-gap, 0.25rem); font-size: 0.75rem; letter-spacing: 0.14em; white-space: nowrap; }
+    li + li::before { content: '/'; margin-right: var(--lang-gap, 0.25rem); opacity: 0.5; }
     .lang { display: inline-block; padding: 0.25rem 0; }
     .is-soon { opacity: 0.5; cursor: default; }
   `,
