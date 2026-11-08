@@ -194,9 +194,9 @@
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7789882067463560772" datatype="html">
-        <source>Voditeljka programa</source>
-        <target>Host of the evening</target>
+      <trans-unit id="7823082629000763574" datatype="html">
+        <source>Glumica, voditeljka programa</source>
+        <target>Actress, host of the evening</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">90</context>

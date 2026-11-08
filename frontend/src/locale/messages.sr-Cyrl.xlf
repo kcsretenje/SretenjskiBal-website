@@ -194,9 +194,9 @@
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7789882067463560772" datatype="html">
-        <source>Voditeljka programa</source>
-        <target>Водитељка програма</target>
+      <trans-unit id="7823082629000763574" datatype="html">
+        <source>Glumica, voditeljka programa</source>
+        <target>Глумица, водитељка програма</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/content/site-content.ts</context>
           <context context-type="linenumber">90</context>
@@ -688,7 +688,7 @@
         <target>Организатор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
@@ -700,7 +700,7 @@
         <target> Први Сретењски бал организује Културни центар Сретење, иницијатива настала из жеље да грађанска култура и њене помало заборављене вредности поново добију своје место у савременом друштву. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3023711163420885821" datatype="html">
@@ -708,7 +708,7 @@
         <target> Током историје, српска заједница на овим просторима остављала је траг у култури, образовању, привреди и духовном животу. Наша је намера да то наслеђе приближимо савременом тренутку — не као повратак у прошлост, већ као темељ за оно што ћемо тек стварати. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3991160227285274558" datatype="html">
@@ -716,7 +716,7 @@
         <target> Културни центар Сретење замишљен је као трајно место окупљања људи из света културе, науке, привреде и духовног живота — место разговора, повезивања и нових идеја. Његова је намера да негује сопствено наслеђе и истовремено гради односе са културном средином у којој делује. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4476387950020781460" datatype="html">
@@ -724,7 +724,7 @@
         <target>Идеја Сретења</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7803798498131775638" datatype="html">
@@ -732,7 +732,7 @@
         <target> У имену Сретење садржана је суштина ове замисли: сусрет духовног и грађанског, традиције и савремености, нашег наслеђа и културе средине у којој живимо. Верујемо да управо из таквих сусрета настају нове везе и трајна пријатељства. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4553042627119248219" datatype="html">
@@ -740,7 +740,7 @@
         <target>Сретењски бал први је корак ка остварењу те замисли.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/organizer.section.ts</context>
-          <context context-type="linenumber">30,31</context>
+          <context context-type="linenumber">31,32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1949152281960022105" datatype="html">
@@ -748,7 +748,7 @@
         <target>У програму учествују</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">27,28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6214294666526846202" datatype="html">
@@ -756,11 +756,11 @@
         <target>Учесници програма</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">64,65</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav.ts</context>
@@ -772,7 +772,7 @@
         <target>Претходни извођач</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="313594671133839929" datatype="html">
@@ -780,7 +780,7 @@
         <target>Следећи извођач</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">36,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1494371750344720325" datatype="html">
@@ -788,7 +788,7 @@
         <target>Ускоро</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">56,57</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5105166380717323557" datatype="html">
@@ -796,7 +796,7 @@
         <target>Имена осталих учесника програма биће ускоро објављена.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">70,71</context>
+          <context context-type="linenumber">71,72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4396654337997554664" datatype="html">
@@ -804,7 +804,7 @@
         <target>Имена извођача објављујемо ускоро.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/performers.section.ts</context>
-          <context context-type="linenumber">77,78</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2852142514729307429" datatype="html">
@@ -884,7 +884,7 @@
         <target>Народни дом, Марибор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav.ts</context>
@@ -896,7 +896,7 @@
         <target> Крајем XIX века, у Марибору, где су Словенци били мањина, настала је замисао о дому који ће чувати словеначки језик, културу и заједништво. Из те замисли настао је Народни дом. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5547515422601856200" datatype="html">
@@ -904,7 +904,7 @@
         <target>У здању које памти бројне сусрете започиње један нови.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">30,31</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1605164653539229717" datatype="html">
@@ -912,7 +912,7 @@
         <target>Отвори мапу</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7897463753577337726" datatype="html">
@@ -920,7 +920,7 @@
         <target>Место одржавања</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1833727098177153505" datatype="html">
@@ -928,7 +928,7 @@
         <target>Народни дом, подигнут према пројекту чешког архитекте Јана Вејриха у стилу чешке неоренесансе, почиње да ради 1. октобра.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4230761435554674829" datatype="html">
@@ -936,7 +936,7 @@
         <target>У великој дворани основано је Словеначко позориште у Марибору.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1072859683978452717" datatype="html">
@@ -944,7 +944,7 @@
         <target>У Дому је основан Народни савет за Штајерску.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="374762625738075506" datatype="html">
@@ -952,7 +952,7 @@
         <target>Народни дом поново постаје културни центар града.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/venue.section.ts</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6770325376800241537" datatype="html">
@@ -1076,7 +1076,7 @@
         <target>Језик текста</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
-          <context context-type="linenumber">14,15</context>
+          <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7163647533745556564" datatype="html">
@@ -1084,7 +1084,7 @@
         <target>На почетну</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">59,60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pages/coming-soon.page.ts</context>
@@ -1104,7 +1104,7 @@
         <target>Сретењски бал, 13. фебруара 2027. у Марибору.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/legal/legal.page.ts</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">103</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pages/coming-soon.page.ts</context>
