@@ -89,6 +89,7 @@ Tabela → **Deli (Share)** → Opšti pristup → **Ograničeno (Restricted)** 
    `google-apps-script/QrCode.gs` (biblioteka za QR kodove na ulaznicama; ovaj fajl se dodaje samo jednom).
    Na isti način dodajte i fajl `Ulaznica` sa sadržajem `google-apps-script/Ulaznica.gs` (PDF ulaznice).
    Isto i fajl `Potvrda` sa sadržajem `google-apps-script/Potvrda.gs` (PDF potvrda o uplati).
+   Isto i fajl `Racun` sa sadržajem `google-apps-script/Racun.gs` (PDF račun za firme i čuvanje na Drajvu).
 3. ⚙️ **Podešavanja projekta** (Project Settings) → uključite **„Prikaži datoteku manifesta appsscript.json"**.
    Vratite se u Editor, otvorite `appsscript.json` i zamenite sadržaj fajlom `google-apps-script/appsscript.json`.
    Manifest uključuje i **Google Slides API** i **Drive API** (u levom meniju „Services" pojaviće se „Slides" i „Drive"), koji služe
@@ -448,6 +449,34 @@ na njegovom jeziku. Broj potvrde je broj rezervacije; nije račun.
 - Probni PDF: **Sretenjski bal → Pošalji probnu potvrdu o uplati organizatoru**.
 - Šablon „Sretenjski bal — šablon potvrde o uplati (ne brisati)" skripta sama napravi na Drajvu (ID u Script Properties
   kao `RECEIPT_TEMPLATE_ID`).
+
+## Račun za firme i čuvanje na Drajvu
+
+Uz mejl sa ulaznicama ide **jedan** dokument, zavisno od reda u tabeli:
+
+| Način plaćanja | Faktura na firmu | U prilogu |
+|---|---|---|
+| Na račun | NE | potvrda o uplati („Potrdilo o plačilu") |
+| Na račun | **DA** | **račun** na ime firme („Račun št. 2027-001") |
+| Gotovina ili prazno | bilo šta | ništa (račun za gotovinu bi morao kroz davčnu blagajnu) |
+
+**Račun** (A4, uvek na slovenačkom) ima: podatke društva (matični i poreski broj, „Ni zavezanec za DDV", IBAN, BIC),
+podatke firme iz kolone „Podaci firme" i kontakt osobu, datum izdavanja, datum bala kao datum opravljene storitve,
+datum plačila, način plačila i broj rezervacije, stavke po tipu karte, ukupno, „Plačano" i napomenu
+„DDV ni obračunan na podlagi 1. odstavka 94. člena ZDDV-1.". Mejl firmi kaže da je u prilogu račun.
+
+- **Broj računa:** GODINA-NNN (2027-001, 2027-002…), redom; upisuje se u kolonu **„Broj računa"**. Broj se troši tek kad
+  je PDF napravljen. Ako društvo u toj godini već ima izdate račune, u Podešavanjima upišite **INVOICE_START**
+  (prvi slobodan broj) pre prvog računa. Brojač je u Script Properties (`INVOICE_COUNTER_<godina>`) — ne menjati ručno.
+- **Drajv:** svaki dokument se čuva u fascikli **„Sretenjski bal — potvrde i računi"** (podfascikle „Računi" i
+  „Potrdila o plačilu"), link je u koloni **„Potvrda/račun (Drive)"**. Na kraju je dovoljno tu fasciklu podeliti
+  knjigovođi. Ako se potvrda uplate šalje ponovo, koristi se isti fajl i isti broj računa. Ako se link obriše,
+  pravi se novi dokument (za račun sa istim brojem iz kolone „Broj računa").
+- **Već poslate potvrde:** meni **Sretenjski bal → Sačuvaj na Drajv potvrde/račune već poslatih uplata** napravi
+  dokumente koji nedostaju i sačuva ih, **bez slanja mejlova**. Ako je firma tražila račun, a dobila samo potvrdu,
+  napravi se račun — pošaljite ga firmi ručno (link u tabeli).
+- **Probni račun:** meni **Pošalji probni račun organizatoru** (izmišljena firma, broj „PROBA"; ne troši broj i ne čuva se).
+- Pre slanja potvrde uplate firmi proverite kolonu „Podaci firme" (naziv, sedež, davčna številka) — to ide na račun.
 
 ## Rezervne kopije
 

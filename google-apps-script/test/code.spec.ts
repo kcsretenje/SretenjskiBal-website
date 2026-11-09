@@ -54,6 +54,8 @@ describe('Apps Script (Code.gs)', () => {
     ...overrides,
   });
   const cell = (row: number, key: string) => res.data[row - 1][H.indexOf(COL[key])];
+  const cellAt = cell;
+  const setCellAt = (row: number, key: string, v: unknown) => { res.data[row - 1][H.indexOf(COL[key])] = v; };
   const setSetting = (key: string, value: unknown) => {
     const row = settings.data.find((r) => r[0] === key);
     if (row) row[1] = value;
@@ -790,6 +792,95 @@ describe('Apps Script (Code.gs)', () => {
           paid({ amount: 210, paymentMethod: '' });
           gas.ctx.sendPaymentConfirmationFor_('27006');
           expect(calls).toHaveLength(0);
+        });
+      });
+
+      describe('račun za firmu (Faktura na firmu = DA) i čuvanje na Drajvu', () => {
+        const company = 'Naziv: Vzorec d.o.o.\nSedež: Slovenska ulica 1, 1000 Ljubljana\nDržava: Slovenija\nDavčna številka: SI12345678';
+        const spyDocs = () => {
+          const calls = { invoice: [] as unknown[][], receipt: [] as unknown[][], saved: [] as string[] };
+          const blob = (name: string) => ({ getName: () => name, copyBlob: () => blob(name) });
+          gas.ctx.invoicePdf_ = (...args: unknown[]) => { calls.invoice.push(args); return blob('Racun ' + args[4] + '.pdf'); };
+          gas.ctx.paymentReceiptPdf_ = (...args: unknown[]) => { calls.receipt.push(args); return blob('Potrdilo.pdf'); };
+          gas.ctx.documentsFolder_ = (kind: string) => ({
+            createFile: () => {
+              const id = 'FILE' + kind.toUpperCase() + 'x'.repeat(20) + calls.saved.length;
+              const file = { setName: (n: string) => { calls.saved.push(kind + ':' + n); return file; }, getUrl: () => 'https://drive.google.com/file/d/' + id + '/view' };
+              return file;
+            },
+          });
+          return calls;
+        };
+
+        it('firma + uplata na račun → račun sa brojem GODINA-001, upisan u tabelu, sačuvan na Drajv; sledeći dobija 002', () => {
+          const calls = spyDocs();
+          const row = paid({ amount: 210, paymentMethod: 'Na račun', invoice: 'DA', company, locale: 'en' });
+          const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+          const year = String(new Date().getFullYear());
+          expect(calls.receipt).toHaveLength(0);
+          expect(calls.invoice).toHaveLength(1);
+          expect(res.documentKind).toBe('invoice');
+          expect(res.invoiceNumber).toBe(year + '-001');
+          expect(cellAt(row, 'invoiceNumber')).toBe(year + '-001');
+          expect(String(cellAt(row, 'document'))).toMatch(/^https:\/\/drive\.google\.com\/file\/d\//);
+          expect(calls.saved[0]).toBe('invoice:Račun ' + year + '-001 — Vzorec d.o.o. (rezervacija 27006).pdf');
+          expect(gas.outbox[0].body).toContain('An invoice issued to your company is also attached.');
+          expect(gas.outbox[0].attachments!.map((a) => (a as { getName: () => string }).getName())).toContain('Racun ' + year + '-001.pdf');
+
+          paid({ number: '27007', amount: 140, paymentMethod: 'Na račun', invoice: 'DA', company });
+          expect(gas.ctx.sendPaymentConfirmationFor_('27007').invoiceNumber).toBe(year + '-002');
+        });
+
+        it('ponovno slanje koristi isti dokument sa Drajva — broj računa se ne troši ponovo', () => {
+          const calls = spyDocs();
+          const files: Record<string, unknown> = {};
+          gas.ctx.DriveApp = { getFileById: (id: string) => files[id] ?? (files[id] = { isTrashed: () => false, getBlob: () => ({ getName: () => 'Racun.pdf' }), getUrl: () => 'u' }) };
+          const row = paid({ amount: 210, paymentMethod: 'Na račun', invoice: 'DA', company });
+          gas.ctx.sendPaymentConfirmationFor_('27006');
+          setCellAt(row, 'paymentConfirmedAt', '');
+          const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(calls.invoice).toHaveLength(1);
+          expect(res.invoiceNumber).toBe(String(new Date().getFullYear()) + '-001');
+        });
+
+        it('INVOICE_START: prvi broj u godini iz Podešavanja', () => {
+          spyDocs();
+          setSetting('INVOICE_START', 15);
+          paid({ amount: 210, paymentMethod: 'Na račun', invoice: 'DA', company });
+          expect(gas.ctx.sendPaymentConfirmationFor_('27006').invoiceNumber).toBe(String(new Date().getFullYear()) + '-015');
+        });
+
+        it('fizičko lice → potvrda o uplati sačuvana na Drajv; firma u gotovini → ni račun ni potvrda', () => {
+          const calls = spyDocs();
+          const row = paid({ amount: 210, paymentMethod: 'Na račun' });
+          const res = gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(res.documentKind).toBe('receipt');
+          expect(calls.saved[0]).toBe('receipt:Potrdilo o plačilu 27006 — Antonela Parović.pdf');
+          expect(cellAt(row, 'invoiceNumber')).toBe('');
+
+          paid({ number: '27007', amount: 140, paymentMethod: 'Gotovina', invoice: 'DA', company });
+          const cash = gas.ctx.sendPaymentConfirmationFor_('27007');
+          expect(cash.receipt).toBe(false);
+          expect(calls.invoice).toHaveLength(0);
+        });
+
+        it('sadržaj računa: kupec, datumi, stavke, PDV napomena', () => {
+          const settings = gas.ctx.readSettings_();
+          const r = { number: '27006', fullName: 'Ana Novak', ticketCount: 3, amount: 350, paymentMethod: 'Na račun', invoice: 'DA', company };
+          const tickets = [{ type: 'Svečana' }, { type: 'Svečana' }, { type: 'Galerija' }];
+          const d = gas.ctx.invoiceData_(r, settings, new Date('2027-01-18T10:00:00Z'), tickets, '2027-001', new Date('2027-01-20T10:00:00Z'));
+          expect(d.buyerName).toBe('Vzorec d.o.o.');
+          expect(d.buyer).toEqual(['Slovenska ulica 1, 1000 Ljubljana', 'Slovenija', 'Davčna številka: SI12345678', 'Kontaktna oseba: Ana Novak']);
+          expect(d.info).toEqual([
+            ['Datum izdaje', '20. 1. 2027'], ['Kraj izdaje', 'Maribor'], ['Datum opravljene storitve', '13. 2. 2027'],
+            ['Datum plačila', '18. 1. 2027'], ['Način plačila', 'nakazilo na TRR'], ['Rezervacija št.', '27006'],
+          ]);
+          expect(d.lines).toEqual([
+            { desc: 'Svečana vstopnica — Sretenjski bal, 13. februar 2027', qty: '2', unit: '140,00 EUR', sum: '280,00 EUR' },
+            { desc: 'Vstopnica za galerijo — Sretenjski bal, 13. februar 2027', qty: '1', unit: '70,00 EUR', sum: '70,00 EUR' },
+          ]);
+          expect(d.total).toBe('350,00 EUR');
+          expect(() => gas.ctx.invoiceData_({ ...r, company: '' }, settings, new Date(), tickets, '2027-001')).toThrow(/nema naziva firme/);
         });
       });
 

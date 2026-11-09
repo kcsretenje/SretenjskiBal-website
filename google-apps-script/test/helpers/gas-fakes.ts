@@ -147,7 +147,7 @@ function formatDate(date: Date, tz: string, fmt: string): string {
 
 export function loadAppsScript(): GasEnv {
   // U Apps Scriptu svi fajlovi projekta dele isti globalni prostor, pa ih učitavamo zajedno.
-  const code = ['QrCode.gs', 'Code.gs', 'Potvrda.gs'].map((f) => readFileSync(join(import.meta.dirname, '../../', f), 'utf8')).join('\n;\n');
+  const code = ['QrCode.gs', 'Code.gs', 'Potvrda.gs', 'Racun.gs'].map((f) => readFileSync(join(import.meta.dirname, '../../', f), 'utf8')).join('\n;\n');
   const sheets = new Map<string, FakeSheet>();
   const props = new Map<string, string>();
   const cache = new Map<string, string>();
