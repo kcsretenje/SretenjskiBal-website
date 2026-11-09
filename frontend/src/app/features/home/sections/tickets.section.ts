@@ -12,7 +12,7 @@ import { RevealDirective } from '../../../shared/directives/reveal.directive';
       <div class="container grid">
         <div class="intro" appReveal>
           <h2 id="tickets-title" class="display title" i18n>Ulaznice</h2>
-          <p class="quote tag" i18n>Neke večeri ostaju u sećanju. Neke označe početak nove tradicije.</p>
+          <p class="quote tag" i18n>Neke večeri ostaju u sećanju. Neke postaju tradicija.</p>
           @switch (salesStatus) {
             @case ('COMING_SOON') { <p class="quote status" i18n>Prodaja uskoro počinje.</p> }
             @case ('SOLD_OUT') { <p class="quote status" i18n>Sve ulaznice su rasprodate.</p> }

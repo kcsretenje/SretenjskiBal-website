@@ -855,9 +855,9 @@
           <context context-type="linenumber">48,49</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1390357696379276566" datatype="html">
-        <source>Neke večeri ostaju u sećanju. Neke označe početak nove tradicije.</source>
-        <target>Nekateri večeri ostanejo v spominu. Z drugimi se začne nova tradicija.</target>
+      <trans-unit id="7311381914067134031" datatype="html">
+        <source>Neke večeri ostaju u sećanju. Neke postaju tradicija.</source>
+        <target>Nekateri večeri ostanejo v spominu. Nekateri postanejo tradicija.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/sections/tickets.section.ts</context>
           <context context-type="linenumber">15,16</context>
