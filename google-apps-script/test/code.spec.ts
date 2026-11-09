@@ -486,15 +486,27 @@ describe('Apps Script (Code.gs)', () => {
       expect(keys).not.toContain('MAX_TICKETS');
       expect(gas.sheets.get('Statistika')!.data.length).toBeGreaterThan(10);
       const stats = gas.sheets.get('Statistika')!.data;
-      const f = (label: string) => { const v = stats.find((r) => r[0] === label)?.[1]; return v instanceof Formula ? v.text : String(v ?? ''); };
-      expect(f('Svečane — kapacitet')).toContain('VLOOKUP("CAPACITY_SVECANA"');
-      expect(f('Galerija — slobodno ukupno (osnovna + dodatna)')).toContain('CAPACITY_GALERIJA_EXTRA');
+      const row = (label: string) => stats.find((r) => r[0] === label)!;
+      const f = (label: string, col = 1) => { const v = row(label)?.[col]; return v instanceof Formula ? v.text : String(v ?? ''); };
+      // Svaki tip karte u svom redu: kapacitet, plaćeno, čeka, zauzeto, slobodno, popunjenost, grafikon
+      expect(f('Svečane', 1)).toContain('VLOOKUP("CAPACITY_SVECANA"');
+      expect(f('Svečane', 4)).toContain('"<>ISTEKLO"');
+      expect(f('Svečane', 4)).toContain('"<>OTKAZANO"');
+      expect(f('Svečane', 7)).toContain('SPARKLINE');
       // Dodatna mesta na galeriji se broje iz taba Gosti (kolona Q „Dodatno mesto (galerija)" = TRUE)
-      expect(f('Galerija — na dodatnim mestima (štiklirano u tabu Gosti)')).toContain("'Gosti'!Q2:Q, TRUE");
-      expect(f('Galerija — slobodno od osnovnih')).toContain("'Gosti'!Q2:Q, TRUE");
-      expect(f('Galerija — popunjenost dodatnih')).toContain('CAPACITY_GALERIJA_EXTRA');
-      expect(f('Uplate u gotovini (iznos)')).toContain('"Gotovina"');
-      expect(f('Ušlo gostiju (skenirane ulaznice)')).toContain("'Gosti'!M2:M");
+      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 4)).toContain("'Gosti'!Q2:Q, TRUE");
+      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 1)).toContain('CAPACITY_GALERIJA_EXTRA');
+      expect(f('Galerija — osnovna mesta', 4)).toContain("'Gosti'!Q2:Q, TRUE");
+      // Pregled: aktivne rezervacije ne broje istekle i otkazane
+      const kpiRow = stats.findIndex((r) => r[0] === 'Aktivne rezervacije') + 1;
+      const kpi = stats[kpiRow].map((v) => (v instanceof Formula ? v.text : String(v)));
+      expect(kpi[0]).toContain('"<>ISTEKLO"');
+      expect(kpi[0]).toContain('"<>OTKAZANO"');
+      expect(kpi[4]).toMatch(/^=F\d+$/);
+      expect(f('OTKAZANO', 4)).toContain('ne');
+      expect(f('Gotovina', 2)).toContain('"Gotovina"');
+      expect(f('Ušlo gostiju')).toContain("'Gosti'!M2:M");
+      expect(f('Društvene mreže')).toContain('"<>OTKAZANO"');
       expect(keys).toContain('CAPACITY_SVECANA');
       expect(gas.props.has('API_SECRET')).toBe(false);
       expect(gas.sheets.get('Poruke')!.data[0]).toEqual(gas.get('MESSAGE_HEADERS'));

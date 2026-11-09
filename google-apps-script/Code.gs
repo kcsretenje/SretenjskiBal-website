@@ -2289,90 +2289,257 @@ function setupStatsSheet_(ss) {
   let sheet = ss.getSheetByName(SHEET_STATS);
   if (!sheet) sheet = ss.insertSheet(SHEET_STATS);
   sheet.clear();
+  try {
+    sheet.getRange(1, 1, sheet.getMaxRows(), STATS_COLS).breakApart();
+  } catch (err) {
+    // nema spojenih ćelija
+  }
   const t = openTable_();
   const letter = function (key) { return columnLetter_(t.idx[COL[key]] + 1); };
   const R = function (key) { return "'" + SHEET_RESERVATIONS + "'!" + letter(key) + '2:' + letter(key); };
-  const active = ', ' + R('status') + ', "<>' + STATUS.EXPIRED + '", ' + R('status') + ', "<>' + STATUS.CANCELLED + '"';
   const GC = function (col) { return "'" + SHEET_GUESTS + "'!" + columnLetter_(col + 1) + '2:' + columnLetter_(col + 1); };
   const cap = function (key) { return 'IFERROR(VLOOKUP("' + key + '", \'' + SHEET_SETTINGS + '\'!A:B, 2, FALSE), 0)'; };
-  const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
-  const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '", ' + R('status') + ', "' + STATUS.PAID + '")'; };
+  // Aktivna rezervacija = sve osim isteklih i otkazanih (NOVA, ČEKA NA UPLATU, PODSETNIK POSLAT, PLAĆENO).
+  const active = ', ' + R('status') + ', "<>' + STATUS.EXPIRED + '", ' + R('status') + ', "<>' + STATUS.CANCELLED + '", ' + R('number') + ', "<>"';
+  const isStatus = function (st) { return ', ' + R('status') + ', "' + st + '"'; };
+  const waitingStatuses = [STATUS.NEW, STATUS.AWAITING, STATUS.REMINDED];
+  const sumWaiting = function (key) {
+    return waitingStatuses.map(function (st) { return 'SUMIFS(' + R(key) + isStatus(st) + ')'; }).join(' + ');
+  };
   const S = TICKET_TYPES.SVECANA, GA = TICKET_TYPES.GALERIJA;
+  const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
+  const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + isStatus(STATUS.PAID) + ')'; };
   // Galerijski gosti štiklirani u tabu Gosti kao „Dodatno mesto" (bez isteklih i otkazanih rezervacija)
-  const gaExtra = 'COUNTIFS(' + GC(G.type) + ', "' + GA + '", ' + GC(G.extra) + ', TRUE, ' + GC(G.status) + ', "<>' + STATUS.EXPIRED + '", ' +
-    GC(G.status) + ', "<>' + STATUS.CANCELLED + '")';
-  const gaBase = '(' + typeActive(GA) + ' - ' + gaExtra + ')';
-  const pct = '0%', money = '#,##0.00';
-  // [naziv, formula, format?] — rezervisano = aktivne karte (bez isteklih i otkazanih)
-  const rows = [
-    ['Pokazatelj', 'Vrednost'],
-    ['POPUNJENOST', ''],
-    ['Svečane — kapacitet', '=' + cap('CAPACITY_SVECANA')],
-    ['Svečane — rezervisano (čeka uplatu + plaćeno)', '=' + typeActive(S)],
-    ['Svečane — plaćeno', '=' + typePaid(S)],
-    ['Svečane — slobodno', '=' + cap('CAPACITY_SVECANA') + ' - ' + typeActive(S)],
-    ['Svečane — popunjenost', '=IFERROR(' + typeActive(S) + ' / ' + cap('CAPACITY_SVECANA') + ', 0)', pct],
-    ['Stolovi — zauzeto (jedna svečana rezervacija = jedan sto)', '=COUNTIFS(' + R('ticketType') + ', "' + S + '"' + active + ')'],
-    ['Stolovi — ukupno (po 8 mesta)', '=ROUNDUP(' + cap('CAPACITY_SVECANA') + ' / 8)'],
-    ['Galerija — kapacitet (osnovni)', '=' + cap('CAPACITY_GALERIJA')],
-    ['Galerija — dodatna mesta', '=' + cap('CAPACITY_GALERIJA_EXTRA')],
-    ['Galerija — rezervisano (čeka uplatu + plaćeno)', '=' + typeActive(GA)],
-    ['Galerija — plaćeno', '=' + typePaid(GA)],
-    ['Galerija — na osnovnim mestima', '=' + gaBase],
-    ['Galerija — na dodatnim mestima (štiklirano u tabu Gosti)', '=' + gaExtra],
-    ['Galerija — slobodno od osnovnih', '=' + cap('CAPACITY_GALERIJA') + ' - ' + gaBase],
-    ['Galerija — slobodno od dodatnih', '=' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + gaExtra],
-    ['Galerija — slobodno ukupno (osnovna + dodatna)', '=' + cap('CAPACITY_GALERIJA') + ' + ' + cap('CAPACITY_GALERIJA_EXTRA') + ' - ' + typeActive(GA)],
-    ['Galerija — popunjenost osnovnih', '=IFERROR(' + gaBase + ' / ' + cap('CAPACITY_GALERIJA') + ', 0)', pct],
-    ['Galerija — popunjenost dodatnih', '=IFERROR(' + gaExtra + ' / ' + cap('CAPACITY_GALERIJA_EXTRA') + ', 0)', pct],
-    ['', ''],
-    ['UPLATE', ''],
-    ['Uplate na račun (iznos)', '=SUMIFS(' + R('amount') + ', ' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "Na račun")', money],
-    ['Uplate u gotovini (iznos)', '=SUMIFS(' + R('amount') + ', ' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "Gotovina")', money],
-    ['Plaćene rezervacije bez upisanog načina plaćanja', '=COUNTIFS(' + R('status') + ', "' + STATUS.PAID + '", ' + R('paymentMethod') + ', "")'],
-    ['', ''],
-    ['NA ULAZU', ''],
-    ['Ušlo gostiju (skenirane ulaznice)', '=COUNTA(' + GC(G.enteredAt) + ')'],
-    ['Ušlo od plaćenih karata', '=IFERROR(COUNTA(' + GC(G.enteredAt) + ') / SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('ticketCount') + '), 0)', pct],
-    ['', ''],
-    ['REZERVACIJE', ''],
-    ['Broj prijava (sve rezervacije)', '=COUNTA(' + R('number') + ')'],
-    ['Ukupno rezervisanih karata (sve prijave)', '=SUM(' + R('ticketCount') + ')'],
-    ['Rezervisane karte (bez isteklih i otkazanih)', '=SUMIFS(' + R('ticketCount') + active + ')'],
-    ['', ''],
-    ['Status: ' + STATUS.NEW, '=COUNTIF(' + R('status') + ', "' + STATUS.NEW + '")'],
-    ['Status: ' + STATUS.AWAITING, '=COUNTIF(' + R('status') + ', "' + STATUS.AWAITING + '")'],
-    ['Status: ' + STATUS.REMINDED, '=COUNTIF(' + R('status') + ', "' + STATUS.REMINDED + '")'],
-    ['Status: ' + STATUS.PAID, '=COUNTIF(' + R('status') + ', "' + STATUS.PAID + '")'],
-    ['Status: ' + STATUS.EXPIRED, '=COUNTIF(' + R('status') + ', "' + STATUS.EXPIRED + '")'],
-    ['Status: ' + STATUS.CANCELLED, '=COUNTIF(' + R('status') + ', "' + STATUS.CANCELLED + '")'],
-    ['Procenat plaćenih rezervacija', '=IFERROR(COUNTIF(' + R('status') + ', "' + STATUS.PAID + '") / COUNTA(' + R('number') + '), 0)', pct],
-    ['Plaćene karte', '=SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('ticketCount') + ')'],
-    ['Evidentirane uplate (iznos)', '=SUMIF(' + R('status') + ', "' + STATUS.PAID + '", ' + R('amount') + ')', money],
-    ['Prosečan broj dana od prijave do uplate', '=IFERROR(AVERAGE(FILTER(INT(' + R('paidAt') + ') - INT(' + R('createdAt') + '), ' + R('paidAt') + ' <> "")), "—")', '0.0'],
-    ['', ''],
-  ];
-  Object.keys(SOURCES).forEach(function (k) {
-    rows.push(['Izvor — ' + SOURCES[k], '=COUNTIF(' + R('source') + ', "' + SOURCES[k] + '")']);
-  });
-  rows.push(['', '']);
-  LOCALES.forEach(function (l) { rows.push(['Jezik forme — ' + l, '=COUNTIF(' + R('locale') + ', "' + l + '")']); });
-  rows.push(['', ''], ['Zahtevi za fakturu na firmu', '=COUNTIF(' + R('invoice') + ', "DA")']);
-  rows.push(['Rezervacije sa posebnom ishranom', '=COUNTIF(' + R('diet') + ', "?*")']);
+  const gaExtraWhere = GC(G.type) + ', "' + GA + '", ' + GC(G.extra) + ', TRUE';
+  const gaExtra = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "<>' + STATUS.EXPIRED + '", ' + GC(G.status) + ', "<>' + STATUS.CANCELLED + '")';
+  const gaExtraPaid = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "' + STATUS.PAID + '")';
 
-  // Brojevi bez decimala svuda, pa posebni formati (procenat, iznos) samo gde treba — stari formati
-  // iz prethodnog rasporeda tabele ne smeju da ostanu na drugim redovima.
-  sheet.getRange(1, 2, sheet.getMaxRows(), 1).setNumberFormat('0');
-  sheet.getRange(1, 1, rows.length, 2).setValues(rows.map(function (r) { return [r[0], r[1]]; }));
-  sheet.getRange(1, 1, 1, 2).setFontWeight('bold').setBackground('#5a1723').setFontColor('#f6f1e8');
-  rows.forEach(function (r, i) {
-    if (r[2]) sheet.getRange(i + 1, 2).setNumberFormat(r[2]);
-    if (r[0] && r[0] === r[0].toUpperCase() && !r[1]) sheet.getRange(i + 1, 1, 1, 2).setFontWeight('bold').setBackground('#f3e9d8');
+  const C = STATS_COLORS;
+  const grid = [];      // redovi po 8 ćelija
+  const styles = [];    // [red, kolona, brojRedova, brojKolona, fn(range)]
+  const style = function (row, col, rows, cols, fn) { styles.push([row, col, rows, cols, fn]); };
+  const put = function (cells) { grid.push(cells.concat(Array(STATS_COLS).fill('')).slice(0, STATS_COLS)); return grid.length; };
+  const blank = function () { return put([]); };
+  const section = function (title, color) {
+    const r = put([title]);
+    style(r, 1, 1, STATS_COLS, function (rg) {
+      rg.merge().setBackground(color || C.brass.bg).setFontColor(color ? '#ffffff' : C.brass.fg).setFontWeight('bold').setFontSize(11)
+        .setVerticalAlignment('middle');
+    });
+    return r;
+  };
+  const header = function (cells) {
+    const r = put(cells);
+    style(r, 1, 1, cells.length, function (rg) {
+      rg.setBackground(C.head.bg).setFontColor(C.head.fg).setFontWeight('bold').setFontSize(9).setWrap(true).setVerticalAlignment('middle');
+    });
+    style(r, 2, 1, cells.length - 1, function (rg) { rg.setHorizontalAlignment('center'); });
+    return r;
+  };
+  const tint = function (r, cols, color, bold) {
+    style(r, 1, 1, cols, function (rg) {
+      rg.setBackground(color.bg).setFontColor(color.fg);
+      if (bold) rg.setFontWeight('bold');
+    });
+    style(r, 1, 1, 1, function (rg) { rg.setFontWeight('bold'); });
+  };
+  const fmt = function (r, col, cols, f) { style(r, col, 1, cols, function (rg) { rg.setNumberFormat(f); }); };
+  const pct = '0%', money = '#,##0.00 "€"';
+
+  // ── Naslov ──
+  const title = put(['SRETENJSKI BAL — STATISTIKA']);
+  style(title, 1, 1, STATS_COLS, function (rg) {
+    rg.merge().setBackground(C.wine.solid).setFontColor('#f6f1e8').setFontWeight('bold').setFontSize(15).setVerticalAlignment('middle');
   });
-  sheet.setColumnWidth(1, 400);
-  sheet.setColumnWidth(2, 140);
-  sheet.setFrozenRows(1);
+  const note = put(['Rezervacije, karte i mesta broje samo AKTIVNE rezervacije (' + [STATUS.NEW, STATUS.AWAITING, STATUS.REMINDED, STATUS.PAID].join(', ') +
+    '). Istekle i otkazane se ne računaju. Tab se osvežava sam; ne menjati ga ručno (pravi ga „Podesi tabelu").']);
+  style(note, 1, 1, STATS_COLS, function (rg) { rg.merge().setFontColor('#6b6159').setFontStyle('italic').setFontSize(9).setWrap(true); });
+  blank();
+
+  // ── Pregled (velike brojke) ──
+  const kpiLabels = put(['Aktivne rezervacije', 'Aktivne karte', 'Plaćene karte', 'Karte koje čekaju uplatu', 'Slobodna mesta (sva)', 'Uplaćeno', 'Očekuje se uplata', 'Ušlo na balu']);
+  const kpi = kpiLabels + 1;
+  put([
+    '=COUNTIFS(' + active.slice(2) + ')',
+    '=SUMIFS(' + R('ticketCount') + active + ')',
+    '=SUMIFS(' + R('ticketCount') + isStatus(STATUS.PAID) + ')',
+    '=' + sumWaiting('ticketCount'),
+    '', // popunjava se ispod (referenca na tabelu po tipovima)
+    '=SUMIFS(' + R('amount') + isStatus(STATUS.PAID) + ')',
+    '=' + sumWaiting('amount'),
+    '=COUNTA(' + GC(G.enteredAt) + ')',
+  ]);
+  style(kpiLabels, 1, 1, STATS_COLS, function (rg) {
+    rg.setBackground(C.kpi.bg).setFontColor(C.kpi.fg).setFontSize(9).setWrap(true).setHorizontalAlignment('center').setVerticalAlignment('bottom');
+  });
+  style(kpi, 1, 1, STATS_COLS, function (rg) {
+    rg.setBackground(C.kpi.bg).setFontColor(C.wine.solid).setFontSize(18).setFontWeight('bold').setHorizontalAlignment('center').setVerticalAlignment('top');
+  });
+  fmt(kpi, 1, 5, '0');
+  fmt(kpi, 6, 2, money);
+  fmt(kpi, 8, 1, '0');
+  blank();
+
+  // ── Karte po tipu ──
+  section('KARTE I MESTA PO TIPU');
+  header(['Tip', 'Kapacitet', 'Plaćeno', 'Čeka uplatu', 'Zauzeto ukupno', 'Slobodno', 'Popunjenost', 'Plaćeno / čeka']);
+  const typeRow = function (label, capF, paidF, totalF, color) {
+    const r = grid.length + 1;
+    put([label, capF, paidF, '=E' + r + ' - C' + r, totalF, '=B' + r + ' - E' + r, '=IFERROR(E' + r + ' / B' + r + ', 0)',
+      '=IF(B' + r + ' > 0, SPARKLINE({C' + r + ', D' + r + '}, {"charttype", "bar"; "max", B' + r + '; "color1", "' + color.bar + '"; "color2", "' + color.bar2 + '"}), "")']);
+    tint(r, STATS_COLS, color);
+    fmt(r, 2, 5, '0');
+    fmt(r, 7, 1, pct);
+    style(r, 2, 1, 6, function (rg) { rg.setHorizontalAlignment('center'); });
+    return r;
+  };
+  const rS = typeRow('Svečane', '=' + cap('CAPACITY_SVECANA'), '=' + typePaid(S), '=' + typeActive(S), C.svecana);
+  const rGb = typeRow('Galerija — osnovna mesta', '=' + cap('CAPACITY_GALERIJA'), '=' + typePaid(GA) + ' - ' + gaExtraPaid,
+    '=' + typeActive(GA) + ' - ' + gaExtra, C.galerija);
+  const rGe = typeRow('Galerija — dodatna mesta (štiklirano u tabu Gosti)', '=' + cap('CAPACITY_GALERIJA_EXTRA'), '=' + gaExtraPaid, '=' + gaExtra, C.dodatna);
+  const rG = typeRow('Galerija — ukupno', '=B' + rGb + ' + B' + rGe, '=C' + rGb + ' + C' + rGe, '=E' + rGb + ' + E' + rGe, C.galerija);
+  style(rG, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold'); });
+  const rAll = typeRow('SVE KARTE', '=B' + rS + ' + B' + rG, '=C' + rS + ' + C' + rG, '=E' + rS + ' + E' + rG, C.total);
+  style(rAll, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold').setBorder(true, null, null, null, null, null, C.total.fg, SpreadsheetApp.BorderStyle.SOLID_MEDIUM); });
+  const svecanaReservations = function (extra) { return 'COUNTIFS(' + R('ticketType') + ', "' + S + '"' + extra + ')'; };
+  typeRow('Stolovi (svečane; jedna rezervacija = jedan sto od 8 mesta)', '=ROUNDUP(B' + rS + ' / 8)',
+    '=' + svecanaReservations(isStatus(STATUS.PAID)), '=' + svecanaReservations(active), C.svecana);
+  grid[kpi - 1][4] = '=F' + rAll;
+  blank();
+
+  // ── Rezervacije po statusu ──
+  section('REZERVACIJE PO STATUSU');
+  header(['Status', 'Rezervacija', 'Karata', 'Iznos', 'Računa se?']);
+  const statusRow = function (st, counted) {
+    const r = put([st, '=COUNTIFS(' + R('number') + ', "<>"' + isStatus(st) + ')', '=SUMIFS(' + R('ticketCount') + isStatus(st) + ')',
+      '=SUMIFS(' + R('amount') + isStatus(st) + ')', counted ? 'da' : 'ne — ne ulazi u brojeve']);
+    tint(r, 5, C.status[st], true);
+    fmt(r, 2, 2, '0');
+    fmt(r, 4, 1, money);
+    style(r, 2, 1, 2, function (rg) { rg.setHorizontalAlignment('center'); });
+    return r;
+  };
+  const firstActive = statusRow(STATUS.NEW, true);
+  statusRow(STATUS.AWAITING, true);
+  statusRow(STATUS.REMINDED, true);
+  const lastActive = statusRow(STATUS.PAID, true);
+  const sumRows = function (col, a, b) { return '=SUM(' + col + a + ':' + col + b + ')'; };
+  const rActive = put(['Aktivne ukupno', sumRows('B', firstActive, lastActive), sumRows('C', firstActive, lastActive), sumRows('D', firstActive, lastActive), '']);
+  tint(rActive, 5, C.total, true);
+  fmt(rActive, 2, 2, '0');
+  fmt(rActive, 4, 1, money);
+  style(rActive, 2, 1, 2, function (rg) { rg.setHorizontalAlignment('center'); });
+  statusRow(STATUS.EXPIRED, false);
+  statusRow(STATUS.CANCELLED, false);
+  const rAllRes = put(['Sve prijave (i istekle i otkazane)', '=COUNTA(' + R('number') + ')', '=SUM(' + R('ticketCount') + ')', '', '']);
+  style(rAllRes, 1, 1, 5, function (rg) { rg.setFontColor('#6b6159').setFontStyle('italic'); });
+  fmt(rAllRes, 2, 2, '0');
+  style(rAllRes, 2, 1, 2, function (rg) { rg.setHorizontalAlignment('center'); });
+  const rPaidShare = put(['Plaćeno od aktivnih rezervacija', '=IFERROR(B' + lastActive + ' / B' + rActive + ', 0)']);
+  fmt(rPaidShare, 2, 1, pct);
+  style(rPaidShare, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+  blank();
+
+  // ── Uplate ──
+  section('UPLATE');
+  header(['Način plaćanja', 'Rezervacija', 'Iznos']);
+  const payRow = function (label, method, color) {
+    const where = isStatus(STATUS.PAID) + ', ' + R('paymentMethod') + ', "' + method + '"';
+    const r = put([label, '=COUNTIFS(' + R('number') + ', "<>"' + where + ')', '=SUMIFS(' + R('amount') + where + ')']);
+    tint(r, 3, color);
+    fmt(r, 2, 1, '0');
+    fmt(r, 3, 1, money);
+    style(r, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+    return r;
+  };
+  const p1 = payRow('Na račun', 'Na račun', C.status[STATUS.PAID]);
+  payRow('Gotovina', 'Gotovina', C.cash);
+  const p3 = payRow('Plaćeno, a način plaćanja nije upisan (popuniti!)', '', C.status[STATUS.REMINDED]);
+  const rPaid = put(['Uplaćeno ukupno', sumRows('B', p1, p3), sumRows('C', p1, p3)]);
+  tint(rPaid, 3, C.total, true);
+  fmt(rPaid, 2, 1, '0');
+  fmt(rPaid, 3, 1, money);
+  style(rPaid, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+  const rWait = put(['Očekuje se (' + waitingStatuses.join(', ') + ')', '=' + waitingStatuses.map(function (st) {
+    return 'COUNTIFS(' + R('number') + ', "<>"' + isStatus(st) + ')';
+  }).join(' + '), '=' + sumWaiting('amount')]);
+  tint(rWait, 3, C.status[STATUS.AWAITING]);
+  fmt(rWait, 2, 1, '0');
+  fmt(rWait, 3, 1, money);
+  style(rWait, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+  const rDays = put(['Prosečno dana od prijave do uplate', '=IFERROR(AVERAGE(FILTER(INT(' + R('paidAt') + ') - INT(' + R('createdAt') + '), ' + R('paidAt') + ' <> "")), "—")']);
+  fmt(rDays, 2, 1, '0.0');
+  style(rDays, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+  blank();
+
+  // ── Na ulazu ──
+  section('NA ULAZU (skenirane ulaznice)');
+  const rIn = put(['Ušlo gostiju', '=COUNTA(' + GC(G.enteredAt) + ')']);
+  const rInPct = put(['Ušlo od plaćenih karata', '=IFERROR(B' + rIn + ' / SUMIFS(' + R('ticketCount') + isStatus(STATUS.PAID) + '), 0)']);
+  fmt(rIn, 2, 1, '0');
+  fmt(rInPct, 2, 1, pct);
+  style(rIn, 2, 2, 1, function (rg) { rg.setHorizontalAlignment('center'); });
+  blank();
+
+  // ── Gosti: izvor, jezik, ostalo (samo aktivne rezervacije) ──
+  section('O GOSTIMA (samo aktivne rezervacije)');
+  const hdr = put(['Kako su saznali za bal', 'Rezervacija', '', 'Jezik forme', 'Rezervacija', '', 'Ostalo', 'Rezervacija']);
+  [[1, 2], [4, 2], [7, 2]].forEach(function (c) {
+    style(hdr, c[0], 1, c[1], function (rg) { rg.setBackground(C.head.bg).setFontColor(C.head.fg).setFontWeight('bold').setFontSize(9).setWrap(true); });
+  });
+  const langName = { sr: 'srpski', sl: 'slovenački', en: 'engleski' };
+  const sources = Object.keys(SOURCES).map(function (k) { return [SOURCES[k], '=COUNTIFS(' + R('source') + ', "' + SOURCES[k] + '"' + active + ')']; });
+  const langs = LOCALES.map(function (l) { return [langName[l] || l, '=COUNTIFS(' + R('locale') + ', "' + l + '"' + active + ')']; });
+  const other = [
+    ['Traže račun na ime firme', '=COUNTIFS(' + R('invoice') + ', "DA"' + active + ')'],
+    ['Posebna ishrana', '=COUNTIFS(' + R('diet') + ', "?*"' + active + ')'],
+  ];
+  const first = grid.length + 1;
+  for (let i = 0; i < Math.max(sources.length, langs.length, other.length); i++) {
+    const a = sources[i] || ['', ''], b = langs[i] || ['', ''], o = other[i] || ['', ''];
+    put([a[0], a[1], '', b[0], b[1], '', o[0], o[1]]);
+  }
+  [[1, sources.length], [4, langs.length], [7, other.length]].forEach(function (c) {
+    style(first, c[0], c[1], 2, function (rg) { rg.setBackground(C.soft.bg); });
+    style(first, c[0] + 1, c[1], 1, function (rg) { rg.setHorizontalAlignment('center').setNumberFormat('0'); });
+  });
+
+  // ── Upis ──
+  sheet.getRange(1, 1, sheet.getMaxRows(), STATS_COLS).setNumberFormat('0').setFontFamily('Arial').setFontSize(10);
+  sheet.getRange(1, 1, grid.length, STATS_COLS).setValues(grid);
+  styles.forEach(function (s) { s[4](sheet.getRange(s[0], s[1], s[2], s[3])); });
+  sheet.setRowHeight(title, 36);
+  sheet.setRowHeight(note, 30);
+  sheet.setRowHeight(kpiLabels, 34);
+  sheet.setRowHeight(kpi, 40);
+  sheet.setColumnWidth(1, 300);
+  for (let c = 2; c <= STATS_COLS; c++) sheet.setColumnWidth(c, c === 8 ? 150 : 110);
+  sheet.setFrozenRows(0);
+  sheet.setHiddenGridlines(true);
 }
+
+/** Boje taba Statistika: svaki tip karte svoja boja; statusi iste boje kao u tabu Rezervacije. */
+const STATS_COLS = 8;
+const STATS_COLORS = {
+  wine: { solid: '#5a1723' },
+  brass: { bg: '#e9dcc3', fg: '#5a4318' },
+  head: { bg: '#f4efe6', fg: '#4a3f37' },
+  kpi: { bg: '#faf6ef', fg: '#6b6159' },
+  soft: { bg: '#faf8f4' },
+  svecana: { bg: '#f6e4e8', fg: '#5a1723', bar: '#7a2234', bar2: '#e3b3be' },
+  galerija: { bg: '#e2ecf6', fg: '#1d3b5c', bar: '#2f5f8f', bar2: '#a9c4e0' },
+  dodatna: { bg: '#ece5f5', fg: '#432a66', bar: '#6a4a9a', bar2: '#c9b8e3' },
+  total: { bg: '#efe4cf', fg: '#5a4318', bar: '#9a7a3c', bar2: '#e0cfa8' },
+  cash: { bg: '#e6f0ea', fg: '#2b5a3a' },
+  status: {
+    'NOVA': { bg: '#dbe7f5', fg: '#1d3b5c' },
+    'ČEKA NA UPLATU': { bg: '#fdf0c8', fg: '#6b4e00' },
+    'PODSETNIK POSLAT': { bg: '#fbd9b5', fg: '#7a3a00' },
+    'PLAĆENO': { bg: '#d4ecd5', fg: '#1f5126' },
+    'ISTEKLO': { bg: '#e4e0dc', fg: '#5b4f48' },
+    'OTKAZANO': { bg: '#e4e0dc', fg: '#7a1f1f' },
+  },
+};
 
 function installTriggers() {
   ScriptApp.getProjectTriggers().forEach(function (tr) {

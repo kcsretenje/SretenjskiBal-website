@@ -327,10 +327,23 @@ Ponovno otvaranje: označite ☑ `BOOKING_OPEN`.
 
 ### Statistika
 
-Tab **Statistika** se računa sam: broj prijava, broj karata (ukupno i rezervisanih — sve osim isteklih
-i otkazanih), po statusu, procenat plaćenih, popunjenost (svečane, galerija osnovna i dodatna mesta), iznos evidentiranih uplata, prosečan broj dana od prijave do uplate, izvor
-prijave, jezik forme i broj zahteva za fakturu. Za dublju analizu svaki red ima i stranicu prijave
-i UTM parametre kampanje (ako ih je link imao).
+Tab **Statistika** se računa sam i pravi ga „Podesi tabelu" (posle izmene koda pokrenite ga ponovo). Rezervacije,
+karte i mesta broje **samo aktivne rezervacije** (NOVA, ČEKA NA UPLATU, PODSETNIK POSLAT, PLAĆENO) — istekle i
+otkazane se ne računaju. Delovi:
+
+- **Pregled** (velike brojke): aktivne rezervacije, aktivne karte, plaćene karte, karte koje čekaju uplatu,
+  slobodna mesta, uplaćeno, očekivane uplate, ušlo na balu.
+- **Karte i mesta po tipu**, svaki tip u svojoj boji (svečane — bordo, galerija — plava, dodatna mesta na
+  galeriji — ljubičasta, ukupno — zlatna): kapacitet, plaćeno, čeka uplatu, zauzeto, slobodno, popunjenost i
+  traka (tamno = plaćeno, svetlo = čeka uplatu). Na dnu: stolovi (jedna svečana rezervacija = jedan sto).
+- **Rezervacije po statusu** u istim bojama kao u tabu Rezervacije: broj rezervacija, karata i iznos;
+  „Aktivne ukupno"; istekle i otkazane posebno, uz napomenu da se ne računaju.
+- **Uplate**: na račun, gotovina, plaćeno bez upisanog načina plaćanja (treba popuniti), ukupno, očekuje se,
+  prosečno dana od prijave do uplate.
+- **Na ulazu**: skenirane ulaznice i procenat od plaćenih karata.
+- **O gostima** (samo aktivne rezervacije): kako su saznali za bal, jezik forme, zahtevi za račun na firmu,
+  posebna ishrana. Za dublju analizu svaki red u tabu Rezervacije ima i stranicu prijave
+  i UTM parametre kampanje (ako ih je link imao).
 
 ---
 
