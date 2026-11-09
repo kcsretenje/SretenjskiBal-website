@@ -1647,12 +1647,28 @@
           <context context-type="linenumber">235</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8627767334330033633" datatype="html">
+        <source>Samo za punoletne.</source>
+        <target>Само за пунолетне.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">245</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3694397418028912509" datatype="html">
+        <source>Bal je namenjen osobama starijim od 18 godina — karte mogu kupiti i bal posetiti samo punoletne osobe. Na ulazu možemo zatražiti lični dokument.</source>
+        <target>Бал је намењен особама старијим од 18 година — карте могу купити и бал посетити само пунолетне особе. На улазу можемо затражити лични документ.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">245</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="1448591909643824360" datatype="html">
         <source>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu Vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>politici privatnosti<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <target>Сва поља су обавезна, осим оних означених као необавезна. Податке користимо искључиво за обраду Ваше резервације и чувамо их најдуже шест месеци након бала. У сваком тренутку можете затражити увид, исправку или брисање података. Више информација налази се у <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; class=&quot;inline-link&quot;&gt;"/>политици приватности<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
-          <context context-type="linenumber">245,246</context>
+          <context context-type="linenumber">246,247</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8467900396278814444" datatype="html">
@@ -1660,7 +1676,7 @@
         <target>Слање резервације…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
-          <context context-type="linenumber">249</context>
+          <context context-type="linenumber">250</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8476889264056901692" datatype="html">
@@ -1668,7 +1684,7 @@
         <target>Пошаљите резервацију</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
-          <context context-type="linenumber">249</context>
+          <context context-type="linenumber">250</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8864608791497682157" datatype="html">

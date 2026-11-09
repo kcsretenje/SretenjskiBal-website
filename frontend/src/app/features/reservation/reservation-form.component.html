@@ -242,6 +242,7 @@
         <div class="row row--submit">
           <div class="row__main fields">
             <input class="hp" type="text" formControlName="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="age-note"><strong i18n>Samo za punoletne.</strong> <ng-container i18n>Bal je namenjen osobama starijim od 18 godina — karte mogu kupiti i bal posetiti samo punoletne osobe. Na ulazu možemo zatražiti lični dokument.</ng-container></p>
             <p class="note" i18n>Sva polja su obavezna, osim onih označenih kao neobavezna. Podatke koristimo isključivo za obradu Vaše rezervacije i čuvamo ih najduže šest meseci nakon bala. U svakom trenutku možete zatražiti uvid, ispravku ili brisanje podataka. Više informacija nalazi se u <a routerLink="/privacy" target="_blank" class="inline-link">politici privatnosti</a>.</p>
             <app-turnstile (token)="captcha.set($event)" (failed)="captchaFailed.set(true)" />
             @if (serverError()) { <p class="server-error" role="alert">{{ serverError() }}</p> }

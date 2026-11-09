@@ -227,6 +227,20 @@
   align-self: flex-start;
 }
 
+// Napomena da su bal i karte samo za punoletne (iznad napomene o podacima).
+.age-note {
+  margin: 0;
+  padding-left: 0.875rem;
+  border-left: 2px solid var(--c-brass);
+  font-size: var(--fs-small);
+  color: var(--c-ink);
+
+  strong {
+    margin-right: 0.3em; // razmak do teksta (i18n briše razmak između dve poruke)
+    font-weight: 600;
+  }
+}
+
 .notice,
 .success {
   display: flex;

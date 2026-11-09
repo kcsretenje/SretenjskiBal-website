@@ -2091,6 +2091,22 @@
           <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8627767334330033633" datatype="html">
+        <source>Samo za punoletne.</source>
+        <target>Samo za polnoletne.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">245</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3694397418028912509" datatype="html">
+        <source>Bal je namenjen osobama starijim od 18 godina — karte mogu kupiti i bal posetiti samo punoletne osobe. Na ulazu možemo zatražiti lični dokument.</source>
+        <target>Bal je namenjen osebam, starejšim od 18 let — vstopnice lahko kupijo in bal obiščejo samo polnoletne osebe. Ob vstopu lahko zahtevamo osebni dokument.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reservation/reservation-form.component.html</context>
+          <context context-type="linenumber">245</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
