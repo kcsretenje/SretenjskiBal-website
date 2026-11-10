@@ -33,6 +33,8 @@ const STATUS = {
   AWAITING: 'ČEKA NA UPLATU',
   REMINDED: 'PODSETNIK POSLAT',
   PAID: 'PLAĆENO',
+  /** Karte za specijalne zvanice (protokol): bez uplate, mesta zauzeta, ulaznice važe. Dodaje se iz menija. */
+  INVITED: 'ZVANICE',
   EXPIRED: 'ISTEKLO',
   CANCELLED: 'OTKAZANO',
 };
@@ -870,7 +872,7 @@ function processDeadline_(number, action, settings, tz, today, report) {
 /** Zašto instrukcije ne mogu da se pošalju, ili null. */
 function instructionsBlocker_(r, settings) {
   const status = normStatus_(r.status);
-  if (status === STATUS.PAID || [STATUS.EXPIRED, STATUS.CANCELLED].indexOf(status) >= 0) {
+  if (status === STATUS.PAID || [STATUS.EXPIRED, STATUS.CANCELLED, STATUS.INVITED].indexOf(status) >= 0) {
     return 'Rezervacija ima status ' + status + ' — instrukcije se ne šalju.';
   }
   if (isPaid_(r)) {
@@ -921,7 +923,8 @@ function sendPaymentConfirmationFor_(number) {
   let result = null;
   let sendError = null;
   updateReservation_(number, function (r) {
-    if (normStatus_(r.status) !== STATUS.PAID) throw new Error('Prvo promenite status u ' + STATUS.PAID + '.');
+    const invited = normStatus_(r.status) === STATUS.INVITED;
+    if (normStatus_(r.status) !== STATUS.PAID && !invited) throw new Error('Prvo promenite status u ' + STATUS.PAID + '.');
     if (parseDate_(r.paymentConfirmedAt)) throw new Error('Potvrda uplate je već poslata. Da biste je poslali ponovo, obrišite datum u koloni „' + COL.paymentConfirmedAt + '".');
     if (!String(r.email || '').trim()) throw new Error('Rezervacija nema e-mail adresu.');
     const tickets = issueTickets_(r);
@@ -940,13 +943,13 @@ function sendPaymentConfirmationFor_(number) {
     if (doc && doc.url) docFields.document = doc.url;
     if (doc && doc.invoiceNumber) docFields.invoiceNumber = doc.invoiceNumber;
     try {
-      result = sendGuestMail_('paid', r, settings, { tickets: tickets, paidAt: paidAt, document: doc, documentError: docError });
+      result = sendGuestMail_('paid', r, settings, { tickets: tickets, paidAt: paidAt, document: doc, documentError: docError, invited: invited });
     } catch (err) {
       sendError = err;
       return Object.keys(docFields).length ? docFields : null; // napravljen dokument (i broj računa) ostaje upisan
     }
     const fields = Object.assign({ paymentConfirmedAt: new Date() }, docFields);
-    if (!parseDate_(r.paidAt)) fields.paidAt = paidAt;
+    if (!parseDate_(r.paidAt) && !invited) fields.paidAt = paidAt;
     return fields;
   });
   if (sendError) throw sendError;
@@ -961,7 +964,7 @@ const MAIL = {
   sr: {
     greeting: function (n) { return 'Poštovani/a ' + n + ','; },
     signoff: ['Srdačan pozdrav,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod', pdf: 'Ulaznice su priložene i kao PDF, ako želite da ih sačuvate ili odštampate.', receipt: 'U prilogu je i potvrda o uplati.', invoice: 'U prilogu je i račun na ime Vaše firme.' },
+    tickets: { label: 'Ulaznica', of: 'od', code: 'Kod', pdf: 'Ulaznice su priložene i kao PDF, ako želite da ih sačuvate ili odštampate.', receipt: 'U prilogu je i potvrda o uplati.', invited: 'U nastavku su ulaznice za specijalne zvanice (bez uplate). Možete ih proslediti mejlom ili odštampati i uručiti lično.', invoice: 'U prilogu je i račun na ime Vaše firme.' },
     upn: { title: 'Plaćanje QR kodom', text: 'Skenirajte kod u aplikaciji svoje banke (UPN QR, za račune u Sloveniji) — primalac, iznos, rok, referenca i svrha se popunjavaju sami.' },
     labels: { number: 'Broj rezervacije', ticketType: 'Tip ulaznice', ticketCount: 'Broj ulaznica', guests: 'Gosti', note: 'Napomena', diet: 'Alergije', amount: 'Iznos za uplatu', deadline: 'Rok za uplatu', payee: 'Primalac', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Svrha uplate', reference: 'Referenca primaoca' },
     received: {
@@ -1008,7 +1011,7 @@ const MAIL = {
   sl: {
     greeting: function (n) { return 'Spoštovani/-a ' + n + ','; },
     signoff: ['Lep pozdrav,', 'Kulturni center Sretenje'],
-    tickets: { label: 'Vstopnica', of: 'od', code: 'Koda', pdf: 'Vstopnice so priložene tudi kot PDF, če jih želite shraniti ali natisniti.', receipt: 'V prilogi je tudi potrdilo o plačilu.', invoice: 'V prilogi je tudi račun, izdan na Vaše podjetje.' },
+    tickets: { label: 'Vstopnica', of: 'od', code: 'Koda', pdf: 'Vstopnice so priložene tudi kot PDF, če jih želite shraniti ali natisniti.', receipt: 'V prilogi je tudi potrdilo o plačilu.', invited: 'Spodaj so vstopnice za posebne goste (brez plačila). Lahko jih posredujete po e-pošti ali natisnete in izročite osebno.', invoice: 'V prilogi je tudi račun, izdan na Vaše podjetje.' },
     upn: { title: 'Plačilo s kodo QR', text: 'Kodo skenirajte v mobilni banki (UPN QR) — prejemnik, znesek, rok, referenca in namen se izpolnijo sami.' },
     labels: { number: 'Številka rezervacije', ticketType: 'Vrsta vstopnice', ticketCount: 'Število vstopnic', guests: 'Gostje', note: 'Opomba', diet: 'Alergije', amount: 'Znesek za plačilo', deadline: 'Rok plačila', payee: 'Prejemnik', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Banka', purpose: 'Namen plačila', reference: 'Referenca prejemnika' },
     received: {
@@ -1055,7 +1058,7 @@ const MAIL = {
   en: {
     greeting: function (n) { return 'Dear ' + n + ','; },
     signoff: ['Kind regards,', 'Kulturni centar Sretenje'],
-    tickets: { label: 'Ticket', of: 'of', code: 'Code', pdf: 'Your tickets are also attached as PDF files, should you wish to save or print them.', receipt: 'A payment confirmation is also attached.', invoice: 'An invoice issued to your company is also attached.' },
+    tickets: { label: 'Ticket', of: 'of', code: 'Code', pdf: 'Your tickets are also attached as PDF files, should you wish to save or print them.', receipt: 'A payment confirmation is also attached.', invited: 'Below are the tickets for special guests (no payment). You can forward them by e-mail or print them and hand them over in person.', invoice: 'An invoice issued to your company is also attached.' },
     upn: { title: 'Pay by QR code', text: 'Scan the code in your banking app (UPN QR, for accounts at Slovenian banks) — payee, amount, due date, reference and purpose are filled in automatically.' },
     labels: { number: 'Reservation number', ticketType: 'Ticket type', ticketCount: 'Number of tickets', guests: 'Guests', note: 'Note', diet: 'Allergies', amount: 'Amount due', deadline: 'Payment deadline', payee: 'Payee', iban: 'IBAN', bic: 'BIC/SWIFT', bank: 'Bank', purpose: 'Payment reference', reference: 'Creditor reference' },
     received: {
@@ -1169,6 +1172,7 @@ function sendGuestMail_(kind, r, settings, extra) {
   // Potvrda o uplati ili račun za firmu (PDF, na slovenačkom) — pravi ga sendPaymentConfirmationFor_.
   const doc = tickets && x.document && x.document.blob ? x.document : null;
   let intro = kind === 'paid' && !tickets ? k.intro.slice(0, 1) : k.intro;
+  if (x.invited) intro = [m.tickets.invited].concat(intro.slice(1));
   if (pdfs && pdfs.length) intro = intro.concat([m.tickets.pdf]);
   if (doc) intro = intro.concat([doc.kind === 'invoice' ? m.tickets.invoice : m.tickets.receipt]);
   const attachments = (pdfs || []).concat(doc ? [doc.blob] : []);
@@ -1768,7 +1772,7 @@ function checkin_(req) {
     const t = openTable_();
     const resRow = findRow_(t, parsed.number);
     const status = resRow > 0 ? normStatus_(rowToObj_(t, t.rows[resRow - 2]).status) : '';
-    if (status !== STATUS.PAID) return Object.assign(info, { result: 'NOT_PAID', status: status || 'NEPOZNATA', stats: ticketStats_(values) });
+    if (status !== STATUS.PAID && status !== STATUS.INVITED) return Object.assign(info, { result: 'NOT_PAID', status: status || 'NEPOZNATA', stats: ticketStats_(values) });
 
     const tz = sheetTimeZone_();
     const already = parseDate_(v[G.enteredAt]);
@@ -1963,6 +1967,7 @@ function onOpen() {
     .addItem('Ponovo pošalji potvrdu rezervacije (izabrani red)', 'menuResendReceived')
     .addItem('Pošalji instrukcije za uplatu (izabrani red)', 'menuSendPaymentInstructions')
     .addItem('Pošalji potvrdu uplate (izabrani red)', 'menuSendPaymentConfirmation')
+    .addItem('Dodaj karte za specijalne zvanice (bez uplate)', 'menuAddInvited')
     .addSeparator()
     .addItem('Proveri rokove sada', 'menuDailyCheck')
     .addSeparator()
@@ -2017,6 +2022,76 @@ function menuResendReceived() {
   }
 }
 
+/**
+ * Rezervacija za specijalne zvanice (npr. protokolarni sto): bez forme i bez uplate.
+ * Dobija broj kao i ostale rezervacije, status ZVANICE (mesta se računaju kao zauzeta), a u tabu Gosti
+ * odmah redove „Gost 1…N" sa kodovima ulaznica. Imena se mogu upisati kasnije; ulaznice idu na mejl organizatora.
+ */
+function addInvitedReservation_(opts) {
+  const settings = readSettings_();
+  const type = opts.type === 'GALERIJA' ? 'GALERIJA' : 'SVECANA';
+  const count = parseInt(opts.count, 10);
+  if (!(count >= 1 && count <= MAX_TICKETS_PER_RESERVATION)) throw new Error('Broj karata mora biti između 1 i ' + MAX_TICKETS_PER_RESERVATION + '.');
+  const label = clean_(opts.label || '') || 'Specijalne zvanice';
+  const email = clean_(opts.email || settings.adminEmail).toLowerCase();
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(20000)) throw new Error('Tabela je zauzeta, pokušajte ponovo.');
+  let record;
+  try {
+    const t = openTable_();
+    record = {
+      number: nextNumber_(t, settings.ballYear),
+      createdAt: new Date(),
+      status: STATUS.INVITED,
+      fullName: label,
+      email: email,
+      ticketType: TICKET_TYPES[type],
+      ticketCount: count,
+      amount: 0,
+      invoice: 'NE',
+      note: 'Specijalne zvanice — bez uplate. Imena upisati u tab Gosti kad budu poznata.',
+      locale: 'sr',
+      systemNote: stamp_() + ' Dodato iz menija „Dodaj karte za specijalne zvanice".',
+    };
+    appendRecord_(t, record);
+    SpreadsheetApp.flush();
+  } finally {
+    lock.releaseLock();
+  }
+  // Redovi „Gost 1…N" u tabu Gosti (imena se upisuju kasnije), pa kodovi ulaznica.
+  const sheet = guestsSheet_();
+  const rows = [];
+  for (let i = 1; i <= count; i++) rows.push([record.number, 'Gost ' + i, 'Gost ' + i, '', '', '', null, record.ticketType, '', '', '', '', '', '', label]);
+  appendGuestRows_(finishGuestRows_(rows, sheet.getLastRow() + 1));
+  issueTickets_(record);
+  return record;
+}
+
+function menuAddInvited() {
+  const ui = SpreadsheetApp.getUi();
+  const ask = function (title, text, def) {
+    const res = ui.prompt(title, text + (def ? '\n\n(Prazno = ' + def + ')' : ''), ui.ButtonSet.OK_CANCEL);
+    if (res.getSelectedButton() !== ui.Button.OK) return null;
+    return String(res.getResponseText() || '').trim() || def || '';
+  };
+  const label = ask('Karte za zvanice (1/3)', 'Naziv (vidi se u tabeli i na ulaznicama), npr. „Specijalne zvanice — sto 1" ili „Ambasada".', 'Specijalne zvanice');
+  if (label === null) return;
+  const typeAnswer = ask('Karte za zvanice (2/3)', 'Tip karata: upišite S za svečane (sto) ili G za galeriju.', 'S');
+  if (typeAnswer === null) return;
+  const type = /^g/i.test(typeAnswer) ? 'GALERIJA' : 'SVECANA';
+  const count = ask('Karte za zvanice (3/3)', 'Broj karata' + (type === 'SVECANA' ? ' (jedan sto = 8)' : '') + '.', type === 'SVECANA' ? '8' : '1');
+  if (count === null) return;
+  try {
+    const r = addInvitedReservation_({ label: label, type: type, count: count });
+    ui.alert('Dodata je rezervacija ' + r.number + ' (' + r.ticketCount + ' × ' + r.ticketType + ', status ' + STATUS.INVITED + ').\n\n' +
+      '• Mesta se u Statistici računaju kao zauzeta (kolona „Zvanice"); uplata se ne očekuje i podsetnici se ne šalju.\n' +
+      '• U tabu Gosti su redovi „Gost 1…' + r.ticketCount + '" sa kodovima ulaznica. Imena možete upisati kasnije.\n' +
+      '• Ulaznice: izaberite red u tabu Rezervacije → meni „Pošalji potvrdu uplate". Stižu na ' + r.email + ' (QR + PDF), pa ih prosledite ili odštampajte.');
+  } catch (err) {
+    ui.alert('Rezervacija NIJE dodata: ' + err.message);
+  }
+}
+
 function menuSendPaymentInstructions() {
   const ui = SpreadsheetApp.getUi();
   const r = selectedReservation_();
@@ -2048,8 +2123,22 @@ function menuSendPaymentConfirmation() {
   const r = selectedReservation_();
   if (!r) return;
   const n = String(r.number).trim();
-  if (normStatus_(r.status) !== STATUS.PAID) return ui.alert('Prvo proverite uplatu na izvodu i promenite status u ' + STATUS.PAID + '.');
-  if (parseDate_(r.paymentConfirmedAt)) return ui.alert('Potvrda uplate za ' + n + ' je već poslata.');
+  const invited = normStatus_(r.status) === STATUS.INVITED;
+  if (normStatus_(r.status) !== STATUS.PAID && !invited) return ui.alert('Prvo proverite uplatu na izvodu i promenite status u ' + STATUS.PAID + '.');
+  if (parseDate_(r.paymentConfirmedAt)) {
+    return ui.alert((invited ? 'Ulaznice za ' : 'Potvrda uplate za ') + n + ' su već poslate. Za ponovno slanje (npr. kad upišete imena zvanica u tabu Gosti) ' +
+      'obrišite datum u koloni „' + COL.paymentConfirmedAt + '", pa pokrenite ponovo.');
+  }
+  if (invited) {
+    if (ui.alert('Ulaznice za zvanice', 'Poslati ulaznice (QR kodovi + PDF) na ' + r.email + '?\n\nRezervacija: ' + n + ' — ' + r.fullName + ', ' + r.ticketCount + ' ulaznica.',
+      ui.ButtonSet.YES_NO) !== ui.Button.YES) return;
+    try {
+      const res = sendPaymentConfirmationFor_(n) || {};
+      return ui.alert('Ulaznice su poslate na ' + r.email + (res.pdfError ? ', ali BEZ PDF-ova: ' + res.pdfError : ' (PDF: ' + res.pdfCount + ').'));
+    } catch (err) {
+      return ui.alert('Ulaznice NISU poslate: ' + err.message);
+    }
+  }
   const kind = paymentDocumentKind_(r);
   const docText = kind === 'invoice' ? 'RAČUN na ime firme (dobija sledeći broj računa)'
     : kind === 'receipt' ? 'potvrda o uplati' : 'bez potvrde o uplati — ' + receiptSkipReason_(r);
@@ -2189,6 +2278,7 @@ function setupReservationsSheet_(ss) {
     [STATUS.AWAITING, '#fdf0c8', '#6b4e00'],
     [STATUS.REMINDED, '#fbd9b5', '#7a3a00'],
     [STATUS.PAID, '#d4ecd5', '#1f5126'],
+    [STATUS.INVITED, '#efe4cf', '#5a4318'],
     [STATUS.EXPIRED, '#e4e0dc', '#5b4f48'],
     [STATUS.CANCELLED, '#e4e0dc', '#7a1f1f'],
   ].map(function (c) {
@@ -2309,10 +2399,12 @@ function setupStatsSheet_(ss) {
   const S = TICKET_TYPES.SVECANA, GA = TICKET_TYPES.GALERIJA;
   const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
   const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + isStatus(STATUS.PAID) + ')'; };
+  const typeInvited = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + isStatus(STATUS.INVITED) + ')'; };
   // Galerijski gosti štiklirani u tabu Gosti kao „Dodatno mesto" (bez isteklih i otkazanih rezervacija)
   const gaExtraWhere = GC(G.type) + ', "' + GA + '", ' + GC(G.extra) + ', TRUE';
   const gaExtra = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "<>' + STATUS.EXPIRED + '", ' + GC(G.status) + ', "<>' + STATUS.CANCELLED + '")';
   const gaExtraPaid = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "' + STATUS.PAID + '")';
+  const gaExtraInvited = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "' + STATUS.INVITED + '")';
 
   const C = STATS_COLORS;
   const grid = [];      // redovi po 8 ćelija
@@ -2351,18 +2443,19 @@ function setupStatsSheet_(ss) {
   style(title, 1, 1, STATS_COLS, function (rg) {
     rg.merge().setBackground(C.wine.solid).setFontColor('#f6f1e8').setFontWeight('bold').setFontSize(15).setVerticalAlignment('middle');
   });
-  const note = put(['Rezervacije, karte i mesta broje samo AKTIVNE rezervacije (' + [STATUS.NEW, STATUS.AWAITING, STATUS.REMINDED, STATUS.PAID].join(', ') +
+  const note = put(['Rezervacije, karte i mesta broje samo AKTIVNE rezervacije (' + [STATUS.NEW, STATUS.AWAITING, STATUS.REMINDED, STATUS.PAID, STATUS.INVITED].join(', ') +
     '). Istekle i otkazane se ne računaju. Tab se osvežava sam; ne menjati ga ručno (pravi ga „Podesi tabelu").']);
   style(note, 1, 1, STATS_COLS, function (rg) { rg.merge().setFontColor('#6b6159').setFontStyle('italic').setFontSize(9).setWrap(true); });
   blank();
 
   // ── Pregled (velike brojke) ──
-  const kpiLabels = put(['Aktivne rezervacije', 'Aktivne karte', 'Plaćene karte', 'Karte koje čekaju uplatu', 'Slobodna mesta (sva)', 'Uplaćeno', 'Očekuje se uplata', 'Ušlo na balu']);
+  const kpiLabels = put(['Aktivne rezervacije', 'Aktivne karte', 'Plaćene karte', 'Karte za zvanice', 'Karte koje čekaju uplatu', 'Slobodna mesta (sva)', 'Uplaćeno', 'Očekuje se uplata', 'Ušlo na balu']);
   const kpi = kpiLabels + 1;
   put([
     '=COUNTIFS(' + active.slice(2) + ')',
     '=SUMIFS(' + R('ticketCount') + active + ')',
     '=SUMIFS(' + R('ticketCount') + isStatus(STATUS.PAID) + ')',
+    '=SUMIFS(' + R('ticketCount') + isStatus(STATUS.INVITED) + ')',
     '=' + sumWaiting('ticketCount'),
     '', // popunjava se ispod (referenca na tabelu po tipovima)
     '=SUMIFS(' + R('amount') + isStatus(STATUS.PAID) + ')',
@@ -2375,36 +2468,38 @@ function setupStatsSheet_(ss) {
   style(kpi, 1, 1, STATS_COLS, function (rg) {
     rg.setBackground(C.kpi.bg).setFontColor(C.wine.solid).setFontSize(18).setFontWeight('bold').setHorizontalAlignment('center').setVerticalAlignment('top');
   });
-  fmt(kpi, 1, 5, '0');
-  fmt(kpi, 6, 2, money);
-  fmt(kpi, 8, 1, '0');
+  fmt(kpi, 1, 6, '0');
+  fmt(kpi, 7, 2, money);
+  fmt(kpi, 9, 1, '0');
   blank();
 
   // ── Karte po tipu ──
   section('KARTE I MESTA PO TIPU');
-  header(['Tip', 'Kapacitet', 'Plaćeno', 'Čeka uplatu', 'Zauzeto ukupno', 'Slobodno', 'Popunjenost', 'Plaćeno / čeka']);
-  const typeRow = function (label, capF, paidF, totalF, color) {
+  // Kolone: B kapacitet, C plaćeno, D zvanice, E čeka uplatu (= zauzeto − plaćeno − zvanice), F zauzeto, G slobodno, H popunjenost, I traka
+  header(['Tip', 'Kapacitet', 'Plaćeno', 'Zvanice', 'Čeka uplatu', 'Zauzeto ukupno', 'Slobodno', 'Popunjenost', 'Potvrđeno / čeka']);
+  const typeRow = function (label, capF, paidF, invitedF, totalF, color) {
     const r = grid.length + 1;
-    put([label, capF, paidF, '=E' + r + ' - C' + r, totalF, '=B' + r + ' - E' + r, '=IFERROR(E' + r + ' / B' + r + ', 0)',
-      '=IF(B' + r + ' > 0, SPARKLINE({C' + r + ', D' + r + '}, {"charttype", "bar"; "max", B' + r + '; "color1", "' + color.bar + '"; "color2", "' + color.bar2 + '"}), "")']);
+    put([label, capF, paidF, invitedF, '=F' + r + ' - C' + r + ' - D' + r, totalF, '=B' + r + ' - F' + r, '=IFERROR(F' + r + ' / B' + r + ', 0)',
+      '=IF(B' + r + ' > 0, SPARKLINE({C' + r + ' + D' + r + ', E' + r + '}, {"charttype", "bar"; "max", B' + r + '; "color1", "' + color.bar + '"; "color2", "' + color.bar2 + '"}), "")']);
     tint(r, STATS_COLS, color);
-    fmt(r, 2, 5, '0');
-    fmt(r, 7, 1, pct);
-    style(r, 2, 1, 6, function (rg) { rg.setHorizontalAlignment('center'); });
+    fmt(r, 2, 6, '0');
+    fmt(r, 8, 1, pct);
+    style(r, 2, 1, 7, function (rg) { rg.setHorizontalAlignment('center'); });
     return r;
   };
-  const rS = typeRow('Svečane', '=' + cap('CAPACITY_SVECANA'), '=' + typePaid(S), '=' + typeActive(S), C.svecana);
+  const sumOf = function (col, a, b) { return '=' + col + a + ' + ' + col + b; };
+  const rS = typeRow('Svečane', '=' + cap('CAPACITY_SVECANA'), '=' + typePaid(S), '=' + typeInvited(S), '=' + typeActive(S), C.svecana);
   const rGb = typeRow('Galerija — osnovna mesta', '=' + cap('CAPACITY_GALERIJA'), '=' + typePaid(GA) + ' - ' + gaExtraPaid,
-    '=' + typeActive(GA) + ' - ' + gaExtra, C.galerija);
-  const rGe = typeRow('Galerija — dodatna mesta (štiklirano u tabu Gosti)', '=' + cap('CAPACITY_GALERIJA_EXTRA'), '=' + gaExtraPaid, '=' + gaExtra, C.dodatna);
-  const rG = typeRow('Galerija — ukupno', '=B' + rGb + ' + B' + rGe, '=C' + rGb + ' + C' + rGe, '=E' + rGb + ' + E' + rGe, C.galerija);
+    '=' + typeInvited(GA) + ' - ' + gaExtraInvited, '=' + typeActive(GA) + ' - ' + gaExtra, C.galerija);
+  const rGe = typeRow('Galerija — dodatna mesta (štiklirano u tabu Gosti)', '=' + cap('CAPACITY_GALERIJA_EXTRA'), '=' + gaExtraPaid, '=' + gaExtraInvited, '=' + gaExtra, C.dodatna);
+  const rG = typeRow('Galerija — ukupno', sumOf('B', rGb, rGe), sumOf('C', rGb, rGe), sumOf('D', rGb, rGe), sumOf('F', rGb, rGe), C.galerija);
   style(rG, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold'); });
-  const rAll = typeRow('SVE KARTE', '=B' + rS + ' + B' + rG, '=C' + rS + ' + C' + rG, '=E' + rS + ' + E' + rG, C.total);
+  const rAll = typeRow('SVE KARTE', sumOf('B', rS, rG), sumOf('C', rS, rG), sumOf('D', rS, rG), sumOf('F', rS, rG), C.total);
   style(rAll, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold').setBorder(true, null, null, null, null, null, C.total.fg, SpreadsheetApp.BorderStyle.SOLID_MEDIUM); });
   const svecanaReservations = function (extra) { return 'COUNTIFS(' + R('ticketType') + ', "' + S + '"' + extra + ')'; };
   typeRow('Stolovi (svečane; jedna rezervacija = jedan sto od 8 mesta)', '=ROUNDUP(B' + rS + ' / 8)',
-    '=' + svecanaReservations(isStatus(STATUS.PAID)), '=' + svecanaReservations(active), C.svecana);
-  grid[kpi - 1][4] = '=F' + rAll;
+    '=' + svecanaReservations(isStatus(STATUS.PAID)), '=' + svecanaReservations(isStatus(STATUS.INVITED)), '=' + svecanaReservations(active), C.svecana);
+  grid[kpi - 1][5] = '=G' + rAll;
   blank();
 
   // ── Rezervacije po statusu ──
@@ -2422,7 +2517,8 @@ function setupStatsSheet_(ss) {
   const firstActive = statusRow(STATUS.NEW, true);
   statusRow(STATUS.AWAITING, true);
   statusRow(STATUS.REMINDED, true);
-  const lastActive = statusRow(STATUS.PAID, true);
+  const paidRow = statusRow(STATUS.PAID, true);
+  const lastActive = statusRow(STATUS.INVITED, true);
   const sumRows = function (col, a, b) { return '=SUM(' + col + a + ':' + col + b + ')'; };
   const rActive = put(['Aktivne ukupno', sumRows('B', firstActive, lastActive), sumRows('C', firstActive, lastActive), sumRows('D', firstActive, lastActive), '']);
   tint(rActive, 5, C.total, true);
@@ -2435,7 +2531,7 @@ function setupStatsSheet_(ss) {
   style(rAllRes, 1, 1, 5, function (rg) { rg.setFontColor('#6b6159').setFontStyle('italic'); });
   fmt(rAllRes, 2, 2, '0');
   style(rAllRes, 2, 1, 2, function (rg) { rg.setHorizontalAlignment('center'); });
-  const rPaidShare = put(['Plaćeno od aktivnih rezervacija', '=IFERROR(B' + lastActive + ' / B' + rActive + ', 0)']);
+  const rPaidShare = put(['Plaćeno od aktivnih rezervacija', '=IFERROR(B' + paidRow + ' / B' + rActive + ', 0)']);
   fmt(rPaidShare, 2, 1, pct);
   style(rPaidShare, 2, 1, 1, function (rg) { rg.setHorizontalAlignment('center'); });
   blank();
@@ -2475,7 +2571,8 @@ function setupStatsSheet_(ss) {
   // ── Na ulazu ──
   section('NA ULAZU (skenirane ulaznice)');
   const rIn = put(['Ušlo gostiju', '=COUNTA(' + GC(G.enteredAt) + ')']);
-  const rInPct = put(['Ušlo od plaćenih karata', '=IFERROR(B' + rIn + ' / SUMIFS(' + R('ticketCount') + isStatus(STATUS.PAID) + '), 0)']);
+  const rInPct = put(['Ušlo od izdatih karata (plaćene + zvanice)', '=IFERROR(B' + rIn + ' / (SUMIFS(' + R('ticketCount') + isStatus(STATUS.PAID) + ') + SUMIFS(' +
+    R('ticketCount') + isStatus(STATUS.INVITED) + ')), 0)']);
   fmt(rIn, 2, 1, '0');
   fmt(rInPct, 2, 1, pct);
   style(rIn, 2, 2, 1, function (rg) { rg.setHorizontalAlignment('center'); });
@@ -2513,13 +2610,13 @@ function setupStatsSheet_(ss) {
   sheet.setRowHeight(kpiLabels, 34);
   sheet.setRowHeight(kpi, 40);
   sheet.setColumnWidth(1, 300);
-  for (let c = 2; c <= STATS_COLS; c++) sheet.setColumnWidth(c, c === 8 ? 150 : 110);
+  for (let c = 2; c <= STATS_COLS; c++) sheet.setColumnWidth(c, c === STATS_COLS ? 150 : 105);
   sheet.setFrozenRows(0);
   sheet.setHiddenGridlines(true);
 }
 
 /** Boje taba Statistika: svaki tip karte svoja boja; statusi iste boje kao u tabu Rezervacije. */
-const STATS_COLS = 8;
+const STATS_COLS = 9;
 const STATS_COLORS = {
   wine: { solid: '#5a1723' },
   brass: { bg: '#e9dcc3', fg: '#5a4318' },
@@ -2536,6 +2633,7 @@ const STATS_COLORS = {
     'ČEKA NA UPLATU': { bg: '#fdf0c8', fg: '#6b4e00' },
     'PODSETNIK POSLAT': { bg: '#fbd9b5', fg: '#7a3a00' },
     'PLAĆENO': { bg: '#d4ecd5', fg: '#1f5126' },
+    'ZVANICE': { bg: '#efe4cf', fg: '#5a4318' },
     'ISTEKLO': { bg: '#e4e0dc', fg: '#5b4f48' },
     'OTKAZANO': { bg: '#e4e0dc', fg: '#7a1f1f' },
   },

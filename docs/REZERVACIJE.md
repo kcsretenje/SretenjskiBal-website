@@ -463,6 +463,20 @@ na njegovom jeziku. Broj potvrde je broj rezervacije; nije račun.
 - Šablon „Sretenjski bal — šablon potvrde o uplati (ne brisati)" skripta sama napravi na Drajvu (ID u Script Properties
   kao `RECEIPT_TEMPLATE_ID`).
 
+## Karte za specijalne zvanice (bez forme i bez uplate)
+
+Za protokolarni sto ili goste koje pozivate (imena možda još ne znate):
+
+1. Meni **Sretenjski bal → Dodaj karte za specijalne zvanice (bez uplate)**.
+2. Upišite naziv (npr. „Specijalne zvanice — sto 1"), tip (**S** = svečane, **G** = galerija) i broj karata (sto = 8).
+3. Skripta dodaje rezervaciju sa sledećim brojem i statusom **ZVANICE**:
+   - mesta se u Statistici računaju kao zauzeta (kolona „Zvanice"), uplata se ne očekuje, podsetnici i istek se ne šalju;
+   - u tabu **Gosti** dobija redove „Gost 1…N" sa **kodom ulaznice** (ID) i nazivom u koloni „Funkcija / firma".
+4. **Ulaznice:** izaberite taj red u tabu Rezervacije → **Pošalji potvrdu uplate**. QR kodovi i PDF ulaznice stižu na
+   mejl organizatora (ADMIN_EMAIL) — prosledite ih ili odštampajte i uručite. Ulaznice važe na ulazu kao plaćene.
+5. **Imena kasnije:** upišite ime i prezime umesto „Gost 1…" u tabu Gosti, obrišite datum u koloni
+   „Datum slanja potvrde uplate" i ponovo pošaljite — ulaznice dobijaju imena, kodovi ostaju isti.
+
 ## Račun za firme i čuvanje na Drajvu
 
 Uz mejl sa ulaznicama ide **jedan** dokument, zavisno od reda u tabeli:

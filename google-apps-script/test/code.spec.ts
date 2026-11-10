@@ -490,19 +490,20 @@ describe('Apps Script (Code.gs)', () => {
       const f = (label: string, col = 1) => { const v = row(label)?.[col]; return v instanceof Formula ? v.text : String(v ?? ''); };
       // Svaki tip karte u svom redu: kapacitet, plaćeno, čeka, zauzeto, slobodno, popunjenost, grafikon
       expect(f('Svečane', 1)).toContain('VLOOKUP("CAPACITY_SVECANA"');
-      expect(f('Svečane', 4)).toContain('"<>ISTEKLO"');
-      expect(f('Svečane', 4)).toContain('"<>OTKAZANO"');
-      expect(f('Svečane', 7)).toContain('SPARKLINE');
+      expect(f('Svečane', 5)).toContain('"<>ISTEKLO"');
+      expect(f('Svečane', 5)).toContain('"<>OTKAZANO"');
+      expect(f('Svečane', 3)).toContain('"ZVANICE"');
+      expect(f('Svečane', 8)).toContain('SPARKLINE');
       // Dodatna mesta na galeriji se broje iz taba Gosti (kolona Q „Dodatno mesto (galerija)" = TRUE)
-      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 4)).toContain("'Gosti'!Q2:Q, TRUE");
+      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 5)).toContain("'Gosti'!Q2:Q, TRUE");
       expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 1)).toContain('CAPACITY_GALERIJA_EXTRA');
-      expect(f('Galerija — osnovna mesta', 4)).toContain("'Gosti'!Q2:Q, TRUE");
+      expect(f('Galerija — osnovna mesta', 5)).toContain("'Gosti'!Q2:Q, TRUE");
       // Pregled: aktivne rezervacije ne broje istekle i otkazane
       const kpiRow = stats.findIndex((r) => r[0] === 'Aktivne rezervacije') + 1;
       const kpi = stats[kpiRow].map((v) => (v instanceof Formula ? v.text : String(v)));
       expect(kpi[0]).toContain('"<>ISTEKLO"');
       expect(kpi[0]).toContain('"<>OTKAZANO"');
-      expect(kpi[4]).toMatch(/^=F\d+$/);
+      expect(kpi[5]).toMatch(/^=G\d+$/);
       expect(f('OTKAZANO', 4)).toContain('ne');
       expect(f('Gotovina', 2)).toContain('"Gotovina"');
       expect(f('Ušlo gostiju')).toContain("'Gosti'!M2:M");
@@ -766,6 +767,38 @@ describe('Apps Script (Code.gs)', () => {
         expect(res.receipt).toBe(false);
         expect(res.receiptError).toBeTruthy();
         expect(gas.outbox[0].body).not.toContain('potvrda o uplati');
+      });
+
+      it('zvanice: rezervacija bez forme i uplate — broj, ZVANICE, redovi „Gost 1…8" sa kodovima; ulaznice na mejl organizatora; važe na ulazu', () => {
+        setSetting('ADMIN_EMAIL', 'info@kcsretenje.si');
+        const r = gas.ctx.addInvitedReservation_({ label: 'Specijalne zvanice — sto 1', type: 'SVECANA', count: '8' });
+        expect(r.number).toBe('27001');
+        const row = res.data.findIndex((x) => x[H.indexOf(COL.number)] === '27001') + 1;
+        expect(cell(row, 'status')).toBe('ZVANICE');
+        expect(cell(row, 'ticketType')).toBe('Svečana');
+        expect(cell(row, 'ticketCount')).toBe(8);
+        expect(cell(row, 'email')).toBe('info@kcsretenje.si');
+        const g = guests().slice(1).filter((x) => x[G().number] === '27001');
+        expect(g).toHaveLength(8);
+        expect(g.map((x) => x[G().first])).toEqual(['Gost 1', 'Gost 2', 'Gost 3', 'Gost 4', 'Gost 5', 'Gost 6', 'Gost 7', 'Gost 8']);
+        expect(g.every((x) => String(x[G().code]).length > 5)).toBe(true);
+
+        // bez instrukcija, podsetnika i isteka
+        expect(gas.ctx.instructionsBlocker_(gas.ctx.rowToObj_(gas.ctx.openTable_(), res.data[row - 1]), gas.ctx.readSettings_())).toMatch(/ZVANICE/);
+        expect(gas.ctx.dailyCheck().reminded).toHaveLength(0);
+
+        // ulaznice: mejl organizatoru, bez potvrde o uplati, bez datuma uplate
+        const sent = gas.ctx.sendPaymentConfirmationFor_('27001');
+        expect(sent.receipt).toBe(false);
+        expect(gas.outbox.at(-1)!.to).toBe('info@kcsretenje.si');
+        expect(gas.outbox.at(-1)!.body).toContain('ulaznice za specijalne zvanice (bez uplate)');
+        expect(gas.outbox.at(-1)!.body).not.toContain('uplata za Vašu rezervaciju evidentirana');
+        expect(cell(row, 'paidAt')).toBe('');
+
+        // na ulazu važi
+        const code = String(g[0][G().code]);
+        expect(scan(code)).toMatchObject({ ok: true, result: 'OK', number: '27001' });
+        expect(() => gas.ctx.addInvitedReservation_({ count: '0' })).toThrow(/Broj karata/);
       });
 
       describe('potvrda o uplati: samo za uplatu na račun, uvek na slovenačkom', () => {
