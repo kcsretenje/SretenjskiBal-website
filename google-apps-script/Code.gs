@@ -163,7 +163,6 @@ const SETTINGS = [
   ['PRICE_GALERIJA', 70, 'Cena karte Galerija (EUR).'],
   ['CAPACITY_SVECANA', 144, 'Broj mesta za Svečane karte (stolovi po 8). Koristi se samo za popunjenost u tabu Statistika.'],
   ['CAPACITY_GALERIJA', 70, 'Osnovni broj mesta na galeriji. Koristi se samo za popunjenost u tabu Statistika.'],
-  ['CAPACITY_GALERIJA_EXTRA', 30, 'Dodatna mesta na galeriji (otvaraju se po potrebi). Koristi se samo za popunjenost u tabu Statistika.'],
   ['PAYMENT_DAYS', 3, 'Rok za uplatu u danima, računa se od dana slanja instrukcija za uplatu.'],
   ['GRACE_DAYS', 1, 'Koliko dana posle podsetnika gost još može da plati. Sledećeg dana neplaćena rezervacija prelazi u ISTEKLO.'],
   ['ADMIN_EMAIL', 'info@kcsretenje.si', 'Adresa na koju stižu obaveštenja o novim rezervacijama i dnevni izveštaj o rokovima.'],
@@ -1394,7 +1393,7 @@ const GUEST_HEADERS = [
   'Dodatno mesto (galerija)',
 ];
 const G = { number: 0, role: 1, first: 2, last: 3, email: 4, phone: 5, status: 6, type: 7, source: 8, diet: 9, note: 10, code: 11, enteredAt: 12, scannedBy: 13, position: 14, comment: 15, extra: 16 };
-const GUEST_EXTRA_NOTE = 'Štiklirajte ako gost sa galerijskom kartom sedi na dodatnom mestu. Tab Statistika ga tada računa u dodatna mesta, a ne u osnovna.';
+const GUEST_EXTRA_NOTE = 'Opciono: oznaka da gost sedi na dodatnom mestu na galeriji. Ne utiče na tab Statistika (dodatna mesta su za izvođače).';
 const GUEST_HOLDER = 'Nosilac';
 /** Kolone koje dobijaju boju rezervacije (Broj … Telefon). */
 const GUEST_COLORED_COLS = 6;
@@ -2400,11 +2399,6 @@ function setupStatsSheet_(ss) {
   const typeActive = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + active + ')'; };
   const typePaid = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + isStatus(STATUS.PAID) + ')'; };
   const typeInvited = function (type) { return 'SUMIFS(' + R('ticketCount') + ', ' + R('ticketType') + ', "' + type + '"' + isStatus(STATUS.INVITED) + ')'; };
-  // Galerijski gosti štiklirani u tabu Gosti kao „Dodatno mesto" (bez isteklih i otkazanih rezervacija)
-  const gaExtraWhere = GC(G.type) + ', "' + GA + '", ' + GC(G.extra) + ', TRUE';
-  const gaExtra = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "<>' + STATUS.EXPIRED + '", ' + GC(G.status) + ', "<>' + STATUS.CANCELLED + '")';
-  const gaExtraPaid = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "' + STATUS.PAID + '")';
-  const gaExtraInvited = 'COUNTIFS(' + gaExtraWhere + ', ' + GC(G.status) + ', "' + STATUS.INVITED + '")';
 
   const C = STATS_COLORS;
   const grid = [];      // redovi po 8 ćelija
@@ -2449,7 +2443,7 @@ function setupStatsSheet_(ss) {
   blank();
 
   // ── Pregled (velike brojke) ──
-  const kpiLabels = put(['Aktivne rezervacije', 'Aktivne karte', 'Plaćene karte', 'Karte za zvanice', 'Karte koje čekaju uplatu', 'Slobodna mesta (sva)', 'Uplaćeno', 'Očekuje se uplata', 'Ušlo na balu']);
+  const kpiLabels = put(['Aktivne rezervacije', 'Aktivne karte', 'Plaćene karte', 'Karte za zvanice', 'Karte koje čekaju uplatu', 'Slobodne karte u prodaji', 'Uplaćeno', 'Očekuje se uplata', 'Ušlo na balu']);
   const kpi = kpiLabels + 1;
   put([
     '=COUNTIFS(' + active.slice(2) + ')',
@@ -2489,12 +2483,9 @@ function setupStatsSheet_(ss) {
   };
   const sumOf = function (col, a, b) { return '=' + col + a + ' + ' + col + b; };
   const rS = typeRow('Svečane', '=' + cap('CAPACITY_SVECANA'), '=' + typePaid(S), '=' + typeInvited(S), '=' + typeActive(S), C.svecana);
-  const rGb = typeRow('Galerija — osnovna mesta', '=' + cap('CAPACITY_GALERIJA'), '=' + typePaid(GA) + ' - ' + gaExtraPaid,
-    '=' + typeInvited(GA) + ' - ' + gaExtraInvited, '=' + typeActive(GA) + ' - ' + gaExtra, C.galerija);
-  const rGe = typeRow('Galerija — dodatna mesta (štiklirano u tabu Gosti)', '=' + cap('CAPACITY_GALERIJA_EXTRA'), '=' + gaExtraPaid, '=' + gaExtraInvited, '=' + gaExtra, C.dodatna);
-  const rG = typeRow('Galerija — ukupno', sumOf('B', rGb, rGe), sumOf('C', rGb, rGe), sumOf('D', rGb, rGe), sumOf('F', rGb, rGe), C.galerija);
-  style(rG, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold'); });
-  const rAll = typeRow('SVE KARTE', sumOf('B', rS, rG), sumOf('C', rS, rG), sumOf('D', rS, rG), sumOf('F', rS, rG), C.total);
+  // Računaju se samo karte u prodaji (svečane + galerija). Dodatna mesta na galeriji su za izvođače i ne ulaze u statistiku.
+  const rG = typeRow('Galerija', '=' + cap('CAPACITY_GALERIJA'), '=' + typePaid(GA), '=' + typeInvited(GA), '=' + typeActive(GA), C.galerija);
+  const rAll = typeRow('SVE KARTE U PRODAJI', sumOf('B', rS, rG), sumOf('C', rS, rG), sumOf('D', rS, rG), sumOf('F', rS, rG), C.total);
   style(rAll, 1, 1, STATS_COLS, function (rg) { rg.setFontWeight('bold').setBorder(true, null, null, null, null, null, C.total.fg, SpreadsheetApp.BorderStyle.SOLID_MEDIUM); });
   const svecanaReservations = function (extra) { return 'COUNTIFS(' + R('ticketType') + ', "' + S + '"' + extra + ')'; };
   typeRow('Stolovi (svečane; jedna rezervacija = jedan sto od 8 mesta)', '=ROUNDUP(B' + rS + ' / 8)',
@@ -2625,7 +2616,6 @@ const STATS_COLORS = {
   soft: { bg: '#faf8f4' },
   svecana: { bg: '#f6e4e8', fg: '#5a1723', bar: '#7a2234', bar2: '#e3b3be' },
   galerija: { bg: '#e2ecf6', fg: '#1d3b5c', bar: '#2f5f8f', bar2: '#a9c4e0' },
-  dodatna: { bg: '#ece5f5', fg: '#432a66', bar: '#6a4a9a', bar2: '#c9b8e3' },
   total: { bg: '#efe4cf', fg: '#5a4318', bar: '#9a7a3c', bar2: '#e0cfa8' },
   cash: { bg: '#e6f0ea', fg: '#2b5a3a' },
   status: {

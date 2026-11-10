@@ -494,10 +494,11 @@ describe('Apps Script (Code.gs)', () => {
       expect(f('Svečane', 5)).toContain('"<>OTKAZANO"');
       expect(f('Svečane', 3)).toContain('"ZVANICE"');
       expect(f('Svečane', 8)).toContain('SPARKLINE');
-      // Dodatna mesta na galeriji se broje iz taba Gosti (kolona Q „Dodatno mesto (galerija)" = TRUE)
-      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 5)).toContain("'Gosti'!Q2:Q, TRUE");
-      expect(f('Galerija — dodatna mesta (štiklirano u tabu Gosti)', 1)).toContain('CAPACITY_GALERIJA_EXTRA');
-      expect(f('Galerija — osnovna mesta', 5)).toContain("'Gosti'!Q2:Q, TRUE");
+      // Samo karte u prodaji: svečane + galerija (dodatna mesta na galeriji se ne računaju)
+      expect(f('Galerija', 1)).toContain('VLOOKUP("CAPACITY_GALERIJA"');
+      expect(f('Galerija', 5)).not.toContain("'Gosti'");
+      expect(stats.some((r) => String(r[0]).includes('dodatna mesta'))).toBe(false);
+      expect(f('SVE KARTE U PRODAJI', 1)).toMatch(/^=B\d+ \+ B\d+$/);
       // Pregled: aktivne rezervacije ne broje istekle i otkazane
       const kpiRow = stats.findIndex((r) => r[0] === 'Aktivne rezervacije') + 1;
       const kpi = stats[kpiRow].map((v) => (v instanceof Formula ? v.text : String(v)));

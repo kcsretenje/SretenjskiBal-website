@@ -218,8 +218,8 @@ kolonama i ništa se ne briše. Isključuje samo trenutno uključene filtere.
 - Imena i kontakte gostiju možete ispraviti direktno ovde; ulaznice se prave iz ovog taba.
 - Rezervacije napravljene pre uvođenja ovog taba dodaje meni **Sretenjski bal → Podesi tabelu**.
 - **Funkcija / firma** i **Komentar** popunjava ekipa ručno; skripta ih ne menja i gost ih ne vidi.
-- **Dodatno mesto (galerija)** (poslednja kolona): polje za štikliranje kod gostiju sa galerijskom kartom. Štiklirajte
-  ga kad gost sedi na dodatnom mestu — tab Statistika ga onda računa u dodatna (`CAPACITY_GALERIJA_EXTRA`), a ne u osnovna mesta.
+- **Dodatno mesto (galerija)** (poslednja kolona): opciona oznaka. Ne utiče na Statistiku — dodatnih 30 mesta na
+  galeriji su za izvođače i nisu u prodaji.
 - Tabelu možete filtrirati (npr. po broju rezervacije), ali ne premeštajte kolone.
 
 ### Statusi
@@ -333,9 +333,10 @@ otkazane se ne računaju. Delovi:
 
 - **Pregled** (velike brojke): aktivne rezervacije, aktivne karte, plaćene karte, karte koje čekaju uplatu,
   slobodna mesta, uplaćeno, očekivane uplate, ušlo na balu.
-- **Karte i mesta po tipu**, svaki tip u svojoj boji (svečane — bordo, galerija — plava, dodatna mesta na
-  galeriji — ljubičasta, ukupno — zlatna): kapacitet, plaćeno, čeka uplatu, zauzeto, slobodno, popunjenost i
-  traka (tamno = plaćeno, svetlo = čeka uplatu). Na dnu: stolovi (jedna svečana rezervacija = jedan sto).
+- **Karte i mesta po tipu** — samo karte u prodaji (svečane 144 + galerija 70; dodatna mesta za izvođače se ne
+  računaju), svaki tip u svojoj boji (svečane — bordo, galerija — plava, ukupno — zlatna): kapacitet, plaćeno,
+  zvanice, čeka uplatu, zauzeto, slobodno, popunjenost i traka (tamno = plaćeno i zvanice, svetlo = čeka uplatu).
+  Na dnu: stolovi (jedna svečana rezervacija = jedan sto).
 - **Rezervacije po statusu** u istim bojama kao u tabu Rezervacije: broj rezervacija, karata i iznos;
   „Aktivne ukupno"; istekle i otkazane posebno, uz napomenu da se ne računaju.
 - **Uplate**: na račun, gotovina, plaćeno bez upisanog načina plaćanja (treba popuniti), ukupno, očekuje se,
