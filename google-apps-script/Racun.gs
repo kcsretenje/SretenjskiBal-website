@@ -323,3 +323,86 @@ function menuTestInvoicePdf() {
     ui.alert('Probni račun NIJE napravljen: ' + err.message);
   }
 }
+
+// ── Naknadno slanje samo potvrde/računa (bez ulaznica) ─────────────────────────
+
+const DOC_ONLY_TEXT = {
+  sr: {
+    receipt: { subject: 'Sretenjski bal — potvrda o uplati, rezervacija ', title: 'Potvrda o uplati', intro: 'U prilogu Vam šaljemo potvrdu o uplati za Vašu rezervaciju.' },
+    invoice: { subject: 'Sretenjski bal — račun, rezervacija ', title: 'Račun', intro: 'U prilogu Vam šaljemo račun na ime Vaše firme za Vašu rezervaciju.' },
+    tickets: 'Ulaznice ste dobili u prethodnom mejlu i one i dalje važe.',
+  },
+  sl: {
+    receipt: { subject: 'Sretenjski bal — potrdilo o plačilu, rezervacija ', title: 'Potrdilo o plačilu', intro: 'V prilogi Vam pošiljamo potrdilo o plačilu za Vašo rezervacijo.' },
+    invoice: { subject: 'Sretenjski bal — račun, rezervacija ', title: 'Račun', intro: 'V prilogi Vam pošiljamo račun, izdan na Vaše podjetje, za Vašo rezervacijo.' },
+    tickets: 'Vstopnice ste prejeli v prejšnjem sporočilu in še vedno veljajo.',
+  },
+  en: {
+    receipt: { subject: 'Sretenjski bal — payment confirmation, reservation ', title: 'Payment confirmation', intro: 'Please find attached the payment confirmation for your reservation.' },
+    invoice: { subject: 'Sretenjski bal — invoice, reservation ', title: 'Invoice', intro: 'Please find attached the invoice issued to your company for your reservation.' },
+    tickets: 'You received your tickets in our previous e-mail and they remain valid.',
+  },
+};
+
+/** Pošalje gostu samo potvrdu o uplati (ili račun za firmu), npr. kad pri slanju ulaznica nije bio upisan način plaćanja. */
+function sendDocumentOnlyFor_(number) {
+  const settings = readSettings_();
+  let out = null;
+  updateReservation_(number, function (r) {
+    if (normStatus_(r.status) !== STATUS.PAID) throw new Error('Status mora biti ' + STATUS.PAID + '.');
+    if (!String(r.email || '').trim()) throw new Error('Rezervacija nema e-mail adresu.');
+    if (!paymentDocumentKind_(r)) throw new Error('Potvrda/račun se ne pravi: ' + receiptSkipReason_(r));
+    const paidAt = parseDate_(r.paidAt) || new Date();
+    const doc = paymentDocument_(r, settings, paidAt, issueTickets_(r));
+    const lang = DOC_ONLY_TEXT[r.locale] ? r.locale : 'sr';
+    const m = MAIL[lang];
+    const t = DOC_ONLY_TEXT[lang];
+    const k = t[doc.kind];
+    const n = String(r.number).trim();
+    const mail = renderMail_({
+      title: k.title,
+      greeting: m.greeting(String(r.fullName).trim()),
+      intro: [k.intro, t.tickets],
+      highlight: [m.labels.number, n],
+      details: [],
+      tickets: null,
+      outro: [],
+      signoff: m.signoff,
+    });
+    sendMail_(settings, {
+      to: String(r.email).trim(), subject: k.subject + n, body: mail.text, htmlBody: mail.html,
+      replyTo: settings.replyTo, attachments: [doc.blob],
+    });
+    out = doc;
+    const fields = {
+      systemNote: (String(r.systemNote || '').trim() ? String(r.systemNote).trim() + '\n' : '') + stamp_() + ' ' +
+        (doc.kind === 'invoice' ? 'Račun ' + doc.invoiceNumber : 'Potvrda o uplati') + ' poslat(a) naknadno, bez ulaznica.',
+    };
+    if (doc.url) fields.document = doc.url;
+    if (doc.invoiceNumber) fields.invoiceNumber = doc.invoiceNumber;
+    return fields;
+  });
+  return out;
+}
+
+function menuSendDocumentOnly() {
+  const ui = SpreadsheetApp.getUi();
+  const r = selectedReservation_();
+  if (!r) return;
+  const n = String(r.number).trim();
+  const kind = paymentDocumentKind_(r);
+  if (!kind) {
+    return ui.alert('Za rezervaciju ' + n + ' se potvrda/račun ne pravi: ' + receiptSkipReason_(r) +
+      '\n\nAko je plaćeno na račun, u koloni „' + COL.paymentMethod + '" izaberite „Na račun" (i proverite „' + COL.amount + '"), pa pokrenite ponovo.');
+  }
+  const what = kind === 'invoice' ? 'RAČUN na ime firme' : 'potvrdu o uplati';
+  if (ui.alert('Samo potvrda/račun', 'Poslati gostu SAMO ' + what + ' (bez ulaznica)?\n\nRezervacija: ' + n + '\nGost: ' + r.fullName + ' <' + r.email + '>',
+    ui.ButtonSet.YES_NO) !== ui.Button.YES) return;
+  try {
+    const doc = sendDocumentOnlyFor_(n);
+    ui.alert('Poslato: ' + (doc.kind === 'invoice' ? 'račun br. ' + doc.invoiceNumber : 'potvrda o uplati') + ' na ' + r.email + '.' +
+      (doc.saveError ? '\n\nPAŽNJA: dokument NIJE sačuvan na Drajvu: ' + doc.saveError : '\nDokument je sačuvan na Drajvu.'));
+  } catch (err) {
+    ui.alert('NIJE poslato: ' + err.message);
+  }
+}

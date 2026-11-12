@@ -910,6 +910,23 @@ describe('Apps Script (Code.gs)', () => {
           expect(calls.invoice).toHaveLength(0);
         });
 
+        it('naknadno samo potvrda: kad je način plaćanja bio prazan, posle upisa „Na račun" ide samo potvrda, bez ulaznica', () => {
+          const calls = spyDocs();
+          const row = paid({ amount: 210, paymentMethod: '', locale: 'sl' });
+          gas.ctx.sendPaymentConfirmationFor_('27006');
+          expect(calls.receipt).toHaveLength(0);
+          expect(() => gas.ctx.sendDocumentOnlyFor_('27006')).toThrow(/način plaćanja nije upisan/);
+          setCellAt(row, 'paymentMethod', 'Na račun');
+          const doc = gas.ctx.sendDocumentOnlyFor_('27006');
+          expect(doc.kind).toBe('receipt');
+          const mail = gas.outbox.at(-1)!;
+          expect(mail.subject).toBe('Sretenjski bal — potrdilo o plačilu, rezervacija 27006');
+          expect(mail.attachments).toHaveLength(1);
+          expect(mail.body).toContain('Vstopnice ste prejeli v prejšnjem sporočilu');
+          expect(String(cellAt(row, 'document'))).toContain('drive.google.com');
+          expect(String(cellAt(row, 'systemNote'))).toContain('poslat(a) naknadno');
+        });
+
         it('sadržaj računa: kupec, datumi, stavke, PDV napomena', () => {
           const settings = gas.ctx.readSettings_();
           const r = { number: '27006', fullName: 'Ana Novak', ticketCount: 3, amount: 350, paymentMethod: 'Na račun', invoice: 'DA', company };

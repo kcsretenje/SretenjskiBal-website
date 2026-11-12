@@ -503,6 +503,9 @@ datum plačila, način plačila i broj rezervacije, stavke po tipu karte, ukupno
 - **Već poslate potvrde:** meni **Sretenjski bal → Sačuvaj na Drajv potvrde/račune već poslatih uplata** napravi
   dokumente koji nedostaju i sačuva ih, **bez slanja mejlova**. Ako je firma tražila račun, a dobila samo potvrdu,
   napravi se račun — pošaljite ga firmi ručno (link u tabeli).
+- **Naknadno samo potvrda/račun** (npr. ulaznice su poslate, a „Način plaćanja" nije bio upisan): upišite „Na račun",
+  izaberite red → meni **Pošalji samo potvrdu o uplati / račun (izabrani red)**. Gost dobija kratak mejl na svom jeziku
+  samo sa potvrdom (ili računom za firmu), bez ulaznica; dokument se čuva na Drajvu.
 - **Probni račun:** meni **Pošalji probni račun organizatoru** (izmišljena firma, broj „PROBA"; ne troši broj i ne čuva se).
 - Pre slanja potvrde uplate firmi proverite kolonu „Podaci firme" (naziv, sedež, davčna številka) — to ide na račun.
 

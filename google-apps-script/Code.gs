@@ -1966,6 +1966,7 @@ function onOpen() {
     .addItem('Ponovo pošalji potvrdu rezervacije (izabrani red)', 'menuResendReceived')
     .addItem('Pošalji instrukcije za uplatu (izabrani red)', 'menuSendPaymentInstructions')
     .addItem('Pošalji potvrdu uplate (izabrani red)', 'menuSendPaymentConfirmation')
+    .addItem('Pošalji samo potvrdu o uplati / račun (izabrani red)', 'menuSendDocumentOnly')
     .addItem('Dodaj karte za specijalne zvanice (bez uplate)', 'menuAddInvited')
     .addSeparator()
     .addItem('Proveri rokove sada', 'menuDailyCheck')
