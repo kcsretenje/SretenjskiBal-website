@@ -330,17 +330,17 @@ const DOC_ONLY_TEXT = {
   sr: {
     receipt: { subject: 'Sretenjski bal — potvrda o uplati, rezervacija ', title: 'Potvrda o uplati', intro: 'U prilogu Vam šaljemo potvrdu o uplati za Vašu rezervaciju.' },
     invoice: { subject: 'Sretenjski bal — račun, rezervacija ', title: 'Račun', intro: 'U prilogu Vam šaljemo račun na ime Vaše firme za Vašu rezervaciju.' },
-    tickets: 'Ulaznice ste dobili u prethodnom mejlu i one i dalje važe.',
+    tickets: 'Ulaznice su Vam prosleđene u prethodnom mejlu.',
   },
   sl: {
     receipt: { subject: 'Sretenjski bal — potrdilo o plačilu, rezervacija ', title: 'Potrdilo o plačilu', intro: 'V prilogi Vam pošiljamo potrdilo o plačilu za Vašo rezervacijo.' },
     invoice: { subject: 'Sretenjski bal — račun, rezervacija ', title: 'Račun', intro: 'V prilogi Vam pošiljamo račun, izdan na Vaše podjetje, za Vašo rezervacijo.' },
-    tickets: 'Vstopnice ste prejeli v prejšnjem sporočilu in še vedno veljajo.',
+    tickets: 'Vstopnice smo Vam posredovali v prejšnjem sporočilu.',
   },
   en: {
     receipt: { subject: 'Sretenjski bal — payment confirmation, reservation ', title: 'Payment confirmation', intro: 'Please find attached the payment confirmation for your reservation.' },
     invoice: { subject: 'Sretenjski bal — invoice, reservation ', title: 'Invoice', intro: 'Please find attached the invoice issued to your company for your reservation.' },
-    tickets: 'You received your tickets in our previous e-mail and they remain valid.',
+    tickets: 'Your tickets were sent to you in our previous e-mail.',
   },
 };
 

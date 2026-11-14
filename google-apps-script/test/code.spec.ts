@@ -922,7 +922,8 @@ describe('Apps Script (Code.gs)', () => {
           const mail = gas.outbox.at(-1)!;
           expect(mail.subject).toBe('Sretenjski bal — potrdilo o plačilu, rezervacija 27006');
           expect(mail.attachments).toHaveLength(1);
-          expect(mail.body).toContain('Vstopnice ste prejeli v prejšnjem sporočilu');
+          expect(mail.body).toContain('Vstopnice smo Vam posredovali v prejšnjem sporočilu.');
+          expect(mail.body).not.toContain('veljajo');
           expect(String(cellAt(row, 'document'))).toContain('drive.google.com');
           expect(String(cellAt(row, 'systemNote'))).toContain('poslat(a) naknadno');
         });
